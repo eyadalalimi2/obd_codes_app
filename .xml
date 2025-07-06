@@ -1,0 +1,563 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/proapp/obdcodes/ExampleInstrumentedTest.java</file>
+  <line>19</line>
+  <module>Obd_Codes.app.androidTest</module>
+  <package>com.proapp.obdcodes</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ExampleInstrumentedTest" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>23</length>
+  <highlighted_element>ExampleInstrumentedTest</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/proapp/obdcodes/ExampleInstrumentedTest.java</file>
+  <line>21</line>
+  <module>Obd_Codes.app.androidTest</module>
+  <package>com.proapp.obdcodes</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ExampleInstrumentedTest void useAppContext()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>13</length>
+  <highlighted_element>useAppContext</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>16</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.TestActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>12</length>
+  <highlighted_element>TestActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/about/AboutActivity.java</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.about</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.about.AboutActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>13</length>
+  <highlighted_element>AboutActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/account/AccountActivity.java</file>
+  <line>18</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.account</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.account.AccountActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>15</length>
+  <highlighted_element>AccountActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/ai/AiAssistantActivity.java</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.ai</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.ai.AiAssistantActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>19</length>
+  <highlighted_element>AiAssistantActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/analytics/TrendingCodesActivity.java</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.analytics</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.analytics.TrendingCodesActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>21</length>
+  <highlighted_element>TrendingCodesActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/auth/AuthActivity.java</file>
+  <line>14</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.auth</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.auth.AuthActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>12</length>
+  <highlighted_element>AuthActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/auth/ForgotPasswordActivity.java</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.auth</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.auth.ForgotPasswordActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>22</length>
+  <highlighted_element>ForgotPasswordActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/base/BaseActivity.java</file>
+  <line>31</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.base</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.base.BaseActivity" />
+  <language>JAVA</language>
+  <offset>22</offset>
+  <length>12</length>
+  <highlighted_element>BaseActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Abstract&amp;nbsp;class has 7 direct or indirect implementations but &lt;ul&gt;&lt;li&gt;—they are never instantiated OR&lt;/li&gt;&lt;li&gt;—no instantiations are reachable from the entry points.&lt;/li&gt;&lt;/ul&gt;</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/code_details/CodeDetailsActivity.java</file>
+  <line>25</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.code_details</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.code_details.CodeDetailsActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>19</length>
+  <highlighted_element>CodeDetailsActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/code_search/CodeSearchActivity.java</file>
+  <line>12</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.code_search</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.code_search.CodeSearchActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>18</length>
+  <highlighted_element>CodeSearchActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/compare/CompareCodesActivity.java</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.compare</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.compare.CompareCodesActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>20</length>
+  <highlighted_element>CompareCodesActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/diagnosis/SymptomDiagnosisActivity.java</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.diagnosis</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.diagnosis.SymptomDiagnosisActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>24</length>
+  <highlighted_element>SymptomDiagnosisActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/history/DiagnosisHistoryActivity.java</file>
+  <line>15</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.history</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.history.DiagnosisHistoryActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>24</length>
+  <highlighted_element>DiagnosisHistoryActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/home/HomeActivity.java</file>
+  <line>18</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.home</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.home.HomeActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>12</length>
+  <highlighted_element>HomeActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/howitworks/HowItWorksActivity.java</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.howitworks</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.howitworks.HowItWorksActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>18</length>
+  <highlighted_element>HowItWorksActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/DisclaimerActivity.java</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.DisclaimerActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>18</length>
+  <highlighted_element>DisclaimerActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/PrivacyActivity.java</file>
+  <line>7</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.PrivacyActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>15</length>
+  <highlighted_element>PrivacyActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/TermsActivity.java</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.TermsActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>13</length>
+  <highlighted_element>TermsActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/menu/MenuActivity.java</file>
+  <line>22</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.menu</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.menu.MenuActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>12</length>
+  <highlighted_element>MenuActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/notifications/SmartNotificationsActivity.java</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.notifications</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.notifications.SmartNotificationsActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>26</length>
+  <highlighted_element>SmartNotificationsActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/offline/OfflineModeActivity.java</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.offline</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.offline.OfflineModeActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>19</length>
+  <highlighted_element>OfflineModeActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/onboarding/OnboardingActivity.java</file>
+  <line>18</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.onboarding</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.onboarding.OnboardingActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>18</length>
+  <highlighted_element>OnboardingActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/pdf/PdfReportActivity.java</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.pdf</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.pdf.PdfReportActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>17</length>
+  <highlighted_element>PdfReportActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/pricing/PricingActivity.java</file>
+  <line>14</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.pricing</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.pricing.PricingActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>15</length>
+  <highlighted_element>PricingActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesActivity.java</file>
+  <line>24</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>18</length>
+  <highlighted_element>SavedCodesActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/settings/LanguageSettingsActivity.java</file>
+  <line>12</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.settings</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.settings.LanguageSettingsActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>24</length>
+  <highlighted_element>LanguageSettingsActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/splash/SplashActivity.java</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.splash</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.splash.SplashActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>14</length>
+  <highlighted_element>SplashActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/support/ContactUsActivity.java</file>
+  <line>15</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.support</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.support.ContactUsActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>17</length>
+  <highlighted_element>ContactUsActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/visual/VisualLibraryActivity.java</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.visual</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.visual.VisualLibraryActivity" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>21</length>
+  <highlighted_element>VisualLibraryActivity</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/test/java/com/proapp/obdcodes/ExampleUnitTest.java</file>
+  <line>12</line>
+  <module>Obd_Codes.app.unitTest</module>
+  <package>com.proapp.obdcodes</package>
+  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ExampleUnitTest" />
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>15</length>
+  <highlighted_element>ExampleUnitTest</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Class is not instantiated.</description>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/test/java/com/proapp/obdcodes/ExampleUnitTest.java</file>
+  <line>14</line>
+  <module>Obd_Codes.app.unitTest</module>
+  <package>com.proapp.obdcodes</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ExampleUnitTest void addition_isCorrect()" />
+  <language>JAVA</language>
+  <offset>16</offset>
+  <length>18</length>
+  <highlighted_element>addition_isCorrect</highlighted_element>
+  <problem_class id="" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">unused declaration</problem_class>
+  <hints>
+    <hint value="comment" />
+    <hint value="delete" />
+  </hints>
+  <description>Method is never used.</description>
+</problem>
+</problems>
