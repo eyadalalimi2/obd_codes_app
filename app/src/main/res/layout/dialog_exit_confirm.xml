@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/dialog_background_white"
     android:orientation="vertical"
     android:padding="24dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    tools:ignore="TextSizeCheck">
 
     <TextView
         android:id="@+id/tv_exit_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="هل أنت متأكد أنك تريد الخروج؟"
         android:textSize="18sp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:ignore="HardcodedText" />
 
     <LinearLayout
         android:layout_marginTop="24dp"
@@ -24,14 +31,16 @@
             android:id="@+id/btn_exit_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="إلغاء" />
+            android:text="إلغاء"
+            tools:ignore="ButtonStyle,HardcodedText" />
 
         <Button
             android:id="@+id/btn_exit_confirm"
             android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="خروج" />
+            android:text="خروج"
+            tools:ignore="ButtonStyle,HardcodedText" />
 
     </LinearLayout>
 </LinearLayout>
