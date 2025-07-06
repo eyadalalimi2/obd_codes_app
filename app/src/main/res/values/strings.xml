@@ -1,0 +1,307 @@
+<resources>
+    <string name="app_name">Obd Codes</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="skip">Skip</string>
+    <string name="get_started">Get Started</string>
+    <string name="select_symptom">Select Symptom</string>
+    <string name="select_code">Select Code</string>
+    <string name="search">Search</string>
+    <string name="share_hint">Like this App? Share it with friends!</string>
+    <string name="app_logo">App logo</string>
+    <string name="share_icon_desc">Share icon</string>
+    <string name="disclaimers">Disclaimers</string>
+    <string name="terms_of_service">Terms of Service</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="back">Back</string>
+    <string name="logged">Logged</string>
+    <string name="menu_pages">Menu Pages</string>
+    <string name="go_to_dashboard">Go to Dashboard</string>
+    <string name="share">Check out OBD Codes App: https://yourlink.com</string>
+    <string name="home">Home</string>
+    <string name="my_saved_items">My Saved Items</string>
+    <string name="my_account">My Account</string>
+    <string name="pricing">Pricing</string>
+    <string name="about_this_app">About This App</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="how_it_works">How It Works</string>
+    <string name="rate_this_app">Rate This App</string>
+    <string name="share_this_app">Share This App</string>
+    <string name="symptom_diagnosis">Symptom Diagnosis</string>
+    <string name="compare_codes">Compare Codes</string>
+    <string name="visual_library">Visual Library</string>
+    <string name="diagnosis_history">Diagnosis History</string>
+    <string name="generate_pdf">Generate PDF</string>
+    <string name="notifications">Smart Notifications</string>
+    <string name="trending_codes">Trending Codes</string>
+    <string name="ai_assistant">AI Assistant</string>
+    <string name="select_language">Select Language</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="email_hint">Enter your email</string>
+    <string name="send_link">Send me Link</string>
+    <string name="please_enter_email">Please enter your email</string>
+    <string name="reset_link_sent">Password reset link sent to %1$s</string>
+    <string name="search_code_title">Search by Code</string>
+    <string name="code_hint">Enter OBD code (e.g. P0420)</string>
+    <string name="search_button">Search</string>
+    <string name="invalid_code">Please enter a valid 5-character code (P/C/B/U + 4 digits)</string>
+    <string name="nav_open">Open navigation drawer</string>
+    <string name="nav_close">Close navigation drawer</string>
+    <string name="menu_dashboard">Menu Dashboard</string>
+    <string name="nav_symptom">Symptom Diagnosis</string>
+    <string name="nav_compare">Compare Codes</string>
+    <string name="nav_history">Diagnostic History</string>
+    <string name="nav_notifications">Smart Notifications</string>
+    <string name="nav_trending">Common Codes</string>
+    <string name="nav_visual">Visual Library</string>
+    <string name="nav_pdf">PDF Report</string>
+    <string name="nav_ai">AI Assistant</string>
+    <string name="nav_offline">Offline Mode</string>
+    <string name="prompt_letter">Prompt Letter</string>
+    <string name="hint_letter" translatable="false">P</string>
+    <string name="hint_type" translatable="false">0</string>
+    <string name="hint_hex" translatable="false">0</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="p000">OBD code P0000 indicates that the vehicle’s onboard diagnostic system has not detected any faults or issues with the engine or emissions system. This code is often used as a general indicator that the vehicle’s systems are functioning within normal parameters.</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="user_name">User Name</string>
+    <string name="user_email" translatable="false">eyadads.inc@gmail.com</string>
+    <string name="user_job_title">I am auto mechanic expert</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="package_free">FREE</string>
+    <string name="package_icon">Package Icon</string>
+    <string name="edit_package">Edit Package</string>
+    <string name="account_info">Account Information</string>
+    <string name="creation_date">Creation Date : May 2, 2025</string>
+    <string name="user_mode">User Mode :</string>
+    <string name="change_user_mode">Change User Mode</string>
+    <string name="change_password">Change Password</string>
+    <string name="subscription_info">Subscription Information</string>
+    <string name="current_plan">Current Plan : Free</string>
+    <string name="current_package">Current Package : FREE</string>
+    <string name="plan_start_date">Plan Start Date : May 2, 2025</string>
+    <string name="manage_subscription">Manage Subscription</string>
+    <string name="log_out">↩ Log Out</string>
+    <string name="delete_account">🗑 Delete Account</string>
+    <string name="profile_image_desc">Profile Picture</string>
+    <string name="account_name">Username</string>
+    <string name="account_email">Email</string>
+    <string name="account_job_title">Job Title</string>
+    <string name="account_edit">Edit Account</string>
+    <string name="account_delete">Delete Account</string>
+    <string name="account_logout">Log Out</string>
+    <string name="save_code">Save Code</string>
+    <string name="share_code">Share Code</string>
+    <string name="no_fault">No fault detected</string>
+    <string name="continue_reading">Continue reading…</string>
+    <string name="detail_items">Additional Details:</string>
+    <string name="code_saved">Code saved successfully</string>
+    <string name="code_already_saved">The code is already saved</string>
+    <string name="save_failed">Failed to save the code</string>
+    <string name="share_via">Share via</string>
+    <string name="pdf_not_implemented">The PDF generation feature is not yet enabled</string>
+    <string name="clear_all">Clear All</string>
+    <string name="_0_saved">0 saved</string>
+    <string name="delete_item">Delete Code</string>
+    <string name="open_item">Open Code</string>
+    <string name="one_time_purchase">One-Time Purchase</string>
+    <string name="one_time_subtitle">Buy PRO for 3 days only</string>
+    <string name="subscription_plans">Subscription Plans</string>
+    <string name="monthly_plan">Monthly PRO Plan</string>
+    <string name="yearly_plan">Yearly PRO Plan</string>
+    <string name="go_pro_plan">Go PRO Plan</string>
+    <string name="terms_privacy">Terms of Service  -  Privacy Policy</string>
+    <string name="choose_plan">Choose your preferred plan</string>
+    <string name="one_time_title">One-time purchase (3 days)</string>
+    <string name="one_time_price">$5</string>
+    <string name="monthly_title">Monthly subscription</string>
+    <string name="monthly_price">$9.99/month</string>
+    <string name="yearly_title">Yearly subscription</string>
+    <string name="yearly_price">$99.99/year</string>
+    <string name="select">Choose</string>
+    <string name="saved_searches">Saved codes</string>
+    <string name="ask_support">Support</string>
+    <string name="welcome_support">Welcome to support!</string>
+    <string name="support_instructions">For any request, please send us email to support@obdquest.com or use the form below.</string>
+    <string name="subject">Subject</string>
+    <string name="enter_subject">Enter subject</string>
+    <string name="message">Message</string>
+    <string name="enter_message">Enter your message here…</string>
+    <string name="send_message">Send Message</string>
+    <string name="support_email" translatable="false">support@obdquest.com</string>
+    <string name="send_via">Send via</string>
+    <string name="fill_all_fields">Please fill in both subject and message.</string>
+    <string name="code_details">Code Details </string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="app_open_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/3419835294</string>
+    <string name="label_search_code">Search by Code</string>
+    <string name="hint_code_part">Enter code part</string>
+    <string name="btn_search">Search</string>
+    <string name="saved_codes_title">Saved Codes</string>
+    <string name="account_title">My Account</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="onesignal_app_id" translatable="false">3a1f8da1-28cf-4d2a-886e-1755d1b09f72</string>
+    <string name="version_placeholder">Version V1.0</string>
+    <string name="app_version">OBD Code App version 1.0.0 </string>
+    <string name="onboard_title_1">Welcome to OBD Codes</string>
+    <string name="onboard_desc_1">Diagnose faults easily with our app.</string>
+    <string name="onboard_title_2">Symptom-Based Search</string>
+    <string name="onboard_desc_2">Search by symptoms or fault codes.</string>
+    <string name="onboard_title_3">Save &amp; Share</string>
+    <string name="onboard_desc_3">Save favorite codes and share with others.</string>
+    <string name="login_title">Log in to your account</string>
+    <string name="signup_title">Create a free account</string>
+    <string name="err_fill_all">Please fill all fields</string>
+    <string name="err_agree">Please accept Terms &amp; Privacy</string>
+    <string name="err_invalid_email">Please enter a valid email</string>
+    <string name="err_invalid_pass">Password must be at least 6 characters</string>
+    <string name="login_failed">Login failed</string>
+    <string name="reg_success">Registered successfully</string>
+    <string name="reg_failed">Registration failed</string>
+    <string name="err_network">Network error: %1$s</string>
+    <string name="google_signin_failed">Google sign-in failed: %1$s</string>
+    <string name="login_tab">Login</string>
+    <string name="signup_tab">Sign Up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Name</string>
+    <string name="agree_text">I agree to the Privacy Policy and ToS</string>
+    <string name="btn_login">Log in</string>
+    <string name="btn_create_account">Create Account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="server_client_id" translatable="false">YOUR_SERVER_CLIENT_ID.apps.googleusercontent.com</string>
+    <string name="default_error">An unexpected error occurred.</string>
+    <string name="email_taken">The email address is already in use, try signing in or use a different one.</string>
+    <!-- General Titles -->
+
+    <string name="update_success">Profile updated successfully</string>
+    <string name="update_failed">Failed to update profile</string>
+    <string name="loading">Loading…</string>
+    <string name="logout">Logout</string>
+
+    <!-- Fields -->
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="job_title">Job Title</string>
+    <string name="package_name">Package</string>
+    <string name="plan_renewal_date">Plan Renewal Date</string>
+    <string name="created_at">Created At</string>
+
+    <!-- Buttons -->
+    <string name="update_data">Update Info</string>
+    <string name="err_fetch_profile">Failed to fetch data</string>
+    <string name="msg_profile_saved">Save successfully</string>
+    <string name="err_save_profile">Failed while saving</string>
+    <string name="created_on">Created On: </string>
+    <string name="plan_start">Package start date:</string>
+    <string name="plan_renewal">Package renewal date:</string>
+    <string name="not_set">Unspecified</string>
+    <string name="paid">Paid</string>
+    <string name="free">Free</string>
+    <string name="verification_email_sent">Activation link sent to your email</string>
+    <string name="err_send_verification">Failed to send activation link</string>
+    <string name="resend_verification">Resend activation link</string>
+    <string name="status_prefix">Subscription status:</string>
+    <string name="package_prefix">Package:</string>
+    <string name="empty_prefix"> </string>
+    <string name="saved_codes_prefix">Saved codes:</string>
+    <string name="err_logout">Logout failed</string>
+    <string name="err_delete_account">Account deletion failed</string>
+    <string name="user_type_prefix">User type</string>
+    <string name="account_status_prefix">Account status</string>
+    <string name="active_ar">Activated</string>
+    <string name="inactive_ar">Inactive</string>
+    <string name="user">User</string>
+    <string name="admin">Administrator</string>
+    <string name="settings">Settings</string>
+    <string name="splash_tagline">Diagnosis at the push of a button</string>
+    <string name="subscription_details">Subscription details</string>
+    <string name="plan_name">Package name</string>
+    <string name="plan_price">Price</string>
+    <string name="plan_duration">Package duration</string>
+    <string name="renew_plan">Package renewal</string>
+    <string name="mark_as_read">Mark as Read</string>
+    <string name="delete">Delete</string>
+    <string name="marked_read">Notification marked as read</string>
+    <string name="error">An error occurred, please try again</string>
+    <string name="deleted">Notification deleted</string>
+    <string name="tv_title">title</string>
+    <string name="tv_message">message</string>
+    <string name="tv_date">date</string>
+    <string name="tv_mark_read">mark read</string>
+    <string name="tv_delete">delete</string>
+    <string name="solutions_label">solutions</string>
+    <string name="causes_label">causes</string>
+    <string name="symptoms_label">symptoms</string>
+    <!-- General Titles -->
+    <string name="fetch_failed">Failed to fetch token details</string>
+    <string name="btn_fingerprint_login">Fingerprint login</string>
+    <string name="biometric_title">Fingerprint login</string>
+    <string name="biometric_subtitle">Use your fingerprint to continue</string>
+    <string name="use_pin">Enter PIN</string>
+    <string name="login_required_first">Log in online first</string>
+    <string name="biometric_error">Fingerprint verification error</string>
+    <string name="pin_fallback">Fingerprint verification failed. You can use a PIN.</string>
+    <string name="encryption_init_failed">Encryption initialization failed.</string>
+
+    <!-- If you haven't added it already, add it. -->
+    <string name="fingerprint_failed">Your fingerprint was not recognized.</string>
+    <!-- Biometric Settings -->
+    <string name="biometric_disabled">Biometric login has been disabled</string>
+    <string name="offline_biometric_cleared">Offline biometric login data has been cleared</string>
+
+    <!-- PIN Management -->
+    <string name="set_new_pin">Set a new PIN</string>
+    <string name="pin_saved">PIN saved successfully</string>
+    <string name="encryption_error">An error occurred during encryption</string>
+    <string name="pin_length_error">PIN must be at least 4 digits</string>
+
+    <!-- Clear Login Data -->
+    <string name="confirm_clear">Confirm Data Deletion</string>
+    <string name="confirm_clear_message">Are you sure you want to clear all login data?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="save">Save</string>
+    <string name="invalid_selection">Please select two valid codes for comparison</string>
+    <string name="select_first_code">Select the first code</string>
+    <string name="select_second_code">Select the second code</string>
+    <string name="compare">Compare</string>
+    <string name="no_comparison_result">Comparison not yet completed</string>
+    <string name="description_label">Description</string>
+    <string name="severity_label">Severity</string>
+    <string name="diagnosis_label">Diagnosis</string>
+    <string name="close">Close</string>
+    <string name="discover_your">Discover Your</string>
+    <string name="dream_job_here">Dream Job here</string>
+    <string name="description_text">Explore all the existing job roles based on your\ninterest and study major</string>
+    <string name="welcome_back">Welcome back you\'ve been missed!</string>
+    <string name="create_account_description">Create an account so you can explore all the\nexisting jobs</string>
+    <string name="code_not_found">Code not found</string>
+    <string name="severity">Severity</string>
+    <string name="typical_symptoms">Common symptoms</string>
+    <string name="tvCardCode">P0001</string>
+    <string name="tvCardTitle">Fuel Volume Regulator Control Circuit/Open</string>
+    <string name="tvCardDescription">Indicates a problem in the fuel volume regulator…</string>
+    <string name="tvSymptoms">Check engine light, weak acceleration…</string>
+    <string name="tvCauses">Sensor damage, wire break…</string>
+    <string name="tvSolutions">Repair or replace connections…</string>
+    <string name="tvDiagnosis">Check wires and connections, test sensor…</string>
+    <string name="code_image"> </string>
+    <string name="prompt_choose_brand">Choose the brand</string>
+    <string name="prompt_choose_model">Choose the model</string>
+    <string name="prompt_choose_year">Choose the year of production</string>
+</resources>

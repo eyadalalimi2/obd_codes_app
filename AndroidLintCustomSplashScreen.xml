@@ -1,0 +1,16 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/splash/SplashActivity.java</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.splash</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/splash/SplashActivity.java" />
+  <problem_class id="AndroidLintCustomSplashScreen" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Application-defined Launch Screen</problem_class>
+  <hints />
+  <description>&lt;html&gt;The application should not provide its own launch screen&lt;/html&gt;</description>
+  <highlighted_element>SplashActivity</highlighted_element>
+  <language>JAVA</language>
+  <offset>13</offset>
+  <length>14</length>
+</problem>
+</problems>

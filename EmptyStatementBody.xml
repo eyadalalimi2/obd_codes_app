@@ -1,0 +1,106 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>49</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>8</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>51</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>53</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>55</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>57</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>59</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>61</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>63</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity boolean onNavigationItemSelected(android.view.MenuItem item)" />
+  <problem_class id="EmptyStatementBody" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement with empty body</problem_class>
+  <description>&lt;code&gt;if&lt;/code&gt; statement has empty body #loc</description>
+  <highlighted_element>if</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>2</length>
+</problem>
+</problems>

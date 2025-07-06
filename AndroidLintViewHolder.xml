@@ -1,0 +1,16 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/history/DiagnosisHistoryAdapter.java</file>
+  <line>32</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.history</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/history/DiagnosisHistoryAdapter.java" />
+  <problem_class id="AndroidLintViewHolder" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">View Holder Candidates</problem_class>
+  <hints />
+  <description>&lt;html&gt;Unconditional layout inflation from view adapter: Should use View Holder pattern (use recycled view passed into this method as the second parameter) for smoother scrolling&lt;/html&gt;</description>
+  <highlighted_element>LayoutInflater.from(context).inflate(R.layout.item_diagnosis_history, parent, false)</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>84</length>
+</problem>
+</problems>

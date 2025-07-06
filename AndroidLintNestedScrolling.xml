@@ -1,0 +1,15 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>42</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintNestedScrolling" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Nested scrolling widgets</problem_class>
+  <hints />
+  <description>&lt;html&gt;The vertically scrolling &lt;code&gt;ScrollView&lt;/code&gt; should not contain another vertically scrolling widget (&lt;code&gt;ListView&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>ListView</highlighted_element>
+  <language>XML</language>
+  <offset>9</offset>
+  <length>8</length>
+</problem>
+</problems>

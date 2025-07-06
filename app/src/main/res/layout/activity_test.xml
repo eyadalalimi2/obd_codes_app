@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- المحتوى الرئيسي -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base"
+        android:orientation="vertical">
+
+
+
+        <!-- محتوى الصفحة الرئيسية -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/btn_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/home" />
+
+                <Button
+                    android:id="@+id/btn_saved"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_saved_items"
+                    android:layout_marginTop="12dp" />
+
+                <Button
+                    android:id="@+id/btn_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/my_account"
+                    android:layout_marginTop="12dp" />
+
+                <Button
+                    android:id="@+id/btn_pricing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pricing"
+                    android:layout_marginTop="12dp" />
+
+                <Button
+                    android:id="@+id/btn_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/about_this_app"
+                    android:layout_marginTop="12dp" />
+
+                <Button
+                    android:id="@+id/btn_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact_us"
+                    android:layout_marginTop="12dp" />
+
+                <Button
+                    android:id="@+id/btn_how"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/how_it_works"
+                    android:layout_marginTop="12dp" />
+                <Button
+                    android:id="@+id/btn_language"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Change Language"
+                    android:layout_marginTop="12dp"/>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- القائمة الجانبية -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menus" />
+</androidx.drawerlayout.widget.DrawerLayout>

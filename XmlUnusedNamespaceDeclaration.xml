@@ -1,0 +1,74 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml</file>
+  <line>4</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_pricing.xml</file>
+  <line>4</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pricing.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_saved_codes.xml</file>
+  <line>4</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_saved_codes.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>51</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_grid.xml</file>
+  <line>2</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_grid.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>10</offset>
+  <length>58</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values/themes.xml</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values/themes.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:tools=&quot;http://schemas.android.com/tools&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>11</offset>
+  <length>46</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values-night/themes.xml</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" />
+  <problem_class id="XmlUnusedNamespaceDeclaration" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused schema declaration</problem_class>
+  <description>Namespace declaration is never used</description>
+  <highlighted_element>xmlns:tools=&quot;http://schemas.android.com/tools&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>11</offset>
+  <length>46</length>
+</problem>
+</problems>

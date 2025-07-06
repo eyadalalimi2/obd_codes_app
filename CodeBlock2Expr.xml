@@ -1,0 +1,28 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
+  <line>33</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.TestActivity void onCreate(android.os.Bundle savedInstanceState)" />
+  <problem_class id="CodeBlock2Expr" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement lambda can be replaced with expression lambda</problem_class>
+  <description>Statement lambda can be replaced with expression lambda</description>
+  <highlighted_element>{</highlighted_element>
+  <language>JAVA</language>
+  <offset>64</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/home/HomeActivity.java</file>
+  <line>59</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.home</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.home.HomeActivity void onCreate(android.os.Bundle savedInstanceState)" />
+  <problem_class id="CodeBlock2Expr" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Statement lambda can be replaced with expression lambda</problem_class>
+  <description>Statement lambda can be replaced with expression lambda</description>
+  <highlighted_element>{</highlighted_element>
+  <language>JAVA</language>
+  <offset>47</offset>
+  <length>1</length>
+</problem>
+</problems>

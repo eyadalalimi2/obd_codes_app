@@ -1,0 +1,15 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintUnknownIdInLayout" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Reference to an id that is not in the current layout</problem_class>
+  <hints />
+  <description>&lt;html&gt;The id &quot;&lt;code&gt;bottomNav&lt;/code&gt;&quot; is not referring to any views in this layout&lt;/html&gt;</description>
+  <highlighted_element>android:layout_above=&quot;@+id/bottomNav&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>37</length>
+</problem>
+</problems>

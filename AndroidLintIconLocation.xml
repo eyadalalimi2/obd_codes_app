@@ -1,0 +1,68 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/ic_code_search.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_code_search.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/ic_code_search.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/ic_offline_mode.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_offline_mode.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/ic_offline_mode.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_1.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_1.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/ic_onboarding_1.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_2.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_2.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/ic_onboarding_2.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_3.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_onboarding_3.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/ic_onboarding_3.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/drawable/icon.png</file>
+  <line>1</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/drawable/icon.png" />
+  <problem_class id="AndroidLintIconLocation" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Image defined in density-independent drawable folder</problem_class>
+  <hints />
+  <description>&lt;html&gt;Found bitmap drawable &lt;code&gt;res/drawable/icon.png&lt;/code&gt; in densityless folder&lt;/html&gt;</description>
+  <highlighted_element />
+  <language />
+</problem>
+</problems>

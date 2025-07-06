@@ -1,0 +1,16 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/offline/OfflineModeActivity.java</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.offline</package>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/offline/OfflineModeActivity.java" />
+  <problem_class id="AndroidLintUseSwitchCompatOrMaterialCode" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Replace usage of Switch widget</problem_class>
+  <hints />
+  <description>&lt;html&gt;Use &lt;code&gt;SwitchCompat&lt;/code&gt; from AppCompat or &lt;code&gt;MaterialSwitch&lt;/code&gt; from Material library&lt;/html&gt;</description>
+  <highlighted_element>private Switch switchOffline;</highlighted_element>
+  <language>JAVA</language>
+  <offset>4</offset>
+  <length>29</length>
+</problem>
+</problems>

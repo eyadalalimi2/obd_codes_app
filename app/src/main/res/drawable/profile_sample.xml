@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="84dp"
+    android:height="84dp"
+    android:viewportWidth="84"
+    android:viewportHeight="84">
+    <!-- دائرة خارجية -->
+    <path
+        android:fillColor="#E3EAF0"
+        android:pathData="M42,2a40,40 0 1,0 0.1,0z"/>
+    <!-- دائرة الوجه -->
+    <path
+        android:fillColor="#B1C3C6"
+        android:pathData="M42,26a13,13 0 1,0 0.1,0z"/>
+    <!-- القاعدة -->
+    <path
+        android:fillColor="#8CA2B1"
+        android:pathData="M27,57c0-8,30-8,30,0v6c0,3-5,7-15,7s-15-4-15-7z"/>
+</vector>

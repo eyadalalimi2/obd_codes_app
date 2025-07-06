@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imgPart"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:src="@drawable/ic_sensor"
+        android:contentDescription="صورة مكوّن" />
+
+    <TextView
+        android:id="@+id/txtPart"
+        android:text="اسم المكوّن"
+        android:layout_marginTop="8dp"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

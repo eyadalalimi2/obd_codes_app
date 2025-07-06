@@ -1,0 +1,158 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#FFFFFF&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#FFFFFF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#FFFFFF&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#FFFFFF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_contact_us.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#FFFFFF&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#FFFFFF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>7</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;@color/base&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;@color/base&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>6</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;@color/green_background&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;@color/green_background&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>44</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_pricing.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pricing.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#FFFFFF&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#FFFFFF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_saved_codes.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_saved_codes.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#FFFFFF&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#FFFFFF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml</file>
+  <line>5</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;@color/base&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;@color/base&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/bottom_nav_bar.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/bottom_nav_bar.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#111&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#111&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml</file>
+  <line>5</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;@color/app_bar_green&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;@color/app_bar_green&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>41</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_code_grid.xml</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_code_grid.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;?attr/selectableItemBackgroundBorderless&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;?attr/selectableItemBackgroundBorderless&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>61</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml</file>
+  <line>6</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml" />
+  <problem_class id="AndroidLintOverdraw" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Overdraw: Painting regions more than once</problem_class>
+  <hints />
+  <description>&lt;html&gt;Possible overdraw: Root element paints background &lt;code&gt;#EEEEEE&lt;/code&gt; with a theme that also paints a background (inferred theme is &lt;code&gt;@style/Theme.ObdCodes&lt;/code&gt;)&lt;/html&gt;</description>
+  <highlighted_element>android:background=&quot;#EEEEEE&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>28</length>
+</problem>
+</problems>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- تغيير اللغة -->
+    <ListPreference
+        android:key="pref_language"
+        android:title="اللغة / Language"
+        android:entries="@array/pref_language_names"
+        android:entryValues="@array/pref_language_values"
+        android:defaultValue="ar"
+        android:summary="%s" />
+
+    <!-- تبديل الوضع الليلي -->
+    <SwitchPreferenceCompat
+        android:key="pref_night_mode"
+        android:title="الوضع الليلي"
+        android:defaultValue="false"
+        android:summaryOff="نهاري"
+        android:summaryOn="ليلي" />
+
+    <!-- تغيير الثيم (محجوز للمستقبل) -->
+    <Preference
+        android:key="pref_change_theme"
+        android:title="تغيير الثيم"
+        android:summary="يُضاف لاحقاً" />
+    <SwitchPreferenceCompat
+        android:key="pref_biometric_login"
+        android:title="تسجيل الدخول بالبصمة"
+        android:defaultValue="true"
+        android:summaryOn="مفعل"
+        android:summaryOff="معطل" />
+
+    <SwitchPreferenceCompat
+        android:key="pref_offline_biometric"
+        android:title="الدخول أوفلاين بالبصمة"
+        android:defaultValue="true"
+        android:dependency="pref_biometric_login"
+        android:summaryOn="يمكن استخدام البصمة دون إنترنت"
+        android:summaryOff="يتطلّب إنترنت" />
+
+    <Preference
+        android:key="pref_manage_pin"
+        android:title="إدارة PIN"
+        android:summary="اضغط لتغيير أو إعادة ضبط PIN" />
+
+    <Preference
+        android:key="pref_clear_credentials"
+        android:title="مسح بيانات الدخول"
+        android:summary="سيؤدي إلى تسجيل خروجك وإزالة البيانات المشفّرة" />
+
+</PreferenceScreen>

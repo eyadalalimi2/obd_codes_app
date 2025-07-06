@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- الحالة المحددة Selected -->
+    <item android:state_checked="true" android:color="@color/app_bar_green"/>
+    <!-- الحالة العادية Unselected -->
+    <item android:color="@android:color/darker_gray"/>
+</selector>

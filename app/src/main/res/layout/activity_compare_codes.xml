@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainCoordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <!-- Toolbar و BottomNav مُضمّنان عبر BaseActivity -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- حقول الإدخال وأزرار البحث كما كان -->
+        <!-- حقل إدخال الكود الأول -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/select_first_code">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCode1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- حقل إدخال الكود الثاني -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/select_second_code"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCode2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:maxLines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- زر “مقارنة” -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCompare"
+            android:layout_width="142dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/compare" />
+
+        <!-- تمرير أفقي لبطاقتي المقارنة -->
+        <HorizontalScrollView
+            android:id="@+id/scrollCards"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="24dp"
+            android:fillViewport="true"
+            android:visibility="gone">    <!-- اخفائها افتراضياً -->
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="top">
+
+                <!-- البطاقتان -->
+                <include
+                    android:id="@+id/card1"
+                    layout="@layout/item_compare_card" />
+
+                <include
+                    android:id="@+id/card2"
+                    layout="@layout/item_compare_card" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

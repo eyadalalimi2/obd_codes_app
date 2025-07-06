@@ -1,0 +1,15 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml</file>
+  <line>15</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml" />
+  <problem_class id="AndroidLintUseSwitchCompatOrMaterialXml" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Replace usage of Switch widget</problem_class>
+  <hints />
+  <description>&lt;html&gt;Use &lt;code&gt;SwitchCompat&lt;/code&gt; from AppCompat or &lt;code&gt;MaterialSwitch&lt;/code&gt; from Material library&lt;/html&gt;</description>
+  <highlighted_element>&lt;Switch android:id=&quot;@+id/switchOffline&quot; android:text=&quot;تفعيل وضع الأوفلاين&quot; a...</highlighted_element>
+  <language>XML</language>
+  <offset>4</offset>
+  <length>246</length>
+</problem>
+</problems>

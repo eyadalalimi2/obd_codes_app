@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Arc in top-right -->
+    <item>
+        <shape android:shape="oval">
+            <!-- حجم الدائرة الكاملة -->
+            <size
+                android:width="600dp"
+                android:height="600dp"/>
+            <solid android:color="#F2F4FA"/>
+        </shape>
+        <!-- نحركها خارج الشاشة قليلاً -->
+        <gravity>top|end</gravity>
+        <padding
+            android:bottom="-400dp"
+            android:left="-400dp"/>
+    </item>
+
+    <!-- Big semi-oval at bottom center -->
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="800dp"
+                android:height="800dp"/>
+            <solid android:color="#F2F4FA"/>
+        </shape>
+        <gravity>bottom|center_horizontal</gravity>
+        <!-- ارفعها بمقدار جزء كي يظهر القوس فقط -->
+        <padding
+            android:top="-600dp"/>
+    </item>
+
+</layer-list>

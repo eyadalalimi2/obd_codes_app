@@ -1,0 +1,297 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">أكواد أعطال السيارات</string>
+    <string name="navigation_drawer_open">فتح قائمة التنقل</string>
+    <string name="navigation_drawer_close">إغلاق قائمة التنقل</string>
+    <string name="nav_header_title">أندرويد ستوديو</string>
+    <string name="nav_header_subtitle">eyadads.in@gmail.com</string>
+    <string name="nav_header_desc">رأس قائمة التنقل</string>
+    <string name="action_settings">الإعدادات</string>
+    <string name="menu_home">الرئيسية</string>
+    <string name="menu_gallery">المعرض</string>
+    <string name="menu_slideshow">عرض الشرائح</string>
+    <string name="next">التالي</string>
+    <string name="prev">السابق</string>
+    <string name="skip">تخطي</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="select_symptom">اختر العَرَض</string>
+    <string name="select_code">اختر الرمز</string>
+    <string name="search">بحث</string>
+    <string name="share_hint">أعجبك هذا التطبيق؟ شاركه مع أصدقائك!</string>
+    <string name="app_logo">شعار التطبيق</string>
+    <string name="share_icon_desc">رمز المشاركة</string>
+    <string name="disclaimers">إخلاء المسؤولية</string>
+    <string name="terms_of_service">شروط الخدمة</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="back">رجوع</string>
+    <string name="logged">تسجيل الخروج</string>
+    <string name="menu_pages">قائمة الصفحات</string>
+    <string name="go_to_dashboard">الذهاب الي لوحه التحكم</string>
+    <string name="share">تحقق من تطبيق OBD Codes: https://obdcodes.net</string>
+    <string name="home">الصفحة الرئيسية</string>
+    <string name="my_saved_items">الأكواد المحفوظة</string>
+    <string name="my_account">حسابي</string>
+    <string name="pricing">خطط الاشتراك</string>
+    <string name="about_this_app">عن التطبيق</string>
+    <string name="contact_us">تواصل معنا</string>
+    <string name="how_it_works">كيف يعمل التطبيق</string>
+    <string name="rate_this_app">تقييم التطبيق</string>
+    <string name="share_this_app">مشاركه التطبيق</string>
+    <string name="symptom_diagnosis">تشخيص حسب الأعراض</string>
+    <string name="compare_codes">مقارنة الأكواد</string>
+    <string name="visual_library">المكتبة المرئية</string>
+    <string name="diagnosis_history">سجل التشخيص</string>
+    <string name="generate_pdf">توليد تقرير PDF</string>
+    <string name="notifications">الإشعارات الذكية</string>
+    <string name="trending_codes">الأكواد الشائعة</string>
+    <string name="ai_assistant">مساعد الذكاء الاصطناعي</string>
+    <string name="select_language">اختر اللغة</string>
+    <string name="forgot_password_title">نسيت كلمة المرور</string>
+    <string name="email_hint">أدخل بريدك الإلكتروني</string>
+    <string name="send_link">أرسل لي رابطًا</string>
+    <string name="please_enter_email">يرجى إدخال بريدك الإلكتروني</string>
+    <string name="reset_link_sent">تم إرسال رابط إعادة تعيين كلمة المرور إلى %1$s</string>
+    <string name="search_code_title">البحث عن كود</string>
+    <string name="code_hint">أدخل كود العطل (مثال: P0420)</string>
+    <string name="search_button">بحث</string>
+    <string name="invalid_code">يرجى إدخال كود صالح مكون من 5 رموز</string>
+    <string name="nav_open">فتح قائمة التنقل</string>
+    <string name="nav_close">إغلاق قائمة التنقل</string>
+    <string name="menu_dashboard">لوحة التحكم</string>
+    <string name="nav_symptom">تشخيص بالأعراض</string>
+    <string name="nav_compare">مقارنة الأكواد</string>
+    <string name="nav_history">سجل التشخيص</string>
+    <string name="nav_notifications">الإشعارات الذكية</string>
+    <string name="nav_trending">الأكواد الشائعة</string>
+    <string name="nav_visual">المكتبة المرئية</string>
+    <string name="nav_pdf">تقرير PDF</string>
+    <string name="nav_ai">مساعد الذكاء الاصطناعي</string>
+    <string name="nav_offline">وضع الأوفلاين</string>
+    <string name="prompt_letter">رسالة سريعة</string>
+    <string name="p000">يشير رمز OBD P0000 إلى أن نظام التشخيص المدمج في السيارة لم يكتشف أي أعطال أو مشاكل في المحرك أو نظام الانبعاثات. يُستخدم هذا الرمز عادةً كمؤشر عام على أن أنظمة السيارة تعمل بكفاءة.</string>
+    <string name="profile_image">صورة الملف الشخصي</string>
+    <string name="user_name">أسم المستخدم</string>
+    <string name="user_job_title">خبير ميكانيك سيارات</string>
+    <string name="edit_profile">تعديل الملف الشخصي</string>
+    <string name="package_free">مجانية</string>
+    <string name="package_icon">أيقونة الباقة</string>
+    <string name="edit_package">تعديل الباقة</string>
+    <string name="account_info">معلومات الحساب</string>
+    <string name="creation_date">تاريخ الإنشاء: ٢ مايو ٢٠٢٥</string>
+    <string name="user_mode">وضع المستخدم: </string>
+    <string name="change_user_mode">تغيير نوع المستخدم</string>
+    <string name="change_password">تغيير كلمة المرور</string>
+    <string name="subscription_info">معلومات الاشتراك</string>
+    <string name="current_plan">الخطة الحالية: مجانية</string>
+    <string name="current_package">الباقة الحالية: مجانية</string>
+    <string name="plan_start_date">تاريخ بدء الخطة: ٢ مايو ٢٠٢٥</string>
+    <string name="manage_subscription">إدارة الاشتراك</string>
+    <string name="log_out">↩ تسجيل الخروج</string>
+    <string name="delete_account">🗑 حذف الحساب</string>
+    <string name="profile_image_desc">صورة الملف الشخصي</string>
+    <string name="account_name">اسم المستخدم</string>
+    <string name="account_email">البريد الإلكتروني</string>
+    <string name="account_job_title">المسمى الوظيفي</string>
+    <string name="account_edit">تعديل الحساب</string>
+    <string name="account_delete">حذف الحساب</string>
+    <string name="account_logout">تسجيل الخروج</string>
+    <string name="save_code">حفظ الكود</string>
+    <string name="share_code">مشاركة الكود</string>
+    <string name="no_fault">لم يتم اكتشاف أي خطأ</string>
+    <string name="continue_reading">تابع القراءة…</string>
+    <string name="detail_items">تفاصيل إضافية:</string>
+    <string name="code_saved">تم حفظ الكود بنجاح</string>
+    <string name="code_already_saved">الكود محفوظ مسبقًا</string>
+    <string name="save_failed">فشل في حفظ الكود</string>
+    <string name="share_via">مشاركة عبر</string>
+    <string name="pdf_not_implemented">ميزة توليد PDF لم تُفعّل بعد</string>
+    <string name="clear_all">حذف الكل</string>
+    <string name="_0_saved">لاتوجد رموز محفوظه</string>
+    <string name="delete_item">حذف الكود</string>
+    <string name="open_item">فتح الكود</string>
+    <string name="one_time_purchase">شراء لمرة واحدة</string>
+    <string name="one_time_subtitle">اشترِ باقة PRO لمدة 3 أيام فقط</string>
+    <string name="subscription_plans">خطط الاشتراك</string>
+    <string name="monthly_plan">خطة PRO الشهرية</string>
+    <string name="yearly_plan">خطة PRO السنوية</string>
+    <string name="go_pro_plan">خطة Go PRO</string>
+    <string name="terms_privacy">شروط الخدمة - سياسة الخصوصية</string>
+    <string name="choose_plan">اختر خطتك المفضلة</string>
+    <string name="one_time_title">شراء لمرة واحدة (3 أيام)</string>
+    <string name="one_time_price">5 دولار</string>
+    <string name="monthly_title">اشتراك شهري</string>
+    <string name="monthly_price">9.99 دولار/شهريًا</string>
+    <string name="yearly_title">اشتراك سنوي</string>
+    <string name="yearly_price">99.99 دولار/سنوياً</string>
+    <string name="select">اختر</string>
+    <string name="saved_searches">الأكواد المحفوظة</string>
+    <string name="ask_support">الدعم</string>
+    <string name="welcome_support">مرحبًا بك في الدعم!</string>
+    <string name="support_instructions">لأي طلب، يُرجى مراسلتنا عبر البريد الإلكتروني support@obdquest.com أو استخدام النموذج أدناه.</string>
+    <string name="subject">الموضوع</string>
+    <string name="enter_subject">أدخل الموضوع</string>
+    <string name="message">الرسالة</string>
+    <string name="enter_message">أدخل رسالتك هنا…</string>
+    <string name="send_message">إرسال رسالة</string>
+    <string name="send_via">إرسال عبر</string>
+    <string name="fill_all_fields">يرجى ملء كلٍّ من الموضوع والرسالة.</string>
+    <string name="code_details">تفاصيل الكود</string>
+    <string name="label_search_code">حدد كود العطل</string>
+    <string name="hint_code_part">أدخل جزء من الكود</string>
+    <string name="btn_search">بحث</string>
+    <string name="saved_codes_title">الأكواد المحفوظة</string>
+    <string name="account_title">حسابي</string>
+    <string name="ok">موافق</string>
+    <string name="cancel">إلغاء</string>
+    <string name="version_placeholder">نسخه التطبيق V1.0</string>
+    <string name="app_version">تطبيق OBD Code الإصدار 1.0.0</string>
+    <string name="onboard_title_1">مرحبًا بك في  OBD Code</string>
+    <string name="onboard_desc_1">شخّص الأعطال بسهولة مع تطبيقنا.</string>
+    <string name="onboard_title_2">بحث قائم على الأعراض</string>
+    <string name="onboard_desc_2">ابحث حسب الأعراض أو رموز الأعطال.</string>
+    <string name="onboard_title_3">حفظ و مشاركة</string>
+    <string name="onboard_desc_3">احفظ الرموز المفضلة وشاركها مع الآخرين.</string>
+    <string name="login_title">تسجيل الدخول إلى حسابك</string>
+    <string name="signup_title">إنشاء حساب مجاني</string>
+    <string name="login_tab">تسجيل الدخول</string>
+    <string name="signup_tab">التسجيل</string>
+    <string name="hint_email">البريد الإلكتروني</string>
+    <string name="hint_password">كلمة المرور</string>
+    <string name="hint_name">الاسم</string>
+    <string name="agree_text">أوافق على سياسة الخصوصية وشروط الخدمة</string>
+    <string name="btn_login">تسجيل الدخول</string>
+    <string name="btn_create_account">إنشاء حساب</string>
+    <string name="forgot_password">نسيت كلمة المرور؟</string>
+    <string name="server_client_id">ضع هنا Google Client ID</string>
+    <string name="login_failed">فشل تسجيل الدخول</string>
+    <string name="reg_failed">فشل إنشاء الحساب</string>
+    <string name="reg_success">تم التسجيل بنجاح</string>
+    <string name="err_fill_all">يرجى تعبئة جميع الحقول</string>
+    <string name="err_invalid_email">البريد الإلكتروني غير صالح</string>
+    <string name="err_invalid_pass">كلمة المرور قصيرة جدًا</string>
+    <string name="err_agree">يجب الموافقة على الشروط</string>
+    <string name="err_network">خطأ في الاتصال: %1$s</string>
+    <string name="google_signin_failed">فشل تسجيل الدخول عبر Google: %1$s</string>
+    <string name="default_error">حدث خطأ غير متوقع</string>
+    <string name="email_taken">البريد الإلكتروني مستخدم مسبقًا، حاول تسجيل الدخول أو استخدم بريدًا آخر.</string>
+    <!-- عناوين عامة -->
+    <string name="update_success">تم تحديث البيانات بنجاح</string>
+    <string name="update_failed">فشل في تحديث البيانات</string>
+    <string name="loading">جاري التحميل…</string>
+    <string name="logout">تسجيل الخروج</string>
+
+    <!-- الحقول -->
+    <string name="name">الاسم</string>
+    <string name="email">ألأيميل </string>
+    <string name="phone">رقم الهاتف</string>
+    <string name="job_title">المسمى الوظيفي</string>
+    <string name="package_name">الباقة</string>
+    <string name="plan_renewal_date">تاريخ تجديد الخطة</string>
+    <string name="created_at">تاريخ الإنشاء</string>
+    <string name="err_fetch_profile">فشل في جلب البيانات</string>
+
+
+    <!-- الأزرار -->
+    <string name="update_data">تحديث البيانات</string>
+    <string name="msg_profile_saved"> تم الحفظ بنجاح</string>
+    <string name="err_save_profile">فشل أثناء الحفظ</string>
+    <string name="created_on">أنشئ في: </string>
+    <string name="plan_start">تاريخ بداية الباقة:</string>
+    <string name="plan_renewal">تاريخ تجديد الباقة:</string>
+    <string name="not_set" tools:ignore="PrivateResource">غير محدد</string>
+    <string name="paid">مدفوع</string>
+    <string name="free">مجاني</string>
+    <string name="verification_email_sent">تم إرسال رابط التفعيل إلى بريدك</string>
+    <string name="err_send_verification">فشل في إرسال رابط التفعيل</string>
+    <string name="resend_verification">إعادة إرسال رابط التفعيل</string>
+    <string name="status_prefix">حالة الاشتراك:</string>
+    <string name="package_prefix">الباقة:</string>
+    <string name="empty_prefix"> </string>
+    <string name="saved_codes_prefix">الأكواد المحفوظة:</string>
+    <string name="err_logout">فشل تسجيل الخروج</string>
+    <string name="err_delete_account">فشل حذف الحساب</string>
+    <string name="user_type_prefix">نوع المستخدم</string>
+    <string name="account_status_prefix">حالة الحساب</string>
+    <string name="active_ar">مفعل</string>
+    <string name="inactive_ar">غير مفعل</string>
+    <string name="user">مستخدم</string>
+    <string name="admin">مشرف</string>
+    <string name="settings">أعدادات التطبيق</string>
+    <string name="splash_tagline">التشخيص بضغطة زر</string>
+    <string name="subscription_details">تفاصيل الاشتراك</string>
+    <string name="plan_name">اسم الباقة</string>
+    <string name="plan_price">السعر</string>
+    <string name="plan_duration">مدة الباقة</string>
+    <string name="renew_plan">تجديد الباقة</string>
+    <string name="mark_as_read">تحديد كمُقروء</string>
+    <string name="delete">حذف</string>
+    <string name="marked_read">تم تمييز الإشعار كمقروء</string>
+    <string name="error">حدث خطأ، يرجى المحاولة لاحقًا</string>
+    <string name="deleted">تم حذف الإشعار</string>
+    <string name="tv_title">العنوان</string>
+    <string name="tv_message">الرسالة</string>
+    <string name="tv_date">التاريخ</string>
+    <string name="tv_mark_read">وضع علامة قراءة</string>
+    <string name="tv_delete">حذف</string>
+    <string name="fetch_failed">فشل جلب تفاصيل الكود</string>
+
+    <!-- تسميات بنود التفاصيل -->
+    <string name="symptoms_label">الأعراض</string>
+    <string name="causes_label">الأسباب</string>
+    <string name="solutions_label">الحلول</string>
+    <string name="btn_fingerprint_login">تسجيل الدخول بالبصمة</string>
+    <string name="biometric_title">تسجيل الدخول بالبصمة</string>
+    <string name="biometric_subtitle">استخدم بصمة إصبعك للمتابعة</string>
+    <string name="use_pin">إدخال PIN</string>
+    <string name="login_required_first">قم بتسجيل الدخول أونلاين أولاً</string>
+    <string name="biometric_error">حدث خطأ أثناء التحقق بالبصمة</string>
+    <string name="pin_fallback">لم يتم التحقق بالبصمة. يمكنك استخدام PIN</string>
+    <string name="encryption_init_failed">فشل تهيئة التشفير</string>
+
+    <!-- إن لم تضيفه مسبقاً، أضف أيضاً -->
+    <string name="fingerprint_failed">لم يتم التعرف على بصمتك</string>
+    <!-- إعدادات البصمة -->
+    <string name="biometric_disabled">تم تعطيل البصمة</string>
+    <string name="offline_biometric_cleared">تم مسح بيانات الدخول باستخدام البصمة (وضع أوفلاين)</string>
+
+    <!-- إدارة رمز PIN -->
+    <string name="set_new_pin">تعيين رمز PIN جديد</string>
+    <string name="pin_saved">تم حفظ رمز PIN بنجاح</string>
+    <string name="encryption_error">حدث خطأ أثناء التشفير</string>
+    <string name="pin_length_error">يجب أن يتكون رمز PIN من 4 أرقام على الأقل</string>
+
+    <!-- مسح بيانات الدخول -->
+    <string name="confirm_clear">تأكيد حذف البيانات</string>
+    <string name="confirm_clear_message">هل أنت متأكد من رغبتك في مسح جميع بيانات الدخول؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="save">حفظ</string>
+    <string name="invalid_selection">يرجى اختيار كودين صالحين للمقارنة</string>>
+    <string name="select_first_code">اختر الكود الأول</string>
+    <string name="select_second_code">اختر الكود الثاني</string>
+    <string name="compare">مقارنة</string>
+    <string name="no_comparison_result">لم تتم عملية المقارنة بعد</string>
+    <string name="description_label">الوصف</string>
+    <string name="severity_label">شدة العطل</string>
+    <string name="diagnosis_label">التشخيص</string>
+    <string name="close">إغلاق</string>
+    <string name="discover_your">اكتشف فرصتك</string>
+    <string name="dream_job_here">وظيفة أحلامك هنا</string>
+    <string name="description_text">استكشف جميع الوظائف المتاحة بناءً على اهتماماتك وتخصصك الدراسي</string>
+    <string name="welcome_back">مرحبًا بعودتك، لقد افتقدناك!</string>
+    <string name="create_account_description">أنشئ حسابًا لتتمكن من استكشاف جميع الوظائف المتاحة</string>
+    <string name="code_not_found">الكود غير موجود</string>
+    <string name="severity">الشدة</string>
+    <string name="typical_symptoms">الأعراض الشائعة</string>
+    <string name="tvCardCode">P0001</string>
+    <string name="tvCardTitle">دائرة التحكم في منظم حجم الوقود/مفتوحة</string>
+    <string name="tvCardDescription">يشير إلى وجود مشكلة في منظم حجم الوقود…</string>
+    <string name="tvSymptoms">ضوء فحص المحرك، تسارع ضعيف…</string>
+    <string name="tvCauses">تلف في المستشعر، انقطاع في الأسلاك…</string>
+    <string name="tvSolutions">إصلاح أو استبدال التوصيلات…</string>
+    <string name="tvDiagnosis">فحص الأسلاك والتوصيلات، اختبار المستشعر…</string>
+    <string name="code_image"> </string>
+    <string name="prompt_choose_brand">اختر الشركة</string>
+    <string name="prompt_choose_model">اختر الموديل</string>
+    <string name="prompt_choose_year">اختر سنة الإنتاج</string>
+
+</resources>

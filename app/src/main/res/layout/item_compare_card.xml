@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 1) الكود باللون الأحمر -->
+            <TextView
+                android:id="@+id/tvCardCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <!-- 2) كلمة "العنوان" -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="العنوان"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
+
+            <!-- 3) عنوان الكود -->
+            <TextView
+                android:id="@+id/tvCardTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="4dp"/>
+            <!-- مسافة -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+
+            <!-- 4) الشدة -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الشدة"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressSeverity"
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="4dp"
+                app:trackColor="@android:color/darker_gray"
+                app:indicatorColor="@color/colorAccent"
+                android:progress="0"/>
+
+            <!-- مسافة -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+            <!-- 4) قسم الوصف القابل للطَيّ -->
+            <LinearLayout
+                android:id="@+id/sectDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <!-- رأس الوصف -->
+                <LinearLayout
+                    android:id="@+id/headerDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="الوصف"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/ivToggleDescription"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_expand_more"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDescriptionContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- 5) قسم الأعراض الشائعة -->
+            <LinearLayout
+                android:id="@+id/sectSymptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/headerSymptoms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/tvHeaderSymptoms"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="الأعراض الشائعة"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/ivToggleSymptoms"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_expand_more"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSymptomsContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- 6) قسم الأسباب -->
+            <LinearLayout
+                android:id="@+id/sectCauses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/headerCauses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/tvHeaderCauses"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="الأسباب"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/ivToggleCauses"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_expand_more"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvCausesContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- 7) قسم الحلول -->
+            <LinearLayout
+                android:id="@+id/sectSolutions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/headerSolutions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?selectableItemBackground">
+
+                    <TextView
+                        android:id="@+id/tvHeaderSolutions"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="الحلول"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/ivToggleSolutions"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_expand_more"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSolutionsContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- 8) قسم التشخيص القابل للطَيّ -->
+            <LinearLayout
+                android:id="@+id/sectDiagnosis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/headerDiagnosis"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="8dp"
+                    android:background="?selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="التشخيص"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:id="@+id/ivToggleDiagnosis"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_expand_more"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDiagnosisContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:padding="8dp"
+                    android:textSize="14sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <!-- 9) الصورة -->
+            <ImageView
+                android:id="@+id/ivCardImage"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="12dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/code_image"/>
+
+        </LinearLayout>
+    </ScrollView>
+</com.google.android.material.card.MaterialCardView>

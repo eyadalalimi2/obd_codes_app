@@ -1,0 +1,234 @@
+<!--suppress ALL -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+   
+    <!-- Base application theme. -->
+    <style name="Theme.ObdCodes" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="android:buttonStyle">@style/Widget.OBDCodes.Button.Shape</item>
+        <!-- وللمكتبة MaterialButton كذلك -->
+        <item name="materialButtonStyle">@style/Widget.OBDCodes.Button.Shape</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Customize your theme here. -->
+
+    </style>
+
+
+    <style name="Theme.ObdCodes.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
+    <style name="MenuButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_menu_button</item>
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+    <style name="Widget.OBDCodes.Button.Shape" parent="Widget.AppCompat.Button">
+        <!-- الخلفية هي الـ shape الذي صنعناه -->
+        <item name="android:background">@drawable/rounded_button</item>
+        <!-- لون النص داخل الزر -->
+        <item name="android:textColor">@color/white</item>
+        <!-- الغاء تحويل النص لحروف كبيرة -->
+        <item name="android:textAllCaps">false</item>
+        <!-- مساحات داخلية (Padding) اختياري -->
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <!-- ثيم التطبيق بدون ActionBar لأننا نستخدم Toolbar مخصّص -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/app_bar_green</item>
+        <item name="colorPrimaryVariant">@color/app_bar_green</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
+    <!-- Widget مخصّص للـ BottomNavigationView -->
+    <style name="Widget.App.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="android:background">@drawable/bg_bottom_nav</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="itemIconSize">28dp</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconTint">@color/bottom_nav_color_state</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="itemRippleColor">@color/white</item>
+    </style>
+
+    <!-- مربع رموز الكود -->
+    <style name="CodeSpinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@drawable/bg_code_box</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <!-- نص داخل Spinner -->
+    <style name="CodeSpinnerItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- زر البحث الأخضر -->
+    <style name="SearchButton">
+        <item name="android:backgroundTint">@color/green_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <!-- ستايل للـ code-picker buttons -->
+    <style name="Widget.OBD.CodePickerButton">
+        <item name="android:background">@drawable/bg_code_picker</item>
+        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ستايل لزر البحث المستدير -->
+    <style name="Widget.OBD.SearchButton">
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/rounded_search_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="OBD.CodeBox">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_code_box</item>
+        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- الخلفية والإطار للمربّعات -->
+    <style name="Widget.OBD.CodeBox" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/bg_code_box</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_drop_down</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layoutDirection">ltr</item>
+    </style>
+
+    <!-- عنصر واحد في GridDialog -->
+    <style name="Widget.OBD.GridItem" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!-- ستايل الـ Spinner اللي تستعمله لصندوق الـ Code -->
+    <style name="Widget.OBD.CodeSpinner">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <!-- نلغي الخط السفلي الافتراضي -->
+
+        <!-- border box -->
+        <item name="android:background">@drawable/bg_code_box</item>
+        <!-- نص وحجم ولون -->
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- أيقونة السهم على اليمين -->
+        <item name="android:drawableEnd">@drawable/ic_arrow_drop_down</item>
+        <item name="android:drawablePadding">4dp</item>
+    </style>
+
+    <!-- عناصر القوائم التفصيلية -->
+    <style name="ObdListItem">
+        <item name="android:textColor">#8CA2B1</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:layout_marginBottom">2dp</item>
+    </style>
+
+    <!-- نصوص العناوين الخضراء -->
+    <style name="TitleGreenBold">
+        <item name="android:textColor">#67B64A</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- زر رئيسي أخضر دائري -->
+    <style name="ObdMainButton">
+        <item name="android:background">@drawable/bg_search_button</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <!-- BottomNavigationView appearance -->
+    <style name="BottomNavLabelStyle">
+        <item name="android:textColor">@drawable/bottom_nav_item_selector</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+    <style name="Theme.ObdCodes.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Widget.OBD" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="OBD" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.ObdCodes.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Splash screen theme -->
+    <style name="Theme.OBD.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="Theme.OBD" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#1565C0</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <!-- بقية خصائص الثيم -->
+    </style>
+    <style name="Label">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <!-- نص القيمة (Value) -->
+    <style name="Value">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+
+</resources>

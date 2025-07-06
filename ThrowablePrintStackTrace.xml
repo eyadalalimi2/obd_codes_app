@@ -1,0 +1,54 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/code_details/CodeDetailsActivity.java</file>
+  <line>123</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.code_details</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.code_details.CodeDetailsActivity void saveCode()" />
+  <problem_class id="ThrowablePrintStackTrace" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Call to 'printStackTrace()'</problem_class>
+  <description>Call to &lt;code&gt;printStackTrace()&lt;/code&gt; should probably be replaced with more robust logging #loc</description>
+  <highlighted_element>printStackTrace</highlighted_element>
+  <language>JAVA</language>
+  <offset>14</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/history/DiagnosisHistoryActivity.java</file>
+  <line>60</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.history</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.history.DiagnosisHistoryActivity java.util.List&lt;java.lang.String&gt; loadHistory()" />
+  <problem_class id="ThrowablePrintStackTrace" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Call to 'printStackTrace()'</problem_class>
+  <description>Call to &lt;code&gt;printStackTrace()&lt;/code&gt; should probably be replaced with more robust logging #loc</description>
+  <highlighted_element>printStackTrace</highlighted_element>
+  <language>JAVA</language>
+  <offset>14</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesActivity.java</file>
+  <line>80</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesActivity void loadSaved()" />
+  <problem_class id="ThrowablePrintStackTrace" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Call to 'printStackTrace()'</problem_class>
+  <description>Call to &lt;code&gt;printStackTrace()&lt;/code&gt; should probably be replaced with more robust logging #loc</description>
+  <highlighted_element>printStackTrace</highlighted_element>
+  <language>JAVA</language>
+  <offset>14</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesActivity.java</file>
+  <line>111</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesActivity void saveList()" />
+  <problem_class id="ThrowablePrintStackTrace" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Call to 'printStackTrace()'</problem_class>
+  <description>Call to &lt;code&gt;printStackTrace()&lt;/code&gt; should probably be replaced with more robust logging #loc</description>
+  <highlighted_element>printStackTrace</highlighted_element>
+  <language>JAVA</language>
+  <offset>14</offset>
+  <length>15</length>
+</problem>
+</problems>

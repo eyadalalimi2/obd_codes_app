@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_saved_card"
+    android:padding="12dp"
+    android:layout_marginBottom="12dp">
+
+    <!-- تاريخ وحالة الحفظ -->
+    <TextView
+        android:id="@+id/tvItemDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="May 22, 2025 - 02:15 PM"
+        android:textColor="#222E36"
+        android:textStyle="italic"
+        android:textSize="14sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        tools:ignore="HardcodedText" />
+
+    <!-- رمز الكود -->
+    <TextView
+        android:id="@+id/tvItemCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="P0300"
+        android:textColor="#00838F"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        tools:ignore="HardcodedText" />
+
+    <!-- وصف قصير وهمي -->
+    <TextView
+        android:id="@+id/tvItemDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vibration detected during idle indicating possible misfire."
+        android:textColor="#54616C"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"
+        tools:ignore="HardcodedText" />
+
+    <!-- أزرار حذف وفتح التفاصيل -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <ImageView
+            android:id="@+id/btnDeleteItem"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_delete_circle"
+            android:contentDescription="@string/delete_item"
+            android:padding="6dp"
+            android:src="@drawable/ic_delete"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/btnOpenItem"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/open_item"
+            android:src="@drawable/ic_arrow_right_green"
+            tools:ignore="ImageContrastCheck" />
+    </LinearLayout>
+</LinearLayout>

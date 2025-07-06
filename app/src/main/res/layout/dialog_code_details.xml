@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- رمز الكود -->
+        <TextView
+            android:id="@+id/tvDialogCode"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- عنوان الكود -->
+        <TextView
+            android:id="@+id/tvDialogTitle"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- الوصف -->
+        <TextView
+            android:id="@+id/tvDialogDescription"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- الأعراض -->
+        <TextView
+            android:id="@+id/tvDialogSymptoms"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- الأسباب -->
+        <TextView
+            android:id="@+id/tvDialogCauses"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- الحلول -->
+        <TextView
+            android:id="@+id/tvDialogSolutions"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- شدة العطل -->
+        <TextView
+            android:id="@+id/tvDialogSeverity"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- التشخيص -->
+        <TextView
+            android:id="@+id/tvDialogDiagnosis"
+            style="@style/TextAppearance.MaterialComponents.Body2"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

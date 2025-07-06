@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "66098252270",
+    "project_id": "obdcode",
+    "storage_bucket": "obdcode.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66098252270:android:2c268c29d3605a7f7e66ff",
+        "android_client_info": {
+          "package_name": "com.proapp.obdcodes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc9zJk_zCJSJlSFq-odEpDZIQ7HXRhwC8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

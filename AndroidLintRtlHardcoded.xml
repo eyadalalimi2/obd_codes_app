@@ -1,0 +1,158 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>59</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_pricing&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>65</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_about&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>71</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_how_it_works&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>77</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_disclaimer&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>83</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_terms&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>89</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_privacy&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>95</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_contact&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>101</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_home&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>107</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_saved&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>113</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_account&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>119</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_rate&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>125</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintRtlHardcoded" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Using left/right instead of start/end attributes</problem_class>
+  <hints />
+  <description>&lt;html&gt;Consider replacing &lt;code&gt;android:drawableLeft&lt;/code&gt; with &lt;code&gt;android:drawableStart=&quot;@drawable/ic_share&quot;&lt;/code&gt; to better support right-to-left layouts&lt;/html&gt;</description>
+  <highlighted_element>android:drawableLeft</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>20</length>
+</problem>
+</problems>

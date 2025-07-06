@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ObdCodes"
+        tools:targetApi="31">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
+
+        <!-- شاشة البداية -->
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:theme="@style/Theme.OBD.Splash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+
+
+
+
+
+
+        <!-- Onboarding -->
+        <activity android:name=".ui.onboarding.OnboardingActivity" />
+
+        <!-- Auth -->
+        <activity android:name=".ui.auth.AuthActivity" />
+        <activity android:name=".ui.auth.ForgotPasswordActivity" />
+        <!-- Home & Search -->
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.code_search.CodeSearchActivity" />
+
+        <!-- Code Details & PDF -->
+        <activity android:name=".ui.code_details.CodeDetailsActivity" />
+        <activity android:name=".ui.pdf.PdfReportActivity" />
+
+        <!-- Saved Codes -->
+        <activity android:name=".ui.saved.SavedCodesActivity" />
+
+        <!-- Account & Settings -->
+        <activity android:name=".ui.account.AccountActivity" />
+        <activity android:name=".ui.settings.LanguageSettingsActivity" />
+
+        <!-- Pricing & Subscription -->
+        <activity android:name=".ui.pricing.PricingActivity" />
+
+        <!-- Paid Features -->
+        <activity android:name=".ui.diagnosis.SymptomDiagnosisActivity" />
+        <activity android:name=".ui.compare.CompareCodesActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity android:name=".ui.history.DiagnosisHistoryActivity" />
+
+        <activity android:name=".ui.analytics.TrendingCodesActivity" />
+        <activity android:name=".ui.visual.VisualLibraryActivity" />
+        <activity android:name=".ui.chat.ChatActivity" />
+
+        <!-- Static / Info Pages -->
+        <activity android:name=".ui.about.AboutActivity" />
+        <activity android:name=".ui.howitworks.HowItWorksActivity" />
+        <activity android:name=".ui.support.ContactUsActivity" />
+        <activity android:name=".ui.legal.DisclaimerActivity" />
+        <activity android:name=".ui.legal.TermsActivity" />
+        <activity android:name=".ui.legal.PrivacyActivity" />
+        <activity android:name=".ui.menu.MenuActivity" />
+
+        <!-- أي نشاطات اختبار أو فرعية -->
+        <activity android:name=".ui.TestActivity" />
+        <activity android:name=".ui.offline.OfflineModeActivity" />
+        <activity android:name=".ui.account.EditProfileActivity" />
+        <activity android:name=".ui.settings.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".ui.base.BaseActivity" />
+        <activity
+            android:name=".ui.subscription.SubscriptionDetailsActivity"
+            android:exported="false"
+            android:label="@string/subscription_details" />
+        <activity android:name=".ui.notifications.NotificationsActivity"
+            android:label="@string/notifications"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+
+    </application>
+
+</manifest>

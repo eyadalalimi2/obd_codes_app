@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- شكل العين -->
+    <path
+        android:fillColor="#8CA2B1"
+        android:pathData="M12,4.5
+            C7.05,4.5 2.73,7.61 1,12
+            c1.73,4.39 6.05,7.5 11,7.5
+            c4.95,0 9.27,-3.11 11,-7.5
+            C21.27,7.61 16.95,4.5 12,4.5
+            z
+            M12,17.5
+            c-2.76,0 -5,-2.24 -5,-5
+            s2.24,-5 5,-5
+            s5,2.24 5,5
+            S14.76,17.5 12,17.5
+            z"/>
+
+    <!-- الخط الذي يقطع العين -->
+    <path
+        android:fillColor="#8CA2B1"
+        android:pathData="M2.39,1.73
+            L1.11,3
+            l4.24,4.24
+            C4.15,8.85 3,10.38 3,12
+            c0,3.31 2.69,6 6,6
+            c0.82,0 1.61,-0.19 2.33,-0.51
+            L19,20.89
+            l1.28,-1.28
+            L2.39,1.73
+            z"/>
+</vector>

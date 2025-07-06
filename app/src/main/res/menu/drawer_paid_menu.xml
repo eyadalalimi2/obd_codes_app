@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_symptom" android:icon="@drawable/ic_symptom" android:title="@string/nav_symptom"/>
+        <item android:id="@+id/nav_compare" android:icon="@drawable/ic_compare" android:title="@string/nav_compare"/>
+        <item android:id="@+id/nav_history" android:icon="@drawable/ic_history" android:title="@string/nav_history"/>
+        <item android:id="@+id/nav_notifications" android:icon="@drawable/ic_notify" android:title="@string/nav_notifications"/>
+        <item android:id="@+id/nav_trending" android:icon="@drawable/ic_trending" android:title="@string/nav_trending"/>
+        <item android:id="@+id/nav_visual" android:icon="@drawable/ic_visual" android:title="@string/nav_visual"/>
+        <item android:id="@+id/nav_pdf" android:icon="@drawable/ic_pdf" android:title="@string/nav_pdf"/>
+        <item android:id="@+id/nav_ai_assistant" android:icon="@drawable/ic_ai" android:title="@string/nav_ai"/>
+        <item android:id="@+id/nav_offline" android:icon="@drawable/ic_offline_mode" android:title="@string/nav_offline"/>
+        <item android:id="@+id/nav_dashboard" android:icon="@drawable/ic_menu" android:title="@string/menu_dashboard"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+</menu>

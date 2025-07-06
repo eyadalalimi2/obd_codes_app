@@ -1,0 +1,184 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/onboarding/OnboardingAdapter.java</file>
+  <line>41</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.onboarding</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.onboarding.OnboardingAdapter.OnboardingViewHolder image" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>image</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/onboarding/OnboardingAdapter.java</file>
+  <line>42</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.onboarding</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.onboarding.OnboardingAdapter.OnboardingViewHolder title" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>title</highlighted_element>
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/onboarding/OnboardingAdapter.java</file>
+  <line>42</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.onboarding</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.onboarding.OnboardingAdapter.OnboardingViewHolder desc" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>desc</highlighted_element>
+  <language>JAVA</language>
+  <offset>24</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCode.java</file>
+  <line>4</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCode dateTime" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>dateTime</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCode.java</file>
+  <line>5</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCode code" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>code</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCode.java</file>
+  <line>6</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCode description" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>description</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesAdapter.java</file>
+  <line>52</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesAdapter.VH tvDate" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>tvDate</highlighted_element>
+  <language>JAVA</language>
+  <offset>17</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesAdapter.java</file>
+  <line>52</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesAdapter.VH tvCode" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>tvCode</highlighted_element>
+  <language>JAVA</language>
+  <offset>25</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesAdapter.java</file>
+  <line>52</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesAdapter.VH tvDesc" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>tvDesc</highlighted_element>
+  <language>JAVA</language>
+  <offset>33</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesAdapter.java</file>
+  <line>53</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesAdapter.VH btnDelete" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>btnDelete</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>9</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesAdapter.java</file>
+  <line>53</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.saved</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesAdapter.VH btnOpen" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>btnOpen</highlighted_element>
+  <language>JAVA</language>
+  <offset>29</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/visual/VisualItem.java</file>
+  <line>4</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.visual</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.visual.VisualItem name" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>name</highlighted_element>
+  <language>JAVA</language>
+  <offset>18</offset>
+  <length>4</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/visual/VisualItem.java</file>
+  <line>5</line>
+  <module>Obd_Codes.app.main</module>
+  <package>com.proapp.obdcodes.ui.visual</package>
+  <entry_point TYPE="field" FQNAME="com.proapp.obdcodes.ui.visual.VisualItem imageRes" />
+  <problem_class id="CanBeFinal" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Declaration can have 'final' modifier</problem_class>
+  <hints />
+  <description>Declaration can have final modifier</description>
+  <highlighted_element>imageRes</highlighted_element>
+  <language>JAVA</language>
+  <offset>15</offset>
+  <length>8</length>
+</problem>
+</problems>

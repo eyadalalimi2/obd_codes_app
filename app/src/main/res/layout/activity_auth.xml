@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blue">
+
+
+        <TextView
+            android:id="@+id/tvLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:text="@string/app_name"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAuth"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/margin_standard"
+            app:cardCornerRadius="@dimen/corner_radius"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tvLogo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_large">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- تبويبات تسجيل الدخول وإنشاء حساب -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/tab_height"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_tab_container">
+
+                            <TextView
+                                android:id="@+id/tvLoginTab"
+                                style="@style/TitleGreenBold"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_tab_login"
+                                android:gravity="center"
+                                android:text="@string/login_tab"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:id="@+id/tvSignupTab"
+                                style="@style/TitleGreenBold"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_tab_signup"
+                                android:gravity="center"
+                                android:text="@string/signup_tab"
+                                android:textColor="@color/blue"/>
+                        </LinearLayout>
+
+                        <!-- عنوان التبويب الحالي -->
+                        <TextView
+                            android:id="@+id/tvAuthTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_standard"
+                            android:layout_gravity="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <!-- نموذج تسجيل الدخول -->
+                        <LinearLayout
+                            android:id="@+id/llLoginForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_standard"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/etEmail"
+                                style="@style/Widget.AppCompat.EditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:background="@drawable/bg_field_white"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_email"
+                                android:hint="@string/hint_email"
+                                android:inputType="textEmailAddress"
+                                android:padding="12dp"
+                                android:autofillHints="emailAddress"/>
+
+                            <EditText
+                                android:id="@+id/etPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:background="@drawable/bg_field_white"
+                                android:drawableStart="@drawable/ic_password"
+                                android:drawableEnd="@drawable/ic_eye_off"
+                                android:drawablePadding="8dp"
+                                android:hint="@string/hint_password"
+                                android:inputType="textPassword"
+                                android:padding="12dp"
+                                android:autofillHints="password"/>
+
+
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnLogin"
+                                style="@style/Widget.OBDCodes.Button.Shape"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_user"
+                                android:text="@string/btn_login"/>
+
+
+                            <TextView
+                                android:id="@+id/tvForgot"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:text="@string/forgot_password"
+                                android:textColor="@android:color/black"
+                                android:textSize="14sp"/>
+                            <com.google.android.gms.common.SignInButton
+                                android:id="@+id/btnGoogleSignIn"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                app:buttonSize="wide"
+                                app:colorScheme="dark"/>
+                        </LinearLayout>
+
+                        <!-- نموذج إنشاء حساب -->
+                        <LinearLayout
+                            android:id="@+id/llSignupForm"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_standard"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <EditText
+                                android:id="@+id/etName"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:background="@drawable/bg_field_white"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_user"
+                                android:hint="@string/hint_name"
+                                android:inputType="textPersonName"
+                                android:padding="12dp"
+                                android:autofillHints="username"/>
+
+                            <EditText
+                                android:id="@+id/etSignupEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:background="@drawable/bg_field_white"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_email"
+                                android:hint="@string/hint_email"
+                                android:inputType="textEmailAddress"
+                                android:padding="12dp"
+                                android:autofillHints="emailAddress"/>
+
+                            <EditText
+                                android:id="@+id/etSignupPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:background="@drawable/bg_field_white"
+                                android:drawableStart="@drawable/ic_password"
+                                android:drawableEnd="@drawable/ic_eye_off"
+                                android:drawablePadding="8dp"
+                                android:hint="@string/hint_password"
+                                android:inputType="textPassword"
+                                android:padding="12dp"
+                                android:autofillHints="password"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/cbAgree"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:buttonTint="@color/colorSubText"/>
+
+                                <TextView
+                                    android:id="@+id/tvAgreeText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/margin_standard"
+                                    android:text="@string/agree_text"
+                                    android:textColor="@android:color/black"/>
+                            </LinearLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCreateAccount"
+                                style="@style/Widget.OBDCodes.Button.Shape"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/button_height"
+                                android:layout_marginTop="@dimen/margin_standard"
+                                android:drawablePadding="8dp"
+                                android:drawableStart="@drawable/ic_user"
+                                android:text="@string/btn_create_account"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvVersion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/padding_large"
+                            android:text="@string/app_version"
+                            android:textColor="@android:color/black"/>
+                    </LinearLayout>
+                </ScrollView>
+
+                <ProgressBar
+                    android:id="@+id/progressAuth"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:visibility="gone"/>
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

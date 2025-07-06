@@ -1,0 +1,127 @@
+plugins {
+
+    alias(libs.plugins.android.application)
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.proapp.obdcodes'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.proapp.obdcodes"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        // Instrumentation runner للاختبارات
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+    }
+    buildFeatures{
+        dataBinding true
+        viewBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+
+
+    // تعطيل تحذير RestrictedApi إن لزم الأمر
+    lintOptions {
+        disable 'RestrictedApi'
+    }
+}
+
+dependencies {
+
+    // Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:32.1.1')
+
+    // AndroidX & Material
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.constraintlayout
+
+    // Lifecycle
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+
+    // Navigation
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+
+    // Preferences (اختيار نسخة v1.2.0)
+    implementation 'androidx.preference:preference-ktx:1.2.0'
+
+    // Networking
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.okhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:4.10.0"
+
+    // DataStore
+    implementation libs.datastore.preferences
+    implementation libs.datastore.android
+
+    // Room
+    implementation libs.room.runtime.v252
+    implementation libs.scenecore
+    annotationProcessor libs.room.compiler
+
+    // Splash Screen
+    implementation libs.core.splashscreen
+
+    // Firebase Analytics
+    implementation libs.google.firebase.analytics
+
+    // OneSignal
+    implementation libs.onesignal
+
+    // AdMob
+    implementation libs.play.services.ads.v2210
+
+    // Google Sign-In
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+
+    // UI Helpers
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // Testing
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // Activity KTX (لـ Android 1.8+)
+    implementation 'androidx.activity:activity-ktx:1.8.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+}
+
+
+// توحيد إصدارات Google Play services measurement
+configurations.all {
+    resolutionStrategy.eachDependency { details ->
+        if (details.requested.group == 'com.google.android.gms'
+                && details.requested.name.startsWith('play-services-measurement')) {
+            details.useVersion '22.4.0'
+            details.because "توحيد إصدار Google Play services measurement"
+        }
+    }
+}

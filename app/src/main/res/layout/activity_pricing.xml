@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+
+    <!-- المحتوى -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- عنوان فرعي -->
+            <TextView
+                android:id="@+id/tvChoosePlan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_plan"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#222E36"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- خطة شراء لمرة واحدة -->
+            <LinearLayout
+                android:id="@+id/planOneTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_list_card"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_time_title"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#00838F"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_time_price"
+                    android:textSize="16sp"
+                    android:textColor="#54616C"
+                    android:layout_marginTop="4dp"/>
+                <Button
+                    android:id="@+id/btnOneTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/select"
+                    android:textAllCaps="false"
+                    android:background="@drawable/bg_search_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="12dp"/>
+            </LinearLayout>
+
+            <!-- الاشتراك الشهري -->
+            <LinearLayout
+                android:id="@+id/planMonthly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_list_card"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monthly_title"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#00838F"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monthly_price"
+                    android:textSize="16sp"
+                    android:textColor="#54616C"
+                    android:layout_marginTop="4dp"/>
+                <Button
+                    android:id="@+id/btnMonthly"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/select"
+                    android:textAllCaps="false"
+                    android:background="@drawable/bg_search_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="12dp"/>
+            </LinearLayout>
+
+            <!-- الاشتراك السنوي -->
+            <LinearLayout
+                android:id="@+id/planYearly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_list_card"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yearly_title"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#00838F"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yearly_price"
+                    android:textSize="16sp"
+                    android:textColor="#54616C"
+                    android:layout_marginTop="4dp"/>
+                <Button
+                    android:id="@+id/btnYearly"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/select"
+                    android:textAllCaps="false"
+                    android:background="@drawable/bg_search_button"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="12dp"/>
+            </LinearLayout>
+
+            <!-- روابط قانونية -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:id="@+id/tvPrivacyPolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/app_bar_green"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:layout_marginEnd="24dp"/>
+
+                <TextView
+                    android:id="@+id/tvTermsOfService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terms_of_service"
+                    android:textColor="@color/app_bar_green"
+                    android:textStyle="bold"
+                    android:clickable="true"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

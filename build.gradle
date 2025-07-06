@@ -1,0 +1,19 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // مكوّن Gradle الأساسي للأندرويد
+        classpath "com.android.tools.build:gradle:8.1.1"
+        // مكوّن Google Services (Firebase/AdMob)
+        classpath "com.google.gms:google-services:4.3.15"
+    }
+}
+
+// إذا كان لديك إعدادات إضافية للـ plugins في المستوى الأعلى، احتفظ بها هنا:
+plugins {
+    alias(libs.plugins.android.application) apply false
+}

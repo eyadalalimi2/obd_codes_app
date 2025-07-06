@@ -1,0 +1,76 @@
+[versions]
+agp = "8.10.0"
+datastorePreferences = "1.0.0"
+fingerprint = "1.0.9"
+firebaseAnalytics = "22.4.0"
+firebaseAnalyticsVersion = "21.2.0"
+googleMaterial = "1.10.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+material = "1.12.0"
+constraintlayout = "2.1.4"
+lifecycleLivedataKtx = "2.6.1"
+lifecycleViewmodelKtx = "2.6.1"
+materialVersion = "1.11.0"
+navigationFragment = "2.6.0"
+navigationUi = "2.6.0"
+okhttp = "4.9.3"
+onesignal = "4.8.8"
+playServicesAds = "24.3.0"
+playServicesAdsVersion = "22.1.0"
+preference = "1.2.1"
+playServicesMeasurementApi = "22.4.0"
+preferenceVersion = "1.2.0"
+retrofit = "2.9.0"
+roomRuntime = "2.7.1"
+roomCompiler = "2.5.2"
+datastoreAndroid = "1.1.7"
+coreSplashscreen = "1.0.1"
+roomRuntimeVersion = "2.5.2"
+scenecore = "1.0.0-alpha04"
+biometric = "1.1.0"
+securityCrypto = "1.1.0"
+tinkAndroid = "1.6.1"
+
+[libraries]
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+fingerprint = { module = "com.github.aflak:Fingerprint", version.ref = "fingerprint" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "firebaseAnalytics" }
+firebase-analytics-v2120 = { module = "com.google.firebase:firebase-analytics", version.ref = "firebaseAnalyticsVersion" }
+google-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycleLivedataKtx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+material-v1100 = { module = "com.google.android.material:material", version.ref = "googleMaterial" }
+material-v1110 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+onesignal = { module = "com.onesignal:OneSignal", version.ref = "onesignal" }
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
+play-services-ads-v2210 = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAdsVersion" }
+preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+play-services-measurement-api = { group = "com.google.android.gms", name = "play-services-measurement-api", version.ref = "playServicesMeasurementApi" }
+preference-v120 = { module = "androidx.preference:preference", version.ref = "preferenceVersion" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+datastore-android = { group = "androidx.datastore", name = "datastore-android", version.ref = "datastoreAndroid" }
+core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
+room-runtime-v252 = { module = "androidx.room:room-runtime", version.ref = "roomRuntimeVersion" }
+scenecore = { group = "androidx.xr.scenecore", name = "scenecore", version.ref = "scenecore" }
+biometric = { group = "androidx.biometric", name = "biometric", version.ref = "biometric" }
+security-crypto = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
+tink-android = { module = "com.google.crypto.tink:tink-android", version.ref = "tinkAndroid" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+

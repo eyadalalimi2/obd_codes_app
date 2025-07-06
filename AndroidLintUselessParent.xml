@@ -1,0 +1,54 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_account.xml" />
+  <problem_class id="AndroidLintUselessParent" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary parent layout</problem_class>
+  <hints />
+  <description>&lt;html&gt;This &lt;code&gt;ScrollView&lt;/code&gt; layout or its &lt;code&gt;LinearLayout&lt;/code&gt; parent is unnecessary; transfer the &lt;code&gt;background&lt;/code&gt; attribute to the other view&lt;/html&gt;</description>
+  <highlighted_element>ScrollView</highlighted_element>
+  <language>XML</language>
+  <offset>5</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml</file>
+  <line>12</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_code_details.xml" />
+  <problem_class id="AndroidLintUselessParent" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary parent layout</problem_class>
+  <hints />
+  <description>&lt;html&gt;This &lt;code&gt;ScrollView&lt;/code&gt; layout or its &lt;code&gt;LinearLayout&lt;/code&gt; parent is unnecessary; transfer the &lt;code&gt;background&lt;/code&gt; attribute to the other view&lt;/html&gt;</description>
+  <highlighted_element>ScrollView</highlighted_element>
+  <language>XML</language>
+  <offset>5</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml</file>
+  <line>9</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
+  <problem_class id="AndroidLintUselessParent" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary parent layout</problem_class>
+  <hints />
+  <description>&lt;html&gt;This &lt;code&gt;ScrollView&lt;/code&gt; layout or its &lt;code&gt;RelativeLayout&lt;/code&gt; parent is possibly unnecessary; transfer the &lt;code&gt;background&lt;/code&gt; attribute to the other view&lt;/html&gt;</description>
+  <highlighted_element>ScrollView</highlighted_element>
+  <language>XML</language>
+  <offset>5</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml</file>
+  <line>18</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" />
+  <problem_class id="AndroidLintUselessParent" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary parent layout</problem_class>
+  <hints />
+  <description>&lt;html&gt;This &lt;code&gt;ScrollView&lt;/code&gt; layout or its &lt;code&gt;LinearLayout&lt;/code&gt; parent is unnecessary; transfer the &lt;code&gt;background&lt;/code&gt; attribute to the other view&lt;/html&gt;</description>
+  <highlighted_element>ScrollView</highlighted_element>
+  <language>XML</language>
+  <offset>9</offset>
+  <length>10</length>
+</problem>
+</problems>

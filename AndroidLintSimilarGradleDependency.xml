@@ -1,0 +1,28 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/gradle/libs.versions.toml</file>
+  <line>21</line>
+  <module>Obd_Codes</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/gradle/libs.versions.toml" />
+  <problem_class id="AndroidLintSimilarGradleDependency" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Multiple Versions Gradle Dependency</problem_class>
+  <hints />
+  <description>&lt;html&gt;There are multiple dependencies com.google.android.material:material but with different version&lt;/html&gt;</description>
+  <highlighted_element>group = &quot;com.google.android.material&quot;, name = &quot;material&quot;, version.ref = &quot;material&quot; }</highlighted_element>
+  <language>TOML</language>
+  <offset>12</offset>
+  <length>85</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/gradle/libs.versions.toml</file>
+  <line>25</line>
+  <module>Obd_Codes</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/gradle/libs.versions.toml" />
+  <problem_class id="AndroidLintSimilarGradleDependency" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Multiple Versions Gradle Dependency</problem_class>
+  <hints />
+  <description>&lt;html&gt;There are multiple dependencies com.google.android.material:material but with different version&lt;/html&gt;</description>
+  <highlighted_element>module = &quot;com.google.android.material:material&quot;, version.ref = &quot;materialVersion&quot; }</highlighted_element>
+  <language>TOML</language>
+  <offset>18</offset>
+  <length>83</length>
+</problem>
+</problems>

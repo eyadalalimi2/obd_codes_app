@@ -1,0 +1,743 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_ai_assistant.xml</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ai_assistant.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;أدخل وصف المشكلة أو الكود&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:hint=&quot;أدخل وصف المشكلة أو الكود&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_ai_assistant.xml</file>
+  <line>21</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_ai_assistant.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تحليل&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تحليل&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>15</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تسجيل الدخول / إنشاء حساب&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تسجيل الدخول / إنشاء حساب&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>40</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>24</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;البريد الإلكتروني&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:hint=&quot;البريد الإلكتروني&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>32</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;كلمة المرور&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:hint=&quot;كلمة المرور&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>40</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تسجيل الدخول&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تسجيل الدخول&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>27</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>47</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;إنشاء حساب&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;إنشاء حساب&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml</file>
+  <line>54</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_auth.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;الدخول عبر Google&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;الدخول عبر Google&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml</file>
+  <line>12</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;اختر الكود الأول:&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;اختر الكود الأول:&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>32</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml</file>
+  <line>23</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;اختر الكود الثاني:&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;اختر الكود الثاني:&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml</file>
+  <line>36</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_compare_codes.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;مقارنة&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;مقارنة&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>21</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_diagnosis_history.xml</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_diagnosis_history.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;مسح السجل&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;مسح السجل&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>59</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;P&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;P&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>88</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;0&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;0&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>117</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;0&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;0&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>146</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;0&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;0&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>174</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;0&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;0&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml</file>
+  <line>206</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;English&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;English&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>16</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_language_settings.xml</file>
+  <line>21</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_language_settings.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;English&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;English&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_language_settings.xml</file>
+  <line>27</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_language_settings.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;العربية&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;العربية&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_legal_text.xml</file>
+  <line>10</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_legal_text.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;سياسة الخصوصية:nnنحن نأخذ خصوصيتك على محمل الجد. هذا النص هو تمثيل تجريبي لسياسة الخصوصية. عند ربط التطبيق بلوحة التحكم سيتم تحميل المحتوى من السيرفر تلقائياً.&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;سياسة الخصوصية:\n\nنحن نأخذ خصوصيتك على محمل الجد. هذا النص هو تمثيل تجريبي لسياسة الخ...</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>176</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml</file>
+  <line>9</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;الوضع: معطل&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;الوضع: معطل&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml</file>
+  <line>17</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تفعيل وضع الأوفلاين&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تفعيل وضع الأوفلاين&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml</file>
+  <line>25</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_offline_mode.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تحميل الأكواد&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تحميل الأكواد&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml</file>
+  <line>16</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تفاصيل التقرير&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تفاصيل التقرير&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>29</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml</file>
+  <line>20</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;حفظ كـ PDF&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;حفظ كـ PDF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml</file>
+  <line>27</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_pdf_report.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;مشاركة التقرير&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;مشاركة التقرير&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>29</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_smart_notifications.xml</file>
+  <line>9</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_smart_notifications.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;مسح الكل&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;مسح الكل&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml</file>
+  <line>17</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Splash Activity&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;Splash Activity&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml</file>
+  <line>26</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Welcome to the App&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;Welcome to the App&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>12</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;اختر عرضًا من القائمة:&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;اختر عرضًا من القائمة:&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>37</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>22</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;أو أدخل عرضًا يدويًا:&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;أو أدخل عرضًا يدويًا:&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>36</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>29</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;مثال: صعوبة تشغيل المحرك&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:hint=&quot;مثال: صعوبة تشغيل المحرك&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>39</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>36</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تشخيص&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;تشخيص&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml</file>
+  <line>49</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_symptom_diagnosis.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;العودة إلى الرئيسية&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;العودة إلى الرئيسية&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>34</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml</file>
+  <line>79</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/activity_test.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Change Language&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;Change Language&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>20</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml</file>
+  <line>14</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;User&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:contentDescription=&quot;User&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml</file>
+  <line>21</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/drawer_header.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;OBD Codes Pro&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;OBD Codes Pro&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml</file>
+  <line>17</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;P0420 - مشكلة في العادم&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;P0420 - مشكلة في العادم&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>38</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml</file>
+  <line>26</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;🗑&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;🗑&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>17</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml</file>
+  <line>35</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_diagnosis_history.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;2025-05-22&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;2025-05-22&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>25</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_onboarding.xml</file>
+  <line>24</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_onboarding.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;عنوان&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;عنوان&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>20</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_onboarding.xml</file>
+  <line>33</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_onboarding.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;وصف قصير&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;وصف قصير&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>23</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_visual_component.xml</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_visual_component.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;صورة مكوّن&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:contentDescription=&quot;صورة مكوّن&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>39</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/layout/item_visual_component.xml</file>
+  <line>17</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/layout/item_visual_component.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;اسم المكوّن&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:text=&quot;اسم المكوّن&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>8</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml</file>
+  <line>7</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;تشخيص بالأعراض&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;تشخيص بالأعراض&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml</file>
+  <line>11</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;حول التطبيق&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;حول التطبيق&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>27</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml</file>
+  <line>15</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;إخلاء المسؤولية&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;إخلاء المسؤولية&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>31</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml</file>
+  <line>19</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menu.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;اتصل بنا&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;اتصل بنا&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>8</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Symptom Diagnosis&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Symptom Diagnosis&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>13</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Compare Codes&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Compare Codes&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>29</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>18</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Visual Library&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Visual Library&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>23</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Diagnosis History&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Diagnosis History&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>33</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>28</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Generate PDF&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Generate PDF&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>28</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>33</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Smart Notifications&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Smart Notifications&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>35</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>38</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;Trending Codes&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;Trending Codes&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>30</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml</file>
+  <line>43</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/menu/drawer_menus.xml" />
+  <problem_class id="AndroidLintHardcodedText" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Hardcoded text</problem_class>
+  <hints />
+  <description>&lt;html&gt;Hardcoded string &quot;AI Assistant&quot;, should use &lt;code&gt;@string&lt;/code&gt; resource&lt;/html&gt;</description>
+  <highlighted_element>android:title=&quot;AI Assistant&quot;</highlighted_element>
+  <language>XML</language>
+  <offset>12</offset>
+  <length>28</length>
+</problem>
+</problems>

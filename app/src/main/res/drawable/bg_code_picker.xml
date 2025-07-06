@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- خلفية بيضاء -->
+    <solid android:color="@android:color/white"/>
+
+    <!-- حد أخضر بعرض 3dp -->
+    <stroke
+        android:width="3dp"
+        android:color="@color/app_bar_green"/>
+
+    <!-- زوايا مستديرة -->
+    <corners android:radius="8dp"/>
+</shape>

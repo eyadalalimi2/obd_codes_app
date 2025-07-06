@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- خلفية كاملة باللون الأبيض -->
+    <solid android:color="@android:color/white" />
+
+    <!-- اختياري: إطار حول الدائرة -->
+
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorAccent" />
+
+</shape>

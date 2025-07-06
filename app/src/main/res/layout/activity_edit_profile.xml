@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- الاسم الكامل -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الاسم الكامل"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="اسم المستخدم" />
+
+        <!-- البريد الإلكتروني -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="البريد الإلكتروني"
+            android:textStyle="bold" />
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="example@mail.com" />
+
+        <!-- زرّ إعادة إرسال رابط التفعيل -->
+        <Button
+            android:id="@+id/btnVerifyEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="إعادة إرسال رابط التفعيل"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@android:color/white"/>
+
+        <!-- رقم الهاتف -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="رقم الهاتف"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            android:hint="770000000" />
+
+        <!-- المسمى الوظيفي -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المسمى الوظيفي"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <EditText
+            android:id="@+id/etJobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مثل: ميكانيكي سيارات" />
+
+        <!-- قسم الاشتراك: عرض فقط -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="اسم الباقة"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+        <TextView
+            android:id="@+id/tvPackageNameValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="غير محدد" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حالة الاشتراك"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/tvSubscriptionStatusValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مجاني" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="تاريخ بداية الخطة"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/tvPlanStartDateValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="-" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="تاريخ التجديد"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+        <TextView
+            android:id="@+id/tvPlanEndDateValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="-" />
+
+        <!-- زر عرض تفاصيل الاشتراك -->
+        <Button
+            android:id="@+id/btnViewSubscriptionDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="عرض تفاصيل الاشتراك"
+            android:layout_marginTop="16dp" />
+
+        <!-- زر حفظ -->
+        <Button
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="حفظ التغييرات"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

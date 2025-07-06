@@ -1,0 +1,44 @@
+<resources>
+    <string-array name="array_box1">
+        <item>P</item><item>B</item><item>C</item><item>U</item>
+    </string-array>
+    <string-array name="array_box2">
+        <item>0</item><item>1</item><item>2</item><item>3</item>
+        <item>4</item><item>5</item><item>6</item><item>7</item>
+        <item>8</item><item>9</item>
+    </string-array>
+    <string-array name="array_box_rest">
+        <item>0</item><item>1</item><item>2</item><item>3</item>
+        <item>4</item><item>5</item><item>6</item><item>7</item>
+        <item>8</item><item>9</item><item>A</item><item>B</item>
+        <item>C</item><item>D</item><item>E</item><item>F</item>
+    </string-array>
+    <!-- قائمة عرض اللغات في الـ Spinner / AlertDialog -->
+    <string-array name="array_languages">
+        <item>English</item>
+        <item>العربية</item>
+        <item>Français</item>
+        <item>Русский</item>
+        <item>Türkçe</item>
+    </string-array>
+
+    <!-- الأسماء المرئية في تفضيلات المستخدم -->
+    <string-array name="pref_language_names">
+        <item>العربية</item>
+        <item>English</item>
+        <item>Français</item>
+        <item>Русский</item>
+        <item>Türkçe</item>
+    </string-array>
+
+    <!-- القيم البرمجية المقابلة لكل لغة -->
+    <string-array name="pref_language_values">
+        <item>ar</item>
+        <item>en</item>
+        <item>fr</item>
+        <item>ru</item>
+        <item>tr</item>
+    </string-array>
+
+
+</resources>

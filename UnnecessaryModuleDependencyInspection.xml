@@ -1,0 +1,26 @@
+<problems>
+<problem>
+  <file>Obd_Codes.app.androidTest</file>
+  <module>Obd_Codes.app.androidTest</module>
+  <entry_point TYPE="module" FQNAME="Obd_Codes.app.androidTest" />
+  <problem_class id="UnnecessaryModuleDependencyInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary module dependency</problem_class>
+  <hints>
+    <hint value="Obd_Codes.app.main" />
+  </hints>
+  <description>Module 'Obd_Codes.app.androidTest' sources do not depend on module 'Obd_Codes.app.main' sources</description>
+  <highlighted_element />
+  <language />
+</problem>
+<problem>
+  <file>Obd_Codes.app.unitTest</file>
+  <module>Obd_Codes.app.unitTest</module>
+  <entry_point TYPE="module" FQNAME="Obd_Codes.app.unitTest" />
+  <problem_class id="UnnecessaryModuleDependencyInspection" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Unnecessary module dependency</problem_class>
+  <hints>
+    <hint value="Obd_Codes.app.main" />
+  </hints>
+  <description>Module 'Obd_Codes.app.unitTest' sources do not depend on module 'Obd_Codes.app.main' sources</description>
+  <highlighted_element />
+  <language />
+</problem>
+</problems>

@@ -1,0 +1,54 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values/strings.xml</file>
+  <line>120</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+  <problem_class id="AndroidLintTypographyEllipsis" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Ellipsis string can be replaced with ellipsis character</problem_class>
+  <hints />
+  <description>&lt;html&gt;Replace &quot;...&quot; with ellipsis character (…, &amp;amp;#8230;) ?&lt;/html&gt;</description>
+  <highlighted_element>Continue reading...</highlighted_element>
+  <language>XML</language>
+  <offset>36</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values/strings.xml</file>
+  <line>153</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+  <problem_class id="AndroidLintTypographyEllipsis" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Ellipsis string can be replaced with ellipsis character</problem_class>
+  <hints />
+  <description>&lt;html&gt;Replace &quot;...&quot; with ellipsis character (…, &amp;amp;#8230;) ?&lt;/html&gt;</description>
+  <highlighted_element>Enter your message here...</highlighted_element>
+  <language>XML</language>
+  <offset>33</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml</file>
+  <line>116</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" />
+  <problem_class id="AndroidLintTypographyEllipsis" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Ellipsis string can be replaced with ellipsis character</problem_class>
+  <hints />
+  <description>&lt;html&gt;Replace &quot;...&quot; with ellipsis character (…, &amp;amp;#8230;) ?&lt;/html&gt;</description>
+  <highlighted_element>Continue reading...</highlighted_element>
+  <language>XML</language>
+  <offset>36</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml</file>
+  <line>149</line>
+  <module>Obd_Codes.app.main</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/app/src/main/res/values-ar/strings.xml" />
+  <problem_class id="AndroidLintTypographyEllipsis" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Ellipsis string can be replaced with ellipsis character</problem_class>
+  <hints />
+  <description>&lt;html&gt;Replace &quot;...&quot; with ellipsis character (…, &amp;amp;#8230;) ?&lt;/html&gt;</description>
+  <highlighted_element>Enter your message here...</highlighted_element>
+  <language>XML</language>
+  <offset>33</offset>
+  <length>26</length>
+</problem>
+</problems>
