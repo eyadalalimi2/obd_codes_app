@@ -300,6 +300,8 @@
     <string name="prompt_choose_brand">Marka Seçin</string>
     <string name="prompt_choose_model">Model seçin</string>
     <string name="prompt_choose_year">Üretim yılını seçin</string>
-
+    <string name="no_internet_title">İnternet bağlantısı yok</string>
+    <string name="no_internet_message">Lütfen bağlantınızı kontrol edip tekrar deneyin.</string>
+    <string name="retry">Yeniden dene</string>
 
 </resources>

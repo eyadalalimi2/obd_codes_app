@@ -1,16 +1,22 @@
-// File: BaseActivity.java
 package com.proapp.obdcodes.ui.base;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +31,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.base.NetworkUtil;
 import com.proapp.obdcodes.network.model.UserNotification;
 import com.proapp.obdcodes.ui.TestActivity;
 import com.proapp.obdcodes.ui.account.AccountActivity;
@@ -50,19 +57,27 @@ public abstract class BaseActivity extends AppCompatActivity
     private NotificationViewModel notificationViewModel;
     private TextView badge;
 
+    // Dialog for no-internet state
+    private AlertDialog noInternetDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 1) تحميل الـ base layout الذي يحتوي على Toolbar, DrawerLayout, BottomNav
+        // Prepare the no-internet dialog
+        setupNoInternetDialog();
+
+        // Inflate the base layout containing toolbar, drawer & bottom nav
         setContentView(R.layout.activity_base);
 
-        // 2) متابعة الإعدادات العادية
+        // Initialize notification ViewModel
         notificationViewModel = new ViewModelProvider(this).get(NotificationViewModel.class);
 
+        // Setup toolbar
         Toolbar toolbar = findViewById(R.id.base_toolbar);
         setSupportActionBar(toolbar);
 
+        // Setup drawer & navigation view
         drawer = findViewById(R.id.base_drawer);
         NavigationView navView = findViewById(R.id.base_nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -72,6 +87,7 @@ public abstract class BaseActivity extends AppCompatActivity
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
 
+        // Header binding
         View header = navView.getHeaderView(0);
         ImageView imgHeader = header.findViewById(R.id.nav_header_image);
         TextView tvHeaderName  = header.findViewById(R.id.nav_header_name);
@@ -97,10 +113,12 @@ public abstract class BaseActivity extends AppCompatActivity
             startActivity(new Intent(this, AccountActivity.class));
         });
 
+        // Setup bottom navigation
         bottomNav = findViewById(R.id.base_bottom_nav);
         bottomNav.setOnItemSelectedListener(item -> {
-            int id = item.getItemId();
+            animateBottomNav(item);
             Intent intent = null;
+            int id = item.getItemId();
             if (id == R.id.nav_home) {
                 return true;
             } else if (id == R.id.nav_saved) {
@@ -118,26 +136,60 @@ public abstract class BaseActivity extends AppCompatActivity
         });
     }
 
-    protected void setActivityLayout(int layoutResID) {
-        FrameLayout container = findViewById(R.id.base_content_frame);
-        getLayoutInflater().inflate(layoutResID, container, true);
+    /**
+     * Prepares the AlertDialog that shows when there's no internet connection.
+     */
+    private void setupNoInternetDialog() {
+        View v = getLayoutInflater().inflate(R.layout.dialog_no_internet, null);
+
+        AlertDialog.Builder b = new AlertDialog.Builder(this)
+                .setView(v)
+                .setCancelable(false);
+
+        noInternetDialog = b.create();
+
+        Button retry = v.findViewById(R.id.btn_retry);
+        retry.setOnClickListener(x -> {
+            noInternetDialog.dismiss();
+            onResume();
+        });
+
+        Button close = v.findViewById(R.id.btn_close);
+        close.setOnClickListener(x ->
+                noInternetDialog.dismiss());
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (!NetworkUtil.isConnected(this)) {
+            noInternetDialog.show();
+        } else if (noInternetDialog.isShowing()) {
+            noInternetDialog.dismiss();
+        }
+
         notificationViewModel.refreshNotifications();
     }
 
+
     @SuppressLint("RestrictedApi")
     private void animateBottomNav(@NonNull MenuItem selectedItem) {
-        BottomNavigationMenuView menuView =
-                (BottomNavigationMenuView) bottomNav.getChildAt(0);
+        if (bottomNav == null) return;
+
+        View navChild = bottomNav.getChildAt(0);
+        if (!(navChild instanceof BottomNavigationMenuView)) return;
+
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) navChild;
 
         for (int i = 0; i < menuView.getChildCount(); i++) {
             BottomNavigationItemView itemView =
                     (BottomNavigationItemView) menuView.getChildAt(i);
             View icon = itemView.findViewById(com.google.android.material.R.id.icon);
+
+            if (icon == null) continue;
 
             if (itemView.getItemData().getItemId() == selectedItem.getItemId()) {
                 icon.animate()
@@ -154,6 +206,7 @@ public abstract class BaseActivity extends AppCompatActivity
             }
         }
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -203,10 +256,11 @@ public abstract class BaseActivity extends AppCompatActivity
         NotificationViewModel vm = new ViewModelProvider(this).get(NotificationViewModel.class);
         vm.getNotifications().observe(this, list -> {
             long unreadCount = 0;
-            for (UserNotification n : list) {
-                if (n.getReadAt() == null) unreadCount++;
+            if (list != null) {
+                for (UserNotification n : list) {
+                    if (n.getReadAt() == null) unreadCount++;
+                }
             }
-
             if (unreadCount > 0) {
                 badge.setVisibility(View.VISIBLE);
                 badge.setText(String.valueOf(unreadCount));
@@ -224,7 +278,6 @@ public abstract class BaseActivity extends AppCompatActivity
         });
 
         actionView.setOnClickListener(v -> onOptionsItemSelected(item));
-
         return true;
     }
 
@@ -235,5 +288,13 @@ public abstract class BaseActivity extends AppCompatActivity
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Inflate a layout into the base content frame.
+     */
+    protected void setActivityLayout(int layoutResID) {
+        FrameLayout container = findViewById(R.id.base_content_frame);
+        getLayoutInflater().inflate(layoutResID, container, true);
     }
 }

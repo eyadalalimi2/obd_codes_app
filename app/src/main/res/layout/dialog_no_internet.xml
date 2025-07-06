@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background_white"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:ignore="TextSizeCheck">
+
+    <!-- أيقونة انقطاع الإنترنت -->
+    <ImageView
+        android:id="@+id/iv_no_wifi"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/no_internet_title"
+        android:src="@drawable/no_internet" />
+
+    <!-- عنوان التنبيه -->
+    <TextView
+        android:id="@+id/tv_no_internet_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/no_internet_title"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+    <!-- نص الرسالة -->
+    <TextView
+        android:id="@+id/tv_no_internet_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/no_internet_message"
+        android:textAlignment="center" />
+
+    <!-- زران أسفل النافذة -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_retry"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/retry"
+            android:layout_marginEnd="12dp"
+            android:layout_height="wrap_content"
+            tools:ignore="ButtonStyle,VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/close"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/no_internet"
+            android:layout_height="wrap_content"
+            tools:ignore="ButtonStyle,VisualLintButtonSize" />
+    </LinearLayout>
+</LinearLayout>

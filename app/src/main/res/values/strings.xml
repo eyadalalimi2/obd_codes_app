@@ -304,4 +304,7 @@
     <string name="prompt_choose_brand">Choose the brand</string>
     <string name="prompt_choose_model">Choose the model</string>
     <string name="prompt_choose_year">Choose the year of production</string>
+    <string name="no_internet_title">No internet connection</string>
+    <string name="no_internet_message">Please check your connection and try again.</string>
+    <string name="retry">Retry</string>
 </resources>

@@ -290,5 +290,8 @@
     <string name="prompt_choose_brand">Выберите марку</string>
     <string name="prompt_choose_model">Выбрать модель</string>
     <string name="prompt_choose_year">Выберите год производства</string>
+    <string name="no_internet_title">Нет подключения к Интернету</string>
+    <string name="no_internet_message">Пожалуйста, проверьте подключение и повторите попытку.</string>
+    <string name="retry">Повторить</string>
 
 </resources>
