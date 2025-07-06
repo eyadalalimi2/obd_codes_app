@@ -3,6 +3,7 @@ package com.proapp.obdcodes.ui.home;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -18,7 +19,7 @@ import com.proapp.obdcodes.ui.howitworks.HowItWorksActivity;
 import java.util.Locale;
 
 public class HomeActivity extends BaseActivity {
-
+    private AlertDialog exitDialog;
     private TextView[] codeBoxes;
     private TextView tvLanguage;
     private String[] arr1, arr2, arrRest, arrLang;
@@ -26,7 +27,7 @@ public class HomeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setupExitDialog();
         // حقن واجهة Home داخل الـ base layout
         setActivityLayout(R.layout.activity_home);
 
@@ -146,5 +147,30 @@ public class HomeActivity extends BaseActivity {
     /** تحويل dp إلى px */
     private int dpToPx(int dp) {
         return Math.round(dp * getResources().getDisplayMetrics().density);
+    }
+    private void setupExitDialog() {
+        View view = getLayoutInflater().inflate(R.layout.dialog_exit_confirm, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setView(view)
+                .setCancelable(false);
+        exitDialog = builder.create();
+
+        Button btnCancel = view.findViewById(R.id.btn_exit_cancel);
+        Button btnConfirm = view.findViewById(R.id.btn_exit_confirm);
+
+        btnCancel.setOnClickListener(v -> exitDialog.dismiss());
+        btnConfirm.setOnClickListener(v -> {
+            exitDialog.dismiss();
+            finishAffinity(); // يغلق كل الـ Activities وينهي التطبيق
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        // بدل تنفيذ finish() مباشرة، نعرض مربع التأكيد
+        if (exitDialog != null && !exitDialog.isShowing()) {
+            exitDialog.show();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
