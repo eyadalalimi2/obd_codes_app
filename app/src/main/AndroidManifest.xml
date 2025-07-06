@@ -30,12 +30,6 @@
             </intent-filter>
         </activity>
 
-
-
-
-
-
-
         <!-- Onboarding -->
         <activity android:name=".ui.onboarding.OnboardingActivity" />
 
