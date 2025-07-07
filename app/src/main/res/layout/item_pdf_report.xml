@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_bg"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvPdfName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OBD_P1234.pdf"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
+
+        <ImageButton
+            android:id="@+id/btnOpenPdf"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_open"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="عرض"/>
+
+        <ImageButton
+            android:id="@+id/btnSharePdf"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_sharee"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="مشاركة"/>
+
+        <ImageButton
+            android:id="@+id/btnDeletePdf"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="حذف"
+            android:src="@drawable/ic_delete"
+            tools:ignore="HardcodedText,ImageContrastCheck,TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/btnSaveToStorage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_save"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="حفظ للذاكرة"/>
+    </LinearLayout>
+</RelativeLayout>

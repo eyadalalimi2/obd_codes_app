@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,8 +37,6 @@ public class SavedCodesActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_saved_codes);
 
-        // 1. ربط Toolbar بالـ ActionBar
-        setActivityLayout(R.layout.activity_base);
 
         // 2. تفعيل زر الـ Up (الرجوع) بأمان بعد فحص null
         ActionBar actionBar = getSupportActionBar();

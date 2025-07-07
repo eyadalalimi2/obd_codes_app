@@ -2,11 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- الأذونات المطلوبة -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- للكتابة على التخزين الخارجي حتى API 28 فقط -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:allowBackup="true"
+        android:requestLegacyExternalStorage="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +23,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ObdCodes"
         tools:targetApi="31">
+
+        <!-- AdMob App ID -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id"/>
+            android:value="@string/admob_app_id" />
 
         <!-- شاشة البداية -->
         <activity
@@ -25,8 +35,8 @@
             android:theme="@style/Theme.OBD.Splash"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
@@ -34,89 +44,134 @@
         <activity android:name=".ui.onboarding.OnboardingActivity" />
 
         <!-- Auth -->
-        <activity android:name=".ui.auth.AuthActivity"
-            android:label="@string/login_title"/>
-        <activity android:name=".ui.auth.ForgotPasswordActivity"
-            android:label="@string/forgot_password"/>
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:label="@string/login_title" />
+        <activity
+            android:name=".ui.auth.ForgotPasswordActivity"
+            android:label="@string/forgot_password" />
+
         <!-- Home & Search -->
-        <activity android:name=".ui.home.HomeActivity"
-            android:label="@string/home"/>
-        <activity android:name=".ui.code_search.CodeSearchActivity"
-            android:label="@string/search_code_title"/>
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:label="@string/home" />
+        <activity
+            android:name=".ui.code_search.CodeSearchActivity"
+            android:label="@string/search_code_title" />
 
         <!-- Code Details & PDF -->
-        <activity android:name=".ui.code_details.CodeDetailsActivity"
-            android:label="@string/code_details"/>
-        <activity android:name=".ui.pdf.PdfReportActivity"
-            android:label="@string/nav_pdf"/>
+        <activity
+            android:name=".ui.code_details.CodeDetailsActivity"
+            android:label="@string/code_details" />
+        <activity
+            android:name=".ui.pdf.PdfReportActivity"
+            android:label="@string/nav_pdf" />
 
         <!-- Saved Codes -->
-        <activity android:name=".ui.saved.SavedCodesActivity"
-            android:label="@string/my_saved_items"/>
+        <activity
+            android:name=".ui.saved.SavedCodesActivity"
+            android:label="@string/my_saved_items" />
 
-        <!-- Account & Settings -->
-        <activity android:name=".ui.account.AccountActivity"
-            android:label="@string/my_account"/>
-        <activity android:name=".ui.settings.LanguageSettingsActivity"
-            android:label="@string/select_language"/>
+        <!-- Account & Profile -->
+        <activity
+            android:name=".ui.account.AccountActivity"
+            android:label="@string/my_account" />
+        <activity
+            android:name=".ui.account.EditProfileActivity"
+            android:label="@string/account_edit" />
+
+        <!-- Settings & Language -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:label="@string/settings" />
+        <activity
+            android:name=".ui.settings.LanguageSettingsActivity"
+            android:label="@string/select_language" />
 
         <!-- Pricing & Subscription -->
-        <activity android:name=".ui.pricing.PricingActivity"
-            android:label="@string/pricing"/>
-
-        <!-- Paid Features -->
-        <activity android:name=".ui.diagnosis.SymptomDiagnosisActivity"
-            android:label="@string/nav_symptom"/>
-        <activity android:name=".ui.compare.CompareCodesActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:label="@string/nav_compare"/>
-        <activity android:name=".ui.history.DiagnosisHistoryActivity"
-            android:label="@string/diagnosis_history"/>
-
-        <activity android:name=".ui.analytics.TrendingCodesActivity"
-            android:label="@string/nav_trending"/>
-        <activity android:name=".ui.visual.VisualLibraryActivity"
-            android:label="@string/nav_visual"/>
-        <activity android:name=".ui.chat.ChatActivity"
-            android:label="@string/nav_ai"/>
-
-        <!-- Static / Info Pages -->
-        <activity android:name=".ui.about.AboutActivity"
-            android:label="@string/about_this_app"/>
-        <activity android:name=".ui.howitworks.HowItWorksActivity"
-            android:label="@string/how_it_works"/>
-        <activity android:name=".ui.support.ContactUsActivity"
-            android:label="@string/contact_us"/>
-        <activity android:name=".ui.legal.DisclaimerActivity"
-            android:label="@string/disclaimers"/>
-        <activity android:name=".ui.legal.TermsActivity"
-            android:label="@string/terms_of_service"/>
-        <activity android:name=".ui.legal.PrivacyActivity"
-            android:label="@string/privacy_policy"/>
-        <activity android:name=".ui.menu.MenuActivity"
-            android:label="@string/menu_pages"/>
-
-        <!-- أي نشاطات اختبار أو فرعية -->
-        <activity android:name=".ui.TestActivity"
-            android:label="@string/menu_pages"/>
-        <activity android:name=".ui.offline.OfflineModeActivity"
-            android:label="@string/nav_offline"/>
-        <activity android:name=".ui.account.EditProfileActivity"
-            android:label="@string/account_edit"/>
-        <activity android:name=".ui.settings.SettingsActivity"
-            android:label="@string/settings"
-            android:parentActivityName=".ui.base.BaseActivity" />
+        <activity
+            android:name=".ui.pricing.PricingActivity"
+            android:label="@string/pricing" />
         <activity
             android:name=".ui.subscription.SubscriptionDetailsActivity"
-            android:exported="false"
-            android:label="@string/subscription_details" />
-        <activity android:name=".ui.notifications.NotificationsActivity"
+            android:label="@string/subscription_details"
+            android:exported="false" />
+
+        <!-- Paid Features -->
+        <activity
+            android:name=".ui.diagnosis.SymptomDiagnosisActivity"
+            android:label="@string/nav_symptom" />
+        <activity
+            android:name=".ui.compare.CompareCodesActivity"
+            android:label="@string/nav_compare"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.history.DiagnosisHistoryActivity"
+            android:label="@string/diagnosis_history" />
+        <activity
+            android:name=".ui.analytics.TrendingCodesActivity"
+            android:label="@string/nav_trending" />
+        <activity
+            android:name=".ui.visual.VisualLibraryActivity"
+            android:label="@string/nav_visual" />
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:label="@string/nav_ai" />
+
+        <!-- Static / Info Pages -->
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:label="@string/about_this_app" />
+        <activity
+            android:name=".ui.howitworks.HowItWorksActivity"
+            android:label="@string/how_it_works" />
+        <activity
+            android:name=".ui.support.ContactUsActivity"
+            android:label="@string/contact_us" />
+        <activity
+            android:name=".ui.legal.DisclaimerActivity"
+            android:label="@string/disclaimers" />
+        <activity
+            android:name=".ui.legal.TermsActivity"
+            android:label="@string/terms_of_service" />
+        <activity
+            android:name=".ui.legal.PrivacyActivity"
+            android:label="@string/privacy_policy" />
+
+        <!-- Menu & Debug -->
+        <activity
+            android:name=".ui.menu.MenuActivity"
+            android:label="@string/menu_pages" />
+        <activity
+            android:name=".ui.TestActivity"
+            android:label="@string/menu_pages" />
+        <activity
+            android:name=".ui.offline.OfflineModeActivity"
+            android:label="@string/nav_offline" />
+
+        <!-- Notifications -->
+        <activity
+            android:name=".ui.notifications.NotificationsActivity"
             android:label="@string/notifications"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity
+            android:name=".ui.pdf.ViewPdfActivity"
+            android:label="عرض التقرير" />
 
 
 
+
+
+        <!-- FileProvider لتمكين مشاركة ملفات PDF -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
 
     </application>
-
 </manifest>

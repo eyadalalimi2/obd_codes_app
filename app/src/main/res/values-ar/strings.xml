@@ -298,5 +298,14 @@
     <string name="retry">إعادة المحاولة</string>
     <string name="saved">saved</string>
     <string name="err_fetch_data">خطاء في جلب البيانات</string>
+    <string name="err_generating_pdf">خطأ أثناء توليد ملف PDF. يرجى المحاولة مرة أخرى.</string>
+    <string name="err_saving_code">خطأ أثناء حفظ الكود. يرجى المحاولة مرة أخرى.</string>
+    <string name="itextpdf">iTextPDF</string>
+    <string name="title_pdf_report">تقرير PDF</string>
+    <string name="sample_pdf_summary">تقرير الكود:\n\nالكود: P0300\nالوصف: خلل عشوائي في الاشتعال\nالأسباب: شمعات الاشتعال، أسلاك الإشعال\nالحلول: فحص واستبدال الشمعات</string>
+    <string name="pdf_saved_success">تم حفظ التقرير بنجاح</string>
+    <string name="err_no_pdf_to_share">لا يوجد تقرير PDF للمشاركة</string>
+    <string name="share_pdf">مشاركة التقرير</string>
+    <string name="view_pdf_page">صفحة من ملف PDF</string>
 
 </resources>
