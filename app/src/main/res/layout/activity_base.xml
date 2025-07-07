@@ -12,31 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- شريط الأدوات -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/base_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/blue"
-            app:navigationIcon="@drawable/ic_menu"
-            app:title="@string/app_name"
-            android:layout_gravity="center"
-            app:titleTextColor="@android:color/white"/>
+        <!-- Toolbar مضمّن -->
+        <include
+            layout="@layout/toolbar_custom" />
 
         <!-- محتوى الشاشة -->
         <FrameLayout
             android:id="@+id/base_content_frame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
-        <!-- القائمة السفلية -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/base_bottom_nav"
-            style="@style/Widget.App.BottomNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:menu="@menu/bottom_nav_menu"/>
+        <!-- BottomNavigationView مضمّن -->
+        <include
+            layout="@layout/bottom_nav" />
+
     </LinearLayout>
 
     <!-- القائمة الجانبية -->
@@ -46,5 +36,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/drawer_paid_menu"
-        app:headerLayout="@layout/drawer_header"/>
+        app:headerLayout="@layout/drawer_header" />
+
 </androidx.drawerlayout.widget.DrawerLayout>

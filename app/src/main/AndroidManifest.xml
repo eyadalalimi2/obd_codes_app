@@ -34,49 +34,75 @@
         <activity android:name=".ui.onboarding.OnboardingActivity" />
 
         <!-- Auth -->
-        <activity android:name=".ui.auth.AuthActivity" />
-        <activity android:name=".ui.auth.ForgotPasswordActivity" />
+        <activity android:name=".ui.auth.AuthActivity"
+            android:label="@string/login_title"/>
+        <activity android:name=".ui.auth.ForgotPasswordActivity"
+            android:label="@string/forgot_password"/>
         <!-- Home & Search -->
-        <activity android:name=".ui.home.HomeActivity" />
-        <activity android:name=".ui.code_search.CodeSearchActivity" />
+        <activity android:name=".ui.home.HomeActivity"
+            android:label="@string/home"/>
+        <activity android:name=".ui.code_search.CodeSearchActivity"
+            android:label="@string/search_code_title"/>
 
         <!-- Code Details & PDF -->
-        <activity android:name=".ui.code_details.CodeDetailsActivity" />
-        <activity android:name=".ui.pdf.PdfReportActivity" />
+        <activity android:name=".ui.code_details.CodeDetailsActivity"
+            android:label="@string/code_details"/>
+        <activity android:name=".ui.pdf.PdfReportActivity"
+            android:label="@string/nav_pdf"/>
 
         <!-- Saved Codes -->
-        <activity android:name=".ui.saved.SavedCodesActivity" />
+        <activity android:name=".ui.saved.SavedCodesActivity"
+            android:label="@string/my_saved_items"/>
 
         <!-- Account & Settings -->
-        <activity android:name=".ui.account.AccountActivity" />
-        <activity android:name=".ui.settings.LanguageSettingsActivity" />
+        <activity android:name=".ui.account.AccountActivity"
+            android:label="@string/my_account"/>
+        <activity android:name=".ui.settings.LanguageSettingsActivity"
+            android:label="@string/select_language"/>
 
         <!-- Pricing & Subscription -->
-        <activity android:name=".ui.pricing.PricingActivity" />
+        <activity android:name=".ui.pricing.PricingActivity"
+            android:label="@string/pricing"/>
 
         <!-- Paid Features -->
-        <activity android:name=".ui.diagnosis.SymptomDiagnosisActivity" />
+        <activity android:name=".ui.diagnosis.SymptomDiagnosisActivity"
+            android:label="@string/nav_symptom"/>
         <activity android:name=".ui.compare.CompareCodesActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-        <activity android:name=".ui.history.DiagnosisHistoryActivity" />
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:label="@string/nav_compare"/>
+        <activity android:name=".ui.history.DiagnosisHistoryActivity"
+            android:label="@string/diagnosis_history"/>
 
-        <activity android:name=".ui.analytics.TrendingCodesActivity" />
-        <activity android:name=".ui.visual.VisualLibraryActivity" />
-        <activity android:name=".ui.chat.ChatActivity" />
+        <activity android:name=".ui.analytics.TrendingCodesActivity"
+            android:label="@string/nav_trending"/>
+        <activity android:name=".ui.visual.VisualLibraryActivity"
+            android:label="@string/nav_visual"/>
+        <activity android:name=".ui.chat.ChatActivity"
+            android:label="@string/nav_ai"/>
 
         <!-- Static / Info Pages -->
-        <activity android:name=".ui.about.AboutActivity" />
-        <activity android:name=".ui.howitworks.HowItWorksActivity" />
-        <activity android:name=".ui.support.ContactUsActivity" />
-        <activity android:name=".ui.legal.DisclaimerActivity" />
-        <activity android:name=".ui.legal.TermsActivity" />
-        <activity android:name=".ui.legal.PrivacyActivity" />
-        <activity android:name=".ui.menu.MenuActivity" />
+        <activity android:name=".ui.about.AboutActivity"
+            android:label="@string/about_this_app"/>
+        <activity android:name=".ui.howitworks.HowItWorksActivity"
+            android:label="@string/how_it_works"/>
+        <activity android:name=".ui.support.ContactUsActivity"
+            android:label="@string/contact_us"/>
+        <activity android:name=".ui.legal.DisclaimerActivity"
+            android:label="@string/disclaimers"/>
+        <activity android:name=".ui.legal.TermsActivity"
+            android:label="@string/terms_of_service"/>
+        <activity android:name=".ui.legal.PrivacyActivity"
+            android:label="@string/privacy_policy"/>
+        <activity android:name=".ui.menu.MenuActivity"
+            android:label="@string/menu_pages"/>
 
         <!-- أي نشاطات اختبار أو فرعية -->
-        <activity android:name=".ui.TestActivity" />
-        <activity android:name=".ui.offline.OfflineModeActivity" />
-        <activity android:name=".ui.account.EditProfileActivity" />
+        <activity android:name=".ui.TestActivity"
+            android:label="@string/menu_pages"/>
+        <activity android:name=".ui.offline.OfflineModeActivity"
+            android:label="@string/nav_offline"/>
+        <activity android:name=".ui.account.EditProfileActivity"
+            android:label="@string/account_edit"/>
         <activity android:name=".ui.settings.SettingsActivity"
             android:label="@string/settings"
             android:parentActivityName=".ui.base.BaseActivity" />

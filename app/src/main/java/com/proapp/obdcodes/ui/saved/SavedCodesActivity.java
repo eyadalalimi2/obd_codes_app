@@ -39,8 +39,7 @@ public class SavedCodesActivity extends BaseActivity
         setActivityLayout(R.layout.activity_saved_codes);
 
         // 1. ربط Toolbar بالـ ActionBar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setActivityLayout(R.layout.activity_base);
 
         // 2. تفعيل زر الـ Up (الرجوع) بأمان بعد فحص null
         ActionBar actionBar = getSupportActionBar();

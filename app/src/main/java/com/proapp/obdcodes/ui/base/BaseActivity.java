@@ -40,6 +40,7 @@ import com.proapp.obdcodes.ui.chat.ChatActivity;
 import com.proapp.obdcodes.ui.compare.CompareCodesActivity;
 import com.proapp.obdcodes.ui.diagnosis.SymptomDiagnosisActivity;
 import com.proapp.obdcodes.ui.history.DiagnosisHistoryActivity;
+import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.ui.menu.MenuActivity;
 import com.proapp.obdcodes.ui.notifications.NotificationsActivity;
 import com.proapp.obdcodes.ui.pdf.PdfReportActivity;
@@ -76,6 +77,13 @@ public abstract class BaseActivity extends AppCompatActivity
         // Setup toolbar
         Toolbar toolbar = findViewById(R.id.base_toolbar);
         setSupportActionBar(toolbar);
+
+        // اجعل الـ Toolbar يعرض عنوان الـ Activity كما هو في android:label
+        if (getSupportActionBar() != null) {
+            // يقوم getTitle() بإرجاع قيمة android:label من الـ Manifest
+            getSupportActionBar().setTitle(getTitle());
+        }
+
 
         // Setup drawer & navigation view
         drawer = findViewById(R.id.base_drawer);
@@ -122,6 +130,7 @@ public abstract class BaseActivity extends AppCompatActivity
             if (id == R.id.nav_home) {
                 return true;
             } else if (id == R.id.nav_saved) {
+                intent = new Intent(this, HomeActivity.class);
                 intent = new Intent(this, SavedCodesActivity.class);
             } else if (id == R.id.nav_account) {
                 intent = new Intent(this, AccountActivity.class);
