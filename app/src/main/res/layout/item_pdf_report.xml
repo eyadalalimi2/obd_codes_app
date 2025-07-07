@@ -7,12 +7,13 @@
     android:background="@drawable/rounded_bg"
     android:layout_marginBottom="8dp">
 
+
     <TextView
-        android:id="@+id/tvPdfName"
+        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OBD_P1234.pdf"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true" />

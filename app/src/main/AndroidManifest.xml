@@ -154,9 +154,7 @@
             android:name=".ui.notifications.NotificationsActivity"
             android:label="@string/notifications"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-        <activity
-            android:name=".ui.pdf.ViewPdfActivity"
-            android:label="عرض التقرير" />
+
 
 
 
@@ -170,7 +168,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_paths" />
+                android:resource="@xml/file_paths" />
         </provider>
 
     </application>

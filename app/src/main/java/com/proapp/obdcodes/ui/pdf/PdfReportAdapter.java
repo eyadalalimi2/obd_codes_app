@@ -19,8 +19,8 @@ import java.util.List;
 
 public class PdfReportAdapter extends ArrayAdapter<File> {
 
-    private Context context;
-    private List<File> files;
+    private final Context context;
+    private final List<File> files;
 
     public PdfReportAdapter(Context ctx, List<File> files) {
         super(ctx, 0, files);
@@ -43,11 +43,7 @@ public class PdfReportAdapter extends ArrayAdapter<File> {
 
         tvFileName.setText(file.getName());
 
-        btnOpen.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ViewPdfActivity.class);
-            intent.putExtra("filePath", file.getAbsolutePath());
-            context.startActivity(intent);
-        });
+        btnOpen.setOnClickListener(v -> openPdfExternally(file));
 
         btnShare.setOnClickListener(v -> {
             Uri uri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", file);
@@ -55,7 +51,7 @@ public class PdfReportAdapter extends ArrayAdapter<File> {
             share.setType("application/pdf");
             share.putExtra(Intent.EXTRA_STREAM, uri);
             share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            context.startActivity(Intent.createChooser(share, "مشاركة الملف"));
+            context.startActivity(Intent.createChooser(share, "مشاركة التقرير"));
         });
 
         btnDelete.setOnClickListener(v -> {
@@ -66,5 +62,13 @@ public class PdfReportAdapter extends ArrayAdapter<File> {
         });
 
         return convertView;
+    }
+
+    private void openPdfExternally(File file) {
+        Uri uri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", file);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(uri, "application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        context.startActivity(Intent.createChooser(intent, "فتح التقرير"));
     }
 }

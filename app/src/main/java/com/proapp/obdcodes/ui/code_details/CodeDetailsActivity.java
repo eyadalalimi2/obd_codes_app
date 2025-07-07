@@ -23,7 +23,6 @@ import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.model.ObdCode;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.ui.pdf.ViewPdfActivity;
 import com.proapp.obdcodes.viewmodel.CodeDetailViewModel;
 
 import org.json.JSONArray;
@@ -173,6 +172,7 @@ public class CodeDetailsActivity extends BaseActivity {
         // زر توليد وفتح PDF
         btnPdf.setOnClickListener(v -> {
             try {
+                // إنشاء ملف PDF في مجلد خاص بالتطبيق
                 Document document = new Document();
                 String fileName = "OBD_" + currentCode.getCode() + ".pdf";
                 File pdfDir = new File(getExternalFilesDir(null), "pdf");
@@ -192,20 +192,23 @@ public class CodeDetailsActivity extends BaseActivity {
                 document.add(new Paragraph("Diagnosis:\n" + currentCode.getDiagnosis()));
                 document.close();
 
+                // عرض باستخدام تطبيق خارجي
                 Uri uri = FileProvider.getUriForFile(
                         this,
                         getPackageName() + ".provider",
                         file
                 );
 
-                Intent intent = new Intent(this, ViewPdfActivity.class);
-                intent.putExtra("pdf_uri", uri);
-                startActivity(intent);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(uri, "application/pdf");
+                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(intent, "فتح التقرير باستخدام..."));
 
             } catch (Exception e) {
                 Toast.makeText(this, R.string.err_generating_pdf, Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
         });
+
     }
 }

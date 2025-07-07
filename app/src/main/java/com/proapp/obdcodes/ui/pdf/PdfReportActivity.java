@@ -1,9 +1,14 @@
 package com.proapp.obdcodes.ui.pdf;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import com.proapp.obdcodes.R;
 
@@ -41,6 +46,18 @@ public class PdfReportActivity extends AppCompatActivity {
                     }
                 }
             }
+        }
+    }
+
+    private void openPdfExternally(File file) {
+        try {
+            Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setDataAndType(uri, "application/pdf");
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "تعذر فتح الملف", Toast.LENGTH_SHORT).show();
         }
     }
 }
