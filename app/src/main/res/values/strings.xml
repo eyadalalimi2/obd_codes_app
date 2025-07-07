@@ -307,4 +307,6 @@
     <string name="no_internet_title">No internet connection</string>
     <string name="no_internet_message">Please check your connection and try again.</string>
     <string name="retry">Retry</string>
+    <string name="saved">saved</string>
+    <string name="err_fetch_data">خطاء في جلب البيانات</string>
 </resources>

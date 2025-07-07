@@ -296,6 +296,7 @@
     <string name="no_internet_title">لا يوجد اتصال بالإنترنت</string>
     <string name="no_internet_message">يرجى التحقق من اتصالك والمحاولة مرة أخرى.</string>
     <string name="retry">إعادة المحاولة</string>
-
+    <string name="saved">saved</string>
+    <string name="err_fetch_data">خطاء في جلب البيانات</string>
 
 </resources>

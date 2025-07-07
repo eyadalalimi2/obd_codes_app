@@ -4,22 +4,26 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+        android:title="@string/home"
+        android:checked="true"/>
 
     <item
         android:id="@+id/nav_saved"
         android:icon="@drawable/ic_saved"
-        android:title="@string/my_saved_items" />
+        android:title="@string/my_saved_items"
+        android:checked="true"/>
 
     <item
         android:id="@+id/nav_account"
         android:icon="@drawable/ic_account"
-        android:title="@string/my_account" />
+        android:title="@string/my_account"
+        android:checked="true"/>
 
     <item
         android:id="@+id/nav_menu"
         android:icon="@drawable/ic_menu"
-        android:title="@string/menu_pages" />
+        android:title="@string/menu_pages"
+        android:checked="true"/>
 
 
 </menu>
