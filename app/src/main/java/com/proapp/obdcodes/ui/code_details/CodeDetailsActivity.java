@@ -17,6 +17,7 @@ import androidx.preference.PreferenceManager;
 
 import com.bumptech.glide.Glide;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.proapp.obdcodes.R;
@@ -99,16 +100,17 @@ public class CodeDetailsActivity extends BaseActivity {
         tvCode.setText(d.getCode());
         tvTitle.setText(d.getTitle());
 
-        // عرض الصورة إن وجدت
-        if (d.getImage() != null && !d.getImage().isEmpty()) {
+        // عرض الصورة إن وجدت، أو عرض صورة افتراضية في حال عدم وجودها
+        if (d.getImage() != null && !d.getImage().trim().isEmpty()) {
             ivImage.setVisibility(ImageView.VISIBLE);
             Glide.with(this)
                     .load(ApiClient.IMAGE_BASE_URL + d.getImage())
-                    .placeholder(R.drawable.splash)
-                    .error(R.drawable.ic_onboarding_1)
+                    .placeholder(R.drawable.ic_onboarding_1)  // صورة افتراضية أثناء التحميل
+                    .error(R.drawable.ic_onboarding_1)        // صورة افتراضية عند الخطأ
                     .into(ivImage);
         } else {
-            ivImage.setVisibility(ImageView.GONE);
+            ivImage.setVisibility(ImageView.VISIBLE);  // تأكد أن الصورة مرئية
+            ivImage.setImageResource(R.drawable.splash); // تعيين صورة افتراضية
         }
 
         // بيانات الكود
@@ -160,30 +162,50 @@ public class CodeDetailsActivity extends BaseActivity {
                     .append("Severity: ").append(currentCode.getSeverity()).append("\n\n")
                     .append("Diagnosis:\n").append(currentCode.getDiagnosis());
 
-            startActivity(Intent.createChooser(
-                    new Intent(Intent.ACTION_SEND)
-                            .setType("text/plain")
-                            .putExtra(Intent.EXTRA_SUBJECT, currentCode.getCode())
-                            .putExtra(Intent.EXTRA_TEXT, sb.toString()),
-                    getString(R.string.share_code)
-            ));
+            // إضافة رابط الصورة إذا كانت موجودة
+            if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
+                String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
+                sb.append("\n\n Image:\n").append(imageUrl);
+            }
+
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, currentCode.getCode());
+            shareIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
+
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.share_code)));
         });
+
 
         // زر توليد وفتح PDF
         btnPdf.setOnClickListener(v -> {
             try {
-                // إنشاء ملف PDF في مجلد خاص بالتطبيق
-                Document document = new Document();
                 String fileName = "OBD_" + currentCode.getCode() + ".pdf";
-                File pdfDir = new File(getExternalFilesDir(null), "pdf");
-                if (!pdfDir.exists()) pdfDir.mkdirs();
-                File file = new File(pdfDir, fileName);
+                File mainDir = new File(getExternalFilesDir(null), "OBD Codes/pdf");
+                if (!mainDir.exists()) mainDir.mkdirs();
+                File file = new File(mainDir, fileName);
 
+                Document document = new Document();
                 PdfWriter.getInstance(document, new FileOutputStream(file));
                 document.open();
+
+                // إدراج صورة الكود إن وجدت
+                if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
+                    String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
+                    try {
+                        Image img = Image.getInstance(new java.net.URL(imageUrl));
+                        img.scaleToFit(500, 300); // تغيير الحجم حسب الحاجة
+                        img.setAlignment(Image.ALIGN_CENTER);
+                        document.add(img);
+                        document.add(new Paragraph(" ")); // مسافة بعد الصورة
+                    } catch (Exception e) {
+                        e.printStackTrace(); // في حال فشل تحميل الصورة
+                    }
+                }
+
                 document.add(new Paragraph("Code: " + currentCode.getCode()));
                 document.add(new Paragraph("Title: " + currentCode.getTitle()));
-                document.add(new Paragraph(" "));
+                document.add(new Paragraph(""));
                 document.add(new Paragraph("Description:\n" + currentCode.getDescription()));
                 document.add(new Paragraph("Symptoms:\n" + currentCode.getSymptoms()));
                 document.add(new Paragraph("Causes:\n" + currentCode.getCauses()));
@@ -192,23 +214,20 @@ public class CodeDetailsActivity extends BaseActivity {
                 document.add(new Paragraph("Diagnosis:\n" + currentCode.getDiagnosis()));
                 document.close();
 
-                // عرض باستخدام تطبيق خارجي
-                Uri uri = FileProvider.getUriForFile(
-                        this,
-                        getPackageName() + ".provider",
-                        file
-                );
+                Toast.makeText(this, "تم حفظ التقرير بنجاح", Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(uri, "application/pdf");
-                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(intent, "فتح التقرير باستخدام..."));
+                Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
+                Intent openIntent = new Intent(Intent.ACTION_VIEW);
+                openIntent.setDataAndType(uri, "application/pdf");
+                openIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(openIntent, "فتح التقرير باستخدام..."));
 
             } catch (Exception e) {
-                Toast.makeText(this, R.string.err_generating_pdf, Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "فشل في توليد التقرير", Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
         });
+
 
     }
 }

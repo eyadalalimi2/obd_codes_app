@@ -62,14 +62,15 @@
             android:layout_height="200dp"
             app:cardElevation="2dp"
             app:cardCornerRadius="8dp"
-            android:layout_marginBottom="16dp"
-            android:visibility="gone">
+            android:layout_marginBottom="16dp">
 
             <ImageView
                 android:id="@+id/ivImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"/>
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/splash"/>
+
         </com.google.android.material.card.MaterialCardView>
 
         <!-- بطاقة: التفاصيل -->

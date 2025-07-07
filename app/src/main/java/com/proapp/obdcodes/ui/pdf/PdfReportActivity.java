@@ -7,16 +7,16 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PdfReportActivity extends AppCompatActivity {
+public class PdfReportActivity extends BaseActivity {
 
     private ListView pdfListView;
     private PdfReportAdapter adapter;
@@ -25,7 +25,7 @@ public class PdfReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pdf_report);
+        setActivityLayout(R.layout.activity_pdf_report);
         setTitle(R.string.nav_pdf);
 
         pdfListView = findViewById(R.id.pdfListView);
@@ -36,7 +36,7 @@ public class PdfReportActivity extends AppCompatActivity {
     }
 
     private void loadPdfFiles() {
-        File dir = new File(getExternalFilesDir(null), "pdf");
+        File dir = new File(getExternalFilesDir(null), "OBD Codes/pdf");
         if (dir.exists()) {
             File[] files = dir.listFiles();
             if (files != null) {

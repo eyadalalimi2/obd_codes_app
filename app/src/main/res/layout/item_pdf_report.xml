@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_bg"
-    android:layout_marginBottom="8dp">
-
+    android:layout_marginBottom="12dp">
 
     <TextView
         android:id="@+id/tvName"
@@ -23,7 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical">
 
         <ImageButton
             android:id="@+id/btnOpenPdf"
@@ -31,7 +32,8 @@
             android:layout_height="48dp"
             android:src="@drawable/ic_open"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="عرض"/>
+            android:contentDescription="عرض"
+            tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
             android:id="@+id/btnSharePdf"
@@ -39,16 +41,17 @@
             android:layout_height="48dp"
             android:src="@drawable/ic_sharee"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="مشاركة"/>
+            android:contentDescription="مشاركة"
+            tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
             android:id="@+id/btnDeletePdf"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:src="@drawable/ic_delete"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="حذف"
-            android:src="@drawable/ic_delete"
-            tools:ignore="HardcodedText,ImageContrastCheck,TouchTargetSizeCheck" />
+            tools:ignore="TouchTargetSizeCheck"/>
 
         <ImageButton
             android:id="@+id/btnSaveToStorage"
@@ -56,6 +59,7 @@
             android:layout_height="48dp"
             android:src="@drawable/ic_save"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="حفظ للذاكرة"/>
+            android:contentDescription="حفظ للذاكرة"
+            tools:ignore="TouchTargetSizeCheck"/>
     </LinearLayout>
 </RelativeLayout>
