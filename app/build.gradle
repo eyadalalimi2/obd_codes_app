@@ -50,6 +50,8 @@ dependencies {
 
     // Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:32.1.1')
+    implementation 'com.itextpdf:itextpdf:5.5.13.3'
+    implementation 'com.github.barteksc:AndroidPdfViewer:3.1.0-beta.1'
 
     // AndroidX & Material
     implementation libs.appcompat
