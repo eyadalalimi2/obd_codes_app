@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
@@ -101,6 +103,8 @@ public abstract class BaseActivity extends AppCompatActivity
         ImageView imgHeader = header.findViewById(R.id.nav_header_image);
         TextView tvHeaderName  = header.findViewById(R.id.nav_header_name);
         TextView tvHeaderEmail = header.findViewById(R.id.nav_header_email);
+        ImageView ivHeaderStatus = header.findViewById(R.id.ivConnectionStatus);
+        TextView tvHeaderStatus = header.findViewById(R.id.tvConnectionStatus);
 
         UserViewModel headerVm = new ViewModelProvider(this).get(UserViewModel.class);
         headerVm.getUserProfile().observe(this, user -> {
@@ -116,7 +120,10 @@ public abstract class BaseActivity extends AppCompatActivity
                 tvHeaderEmail.setText(user.getEmail());
             }
         });
-
+// إظهار حالة الاتصال: أيقونة + نص
+        boolean isConnected = NetworkUtil.isConnected(this);
+        ivHeaderStatus.setImageResource(isConnected ? R.drawable.ic_online : R.drawable.ic_offline);
+        tvHeaderStatus.setText(isConnected ? "متصل" : "غير متصل");
         header.setOnClickListener(v -> {
             drawer.closeDrawer(GravityCompat.START);
             startActivity(new Intent(this, AccountActivity.class));
@@ -175,14 +182,20 @@ public abstract class BaseActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        if (!NetworkUtil.isConnected(this)) {
-            noInternetDialog.show();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isOfflineModeEnabled = prefs.getBoolean("offline_mode_enabled", false);
+
+        if (!isOfflineModeEnabled && !NetworkUtil.isConnected(this)) {
+            if (!noInternetDialog.isShowing()) {
+                noInternetDialog.show();
+            }
         } else if (noInternetDialog.isShowing()) {
             noInternetDialog.dismiss();
         }
 
         notificationViewModel.refreshNotifications();
     }
+
 
 
     @SuppressLint("RestrictedApi")
