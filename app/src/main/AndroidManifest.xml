@@ -154,6 +154,8 @@
             android:name=".ui.notifications.NotificationsActivity"
             android:label="@string/notifications"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+        <activity android:name=".ui.offline.OfflineCodeListActivity"
+            android:label="Offline"/>
 
 
 
@@ -170,6 +172,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <receiver
+            android:name=".sync.NetworkChangeReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+
 
     </application>
 </manifest>

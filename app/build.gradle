@@ -48,6 +48,10 @@ android {
 
 dependencies {
 
+    // SQLCipher - تشفير قاعدة البيانات
+    implementation 'net.zetetic:android-database-sqlcipher:4.5.4@aar'
+    implementation 'androidx.sqlite:sqlite:2.3.1'
+
     // Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:32.1.1')
     implementation 'com.itextpdf:itextpdf:5.5.13.3'
@@ -83,6 +87,7 @@ dependencies {
     // Room
     implementation libs.room.runtime.v252
     implementation libs.scenecore
+    implementation libs.androidx.appcompat
     annotationProcessor libs.room.compiler
 
     // Splash Screen

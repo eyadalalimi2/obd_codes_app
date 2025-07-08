@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="24dp"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -18,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:padding="12dp" />
+        android:padding="12dp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
         android:id="@+id/btnDownloadData"
@@ -27,4 +29,14 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnViewOfflineCodes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="عرض الأكواد المحملة"
+        android:backgroundTint="@color/blue"
+        android:textColor="@android:color/white"/>
+
 </LinearLayout>

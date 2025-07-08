@@ -21,6 +21,8 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.local.AppDatabase;
+import com.proapp.obdcodes.local.entity.ObdCodeEntity;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.model.ObdCode;
 import com.proapp.obdcodes.ui.base.BaseActivity;
@@ -77,15 +79,28 @@ public class CodeDetailsActivity extends BaseActivity {
 
         // 5) جلب الكود من intent
         String code = getIntent().getStringExtra("CODE");
-
+        boolean isOnline = com.proapp.obdcodes.utils.NetworkUtil.isConnected(this);
         // 6) تهيئة ViewModel وتحميل البيانات
-        CodeDetailViewModel viewModel = new ViewModelProvider(this,
-                new ViewModelProvider.AndroidViewModelFactory(getApplication()))
-                .get(CodeDetailViewModel.class);
-        viewModel.loadCodeDetail(code);
-        viewModel.getCodeDetail().observe(this, this::bindData);
+        if (isOnline) {
+            CodeDetailViewModel viewModel = new ViewModelProvider(this,
+                    new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                    .get(CodeDetailViewModel.class);
+            viewModel.loadCodeDetail(code);
+            viewModel.getCodeDetail().observe(this, this::bindData);
+        } else {
+            new Thread(() -> {
+                ObdCodeEntity entity = AppDatabase.getInstance(getApplicationContext())
+                        .obdCodeDao()
+                        .findByCode(code);
+                if (entity != null) {
+                    ObdCode offlineCode = entity.toObdCode();
+                    runOnUiThread(() -> bindData(offlineCode));
+                } else {
+                    runOnUiThread(() -> bindData(null));
+                }
+            }).start();
+        }
 
-        // 7) إعداد مستمعات الأزرار
         setupButtonListeners();
     }
 

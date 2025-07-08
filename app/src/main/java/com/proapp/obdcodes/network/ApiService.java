@@ -3,6 +3,7 @@ package com.proapp.obdcodes.network;
 import com.proapp.obdcodes.network.model.ChatRequest;
 import com.proapp.obdcodes.network.model.ChatResponse;
 import com.proapp.obdcodes.network.model.CompareResult;
+import com.proapp.obdcodes.network.model.EncryptionKeyResponse;
 import com.proapp.obdcodes.network.model.GoogleLoginRequest;
 import com.proapp.obdcodes.network.model.LoginRequest;
 import com.proapp.obdcodes.network.model.LoginResponse;
@@ -25,6 +26,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @POST("login")
@@ -78,7 +80,15 @@ public interface ApiService {
     @Headers("Accept: application/json")
     @POST("ai/chat")
     Call<ChatResponse> chat(@Body ChatRequest request);
+    @GET("app/key")
+    Call<EncryptionKeyResponse> getEncryptionKey(
+            @Query("package") String packageName,
+            @Query("version") String versionCode
+    );
 
+
+    @GET("obd/codes/all")
+    Call<List<ObdCode>> getAllCodes();
 
 }
 

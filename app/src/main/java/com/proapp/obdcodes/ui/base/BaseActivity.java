@@ -43,6 +43,7 @@ import com.proapp.obdcodes.ui.history.DiagnosisHistoryActivity;
 import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.ui.menu.MenuActivity;
 import com.proapp.obdcodes.ui.notifications.NotificationsActivity;
+import com.proapp.obdcodes.ui.offline.OfflineModeActivity;
 import com.proapp.obdcodes.ui.pdf.PdfReportActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
 import com.proapp.obdcodes.ui.settings.SettingsActivity;
@@ -242,6 +243,8 @@ public abstract class BaseActivity extends AppCompatActivity
             intent = new Intent(this, TestActivity.class);
         } else if (id == R.id.nav_settings) {
             intent = new Intent(this, SettingsActivity.class);
+        } else if (id == R.id.nav_offline) {
+            intent = new Intent(this, OfflineModeActivity.class);
         }
 
         if (intent != null) {
