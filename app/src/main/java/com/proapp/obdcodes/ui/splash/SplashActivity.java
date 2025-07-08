@@ -17,6 +17,7 @@ import com.proapp.obdcodes.network.ApiService;
 import com.proapp.obdcodes.network.model.EncryptionKeyResponse;
 import com.proapp.obdcodes.ui.auth.AuthActivity;
 import com.proapp.obdcodes.ui.home.HomeActivity;
+import com.proapp.obdcodes.ui.onboarding.OnboardingActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -73,6 +74,15 @@ public class SplashActivity extends AppCompatActivity {
 
     private void continueToApp() {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            boolean isFirstLaunch = prefs.getBoolean("is_first_launch", true);
+
+            if (isFirstLaunch) {
+                prefs.edit().putBoolean("is_first_launch", false).apply();
+                navigateTo(OnboardingActivity.class);
+                return;
+            }
+
             if (isUserLoggedIn()) {
                 navigateTo(HomeActivity.class);
             } else {
@@ -80,6 +90,7 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, SPLASH_DELAY);
     }
+
 
     private boolean isUserLoggedIn() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

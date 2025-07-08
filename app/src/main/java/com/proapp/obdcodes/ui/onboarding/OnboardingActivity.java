@@ -69,7 +69,13 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void launchAuth() {
-        startActivity(new Intent(OnboardingActivity.this, com.proapp.obdcodes.ui.auth.AuthActivity.class));
+        getSharedPreferences("com.proapp.obdcodes_preferences", MODE_PRIVATE)
+                .edit()
+                .putBoolean("is_first_launch", false)
+                .apply();
 
+        startActivity(new Intent(OnboardingActivity.this, AuthActivity.class));
+        finish();
     }
+
 }
