@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
 
-    <!-- محتوى الصفحة -->
+
+    <!-- Base content -->
     <FrameLayout
         android:id="@+id/base_content_frame"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="#333333"
-                android:text="سياسة الخصوصية:\n\nنحن نأخذ خصوصيتك على محمل الجد. هذا النص هو تمثيل تجريبي لسياسة الخصوصية. عند ربط التطبيق بلوحة التحكم سيتم تحميل المحتوى من السيرفر تلقائياً." />
+                android:text="شروط الاستخدام :\n\nنحن نأخذ خصوصيتك على محمل الجد. هذا النص هو تمثيل تجريبي لسياسة الخصوصية. عند ربط التطبيق بلوحة التحكم سيتم تحميل المحتوى من السيرفر تلقائياً." />
         </ScrollView>
     </FrameLayout>
 </LinearLayout>

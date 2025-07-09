@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.RadioButton;
-import androidx.appcompat.app.AppCompatActivity;
+
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.ui.home.HomeActivity;
 
 import java.util.Locale;
 
-public class LanguageSettingsActivity extends AppCompatActivity {
+public class LanguageSettingsActivity extends BaseActivity {
 
     private void setLocale(String lang) {
         Locale locale = new Locale(lang);
@@ -17,10 +19,9 @@ public class LanguageSettingsActivity extends AppCompatActivity {
         Configuration config = new Configuration();
         config.setLocale(locale);
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-        recreate(); // إعادة تحميل النشاط
 
-        // إعادة تشغيل التطبيق لتطبيق اللغة
-        Intent intent = new Intent(this, com.proapp.obdcodes.ui.home.HomeActivity.class);
+        // إعادة تشغيل التطبيق لتطبيق اللغة الجديدة
+        Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
@@ -28,7 +29,9 @@ public class LanguageSettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_language_settings);
+        setActivityLayout(R.layout.activity_language_settings); // مهم
+
+        setTitle("إعدادات اللغة"); // يمكن ترجمته عبر strings.xml
 
         RadioButton rbEnglish = findViewById(R.id.rb_english);
         RadioButton rbArabic = findViewById(R.id.rb_arabic);

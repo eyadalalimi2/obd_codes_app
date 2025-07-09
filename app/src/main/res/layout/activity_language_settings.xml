@@ -1,29 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center">
+    android:background="@color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/select_language"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <RadioButton
-        android:id="@+id/rb_english"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_language"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="24dp" />
 
-    <RadioButton
-        android:id="@+id/rb_arabic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="العربية"
-        android:layout_marginTop="12dp" />
-</LinearLayout>
+        <RadioGroup
+            android:id="@+id/radioGroupLanguages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:tag="en"
+                android:layout_marginBottom="16dp" />
+
+            <RadioButton
+                android:id="@+id/rb_arabic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="العربية"
+                android:tag="ar"
+                android:layout_marginBottom="16dp" />
+
+            <RadioButton
+                android:id="@+id/rb_french"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Français"
+                android:tag="fr"
+                android:layout_marginBottom="16dp" />
+
+            <RadioButton
+                android:id="@+id/rb_turkish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Türkçe"
+                android:tag="tr"
+                android:layout_marginBottom="16dp" />
+
+            <RadioButton
+                android:id="@+id/rb_russian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Русский"
+                android:tag="ru"
+                android:layout_marginBottom="16dp" />
+
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>

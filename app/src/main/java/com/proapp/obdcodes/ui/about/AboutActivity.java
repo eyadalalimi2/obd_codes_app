@@ -2,19 +2,20 @@ package com.proapp.obdcodes.ui.about;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import com.proapp.obdcodes.R;
 
-public class AboutActivity extends AppCompatActivity {
+import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
+
+public class AboutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setActivityLayout(R.layout.activity_about); // ربط الواجهة بمحتوى BaseActivity
+
         setTitle("حول التطبيق");
 
         TextView tvAbout = findViewById(R.id.tvAbout);
-
         tvAbout.setText("تطبيق OBD Codes هو أداة ذكية تساعد المستخدمين في فهم أكواد الأعطال الخاصة بمركباتهم بسهولة.\n\n"
                 + "تم تطوير التطبيق بواسطة: اياد.\n\n"
                 + "الميزات الأساسية:\n"

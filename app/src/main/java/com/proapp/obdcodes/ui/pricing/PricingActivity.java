@@ -19,36 +19,36 @@ public class PricingActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // تحميل الواجهة داخل BaseActivity التي تحتوي على Toolbar + Drawer + BottomNav
         setActivityLayout(R.layout.activity_pricing);
 
-        // Toolbar + hamburger
-        setSupportActionBar(findViewById(R.id.toolbar));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // لا حاجة لاستدعاء setSupportActionBar مرة أخرى
 
-        // ربط الأزرار
+        // ربط العناصر
         btnOneTime        = findViewById(R.id.btnOneTime);
         btnMonthly        = findViewById(R.id.btnMonthly);
         btnYearly         = findViewById(R.id.btnYearly);
         tvPrivacyPolicy   = findViewById(R.id.tvPrivacyPolicy);
         tvTermsOfService  = findViewById(R.id.tvTermsOfService);
 
-        // بيانات وهمية مؤقتة عند اختيار الخطة
+        // الأحداث
         btnOneTime.setOnClickListener(v ->
-                Toast.makeText(this, "One-time plan selected", Toast.LENGTH_SHORT).show()
-        );
-        btnMonthly.setOnClickListener(v ->
-                Toast.makeText(this, "Monthly subscription selected", Toast.LENGTH_SHORT).show()
-        );
-        btnYearly.setOnClickListener(v ->
-                Toast.makeText(this, "Yearly subscription selected", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "تم اختيار الخطة لمرة واحدة", Toast.LENGTH_SHORT).show()
         );
 
-        // فتح صفحة سياسة الخصوصية
+        btnMonthly.setOnClickListener(v ->
+                Toast.makeText(this, "تم اختيار الاشتراك الشهري", Toast.LENGTH_SHORT).show()
+        );
+
+        btnYearly.setOnClickListener(v ->
+                Toast.makeText(this, "تم اختيار الاشتراك السنوي", Toast.LENGTH_SHORT).show()
+        );
+
         tvPrivacyPolicy.setOnClickListener(v ->
                 startActivity(new Intent(this, PrivacyActivity.class))
         );
 
-        // فتح صفحة شروط الاستخدام
         tvTermsOfService.setOnClickListener(v ->
                 startActivity(new Intent(this, TermsActivity.class))
         );

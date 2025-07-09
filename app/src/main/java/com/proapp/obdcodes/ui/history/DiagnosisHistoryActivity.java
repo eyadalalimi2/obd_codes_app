@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.ListView;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import com.proapp.obdcodes.R;
-import org.json.JSONArray;
-import java.util.ArrayList;
-import java.util.List;
 import android.widget.Button;
 
-public class DiagnosisHistoryActivity extends AppCompatActivity {
+import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DiagnosisHistoryActivity extends BaseActivity {
 
     private ListView historyList;
     private Button btnClearHistory;
@@ -22,8 +25,10 @@ public class DiagnosisHistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diagnosis_history);
-        setTitle("سجل التشخيص");
+        setActivityLayout(R.layout.activity_diagnosis_history); // ✅ استبدال setContentView
+
+        setSupportActionBar(findViewById(R.id.toolbar)); // ✅ في حال أردت عرض العنوان في Toolbar
+        getSupportActionBar().setTitle("سجل التشخيص");
 
         historyList = findViewById(R.id.lvHistory);
         btnClearHistory = findViewById(R.id.btnClearHistory);

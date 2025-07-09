@@ -1,10 +1,7 @@
-
 package com.proapp.obdcodes.ui.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.about.AboutActivity;
 import com.proapp.obdcodes.ui.account.AccountActivity;
@@ -18,7 +15,6 @@ import com.proapp.obdcodes.ui.pricing.PricingActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
 import com.proapp.obdcodes.ui.support.ContactUsActivity;
 
-
 public class MenuActivity extends BaseActivity {
 
     private void setClick(int id, Class<?> target) {
@@ -28,11 +24,13 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setActivityLayout(R.layout.activity_menu);
 
-        ImageView back = findViewById(R.id.btnBack);
-        back.setOnClickListener(v -> onBackPressed());
+        // إعداد الشريط العلوي
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("القائمة");
 
+        // الروابط
         setClick(R.id.btnPricing, PricingActivity.class);
         setClick(R.id.btnAbout, AboutActivity.class);
         setClick(R.id.btnHowItWorks, HowItWorksActivity.class);

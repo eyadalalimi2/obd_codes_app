@@ -50,6 +50,7 @@ public class AccountActivity extends BaseActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
         }
+
     }
 
     private void setupListeners() {
@@ -58,13 +59,7 @@ public class AccountActivity extends BaseActivity {
                 startActivity(new Intent(this, EditProfileActivity.class))
         );
 
-        // إدارة الاشتراك
-        binding.llManageSubscription.setOnClickListener(v -> {
-            if (currentUser != null) {
-                String url = "https://obdcode.xyz/page/subscription/" + currentUser.getId();
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-            }
-        });
+
 
         // تسجيل الخروج
         binding.btnLogout.setOnClickListener(v ->
@@ -149,7 +144,7 @@ public class AccountActivity extends BaseActivity {
                     getString(R.string.account_status_prefix) + ": " +
                             (isActive ? getString(R.string.active_ar) : getString(R.string.inactive_ar))
             );
-            binding.tvUsername.setText(user.getUsername());
+
             binding.tvUsername.setText(getString(R.string.user_name) + ": " + user.getUsername());
             binding.tvEmail.setText(getString(R.string.email) + ": " + user.getEmail());
             binding.tvJobTitle.setText(

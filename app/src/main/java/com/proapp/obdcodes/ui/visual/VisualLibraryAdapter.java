@@ -1,6 +1,5 @@
 package com.proapp.obdcodes.ui.visual;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.proapp.obdcodes.R;
+
 import java.util.List;
 
 public class VisualLibraryAdapter extends BaseAdapter {
@@ -36,16 +38,39 @@ public class VisualLibraryAdapter extends BaseAdapter {
         return i;
     }
 
-    @SuppressLint("ViewHolder")
+    static class ViewHolder {
+        ImageView imgPart;
+        TextView txtPart;
+    }
+
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.item_visual_component, viewGroup, false);
-        ImageView img = view.findViewById(R.id.imgPart);
-        TextView txt = view.findViewById(R.id.txtPart);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
 
-        img.setImageResource(items.get(i).imageRes);
-        txt.setText(items.get(i).name);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_visual_component, parent, false);
+            holder = new ViewHolder();
+            holder.imgPart = convertView.findViewById(R.id.imgPart);
+            holder.txtPart = convertView.findViewById(R.id.txtPart);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
 
-        return view;
+        VisualItem item = items.get(position);
+        holder.txtPart.setText(item.name);
+
+        // ✅ تحميل الصور من الإنترنت أو الموارد
+        if (item.imageUrl != null && !item.imageUrl.isEmpty()) {
+            Glide.with(context)
+                    .load(item.imageUrl)
+                    .placeholder(R.drawable.splash) // صورة مؤقتة أثناء التحميل
+                    .error(R.drawable.ic_disclaimer)             // في حال فشل التحميل
+                    .into(holder.imgPart);
+        } else {
+            holder.imgPart.setImageResource(item.imageRes); // في حالة موارد محلية
+        }
+
+        return convertView;
     }
 }

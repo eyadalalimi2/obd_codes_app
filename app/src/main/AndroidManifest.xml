@@ -91,7 +91,7 @@
         <!-- Pricing & Subscription -->
         <activity
             android:name=".ui.pricing.PricingActivity"
-            android:label="@string/pricing" />
+            android:label="الخطط والأسعار" />
         <activity
             android:name=".ui.subscription.SubscriptionDetailsActivity"
             android:label="@string/subscription_details"

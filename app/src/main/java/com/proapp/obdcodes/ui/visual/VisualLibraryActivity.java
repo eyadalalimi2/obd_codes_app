@@ -2,12 +2,13 @@ package com.proapp.obdcodes.ui.visual;
 
 import android.os.Bundle;
 import android.widget.GridView;
-import androidx.appcompat.app.AppCompatActivity;
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class VisualLibraryActivity extends AppCompatActivity {
+public class VisualLibraryActivity extends BaseActivity {
 
     private GridView gridView;
     private VisualLibraryAdapter adapter;
@@ -16,12 +17,20 @@ public class VisualLibraryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visual_library);
-        setTitle("المكتبة المرئية");
+        setActivityLayout(R.layout.activity_visual_library); // ✅ استخدام Layout مخصص
 
+        // تهيئة Toolbar ودعمه بزر الرجوع
+        setSupportActionBar(findViewById(R.id.toolbar));
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("المكتبة المرئية");
+        }
+
+        // تهيئة العناصر
         gridView = findViewById(R.id.gridView);
         items = new ArrayList<>();
 
+        // بيانات مؤقتة
         items.add(new VisualItem("حساس الأوكسجين", R.drawable.ic_sensor));
         items.add(new VisualItem("كمبيوتر السيارة (ECU)", R.drawable.ic_ecu));
         items.add(new VisualItem("مضخة الوقود", R.drawable.ic_fuel_pump));

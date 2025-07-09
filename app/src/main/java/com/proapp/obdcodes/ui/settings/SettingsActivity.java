@@ -3,45 +3,57 @@ package com.proapp.obdcodes.ui.settings;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.auth.AuthActivity;
+import com.proapp.obdcodes.ui.base.BaseActivity;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
+
 
     private Button btnClearCreds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setActivityLayout(R.layout.activity_settings);
 
-        // إيجاد العنصر الوحيد المتبقي
         btnClearCreds = findViewById(R.id.btn_clear_credentials);
 
-        // زر مسح بيانات الدخول (تسجيل خروج)
-        btnClearCreds.setOnClickListener(v -> {
-            new AlertDialog.Builder(this)
-                    .setTitle("تأكيد المسح")
-                    .setMessage("هل تريد حقًا تسجيل الخروج؟")
-                    .setPositiveButton("نعم", (d, i) -> {
-                        // مسح بيانات الجلسة فقط (SharedPreferences)
-                        getSharedPreferences("app_prefs", MODE_PRIVATE)
-                                .edit()
-                                .clear()
-                                .apply();
+        btnClearCreds.setOnClickListener(v -> showCustomLogoutDialog());
+    }
 
-                        // إعادة توجيه لشاشة تسجيل الدخول وإفراغ الـ back-stack
-                        Intent intent = new Intent(this, AuthActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
-                    })
-                    .setNegativeButton("لا", null)
-                    .show();
+    private void showCustomLogoutDialog() {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_confirm_logout, null);
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setView(dialogView)
+                .setCancelable(true)
+                .create();
+
+        Button btnConfirm = dialogView.findViewById(R.id.btnConfirm);
+        Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+
+        btnConfirm.setOnClickListener(v -> {
+            // مسح بيانات الجلسة فقط
+            getSharedPreferences("app_prefs", MODE_PRIVATE)
+                    .edit()
+                    .clear()
+                    .apply();
+
+            // التوجيه إلى شاشة تسجيل الدخول
+            Intent intent = new Intent(this, AuthActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            dialog.dismiss();
         });
+
+        btnCancel.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
 }

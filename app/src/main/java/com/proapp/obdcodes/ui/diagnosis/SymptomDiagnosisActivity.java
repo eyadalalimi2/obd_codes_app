@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
-import androidx.appcompat.app.AppCompatActivity;
 import com.proapp.obdcodes.R;
+import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.ui.code_details.CodeDetailsActivity;
+
 import java.util.*;
 
-public class SymptomDiagnosisActivity extends AppCompatActivity {
+public class SymptomDiagnosisActivity extends BaseActivity {
 
     private Spinner symptomSpinner;
     private Button btnDiagnose;
     private ListView lvResults;
     private EditText etCustomSymptom;
-
 
     private final Map<String, String[]> symptomMap = new HashMap<String, String[]>() {{
         put("اهتزاز بالمحرك", new String[]{"P0300", "P0310"});
@@ -26,35 +27,32 @@ public class SymptomDiagnosisActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_symptom_diagnosis);
-        setTitle("تشخيص حسب الأعراض");
+        setActivityLayout(R.layout.activity_symptom_diagnosis);
+
+        // إعداد Toolbar
+        setSupportActionBar(findViewById(R.id.toolbar));
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         etCustomSymptom = findViewById(R.id.etCustomSymptom);
+        symptomSpinner  = findViewById(R.id.symptomSpinner);
+        btnDiagnose     = findViewById(R.id.btnDiagnose);
+        lvResults       = findViewById(R.id.lvResults);
+
         Button btnBackHome = findViewById(R.id.btnBackHome);
         btnBackHome.setOnClickListener(v -> finish());
 
-        symptomSpinner = findViewById(R.id.symptomSpinner);
-        btnDiagnose = findViewById(R.id.btnDiagnose);
-        lvResults.setOnItemClickListener((parent, view, position, id) -> {
-            String selectedCode = (String) parent.getItemAtPosition(position);
-
-            Intent intent = new Intent(this, com.proapp.obdcodes.ui.code_details.CodeDetailsActivity.class);
-            intent.putExtra("code", selectedCode);
-            startActivity(intent);
-        });
-
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_dropdown_item,
-                new ArrayList<>(symptomMap.keySet()));
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
         symptomSpinner.setAdapter(spinnerAdapter);
 
         btnDiagnose.setOnClickListener(v -> {
             String selectedSymptom = symptomSpinner.getSelectedItem().toString();
             String customSymptom = etCustomSymptom.getText().toString().trim();
-
             String[] relatedCodes;
 
             if (!customSymptom.isEmpty()) {
-                relatedCodes = new String[]{"P0001", "P0002"}; // أكواد عامة تجريبية للعروض المدخلة يدويًا
+                relatedCodes = new String[]{"P0001", "P0002"};
             } else {
                 relatedCodes = symptomMap.get(selectedSymptom);
             }
@@ -68,11 +66,11 @@ public class SymptomDiagnosisActivity extends AppCompatActivity {
             }
         });
 
-
         lvResults.setOnItemClickListener((parent, view, position, id) -> {
             String selectedCode = (String) parent.getItemAtPosition(position);
-            Toast.makeText(this, "فتح الكود: " + selectedCode, Toast.LENGTH_SHORT).show();
-            // يمكنك تمرير الكود إلى CodeDetailsActivity هنا
+            Intent intent = new Intent(this, CodeDetailsActivity.class);
+            intent.putExtra("code", selectedCode);
+            startActivity(intent);
         });
     }
 }

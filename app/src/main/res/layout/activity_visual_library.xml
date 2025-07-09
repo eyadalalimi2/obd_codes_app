@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gridView"
-    android:numColumns="2"
-    android:verticalSpacing="16dp"
-    android:horizontalSpacing="16dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    android:gravity="center"/>
+    android:layout_height="match_parent">
+
+    <!-- المحتوى الرئيسي -->
+    <GridView
+        android:id="@+id/gridView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="2"
+        android:verticalSpacing="16dp"
+        android:horizontalSpacing="16dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:stretchMode="columnWidth" />
+
+
+</LinearLayout>
