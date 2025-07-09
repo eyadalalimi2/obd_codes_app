@@ -61,7 +61,7 @@ public class EditProfileActivity extends BaseActivity {
 
                 // عرض بيانات الاشتراك
                 tvPackageNameValue.setText(
-                        user.getCurrentPlan() != null ? user.getCurrentPlan() : getString(R.string.not_set)
+                        user.getCurrentPlan() != null ? user.getCurrentPlan() : getString(R.string.undefined)
                 );
                 tvSubscriptionStatusValue.setText(
                         "paid".equals(user.getUserMode()) ? getString(R.string.paid) : getString(R.string.free)

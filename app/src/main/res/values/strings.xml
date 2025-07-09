@@ -1,4 +1,20 @@
 <resources>
+
+    <!-- ========================================================================================= -->
+    <string name="hint_letter" translatable="false">P</string>
+    <string name="hint_type" translatable="false">0</string>
+    <string name="hint_hex" translatable="false">0</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="user_email" translatable="false">eyadads.inc@gmail.com</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="app_open_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/3419835294</string>
+    <string name="onesignal_app_id" translatable="false">3a1f8da1-28cf-4d2a-886e-1755d1b09f72</string>
+
+    <!-- ========================================================================================= -->
+
     <string name="app_name">Obd Codes</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -67,14 +83,9 @@
     <string name="nav_ai">AI Assistant</string>
     <string name="nav_offline">Offline Mode</string>
     <string name="prompt_letter">Prompt Letter</string>
-    <string name="hint_letter" translatable="false">P</string>
-    <string name="hint_type" translatable="false">0</string>
-    <string name="hint_hex" translatable="false">0</string>
-    <string name="todo" translatable="false">TODO</string>
     <string name="p000">OBD code P0000 indicates that the vehicle’s onboard diagnostic system has not detected any faults or issues with the engine or emissions system. This code is often used as a general indicator that the vehicle’s systems are functioning within normal parameters.</string>
     <string name="profile_image">Profile Image</string>
     <string name="user_name">User Name</string>
-    <string name="user_email" translatable="false">eyadads.inc@gmail.com</string>
     <string name="user_job_title">I am auto mechanic expert</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="package_free">FREE</string>
@@ -141,11 +152,6 @@
     <string name="send_via">Send via</string>
     <string name="fill_all_fields">Please fill in both subject and message.</string>
     <string name="code_details">Code Details </string>
-    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitial_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
-    <string name="rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
-    <string name="app_open_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/3419835294</string>
     <string name="label_search_code">Search by Code</string>
     <string name="hint_code_part">Enter code part</string>
     <string name="btn_search">Search</string>
@@ -153,7 +159,6 @@
     <string name="account_title">My Account</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="onesignal_app_id" translatable="false">3a1f8da1-28cf-4d2a-886e-1755d1b09f72</string>
     <string name="version_placeholder">Version V1.0</string>
     <string name="app_version">OBD Code App version 1.0.0 </string>
     <string name="onboard_title_1">Welcome to OBD Codes</string>
@@ -209,7 +214,7 @@
     <string name="created_on">Created On: </string>
     <string name="plan_start">Package start date:</string>
     <string name="plan_renewal">Package renewal date:</string>
-    <string name="not_set">Unspecified</string>
+    <string name="undefined">Unspecified</string>
     <string name="paid">Paid</string>
     <string name="free">Free</string>
     <string name="verification_email_sent">Activation link sent to your email</string>

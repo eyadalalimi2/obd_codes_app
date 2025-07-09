@@ -148,7 +148,7 @@ public class AccountActivity extends BaseActivity {
             binding.tvUsername.setText(getString(R.string.user_name) + ": " + user.getUsername());
             binding.tvEmail.setText(getString(R.string.email) + ": " + user.getEmail());
             binding.tvJobTitle.setText(
-                    user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.not_set)
+                    user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.undefined)
             );
 
             boolean isPaid = "paid".equals(user.getUserMode());
