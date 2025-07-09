@@ -56,4 +56,9 @@ public class SettingsActivity extends BaseActivity {
 
         dialog.show();
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

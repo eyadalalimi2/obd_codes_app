@@ -30,7 +30,6 @@ public class SymptomDiagnosisActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_symptom_diagnosis);
 
         // إعداد Toolbar
-        setSupportActionBar(findViewById(R.id.toolbar));
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -73,4 +72,9 @@ public class SymptomDiagnosisActivity extends BaseActivity {
             startActivity(intent);
         });
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

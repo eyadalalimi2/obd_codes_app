@@ -123,4 +123,9 @@ public class EditProfileActivity extends BaseActivity {
             });
         });
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

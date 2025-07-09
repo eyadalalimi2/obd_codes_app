@@ -60,4 +60,9 @@ public class PdfReportActivity extends BaseActivity {
             Toast.makeText(this, "تعذر فتح الملف", Toast.LENGTH_SHORT).show();
         }
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

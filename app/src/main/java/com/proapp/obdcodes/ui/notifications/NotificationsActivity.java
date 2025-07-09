@@ -8,42 +8,38 @@ import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.proapp.obdcodes.R;
-import com.proapp.obdcodes.databinding.ActivityNotificationsBinding;
+import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.viewmodel.NotificationStateViewModel;
 import com.proapp.obdcodes.viewmodel.NotificationViewModel;
 
-public class NotificationsActivity extends AppCompatActivity {
-    private ActivityNotificationsBinding binding;
+public class NotificationsActivity extends BaseActivity {
     private NotificationViewModel vm;
     private NotificationsAdapter adapter;
 
     @Override
     protected void onCreate(Bundle s) {
         super.onCreate(s);
-        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        // تهيئة الشريط العلوي
-        setSupportActionBar(binding.toolbarNotifications);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setActivityLayout(R.layout.activity_notifications);
+        setTitle(getString(R.string.notifications));
 
         // تهيئة ViewModel
         vm = new ViewModelProvider(this).get(NotificationViewModel.class);
 
-        // تهيئة قائمة الإشعارات
+        // تهيئة RecyclerView يدويًا
+        androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.rv_notifications);
         adapter = new NotificationsAdapter();
+
         adapter.setListener(new NotificationsAdapter.Listener() {
             @Override
             public void onMarkRead(long id) {
                 vm.markRead(id).observe(NotificationsActivity.this, ok -> {
                     Toast.makeText(NotificationsActivity.this,
                             ok ? R.string.marked_read : R.string.error, Toast.LENGTH_SHORT).show();
-                    vm.refreshNotifications(); // إعادة تحميل
+                    vm.refreshNotifications();
                 });
             }
 
@@ -52,15 +48,15 @@ public class NotificationsActivity extends AppCompatActivity {
                 vm.delete(id).observe(NotificationsActivity.this, ok -> {
                     Toast.makeText(NotificationsActivity.this,
                             ok ? R.string.deleted : R.string.error, Toast.LENGTH_SHORT).show();
-                    vm.refreshNotifications(); // إعادة تحميل
+                    vm.refreshNotifications();
                 });
             }
         });
 
-        binding.rvNotifications.setLayoutManager(new LinearLayoutManager(this));
-        binding.rvNotifications.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
-        // متابعة عدد الإشعارات وعرضها
+        // متابعة قائمة الإشعارات
         vm.getNotifications().observe(this, list -> {
             int previousCount = adapter.getItemCount();
             adapter.submitList(list);
@@ -91,5 +87,10 @@ public class NotificationsActivity extends AppCompatActivity {
                 v.vibrate(200);
             }
         }
+    }
+
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
     }
 }

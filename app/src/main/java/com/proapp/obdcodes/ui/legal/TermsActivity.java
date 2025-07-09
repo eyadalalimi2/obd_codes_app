@@ -17,4 +17,9 @@ public class TermsActivity extends BaseActivity {
         setTitle("شروط الاستخدام");
 
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

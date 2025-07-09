@@ -20,6 +20,11 @@ public class MenuActivity extends BaseActivity {
     private void setClick(int id, Class<?> target) {
         findViewById(id).setOnClickListener(v -> startActivity(new Intent(this, target)));
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

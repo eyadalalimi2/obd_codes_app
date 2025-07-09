@@ -35,8 +35,19 @@ public class LanguageSettingsActivity extends BaseActivity {
 
         RadioButton rbEnglish = findViewById(R.id.rb_english);
         RadioButton rbArabic = findViewById(R.id.rb_arabic);
+        RadioButton rbFrench = findViewById(R.id.rb_french);
+        RadioButton rbTurkish = findViewById(R.id.rb_turkish);
+        RadioButton rbRussian = findViewById(R.id.rb_russian);
 
         rbEnglish.setOnClickListener(v -> setLocale("en"));
         rbArabic.setOnClickListener(v -> setLocale("ar"));
+        rbFrench.setOnClickListener(v -> setLocale("fr"));
+        rbTurkish.setOnClickListener(v -> setLocale("tr"));
+        rbRussian.setOnClickListener(v -> setLocale("ru"));
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

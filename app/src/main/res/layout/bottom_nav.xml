@@ -7,6 +7,4 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_bottom_nav"
     app:menu="@menu/bottom_nav_menu"
-    app:itemIconTint="@color/nav_item_color_state"
-    app:itemTextColor="@color/nav_item_color_state"
     tools:ignore="VisualLintBottomNav" />

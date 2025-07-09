@@ -27,7 +27,6 @@ public class DiagnosisHistoryActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_diagnosis_history); // ✅ استبدال setContentView
 
-        setSupportActionBar(findViewById(R.id.toolbar)); // ✅ في حال أردت عرض العنوان في Toolbar
         getSupportActionBar().setTitle("سجل التشخيص");
 
         historyList = findViewById(R.id.lvHistory);
@@ -66,4 +65,9 @@ public class DiagnosisHistoryActivity extends BaseActivity {
         }
         return list;
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

@@ -23,4 +23,9 @@ public class DisclaimerActivity extends BaseActivity {
                 "يجب على المستخدم دائمًا الرجوع إلى مختص معتمد للتأكد من سبب العطل والإصلاح الصحيح.\n\n" +
                 "المعلومات المعروضة مستندة إلى مصادر عامة وليست مخصصة لعلامة تجارية معينة.");
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

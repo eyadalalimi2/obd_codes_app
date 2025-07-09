@@ -64,16 +64,7 @@
         <item name="colorOnPrimary">@android:color/white</item>
     </style>
 
-    <!-- Widget مخصّص للـ BottomNavigationView -->
-    <style name="Widget.App.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
-        <item name="android:background">@drawable/bg_bottom_nav</item>
-        <item name="android:layout_height">64dp</item>
-        <item name="itemIconSize">28dp</item>
-        <item name="labelVisibilityMode">labeled</item>
-        <item name="itemIconTint">@color/nav_item_color_state</item>
-        <item name="itemTextColor">@color/white</item>
-        <item name="itemRippleColor">@color/white</item>
-    </style>
+
 
     <!-- مربع رموز الكود -->
     <style name="CodeSpinner">
@@ -101,7 +92,7 @@
     <!-- ستايل للـ code-picker buttons -->
     <style name="Widget.OBD.CodePickerButton">
         <item name="android:background">@drawable/bg_code_picker</item>
-        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">32sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -121,7 +112,7 @@
         <item name="android:layout_height">90dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/bg_code_box</item>
-        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -132,7 +123,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/bg_code_box</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:drawableEnd">@drawable/ic_arrow_drop_down</item>
@@ -146,7 +137,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -164,7 +155,7 @@
         <item name="android:background">@drawable/bg_code_box</item>
         <!-- نص وحجم ولون -->
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/app_bar_green</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">28sp</item>
         <item name="android:textStyle">bold</item>
         <!-- أيقونة السهم على اليمين -->
@@ -182,7 +173,7 @@
 
     <!-- نصوص العناوين الخضراء -->
     <style name="TitleGreenBold">
-        <item name="android:textColor">#67B64A</item>
+        <item name="android:textColor">@color/blue</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>

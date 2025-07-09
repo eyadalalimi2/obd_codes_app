@@ -72,4 +72,9 @@ public class TrendingCodesActivity extends BaseActivity {
                 .setPositiveButton(R.string.close, null)
                 .show();
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

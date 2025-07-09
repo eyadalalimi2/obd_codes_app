@@ -1,6 +1,7 @@
 package com.proapp.obdcodes.ui.chat;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.proapp.obdcodes.local.entity.ChatMessageEntity;
 import com.proapp.obdcodes.network.model.ChatMessage;
 import com.proapp.obdcodes.network.model.ChatResponse;
 import com.proapp.obdcodes.network.model.User;
+import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.viewmodel.AiChatViewModel;
 import com.proapp.obdcodes.viewmodel.ChatRoomViewModel;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -186,4 +188,13 @@ public class ChatActivity extends AppCompatActivity {
         return new SimpleDateFormat("HH:mm", Locale.getDefault())
                 .format(new Date());
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, HomeActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
+
 }

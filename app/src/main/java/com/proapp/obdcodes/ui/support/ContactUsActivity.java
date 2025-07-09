@@ -24,7 +24,6 @@ public class ContactUsActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_contact_us);
 
         // Toolbar + hamburger
-        setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // ربط الحقول والأزرار
@@ -61,4 +60,9 @@ public class ContactUsActivity extends BaseActivity {
                 startActivity(new Intent(this, HowItWorksActivity.class))
         );
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

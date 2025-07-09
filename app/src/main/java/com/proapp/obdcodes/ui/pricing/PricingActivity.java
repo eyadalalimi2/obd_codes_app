@@ -53,4 +53,8 @@ public class PricingActivity extends BaseActivity {
                 startActivity(new Intent(this, TermsActivity.class))
         );
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
 }

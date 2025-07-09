@@ -115,4 +115,9 @@ public class OfflineModeActivity extends BaseActivity {
         super.onPause();
         if (networkMonitor != null) networkMonitor.unregister(this);
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

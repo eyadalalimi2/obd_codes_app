@@ -97,7 +97,10 @@ public abstract class BaseActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
-
+        navView.setItemIconTintList(null); // للحفاظ على لون الأيقونة الأصلي
+        navView.setItemTextColor(null);    // للحفاظ على لون النص الأصلي
+        navView.setItemBackground(null);  // إزالة الخلفية التفاعلية
+        navView.getMenu().setGroupCheckable(0, false, true);
         // Header binding
         View header = navView.getHeaderView(0);
         ImageView imgHeader = header.findViewById(R.id.nav_header_image);
@@ -113,7 +116,7 @@ public abstract class BaseActivity extends AppCompatActivity
                 Glide.with(this)
                         .load(imageUrl)
                         .circleCrop()
-                        .placeholder(R.drawable.profile_sample)
+                        .placeholder(R.drawable.profile)
                         .error(R.drawable.profile_sample)
                         .into(imgHeader);
                 tvHeaderName.setText(user.getUsername());
@@ -131,6 +134,13 @@ public abstract class BaseActivity extends AppCompatActivity
 
         // Setup bottom navigation
         bottomNav = findViewById(R.id.base_bottom_nav);
+
+        // ✅ إظهار أو إخفاء BottomNavigationView حسب الصفحة
+        if (shouldShowBottomNav()) {
+            bottomNav.setVisibility(View.VISIBLE);
+        } else {
+            bottomNav.setVisibility(View.GONE);
+        }
         bottomNav.setOnItemSelectedListener(item -> {
             animateBottomNav(item);
             Intent intent = null;
@@ -146,13 +156,16 @@ public abstract class BaseActivity extends AppCompatActivity
                 intent = new Intent(this, MenuActivity.class);
             }
             if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out);
+                finish();
             }
             return true;
         });
     }
-
+    protected boolean shouldShowBottomNav() {
+        return true; // اجعلها false في الأنشطة التي لا تحتاج إلى BottomNav
+    }
     /**
      * Prepares the AlertDialog that shows when there's no internet connection.
      */
@@ -261,8 +274,9 @@ public abstract class BaseActivity extends AppCompatActivity
         }
 
         if (intent != null) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.fade_out);
+            finish();
             return true;
         }
         return false;
@@ -322,4 +336,16 @@ public abstract class BaseActivity extends AppCompatActivity
         FrameLayout container = findViewById(R.id.base_content_frame);
         getLayoutInflater().inflate(layoutResID, container, true);
     }
+    @Override
+    public void onBackPressed() {
+        if (!(this instanceof HomeActivity)) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }

@@ -27,4 +27,9 @@ public class AboutActivity extends BaseActivity {
                 + "تم تصميم التطبيق ليكون سهل الاستخدام وسريع في الوصول للمعلومة.\n"
                 + "نوصي دائمًا بالتواصل مع فني معتمد قبل تنفيذ أي إصلاح.");
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

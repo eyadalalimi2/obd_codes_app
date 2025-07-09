@@ -80,4 +80,9 @@ public class SubscriptionDetailsActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

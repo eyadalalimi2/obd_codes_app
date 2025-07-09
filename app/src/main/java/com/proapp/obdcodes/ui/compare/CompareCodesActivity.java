@@ -92,6 +92,10 @@ public class CompareCodesActivity extends BaseActivity {
             });
         });
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
 
     private void bindCard(View card, ObdCode code) {
         // 1) الكود باللون الأحمر

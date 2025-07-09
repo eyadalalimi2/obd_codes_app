@@ -20,7 +20,6 @@ public class VisualLibraryActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_visual_library); // ✅ استخدام Layout مخصص
 
         // تهيئة Toolbar ودعمه بزر الرجوع
-        setSupportActionBar(findViewById(R.id.toolbar));
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("المكتبة المرئية");
@@ -39,4 +38,9 @@ public class VisualLibraryActivity extends BaseActivity {
         adapter = new VisualLibraryAdapter(this, items);
         gridView.setAdapter(adapter);
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }

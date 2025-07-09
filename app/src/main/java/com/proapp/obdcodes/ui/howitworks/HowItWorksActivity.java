@@ -29,4 +29,9 @@ public class HowItWorksActivity extends BaseActivity {
                 "- تأكد من الاتصال الجيد بـ OBD عبر البلوتوث أو الواي فاي.\n" +
                 "- استخدم الخطط المدفوعة للوصول إلى ميزات متقدمة.");
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
+    }
+
 }
