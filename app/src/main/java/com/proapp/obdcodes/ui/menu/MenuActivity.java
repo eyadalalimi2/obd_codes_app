@@ -20,9 +20,10 @@ public class MenuActivity extends BaseActivity {
     private void setClick(int id, Class<?> target) {
         findViewById(id).setOnClickListener(v -> startActivity(new Intent(this, target)));
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
-        return false;
+        return true; // ✅ قم بتغيير هذا إلى true إذا كنت تريد أن تظهر BottomNav هنا
     }
 
 

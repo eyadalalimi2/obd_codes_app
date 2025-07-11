@@ -158,9 +158,9 @@
         <activity android:name=".ui.offline.OfflineCodeListActivity"
             android:label="Offline"/>
         <activity android:name=".ui.subscription.SubscriptionStatusActivity"
-            android:label="Subscription Status Activity"/>
+            android:label="@string/subscription_details"/>
         <activity android:name=".ui.plans.PlansActivity"
-            android:label="Plans Activity"/>
+            android:label="@string/pricing" />
 
 
 

@@ -59,8 +59,8 @@
 
     <!-- ثيم التطبيق بدون ActionBar لأننا نستخدم Toolbar مخصّص -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/app_bar_green</item>
-        <item name="colorPrimaryVariant">@color/app_bar_green</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/primary</item>
         <item name="colorOnPrimary">@android:color/white</item>
     </style>
 

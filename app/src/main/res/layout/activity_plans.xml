@@ -14,7 +14,7 @@
             android:id="@+id/tvPlansTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/plans_title"
+            android:text="@string/choose_plan"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
@@ -29,6 +29,7 @@
             android:paddingBottom="16dp" />
 
     </LinearLayout>
+
 
     <ProgressBar
         android:id="@+id/progressBar"

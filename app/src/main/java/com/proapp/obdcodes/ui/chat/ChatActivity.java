@@ -21,6 +21,7 @@ import com.proapp.obdcodes.local.entity.ChatMessageEntity;
 import com.proapp.obdcodes.network.model.ChatMessage;
 import com.proapp.obdcodes.network.model.ChatResponse;
 import com.proapp.obdcodes.network.model.User;
+import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.viewmodel.AiChatViewModel;
 import com.proapp.obdcodes.viewmodel.ChatRoomViewModel;
@@ -33,7 +34,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class ChatActivity extends AppCompatActivity {
+public class ChatActivity extends BaseActivity {
     private AiChatViewModel aiViewModel;
     private ChatRoomViewModel chatRoomViewModel;
     private ChatAdapter adapter;
@@ -61,10 +62,10 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     private void initializeChatUI() {
-        setContentView(R.layout.activity_chat);
+        setActivityLayout(R.layout.activity_chat);
 
         ImageButton btnBack = findViewById(R.id.btn_back);
-        btnBack.setOnClickListener(v -> onBackPressed());
+
 
         ImageView ivAvatar = findViewById(R.id.iv_avatar);
         ivAvatar.setImageResource(R.drawable.icon_ai_2);
@@ -187,10 +188,20 @@ public class ChatActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        // بما أنك ترث من BaseActivity، فإن onBackPressed في BaseActivity ستتعامل مع العودة إلى HomeActivity
+        // إلا إذا كان هذا النشاط هو HomeActivity نفسه.
+        // إذا كنت تريد سلوكًا مختلفًا تمامًا هنا، يمكنك إزالة super.onBackPressed()
+        // ولكن عادة ما يكون من الأفضل استدعاء super للتأكد من أن كل شيء يعمل كما هو متوقع.
         super.onBackPressed();
-        Intent intent = new Intent(this, HomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
+        // إزالة هذا الجزء لأن BaseActivity سيتعامل معه
+        // Intent intent = new Intent(this, HomeActivity.class);
+        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        // startActivity(intent);
+        // finish();
+    }
+    // ✅ أضف هذه الدالة لتحديد ما إذا كانت القائمة السفلية ستظهر
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false; // لا تعرض BottomNav في شاشة الدردشة
     }
 }

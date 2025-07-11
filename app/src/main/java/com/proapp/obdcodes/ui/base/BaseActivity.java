@@ -13,11 +13,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,8 +23,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView; // ستحتاج هذه الاستيرادات للأنيميشن إذا أردت الاحتفاظ بها
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView; // ستحتاج هذه الاستيرادات للأنيميشن إذا أردت الاحتفاظ بها
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.proapp.obdcodes.R;
@@ -51,6 +46,7 @@ import com.proapp.obdcodes.ui.plans.PlansActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
 import com.proapp.obdcodes.ui.settings.SettingsActivity;
 import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
+import com.proapp.obdcodes.ui.visual.VisualLibraryActivity;
 import com.proapp.obdcodes.viewmodel.NotificationStateViewModel;
 import com.proapp.obdcodes.viewmodel.NotificationViewModel;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -60,6 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity
 
     private DrawerLayout drawer;
     private BottomNavigationView bottomNav;
+    private NavigationView navView; // إضافة هذا المتغير لسهولة الوصول إليه
     private NotificationViewModel notificationViewModel;
     private TextView badge;
 
@@ -89,20 +86,26 @@ public abstract class BaseActivity extends AppCompatActivity
             getSupportActionBar().setTitle(getTitle());
         }
 
-
         // Setup drawer & navigation view
         drawer = findViewById(R.id.base_drawer);
-        NavigationView navView = findViewById(R.id.base_nav_view);
+        navView = findViewById(R.id.base_nav_view); // تهيئة المتغير
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.nav_open, R.string.nav_close
         );
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navView.setNavigationItemSelectedListener(this);
-        navView.setItemIconTintList(null); // للحفاظ على لون الأيقونة الأصلي
-        navView.setItemTextColor(null);    // للحفاظ على لون النص الأصلي
-        navView.setItemBackground(null);  // إزالة الخلفية التفاعلية
-        navView.getMenu().setGroupCheckable(0, false, true);
+        // تم إزالة الأسطر التالية لأننا نريد أن تدعم NavigationView التحديد التلقائي
+        // navView.setItemIconTintList(null);
+        // navView.setItemTextColor(null);
+        // navView.setItemBackground(null);
+        // navView.getMenu().setGroupCheckable(0, false, true); // هذا السطر هو السبب في عدم التحديد التلقائي، يجب إزالته أو التفكير فيه
+
+        // في `drawer_paid_menu.xml` لديك `android:checkableBehavior="single"`
+        // هذا يعني أن NavigationView يمكنه إدارة التحديد بنفسه.
+        // فقط تأكد من أن الألوان المستخدمة في الـ Style الخاص بالـ App متوافقة
+        // مع التحديد الافتراضي (عادة ما يكون لون التمييز primary color)
+
         // Header binding
         View header = navView.getHeaderView(0);
         ImageView imgHeader = header.findViewById(R.id.nav_header_image);
@@ -144,30 +147,55 @@ public abstract class BaseActivity extends AppCompatActivity
             bottomNav.setVisibility(View.GONE);
         }
         bottomNav.setOnItemSelectedListener(item -> {
-            animateBottomNav(item);
+            // لا نحتاج لـ animateBottomNav هنا إذا كنا نستخدم setChecked
+            // animateBottomNav(item); // يمكنك إزالة هذا السطر إذا لم تعد تريده
             Intent intent = null;
             int id = item.getItemId();
+
+            // قم بإزالة الأسطر المكررة أو غير الصحيحة هنا
+            // وتأكد أن كل ID يقود إلى Activity واحد فقط
             if (id == R.id.nav_home) {
-                return true;
-            } else if (id == R.id.nav_saved) {
+                // لا تفعل شيئًا إذا كنت بالفعل في HomeActivity
+                if (this instanceof HomeActivity) {
+                    return true;
+                }
                 intent = new Intent(this, HomeActivity.class);
+            } else if (id == R.id.nav_saved) {
+                if (this instanceof SavedCodesActivity) {
+                    return true;
+                }
                 intent = new Intent(this, SavedCodesActivity.class);
             } else if (id == R.id.nav_account) {
+                if (this instanceof AccountActivity) {
+                    return true;
+                }
                 intent = new Intent(this, AccountActivity.class);
             } else if (id == R.id.nav_menu) {
+                if (this instanceof MenuActivity) {
+                    return true;
+                }
                 intent = new Intent(this, MenuActivity.class);
             }
+
             if (intent != null) {
+                // هذه الأعلام جيدة للانتقال بين الأنشطة الرئيسية
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
-                finish();
+                finish(); // أغلق النشاط الحالي بعد الانتقال
             }
             return true;
         });
     }
+
     protected boolean shouldShowBottomNav() {
-        return true; // اجعلها false في الأنشطة التي لا تحتاج إلى BottomNav
+        // يمكنك هنا تحديد الأنشطة التي يجب أن تظهر فيها القائمة السفلية
+        // على سبيل المثال:
+        return this instanceof HomeActivity ||
+                this instanceof SavedCodesActivity ||
+                this instanceof AccountActivity ||
+                this instanceof MenuActivity;
     }
+
     /**
      * Prepares the AlertDialog that shows when there's no internet connection.
      */
@@ -189,8 +217,6 @@ public abstract class BaseActivity extends AppCompatActivity
         Button close = v.findViewById(R.id.btn_close);
         close.setOnClickListener(x ->
                 noInternetDialog.dismiss());
-
-
     }
 
     @Override
@@ -209,8 +235,84 @@ public abstract class BaseActivity extends AppCompatActivity
         }
 
         notificationViewModel.refreshNotifications();
+
+        // **** إضافة منطق تحديد العنصر النشط هنا ****
+        highlightCurrentMenuItem();
     }
 
+    /**
+     * تحدد العنصر النشط في القائمة الجانبية والقائمة السفلية بناءً على النشاط الحالي.
+     * يجب استدعاء هذه الدالة في onResume() لكل نشاط يرث من BaseActivity.
+     */
+    protected void highlightCurrentMenuItem() {
+        // تحديد العنصر في القائمة الجانبية (Navigation Drawer)
+        int currentDrawerItemId = getCurrentDrawerItemId();
+        if (currentDrawerItemId != 0 && navView != null) {
+            navView.setCheckedItem(currentDrawerItemId);
+        }
+
+        // تحديد العنصر في القائمة السفلية (Bottom Navigation Bar)
+        int currentBottomNavItemId = getCurrentBottomNavItemId();
+        if (currentBottomNavItemId != 0 && bottomNav != null) {
+            bottomNav.setSelectedItemId(currentBottomNavItemId);
+            // قد تحتاج لإزالة animateBottomNav() من onItemSelectedListener
+            // لأن setSelectedItemId() قد تشغل تأثيرات التحديد الافتراضية
+            // إذا كنت لا تزال تريد تأثير الـ scale، يمكنك استدعاءه هنا
+            // animateBottomNav(bottomNav.getMenu().findItem(currentBottomNavItemId));
+        }
+    }
+
+    /**
+     * ترجع ID العنصر المطابق للنشاط الحالي في القائمة الجانبية.
+     * يجب تعديل هذه الدالة لتغطية جميع الأنشطة التي يمكن الوصول إليها من القائمة الجانبية.
+     */
+    protected int getCurrentDrawerItemId() {
+        if (this instanceof SymptomDiagnosisActivity) {
+            return R.id.nav_symptom;
+        } else if (this instanceof CompareCodesActivity) {
+            return R.id.nav_compare;
+        } else if (this instanceof VisualLibraryActivity) { // للـ nav_visual
+            return R.id.nav_visual;
+        } else if (this instanceof DiagnosisHistoryActivity) {
+            return R.id.nav_history;
+        } else if (this instanceof PdfReportActivity) {
+            return R.id.nav_pdf;
+        } else if (this instanceof NotificationsActivity) {
+            return R.id.nav_notifications;
+        } else if (this instanceof TrendingCodesActivity) {
+            return R.id.nav_trending;
+        } else if (this instanceof TestActivity) { // للـ nav_dashboard
+            return R.id.nav_dashboard;
+        } else if (this instanceof SettingsActivity) {
+            return R.id.nav_settings;
+        } else if (this instanceof OfflineModeActivity) {
+            return R.id.nav_offline;
+        } else if (this instanceof PlansActivity) { // للـ nav_plans
+            return R.id.nav_plans;
+        } else if (this instanceof SubscriptionStatusActivity) { // للـ nav_subscription_status
+            return R.id.nav_subscription_status;
+        }
+        // أضف المزيد من الحالات للأنشطة الأخرى
+        return 0; // لا يوجد عنصر محدد
+    }
+
+    /**
+     * ترجع ID العنصر المطابق للنشاط الحالي في القائمة السفلية.
+     * يجب تعديل هذه الدالة لتغطية جميع الأنشطة التي يمكن الوصول إليها من القائمة السفلية.
+     */
+    protected int getCurrentBottomNavItemId() {
+        if (this instanceof HomeActivity) {
+            return R.id.nav_home;
+        } else if (this instanceof SavedCodesActivity) {
+            return R.id.nav_saved;
+        } else if (this instanceof AccountActivity) {
+            return R.id.nav_account;
+        } else if (this instanceof MenuActivity) { // لـ nav_menu في BottomNav
+            return R.id.nav_menu;
+        }
+        // أضف المزيد من الحالات للأنشطة الأخرى التي يجب أن يكون لها عنصر في BottomNav
+        return 0; // لا يوجد عنصر محدد
+    }
 
 
     @SuppressLint("RestrictedApi")
@@ -251,11 +353,17 @@ public abstract class BaseActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         Intent intent = null;
         int id = item.getItemId();
-        if (id == R.id.nav_symptoms) {
+
+        // تجنب إعادة تشغيل النشاط الحالي إذا كان هو نفسه
+        if (getCurrentDrawerItemId() == id) {
+            return true; // لا تفعل شيئًا إذا كان العنصر المحدد هو النشاط الحالي
+        }
+
+        if (id == R.id.nav_symptom) { // تم تغيير nav_symptoms إلى nav_symptom بناءً على XML
             intent = new Intent(this, SymptomDiagnosisActivity.class);
         } else if (id == R.id.nav_compare) {
             intent = new Intent(this, CompareCodesActivity.class);
-        } else if (id == R.id.nav_visuals) {
+        } else if (id == R.id.nav_visual) { // تم تغيير nav_visuals إلى nav_visual بناءً على XML
             intent = new Intent(this, MenuActivity.class);
         } else if (id == R.id.nav_history) {
             intent = new Intent(this, DiagnosisHistoryActivity.class);
@@ -274,11 +382,10 @@ public abstract class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_offline) {
             intent = new Intent(this, OfflineModeActivity.class);
         } else if (id == R.id.nav_subscription_status) {
-            startActivity(new Intent(this, SubscriptionStatusActivity.class));
+            intent = new Intent(this, SubscriptionStatusActivity.class); // جعلها تعود بـ Intent
         }else if (id == R.id.nav_plans) {
-            startActivity(new Intent(this, PlansActivity.class));
+            intent = new Intent(this, PlansActivity.class); // جعلها تعود بـ Intent
         }
-
 
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -354,5 +461,4 @@ public abstract class BaseActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
 }

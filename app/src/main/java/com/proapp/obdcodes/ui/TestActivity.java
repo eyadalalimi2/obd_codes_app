@@ -10,7 +10,7 @@ import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.ui.howitworks.HowItWorksActivity;
 import com.proapp.obdcodes.ui.pricing.PricingActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
-import com.proapp.obdcodes.ui.settings.LanguageSettingsActivity;
+import com.proapp.obdcodes.ui.settings.LanguageSettingsActivity; // تأكد من أن هذا النشاط يستخدم BaseActivity أيضًا
 import com.proapp.obdcodes.ui.support.ContactUsActivity;
 
 public class TestActivity extends BaseActivity {
@@ -18,7 +18,13 @@ public class TestActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        // ✅ استبدل setContentView بـ setActivityLayout للسماح لـ BaseActivity بتهيئة الـ Drawer/BottomNav/Toolbar
+        setActivityLayout(R.layout.activity_test);
+
+        // ✅ قم بضبط عنوان شريط الأدوات لهذا النشاط
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("لوحة التحكم"); // أو أي عنوان مناسب
+        }
 
         findViewById(R.id.btn_language).setOnClickListener(v ->
                 startActivity(new Intent(this, LanguageSettingsActivity.class)));
@@ -43,5 +49,11 @@ public class TestActivity extends BaseActivity {
 
         findViewById(R.id.btn_pricing).setOnClickListener(v ->
                 startActivity(new Intent(this, PricingActivity.class)));
+    }
+
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return true; // ✅ إذا كنت تريد إظهار BottomNav في لوحة التحكم، اجعلها true.
+        // إذا كانت هذه الشاشة تمثل "Dashboard" في BottomNav، فيجب أن تكون true.
     }
 }

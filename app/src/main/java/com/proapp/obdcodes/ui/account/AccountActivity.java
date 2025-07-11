@@ -21,6 +21,7 @@ import com.proapp.obdcodes.ui.auth.RegisterActivity;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.account.EditProfileActivity;
 import com.proapp.obdcodes.ui.subscription.SubscriptionDetailsActivity;
+import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
 import com.proapp.obdcodes.utils.BindingAdapters;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
 
@@ -105,7 +106,7 @@ public class AccountActivity extends BaseActivity {
                 })
         );
         binding.llManageSubscription.setOnClickListener(v ->
-                startActivity(new Intent(this, SubscriptionDetailsActivity.class))
+                startActivity(new Intent(this, SubscriptionStatusActivity.class))
         );
 
     }

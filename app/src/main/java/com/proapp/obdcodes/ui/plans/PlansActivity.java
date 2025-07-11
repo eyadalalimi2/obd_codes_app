@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.proapp.obdcodes.R;
@@ -30,7 +31,9 @@ public class PlansActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_plans);
 
         // ربط الـ Views
-        rvPlans      = findViewById(R.id.rvPlans);
+        rvPlans = findViewById(R.id.rvPlans);
+        rvPlans.setLayoutManager(new LinearLayoutManager(this));  // <— إضافة هذا
+
         progressBar  = findViewById(R.id.progressBar);
 
         // تهيئة ViewModel

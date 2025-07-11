@@ -1,4 +1,3 @@
-// com.proapp.obdcodes.ui.plans/PlanRecyclerAdapter.java
 package com.proapp.obdcodes.ui.plans;
 
 import android.content.Context;
@@ -7,10 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Plan;
+import com.proapp.obdcodes.util.FeatureMapper;
+
 import java.util.List;
 
 public class PlanRecyclerAdapter
@@ -44,11 +47,28 @@ public class PlanRecyclerAdapter
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlanViewHolder holder, int pos) {
-        Plan plan = plans.get(pos);
-        holder.tvPlanName.setText(plan.getName());
-        holder.tvPrice.setText(plan.getFormattedPrice());
-        holder.tvFeatures.setText(plan.getFeaturesText());
+    public void onBindViewHolder(@NonNull PlanViewHolder holder, int position) {
+        Plan plan = plans.get(position);
+
+        holder.tvPlanName.setText("اسم الباقة: " + plan.getName());
+        holder.tvPrice.setText("السعر: " + plan.getFormattedPrice());
+
+
+
+        // المميزات
+        List<String> keys = plan.getFeatures();
+        if (keys == null || keys.isEmpty()) {
+            holder.tvFeatures.setText("المميزات:\nلا توجد مميزات مذكورة");
+        } else {
+            StringBuilder sb = new StringBuilder("المميزات:\n");
+            for (String key : keys) {
+                sb.append("- ")
+                        .append(FeatureMapper.toReadable(key))
+                        .append("\n");
+            }
+            holder.tvFeatures.setText(sb.toString().trim());
+        }
+
         holder.btnActivateWithCode.setOnClickListener(v ->
                 listener.onActivateCodeClick(plan)
         );
@@ -63,16 +83,16 @@ public class PlanRecyclerAdapter
     }
 
     static class PlanViewHolder extends RecyclerView.ViewHolder {
-        TextView tvPlanName, tvPrice, tvFeatures;
+        TextView tvPlanName, tvPrice, tvDuration, tvFeatures;
         Button btnActivateWithCode, btnBuyWithGoogle;
 
-        PlanViewHolder(@NonNull View iv) {
-            super(iv);
-            tvPlanName          = iv.findViewById(R.id.tvPlanName);
-            tvPrice             = iv.findViewById(R.id.tvPrice);
-            tvFeatures          = iv.findViewById(R.id.tvFeatures);
-            btnActivateWithCode = iv.findViewById(R.id.btnActivateWithCode);
-            btnBuyWithGoogle    = iv.findViewById(R.id.btnBuyWithGoogle);
+        PlanViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvPlanName          = itemView.findViewById(R.id.tvPlanName);
+            tvPrice             = itemView.findViewById(R.id.tvPrice);
+            tvFeatures          = itemView.findViewById(R.id.tvFeatures);
+            btnActivateWithCode = itemView.findViewById(R.id.btnActivateWithCode);
+            btnBuyWithGoogle    = itemView.findViewById(R.id.btnBuyWithGoogle);
         }
     }
 }

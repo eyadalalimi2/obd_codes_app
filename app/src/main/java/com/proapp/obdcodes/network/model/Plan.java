@@ -20,7 +20,7 @@ public class Plan {
     @SerializedName("description")
     private String description;
 
-    @SerializedName("features")
+    @SerializedName("features_json")
     private List<String> features;
 
     // جديد: معرّف المنتج في Google Play
