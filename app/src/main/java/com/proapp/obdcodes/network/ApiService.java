@@ -133,5 +133,5 @@ public interface ApiService {
 
     // 7. إلغاء الاشتراك الحالي
     @POST("subscription/cancel")
-    Call<BaseResponse> cancelSubscription(@Body SubscriptionRequest request);
+    Call<Subscription> cancelSubscription(@Body SubscriptionRequest request);
 }
