@@ -4,14 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.ObdCode;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.TrendingViewModel;
-
-import java.util.List;
 
 public class TrendingCodesActivity extends BaseActivity {
     private TrendingAdapter adapter;
@@ -23,32 +24,36 @@ public class TrendingCodesActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_trending_codes);
         setTitle(getString(R.string.trending_codes));
 
-        // إرفاق RecyclerView
-        androidx.recyclerview.widget.RecyclerView rv = findViewById(R.id.rvTrendingCodes);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TrendingAdapter();
-        rv.setAdapter(adapter);
+        // ✅ حماية الميزة بناءً على الاشتراك
+        SubscriptionUtils.hasFeature(this, "TRENDING_CODES_ANALYTICS", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
 
-        // جلب البيانات
-        viewModel = new androidx.lifecycle.ViewModelProvider(this,
-                androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
-        ).get(TrendingViewModel.class);
+            // تابع تنفيذ الواجهة إذا كان الوصول مسموحًا
+            androidx.recyclerview.widget.RecyclerView rv = findViewById(R.id.rvTrendingCodes);
+            rv.setLayoutManager(new LinearLayoutManager(this));
+            adapter = new TrendingAdapter();
+            rv.setAdapter(adapter);
 
-        viewModel.getTrendingCodes().observe(this, codes -> {
-            adapter.setItems(codes);
-            adapter.setOnItemClickListener(this::showDetailsDialog);
+            viewModel = new androidx.lifecycle.ViewModelProvider(this,
+                    androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
+            ).get(TrendingViewModel.class);
+
+            viewModel.getTrendingCodes().observe(this, codes -> {
+                adapter.setItems(codes);
+                adapter.setOnItemClickListener(this::showDetailsDialog);
+            });
         });
     }
 
-    /**
-     * هذه الدالة تستدعى عند الضغط على أي عنصر في القائمة
-     */
+    /** عرض تفاصيل الكود */
     private void showDetailsDialog(ObdCode code) {
-        // اInflate واجهة الحوار
         View view = LayoutInflater.from(this)
                 .inflate(R.layout.dialog_code_details, null);
 
-        // ربط Views وتعبئتها
         ((TextView) view.findViewById(R.id.tvDialogCode))
                 .setText(code.getCode());
         ((TextView) view.findViewById(R.id.tvDialogTitle))
@@ -66,15 +71,14 @@ public class TrendingCodesActivity extends BaseActivity {
         ((TextView) view.findViewById(R.id.tvDialogDiagnosis))
                 .setText(code.getDiagnosis());
 
-        // عرض الحوار
         new MaterialAlertDialogBuilder(this)
                 .setView(view)
                 .setPositiveButton(R.string.close, null)
                 .show();
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
-
 }

@@ -47,8 +47,10 @@ import com.proapp.obdcodes.ui.menu.MenuActivity;
 import com.proapp.obdcodes.ui.notifications.NotificationsActivity;
 import com.proapp.obdcodes.ui.offline.OfflineModeActivity;
 import com.proapp.obdcodes.ui.pdf.PdfReportActivity;
+import com.proapp.obdcodes.ui.plans.PlansActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
 import com.proapp.obdcodes.ui.settings.SettingsActivity;
+import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
 import com.proapp.obdcodes.viewmodel.NotificationStateViewModel;
 import com.proapp.obdcodes.viewmodel.NotificationViewModel;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -271,7 +273,12 @@ public abstract class BaseActivity extends AppCompatActivity
             intent = new Intent(this, SettingsActivity.class);
         } else if (id == R.id.nav_offline) {
             intent = new Intent(this, OfflineModeActivity.class);
+        } else if (id == R.id.nav_subscription_status) {
+            startActivity(new Intent(this, SubscriptionStatusActivity.class));
+        }else if (id == R.id.nav_plans) {
+            startActivity(new Intent(this, PlansActivity.class));
         }
+
 
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

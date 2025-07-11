@@ -92,5 +92,5 @@
         android:layout_gravity="start"
         android:background="@android:color/white"
         app:headerLayout="@layout/drawer_header"
-        app:menu="@menu/drawer_menus" />
+        app:menu="@menu/drawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -2,8 +2,11 @@ package com.proapp.obdcodes.ui.visual;
 
 import android.os.Bundle;
 import android.widget.GridView;
+import android.widget.Toast;
+
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,19 +27,26 @@ public class VisualLibraryActivity extends BaseActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle("المكتبة المرئية");
         }
+// ✅ التحقق من صلاحية الميزة
+        SubscriptionUtils.hasFeature(this, "VISUAL_COMPONENT_LIBRARY", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
 
-        // تهيئة العناصر
-        gridView = findViewById(R.id.gridView);
-        items = new ArrayList<>();
+            // ✅ السماح بالوصول
+            gridView = findViewById(R.id.gridView);
+            items = new ArrayList<>();
 
-        // بيانات مؤقتة
-        items.add(new VisualItem("حساس الأوكسجين", R.drawable.ic_sensor));
-        items.add(new VisualItem("كمبيوتر السيارة (ECU)", R.drawable.ic_ecu));
-        items.add(new VisualItem("مضخة الوقود", R.drawable.ic_fuel_pump));
-        items.add(new VisualItem("فلتر الهواء", R.drawable.ic_air_filter));
+            items.add(new VisualItem("حساس الأوكسجين", R.drawable.ic_sensor));
+            items.add(new VisualItem("كمبيوتر السيارة (ECU)", R.drawable.ic_ecu));
+            items.add(new VisualItem("مضخة الوقود", R.drawable.ic_fuel_pump));
+            items.add(new VisualItem("فلتر الهواء", R.drawable.ic_air_filter));
 
-        adapter = new VisualLibraryAdapter(this, items);
-        gridView.setAdapter(adapter);
+            adapter = new VisualLibraryAdapter(this, items);
+            gridView.setAdapter(adapter);
+        });
     }
     @Override
     protected boolean shouldShowBottomNav() {

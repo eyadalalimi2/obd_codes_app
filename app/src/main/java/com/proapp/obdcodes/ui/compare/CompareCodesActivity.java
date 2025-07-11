@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 import androidx.lifecycle.ViewModelProvider;
 import android.view.inputmethod.InputMethodManager;
 import com.bumptech.glide.Glide;
@@ -41,6 +41,21 @@ public class CompareCodesActivity extends BaseActivity {
         findViewById(R.id.btnCompare).setOnClickListener(v -> {
             hideKeyboard(); 
             onCompare();
+        });
+        View btnCompare = findViewById(R.id.btnCompare);
+        // ✅ تحقق من صلاحية استخدام المقارنة
+        SubscriptionUtils.hasFeature(this, "COMPARE_CODES", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                btnCompare.setEnabled(false);
+                return;
+            }
+
+            // ✅ تم السماح → فعل الزر
+            btnCompare.setOnClickListener(v -> {
+                hideKeyboard();
+                onCompare();
+            });
         });
         vm = new ViewModelProvider(
                 this,

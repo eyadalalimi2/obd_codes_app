@@ -11,6 +11,7 @@ import androidx.core.content.FileProvider;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,12 +28,21 @@ public class PdfReportActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_pdf_report);
         setTitle(R.string.nav_pdf);
+        // ✅ تحقق من صلاحية استخدام ميزة تقارير PDF
+        SubscriptionUtils.hasFeature(this, "PDF_REPORT", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
 
-        pdfListView = findViewById(R.id.pdfListView);
-        loadPdfFiles();
+            // ✅ السماح بالوصول
+            pdfListView = findViewById(R.id.pdfListView);
+            loadPdfFiles();
 
-        adapter = new PdfReportAdapter(this, pdfFiles);
-        pdfListView.setAdapter(adapter);
+            adapter = new PdfReportAdapter(this, pdfFiles);
+            pdfListView.setAdapter(adapter);
+        });
     }
 
     private void loadPdfFiles() {

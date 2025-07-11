@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.NotificationStateViewModel;
 import com.proapp.obdcodes.viewmodel.NotificationViewModel;
 
@@ -26,10 +27,22 @@ public class NotificationsActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_notifications);
         setTitle(getString(R.string.notifications));
 
-        // تهيئة ViewModel
+        // ✅ حماية الميزة
+        SubscriptionUtils.hasFeature(this, "SMART_NOTIFICATIONS", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            // إذا كان مشتركًا → نفذ الكود الطبيعي
+            setupNotifications();
+        });
+    }
+
+    private void setupNotifications() {
         vm = new ViewModelProvider(this).get(NotificationViewModel.class);
 
-        // تهيئة RecyclerView يدويًا
         androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.rv_notifications);
         adapter = new NotificationsAdapter();
 
@@ -56,7 +69,6 @@ public class NotificationsActivity extends BaseActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        // متابعة قائمة الإشعارات
         vm.getNotifications().observe(this, list -> {
             int previousCount = adapter.getItemCount();
             adapter.submitList(list);

@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 
 import org.json.JSONArray;
 
@@ -25,10 +26,24 @@ public class DiagnosisHistoryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_diagnosis_history); // ✅ استبدال setContentView
+        setActivityLayout(R.layout.activity_diagnosis_history);
 
         getSupportActionBar().setTitle("سجل التشخيص");
 
+        // ✅ التحقق من توفر الميزة
+        SubscriptionUtils.hasFeature(this, "DIAGNOSIS_HISTORY", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                finish();
+                return;
+            }
+
+            // إذا كانت الميزة مفعلة، تابع التنفيذ العادي
+            initHistoryView();
+        });
+    }
+
+    private void initHistoryView() {
         historyList = findViewById(R.id.lvHistory);
         btnClearHistory = findViewById(R.id.btnClearHistory);
 
@@ -65,9 +80,9 @@ public class DiagnosisHistoryActivity extends BaseActivity {
         }
         return list;
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
-
 }

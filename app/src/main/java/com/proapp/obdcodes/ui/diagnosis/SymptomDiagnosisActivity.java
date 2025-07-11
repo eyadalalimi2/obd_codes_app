@@ -7,7 +7,8 @@ import android.widget.*;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.code_details.CodeDetailsActivity;
-
+import androidx.lifecycle.Observer;
+import com.proapp.obdcodes.utils.SubscriptionUtils;
 import java.util.*;
 
 public class SymptomDiagnosisActivity extends BaseActivity {
@@ -45,24 +46,34 @@ public class SymptomDiagnosisActivity extends BaseActivity {
                 this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
         symptomSpinner.setAdapter(spinnerAdapter);
 
-        btnDiagnose.setOnClickListener(v -> {
-            String selectedSymptom = symptomSpinner.getSelectedItem().toString();
-            String customSymptom = etCustomSymptom.getText().toString().trim();
-            String[] relatedCodes;
-
-            if (!customSymptom.isEmpty()) {
-                relatedCodes = new String[]{"P0001", "P0002"};
-            } else {
-                relatedCodes = symptomMap.get(selectedSymptom);
+        // ✅ التحقق من صلاحية الاشتراك
+        SubscriptionUtils.hasFeature(this, "SYMPTOM_BASED_DIAGNOSIS", isAllowed -> {
+            if (!isAllowed) {
+                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
+                btnDiagnose.setEnabled(false);
+                return;
             }
 
-            if (relatedCodes != null) {
-                ArrayAdapter<String> resultAdapter = new ArrayAdapter<>(
-                        this, android.R.layout.simple_list_item_1, relatedCodes);
-                lvResults.setAdapter(resultAdapter);
-            } else {
-                Toast.makeText(this, "لا توجد نتائج", Toast.LENGTH_SHORT).show();
-            }
+            // زر التشخيص مفعل فقط إذا كان الاشتراك يسمح
+            btnDiagnose.setOnClickListener(v -> {
+                String selectedSymptom = symptomSpinner.getSelectedItem().toString();
+                String customSymptom = etCustomSymptom.getText().toString().trim();
+                String[] relatedCodes;
+
+                if (!customSymptom.isEmpty()) {
+                    relatedCodes = new String[]{"P0001", "P0002"};
+                } else {
+                    relatedCodes = symptomMap.get(selectedSymptom);
+                }
+
+                if (relatedCodes != null) {
+                    ArrayAdapter<String> resultAdapter = new ArrayAdapter<>(
+                            this, android.R.layout.simple_list_item_1, relatedCodes);
+                    lvResults.setAdapter(resultAdapter);
+                } else {
+                    Toast.makeText(this, "لا توجد نتائج", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
 
         lvResults.setOnItemClickListener((parent, view, position, id) -> {
