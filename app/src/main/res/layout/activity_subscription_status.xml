@@ -71,7 +71,7 @@
                 android:textColor="#444" />
 
             <Button
-                android:id="@+id/tvRenew"
+                android:id="@+id/btnRenew"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/renew_subscription"
@@ -80,7 +80,7 @@
                 android:layout_marginTop="16dp" />
 
             <Button
-                android:id="@+id/tvCancel"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/cancel_subscription"

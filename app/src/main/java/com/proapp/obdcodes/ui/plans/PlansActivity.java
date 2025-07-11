@@ -1,7 +1,8 @@
-//com.proapp.obdcodes.ui.plans/PlansActivity.java
+// com.proapp.obdcodes.ui.plans/PlansActivity.java
 package com.proapp.obdcodes.ui.plans;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Plan;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
 
 import java.util.List;
 
@@ -31,41 +33,39 @@ public class PlansActivity extends BaseActivity {
         setActivityLayout(R.layout.activity_plans);
 
         // ربط الـ Views
-        rvPlans = findViewById(R.id.rvPlans);
-        rvPlans.setLayoutManager(new LinearLayoutManager(this));  // <— إضافة هذا
-
+        rvPlans      = findViewById(R.id.rvPlans);
+        rvPlans.setLayoutManager(new LinearLayoutManager(this));
         progressBar  = findViewById(R.id.progressBar);
 
-        // تهيئة ViewModel
-        viewModel = new ViewModelProvider(this)
-                .get(PlansViewModel.class);
+        // تهيئة الـ ViewModel
+        viewModel = new ViewModelProvider(this).get(PlansViewModel.class);
 
         // مراقبة حالة التحميل
-        viewModel.getLoading().observe(this, isLoading -> {
-            progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
-        });
+        viewModel.getLoading().observe(this, isLoading ->
+                progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE)
+        );
 
         // مراقبة الأخطاء
         viewModel.getError().observe(this, this::showError);
 
-        // مراقبة نتائج الاشتراك
+        // بعد نجاح الاشتراك عبر Google
         viewModel.getSubscribeResult().observe(this, success -> {
-            Toast.makeText(
-                    this,
-                    success ? "✅ تم الاشتراك بنجاح" : "❌ فشل في الاشتراك",
-                    Toast.LENGTH_SHORT
-            ).show();
-            if (success) viewModel.loadPlans();
+            if (success) {
+                Toast.makeText(this, "✅ تم الاشتراك بنجاح", Toast.LENGTH_SHORT).show();
+                navigateToSubscriptionStatus();
+            } else {
+                Toast.makeText(this, "❌ فشل في الاشتراك", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        // مراقبة نتائج التفعيل
+        // بعد نجاح التفعيل بالكود
         viewModel.getActivateResult().observe(this, success -> {
-            Toast.makeText(
-                    this,
-                    success ? "✅ تم التفعيل بنجاح" : "❌ كود غير صالح أو منتهي",
-                    Toast.LENGTH_SHORT
-            ).show();
-            if (success) viewModel.loadPlans();
+            if (success) {
+                Toast.makeText(this, "✅ تم التفعيل بنجاح", Toast.LENGTH_SHORT).show();
+                navigateToSubscriptionStatus();
+            } else {
+                Toast.makeText(this, "❌ كود غير صالح أو منتهي", Toast.LENGTH_SHORT).show();
+            }
         });
 
         // جلب الباقات
@@ -87,7 +87,6 @@ public class PlansActivity extends BaseActivity {
                     public void onActivateCodeClick(Plan plan) {
                         showActivateDialog(plan);
                     }
-
                     @Override
                     public void onBuyWithGoogleClick(Plan plan) {
                         viewModel.subscribeWithToken(
@@ -123,6 +122,11 @@ public class PlansActivity extends BaseActivity {
         dialog.show();
     }
 
+    private void navigateToSubscriptionStatus() {
+        startActivity(new Intent(this, SubscriptionStatusActivity.class));
+        finish();
+    }
+
     private void showError(String message) {
         if (message != null) {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
@@ -134,4 +138,3 @@ public class PlansActivity extends BaseActivity {
         return false;
     }
 }
-
