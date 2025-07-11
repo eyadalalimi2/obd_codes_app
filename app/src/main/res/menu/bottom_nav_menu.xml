@@ -10,20 +10,17 @@
     <item
         android:id="@+id/nav_saved"
         android:icon="@drawable/ic_saved"
-        android:title="@string/my_saved_items"
-        android:checked="true"/>
+        android:title="@string/my_saved_items"/>
 
     <item
         android:id="@+id/nav_account"
         android:icon="@drawable/ic_account"
-        android:title="@string/my_account"
-        android:checked="true"/>
+        android:title="@string/my_account"/>
 
     <item
         android:id="@+id/nav_menu"
         android:icon="@drawable/ic_menu"
-        android:title="@string/menu_pages"
-        android:checked="true"/>
+        android:title="@string/menu_pages"/>
 
 
 </menu>
