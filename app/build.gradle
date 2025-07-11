@@ -88,7 +88,7 @@ dependencies {
     implementation libs.room.runtime.v252
     implementation libs.scenecore
     implementation libs.androidx.appcompat
-    implementation libs.billing
+    implementation 'com.android.billingclient:billing:6.0.1'
     annotationProcessor libs.room.compiler
 
     // Splash Screen

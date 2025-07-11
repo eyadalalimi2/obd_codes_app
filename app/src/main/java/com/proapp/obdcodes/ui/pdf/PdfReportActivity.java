@@ -3,7 +3,6 @@ package com.proapp.obdcodes.ui.pdf;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -11,7 +10,7 @@ import androidx.core.content.FileProvider;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 
 import java.io.File;
 import java.util.ArrayList;

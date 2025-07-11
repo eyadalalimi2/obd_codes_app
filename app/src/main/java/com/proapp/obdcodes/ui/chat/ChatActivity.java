@@ -3,7 +3,6 @@ package com.proapp.obdcodes.ui.chat;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
@@ -26,7 +25,7 @@ import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.viewmodel.AiChatViewModel;
 import com.proapp.obdcodes.viewmodel.ChatRoomViewModel;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

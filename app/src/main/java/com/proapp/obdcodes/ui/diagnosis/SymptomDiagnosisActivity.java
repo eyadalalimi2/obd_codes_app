@@ -2,13 +2,11 @@ package com.proapp.obdcodes.ui.diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.*;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.code_details.CodeDetailsActivity;
-import androidx.lifecycle.Observer;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 import java.util.*;
 
 public class SymptomDiagnosisActivity extends BaseActivity {

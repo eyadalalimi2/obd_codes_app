@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

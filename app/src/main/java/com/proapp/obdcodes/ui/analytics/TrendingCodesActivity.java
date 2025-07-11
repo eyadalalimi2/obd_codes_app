@@ -11,7 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.ObdCode;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.TrendingViewModel;
 
 public class TrendingCodesActivity extends BaseActivity {

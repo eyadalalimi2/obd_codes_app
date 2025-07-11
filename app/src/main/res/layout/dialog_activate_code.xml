@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutActivateDialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_dialog_rounded"
+    android:layout_margin="20dp">
+
+    <TextView
+        android:id="@+id/tvActivatePrompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_activation_code"
+        android:textSize="16sp"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:id="@+id/etActivationCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="مثال: ABC123"
+        android:inputType="text"
+        android:layout_marginTop="12dp"/>
+
+    <Button
+        android:id="@+id/btnSubmitCode"
+        style="?attr/materialButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/activate_now"
+        android:layout_marginTop="12dp"/>
+
+</LinearLayout>

@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 import androidx.lifecycle.ViewModelProvider;
 import android.view.inputmethod.InputMethodManager;
 import com.bumptech.glide.Glide;

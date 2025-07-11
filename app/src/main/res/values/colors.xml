@@ -6,7 +6,6 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="red">#E20A0A</color>
-    <color name="colorPrimary">#4CAF50</color>
     <color name="green_background">#F0FFF4</color>
     <color name="app_bar_green">#4CAF50</color>
     <color name="gray_text">#333333</color>
@@ -14,8 +13,6 @@
     <color name="green_primary">#6FAF37</color>
     <color name="code_box_bg">#FFFFFF</color>
     <color name="base_background">#FAFAFA</color>
-    <color name="colorPrimaryDark">#45812F</color>
-    <color name="colorAccent">#67B64A</color>
     <color name="colorToolbarText">#FFFFFF</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorSurfaceLight">#F3F6F7</color>
@@ -40,10 +37,23 @@
     <color name="green_300">#81C784</color>
     <color name="blue">#1F41BB</color>
     <color name="gray">#626262</color>
-    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="colorOnPrimary">#FFFFFF</color>
     <color name="bubble_user">#DCF8C6</color>
     <color name="bubble_assistant">#ECECEC</color>
+    <!-- ألوان رئيسية -->
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#FF9800</color>
 
+    <!-- ألوان النص -->
+    <color name="textPrimary">#222E36</color>
+    <color name="textSecondary">#444444</color>
+    <color name="priceColor">#4CAF50</color>
+
+    <!-- خلفيات عامة -->
+    <color name="white">#FFFFFF</color>
+    <color name="cardBackground">#F9F9F9</color>
+    <color name="dialogBackground">#FFFFFF</color>
+    <color name="editTextBackground">#F0F0F0</color>
 </resources>

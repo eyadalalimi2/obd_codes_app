@@ -363,5 +363,20 @@
     <!-- ========================================================================================= -->
     <string name="rate_this_app">تقييم التطبيق</string>
     <string name="prompt_letter">رسالة سريعة</string>
+    <string name="plans_title">اختر باقة الاشتراك</string>
+    <string name="plan_name_placeholder">اسم الباقة</string>
+    <string name="plan_price_placeholder">السعر</string>
+    <string name="plan_features_placeholder">مميزات الباقة</string>
+    <string name="activate_code">تفعيل بالكود</string>
+    <string name="buy_with_google">شراء عبر Google</string>
+    <string name="subscription_status">حالة الاشتراك</string>
+    <string name="subscription_start_date">تاريخ التفعيل</string>
+    <string name="subscription_expiry_date">تاريخ الانتهاء</string>
+    <string name="subscription_days_left">الأيام المتبقية</string>
+    <string name="renew_subscription">تجديد الاشتراك</string>
+    <string name="cancel_subscription">إلغاء الاشتراك</string>
+    <string name="activation_code_hint">مثال: ABC123</string>
+    <string name="enter_activation_code">أدخل كود التفعيل:</string>
+    <string name="activate_now">تفعيل الآن</string>
 
 </resources>

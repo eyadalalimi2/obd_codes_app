@@ -55,4 +55,13 @@
     <dimen name="tab_height">48dp</dimen>
 
     <dimen name="chat_bubble_max_width">270dp</dimen>
+    <!-- حشوات Padding -->
+    <dimen name="padding_xsmall">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+
+    <!-- مسافات عناصر -->
+    <dimen name="item_margin_bottom">12dp</dimen>
+    <dimen name="dialog_margin">32dp</dimen>
+
 </resources>

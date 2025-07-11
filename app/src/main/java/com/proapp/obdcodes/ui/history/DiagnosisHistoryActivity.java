@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.utils.SubscriptionUtils;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 
 import org.json.JSONArray;
 
