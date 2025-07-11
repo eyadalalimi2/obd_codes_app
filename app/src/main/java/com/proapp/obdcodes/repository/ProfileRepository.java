@@ -10,6 +10,8 @@ import com.proapp.obdcodes.network.ApiService;
 import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
 import com.proapp.obdcodes.network.model.UserProfileResponse;
+
+import java.util.Collections;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,24 +78,26 @@ public class ProfileRepository {
      */
     public LiveData<List<Subscription>> getSubscriptions() {
         MutableLiveData<List<Subscription>> live = new MutableLiveData<>();
-        api.getSubscriptions().enqueue(new Callback<List<Subscription>>() {
+        api.getCurrentSubscriptionStatus().enqueue(new Callback<Subscription>() {
             @Override
-            public void onResponse(Call<List<Subscription>> call,
-                                   Response<List<Subscription>> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    live.setValue(resp.body());
+            public void onResponse(Call<Subscription> call, Response<Subscription> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<Subscription> list = Collections.singletonList(response.body());
+                    live.setValue(list);
                 } else {
-                    live.setValue(null);
+                    live.setValue(Collections.emptyList());
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Subscription>> call, Throwable t) {
-                live.setValue(null);
+            public void onFailure(Call<Subscription> call, Throwable t) {
+                live.setValue(Collections.emptyList());
             }
         });
         return live;
     }
+
+
     public LiveData<Boolean> logout() {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
         api.logout().enqueue(new Callback<Void>() {
