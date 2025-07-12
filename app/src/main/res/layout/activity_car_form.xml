@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCarForm"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="إضافة / تعديل سيارة"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/spBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:prompt="اختر الشركة"/>
+
+            <Spinner
+                android:id="@+id/spModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:prompt="اختر الطراز"/>
+
+            <Spinner
+                android:id="@+id/spYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:prompt="اختر السنة"/>
+
+            <EditText
+                android:id="@+id/etCarName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="اسم السيارة (اختياري)"
+                android:layout_marginTop="8dp"/>
+
+            <Button
+                android:id="@+id/btnSaveCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="حفظ"
+                android:layout_marginTop="16dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

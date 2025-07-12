@@ -1,0 +1,44 @@
+// File: com/proapp/obdcodes/ui/cars/CarDetailViewModel.java
+package com.proapp.obdcodes.ui.cars;
+
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
+
+import com.proapp.obdcodes.network.model.Car;
+import com.proapp.obdcodes.repository.CarRepository;
+
+import java.util.List;
+
+public class CarDetailViewModel extends AndroidViewModel {
+
+    private final CarRepository repository;
+    private final MediatorLiveData<Car> selectedCar = new MediatorLiveData<>();
+    private final LiveData<List<Car>> allCars;
+
+    public CarDetailViewModel(@NonNull Application application) {
+        super(application);
+        repository = new CarRepository(application);
+        allCars = repository.getUserCars();
+    }
+
+    public LiveData<Car> getSelectedCar() {
+        return selectedCar;
+    }
+
+    public void loadCar(int carId) {
+        selectedCar.addSource(allCars, cars -> {
+            if (cars != null) {
+                for (Car c : cars) {
+                    if (c.getId() == carId) {
+                        selectedCar.setValue(c);
+                        break;
+                    }
+                }
+            }
+        });
+    }
+}
