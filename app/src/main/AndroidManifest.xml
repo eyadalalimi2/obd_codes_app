@@ -93,10 +93,7 @@
         <activity
             android:name=".ui.pricing.PricingActivity"
             android:label="الخطط والأسعار" />
-        <activity
-            android:name=".ui.subscription.SubscriptionDetailsActivity"
-            android:label="@string/subscription_details"
-            android:exported="false" />
+
 
         <!-- Paid Features -->
         <activity
@@ -161,7 +158,20 @@
             android:label="@string/subscription_details"/>
         <activity android:name=".ui.plans.PlansActivity"
             android:label="@string/pricing" />
+        <!-- صفحة قائمة السيارات -->
+        <activity
+            android:name="com.proapp.obdcodes.ui.cars.CarListActivity"
+            android:label="سياراتي" />
 
+        <!-- صفحة إضافة/تعديل سيارة -->
+        <activity
+            android:name="com.proapp.obdcodes.ui.cars.CarFormActivity"
+            android:label="إضافة / تعديل سيارة" />
+
+        <!-- صفحة تفاصيل السيارة -->
+        <activity
+            android:name="com.proapp.obdcodes.ui.cars.CarDetailActivity"
+            android:label="تفاصيل السيارة" />
 
 
 

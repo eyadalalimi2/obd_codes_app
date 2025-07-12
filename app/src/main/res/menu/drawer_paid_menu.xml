@@ -63,5 +63,9 @@
             android:id="@+id/nav_subscription_status"
             android:icon="@drawable/ic_subscription"
             android:title="الاشتراك الحالي" />
+        <item
+            android:id="@+id/nav_cars"
+            android:icon="@drawable/ic_car"
+            android:title="سياراتي" />
     </group>
 </menu>

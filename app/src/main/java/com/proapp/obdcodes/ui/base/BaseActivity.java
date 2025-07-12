@@ -33,6 +33,7 @@ import com.proapp.obdcodes.network.model.UserNotification;
 import com.proapp.obdcodes.ui.TestActivity;
 import com.proapp.obdcodes.ui.account.AccountActivity;
 import com.proapp.obdcodes.ui.analytics.TrendingCodesActivity;
+import com.proapp.obdcodes.ui.cars.CarListActivity;
 import com.proapp.obdcodes.ui.chat.ChatActivity;
 import com.proapp.obdcodes.ui.compare.CompareCodesActivity;
 import com.proapp.obdcodes.ui.diagnosis.SymptomDiagnosisActivity;
@@ -385,6 +386,8 @@ public abstract class BaseActivity extends AppCompatActivity
             intent = new Intent(this, SubscriptionStatusActivity.class); // جعلها تعود بـ Intent
         }else if (id == R.id.nav_plans) {
             intent = new Intent(this, PlansActivity.class); // جعلها تعود بـ Intent
+        }else if (id == R.id.nav_cars) {
+            intent = new Intent(this, CarListActivity.class);
         }
 
         if (intent != null) {
