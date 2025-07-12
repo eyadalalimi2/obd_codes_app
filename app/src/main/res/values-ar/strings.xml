@@ -378,5 +378,8 @@
     <string name="activation_code_hint">مثال: ABC123</string>
     <string name="enter_activation_code">أدخل كود التفعيل:</string>
     <string name="activate_now">تفعيل الآن</string>
+    <string name="brand">اختر الشركة</string>
+    <string name="model">اختر الطراز</string>
+    <string name="year">اختر السنة</string>
 
 </resources>
