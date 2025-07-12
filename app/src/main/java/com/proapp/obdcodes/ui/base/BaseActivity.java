@@ -461,4 +461,18 @@ public abstract class BaseActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        overridePendingTransition(R.anim.slide_scale_fade_in, R.anim.slide_scale_fade_out);
+    }
+
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_scale_fade_in_left, R.anim.slide_scale_fade_out_right);
+    }
+
+
 }

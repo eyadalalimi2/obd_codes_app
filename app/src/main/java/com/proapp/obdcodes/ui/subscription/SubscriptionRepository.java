@@ -1,6 +1,7 @@
 package com.proapp.obdcodes.ui.subscription;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -45,20 +46,26 @@ public class SubscriptionRepository {
                             Call<Subscription> call,
                             Response<Subscription> response
                     ) {
-                        if (response.isSuccessful() && response.body() != null) {
-                            callback.onSuccess(response.body());
+                        if (response.isSuccessful()) {
+                            try {
+                                // اطبع الـ JSON الأصلي للتحقق
+                                String rawJson = response.raw().body().string();
+                                Log.d("SubRepo", "RAW Subscription JSON: " + rawJson);
+                            } catch (Exception ignored) {}
+
+                            if (response.body() != null) {
+                                callback.onSuccess(response.body());
+                            } else {
+                                callback.onFailure("لم يتم تحميل بيانات الاشتراك");
+                            }
                         } else {
-                            callback.onFailure(
-                                    "خطأ في جلب حالة الاشتراك: "
-                                            + response.message()
-                            );
+                            callback.onFailure("Response error: " + response.code());
                         }
                     }
+
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure(
-                                "فشل في الاتصال: " + t.getMessage()
-                        );
+                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
                     }
                 });
     }

@@ -59,7 +59,7 @@ public class SubscriptionViewModel extends AndroidViewModel {
         // بناء الطلب وتمريره للمخزن
         SubscriptionRequest req = new SubscriptionRequest(
                 current.getId(),
-                current.getGoogleProductId(),
+                current.getEndAt(),
                 "google_play"
         );
 

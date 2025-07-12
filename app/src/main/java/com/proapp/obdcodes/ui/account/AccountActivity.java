@@ -20,7 +20,6 @@ import com.proapp.obdcodes.ui.auth.AuthActivity;
 import com.proapp.obdcodes.ui.auth.RegisterActivity;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.account.EditProfileActivity;
-import com.proapp.obdcodes.ui.subscription.SubscriptionDetailsActivity;
 import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
 import com.proapp.obdcodes.utils.BindingAdapters;
 import com.proapp.obdcodes.viewmodel.UserViewModel;

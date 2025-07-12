@@ -36,7 +36,6 @@ public class SubscriptionStatusActivity extends BaseActivity {
         tvStartDate          = findViewById(R.id.tvStartDate);
         tvExpiresAt          = findViewById(R.id.tvExpiresAt);
         tvDaysLeft           = findViewById(R.id.tvDaysLeft);
-        tvFeatures           = findViewById(R.id.tvFeatures);
         btnRenew             = findViewById(R.id.btnRenew);
         btnCancel            = findViewById(R.id.btnCancel);
         progressBar          = findViewById(R.id.progressBar);
@@ -97,12 +96,12 @@ public class SubscriptionStatusActivity extends BaseActivity {
     // ربط البيانات إلى الواجهة
     private void bindSubscription(Subscription sub) {
         if (sub != null && sub.getName() != null) {
-            tvPlanName.setText("الباقة: " + sub.getPlanName());
+            tvPlanName.setText("الباقة: " + sub.getName());
             tvSubscriptionStatus.setText("الحالة: " + (sub.getDaysLeft() > 0 ? "نشط" : "منتهي"));
             tvStartDate.setText("التفعيل: " + sub.getStartDateFormatted());
             tvExpiresAt.setText("الانتهاء: " + sub.getEndDateFormatted());
             tvDaysLeft.setText("المتبقي: " + sub.getDaysLeft() + " يوم");
-            tvFeatures.setText("المميزات:\n" + sub.getFeaturesText());
+            ;
 
             btnRenew.setVisibility(View.VISIBLE);
             btnCancel.setVisibility(View.VISIBLE);
@@ -113,7 +112,7 @@ public class SubscriptionStatusActivity extends BaseActivity {
             tvStartDate.setText("");
             tvExpiresAt.setText("");
             tvDaysLeft.setText("");
-            tvFeatures.setText("");
+
 
             btnRenew.setVisibility(View.GONE);
             btnCancel.setVisibility(View.GONE);

@@ -60,15 +60,6 @@
                 android:textSize="16sp"
                 android:layout_marginBottom="8dp" />
 
-            <TextView
-                android:id="@+id/tvFeatures"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/plan_features_placeholder"
-                android:textSize="16sp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="16dp"
-                android:textColor="#444" />
 
             <Button
                 android:id="@+id/btnRenew"

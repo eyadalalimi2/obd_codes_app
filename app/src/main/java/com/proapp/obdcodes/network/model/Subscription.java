@@ -1,112 +1,113 @@
+// com.proapp.obdcodes.network.model/Subscription.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
-import java.util.List;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-public class Subscription {
+import java.util.List;
 
+public class Subscription {
     @SerializedName("id")
     private long id;
+    // الاستجابة تضمّ حقل plan فيه بيانات الباقة
+    @SerializedName("plan")
+    private Plan plan;
 
-    @SerializedName("name")
-    private String name;
+    @SerializedName("start_at")
+    private String startAt;
 
-    @SerializedName("price")
-    private double price;
+    @SerializedName("end_at")
+    private String endAt;
 
-    @SerializedName("duration_days")
-    private int durationDays;
-
-    @SerializedName("start_date")
-    private String startDate;
-
-    @SerializedName("expires_at")
-    private String expiresAt;
-
-    @SerializedName("description")
-    private String description;
-
-    @SerializedName("features")
-    private List<String> features;
-
-    @SerializedName("google_product_id")
-    private String googleProductId;
-
-
-
+    @SerializedName("status")
+    private String status;   // "active" أو "expired" أو ما شابه
 
     // ----------------- Getters -----------------
-
-    public long getId() {
-        return id;
+    public long getId() { return id; }
+    public Plan getPlan() {
+        return plan;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    /** صيغة العرض لاسم الباقة */
     public String getName() {
-        return name;
+        return plan != null ? plan.getName() : null;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public int getDurationDays() {
-        return durationDays;
-    }
-
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public String getExpiresAt() {
-        return expiresAt;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public List<String> getFeatures() {
-        return features;
-    }
-
-    public String getGoogleProductId() {
-        return googleProductId;
-    }
-
-    // ----------------- أدوات مساعدة للعرض -----------------
-
+    /** السعر من داخل الـ plan */
     public String getFormattedPrice() {
-        return price == 0 ? "مجانية" : price + " $";
+        return plan != null ? plan.getFormattedPrice() : "-";
     }
 
+    /** قائمة مفاتيح المميزات */
+    public List<String> getFeatures() {
+        return plan != null ? plan.getFeatures() : null;
+    }
+
+    /** نصّ المميزات */
     public String getFeaturesText() {
-        if (features == null || features.isEmpty()) return "لا توجد مزايا";
-        return "- " + String.join("\n- ", features);
+        if (plan == null || plan.getFeatures() == null || plan.getFeatures().isEmpty()) {
+            return "لا توجد مزايا";
+        }
+        // تحوّل المفاتيح إلى نصوص قابلة للقراءة
+        return "- " + String.join("\n- ", plan.getFeatures());
     }
 
-    public String getPlanName() {
-        return name != null ? name : "بدون اسم";
+    // جديد: معرّف المنتج في Google Play
+    @SerializedName("google_product_id")
+    private String googleProductId;
+    // ----------------- تواريخ -----------------
+
+    public String getStartAt() {
+        return startAt;
     }
-    public int getDaysLeft() {
+
+    public String getEndAt() {
+        return endAt;
+    }
+    public String getGoogleProductId() { return googleProductId; }
+    /**
+     * تاريخ البداية بصيغة مقروءة (yyyy-MM-dd أو حسب الحاجة)
+     */
+    public String getStartDateFormatted() {
+        if (startAt == null) return "-";
         try {
-            if (expiresAt == null) return 0;
+            // لو تبيّا فقط الجزء الأول yyyy-MM-dd
+            return startAt.split("T")[0];
+        } catch (Exception e) {
+            return startAt;
+        }
+    }
+
+    /**
+     * تاريخ الانتهاء بصيغة مقروءة
+     */
+    public String getEndDateFormatted() {
+        if (endAt == null) return "-";
+        try {
+            return endAt.split("T")[0];
+        } catch (Exception e) {
+            return endAt;
+        }
+    }
+
+    /**
+     * الأيام المتبقية من اليوم حتى نهاية الاشتراك
+     */
+    public int getDaysLeft() {
+        if (endAt == null) return 0;
+        try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date now = new Date();
-            Date end = sdf.parse(expiresAt);
-            long diff = end.getTime() - now.getTime();
-            return (int) TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+            Date endDate = sdf.parse(getEndDateFormatted());
+            long diffMs = endDate.getTime() - now.getTime();
+            return (int) TimeUnit.DAYS.convert(diffMs, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             return 0;
         }
-    }public String getStartDateFormatted() {
-        return (startDate != null) ? startDate : "-";
     }
-
-    public String getEndDateFormatted() {
-        return (expiresAt != null) ? expiresAt : "-";
-    }
-
-
 }

@@ -9,7 +9,7 @@
         android:duration="320"/>
     <translate
         android:fromXDelta="0"
-        android:toXDelta="-15%p"
+        android:toXDelta="15%p"
         android:duration="320"/>
     <alpha
         android:fromAlpha="1.0"
