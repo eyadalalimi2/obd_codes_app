@@ -1,9 +1,14 @@
 package com.proapp.obdcodes.network;
 
 import com.proapp.obdcodes.network.model.ActivationRequest;
+import com.proapp.obdcodes.network.model.AddCarRequest;
+import com.proapp.obdcodes.network.model.AddCarResponse;
+import com.proapp.obdcodes.network.model.BrandModelsResponse;
+import com.proapp.obdcodes.network.model.BrandsResponse;
 import com.proapp.obdcodes.network.model.ChatRequest;
 import com.proapp.obdcodes.network.model.ChatResponse;
 import com.proapp.obdcodes.network.model.CompareResult;
+import com.proapp.obdcodes.network.model.DeleteCarResponse;
 import com.proapp.obdcodes.network.model.EncryptionKeyResponse;
 import com.proapp.obdcodes.network.model.GoogleLoginRequest;
 import com.proapp.obdcodes.network.model.LoginRequest;
@@ -15,7 +20,10 @@ import com.proapp.obdcodes.network.model.RegisterRequest;
 import com.proapp.obdcodes.network.model.RegisterResponse;
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.model.SubscriptionRequest;
+import com.proapp.obdcodes.network.model.UpdateCarRequest;
+import com.proapp.obdcodes.network.model.UpdateCarsResponse;
 import com.proapp.obdcodes.network.model.UpdateProfileRequest;
+import com.proapp.obdcodes.network.model.UserCarsResponse;
 import com.proapp.obdcodes.network.model.UserProfileResponse;
 
 import java.util.List;
@@ -134,4 +142,38 @@ public interface ApiService {
     // 7. إلغاء الاشتراك الحالي
     @POST("subscription/cancel")
     Call<Subscription> cancelSubscription(@Body SubscriptionRequest request);
+
+
+    // ---------------- ميزة السيارات ----------------
+
+    /** 1. استدعاء جميع سيارات المستخدم */
+    @GET("user/cars")
+    Call<UserCarsResponse> getUserCars();
+
+    /** 2. إضافة سيارة جديدة */
+    @POST("user/cars")
+    Call<AddCarResponse> addUserCar(@Body AddCarRequest request);
+
+    /** 3. تحديث بيانات سيارة موجودة */
+    @PUT("user/cars/{car_id}")
+    Call<UpdateCarsResponse> updateUserCar(
+            @Path("car_id") int carId,
+            @Body UpdateCarRequest request
+    );
+
+    /** 4. حذف سيارة */
+    @DELETE("user/cars/{car_id}")
+    Call<DeleteCarResponse> deleteUserCar(@Path("car_id") int carId);
+
+    /** 5. جلب قائمة الشركات المصنعة */
+    @GET("brands")
+    Call<BrandsResponse> getBrands();
+
+    /** 6. جلب طرازات شركة معينة */
+    @GET("brands/{brand_id}/models")
+    Call<BrandModelsResponse> getBrandModels(@Path("brand_id") int brandId);
+
+    /** 7. جلب سنوات الإنتاج لطراز معين */
+    @GET("models/{model_id}/years")
+    Call<List<String>> getModelYears(@Path("model_id") int modelId);
 }
