@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/subscription_start_date"
                 android:textSize="16sp"
+                android:textColor="#555"
                 android:layout_marginBottom="4dp" />
 
             <TextView
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/subscription_expiry_date"
                 android:textSize="16sp"
+                android:textColor="#555"
                 android:layout_marginBottom="4dp" />
 
             <TextView
@@ -58,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/subscription_days_left"
                 android:textSize="16sp"
+                android:textColor="#555"
                 android:layout_marginBottom="8dp" />
 
 
