@@ -101,7 +101,7 @@ public class SubscriptionStatusActivity extends BaseActivity {
             tvStartDate.setText("التفعيل: " + sub.getStartDateFormatted());
             tvExpiresAt.setText("الانتهاء: " + sub.getEndDateFormatted());
             tvDaysLeft.setText("المتبقي: " + sub.getDaysLeft() + " يوم");
-            ;
+            tvFeatures.setText("المميزات:\n" + sub.getFeaturesText());
 
             btnRenew.setVisibility(View.VISIBLE);
             btnCancel.setVisibility(View.VISIBLE);
