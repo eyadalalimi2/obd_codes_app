@@ -233,7 +233,7 @@
     <string name="logout">تسجيل الخروج</string>
     <string name="account_logout">تسجيل الخروج</string>
     <string name="log_out">↩ تسجيل الخروج</string>
-    <string name="delete_account">🗑 حذف الحساب</string>
+    <string name="delete_account"> حذف الحساب</string>
     <string name="account_delete">حذف الحساب</string>
 
     <!-- رسائل الحالة والخطأ (الحساب، البصمة، PIN) -->
