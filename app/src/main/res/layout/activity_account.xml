@@ -96,7 +96,7 @@
                 <LinearLayout
                     android:id="@+id/llPackageCard"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:background="#F3F6F7"
                     android:gravity="center_vertical"
