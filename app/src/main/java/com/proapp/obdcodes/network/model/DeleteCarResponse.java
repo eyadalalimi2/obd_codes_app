@@ -1,4 +1,4 @@
-// File: com/proapp/obdcodes/network/model/DeleteCarResponse.java
+// File: app/src/main/java/com/proapp/obdcodes/network/model/Delete<Car
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,3 @@
-// File: com/proapp/obdcodes/ui/cars/CarFormViewModel.java
 package com.proapp.obdcodes.ui.cars;
 
 import android.app.Application;
@@ -16,35 +15,34 @@ import com.proapp.obdcodes.network.model.UpdateCarRequest;
 import com.proapp.obdcodes.network.model.UpdateCarsResponse;
 import com.proapp.obdcodes.repository.CarRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarFormViewModel extends AndroidViewModel {
 
     private final CarRepository repository;
     private final LiveData<List<Brand>> brands;
-    private LiveData<List<Model>> models;
-    private LiveData<List<String>> years;
+    // جعل هذه MutableLiveData نهائية وغير null
+    private final MutableLiveData<List<Model>> models = new MutableLiveData<>(new ArrayList<>());
+    private final MutableLiveData<List<String>> years  = new MutableLiveData<>(new ArrayList<>());
 
-    private final MutableLiveData<AddCarResponse> addResult = new MutableLiveData<>();
+    private final MutableLiveData<AddCarResponse> addResult   = new MutableLiveData<>();
     private final MutableLiveData<UpdateCarsResponse> updateResult = new MutableLiveData<>();
 
     public CarFormViewModel(@NonNull Application application) {
         super(application);
         repository = new CarRepository(application);
-        brands = repository.getBrands();
+        brands     = repository.getBrands();
+        // نعيّن قيمًا أولية فارغة حتى لا تكون null
+        models.setValue(new ArrayList<>());
+        years.setValue(new ArrayList<>());
     }
 
     public LiveData<List<Brand>> getBrands() {
         return brands;
     }
-    public void loadModels(int brandId) {
-        models = repository.getModels(brandId);
-    }
     public LiveData<List<Model>> getModels() {
         return models;
-    }
-    public void loadYears(int modelId) {
-        years = repository.getYears(modelId);
     }
     public LiveData<List<String>> getYears() {
         return years;
@@ -55,6 +53,15 @@ public class CarFormViewModel extends AndroidViewModel {
     }
     public LiveData<UpdateCarsResponse> getUpdateResult() {
         return updateResult;
+    }
+
+    public void loadModels(int brandId) {
+        repository.getModels(brandId)
+                .observeForever(list -> models.postValue(list != null ? list : new ArrayList<>()));
+    }
+    public void loadYears(int modelId) {
+        repository.getYears(modelId)
+                .observeForever(list -> years.postValue(list != null ? list : new ArrayList<>()));
     }
 
     public void addCar(int brandId, int modelId, String year, String name) {

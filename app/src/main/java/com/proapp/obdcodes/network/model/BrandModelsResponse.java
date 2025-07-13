@@ -1,53 +1,42 @@
-// File: com/proapp/obdcodes/network/model/BrandModelsResponse.java
+// File: app/src/main/java/com/proapp/obdcodes/network/model/BrandModelsResponse.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
+import androidx.annotation.NonNull;
 import java.util.List;
 
+/**
+ * Response containing a Brand object and its associated Model list.
+ */
 public class BrandModelsResponse {
     @SerializedName("brand")
+    @NonNull
     private Brand brand;
 
     @SerializedName("models")
+    @NonNull
     private List<Model> models;
 
-    public Brand getBrand() { return brand; }
-    public void setBrand(Brand brand) { this.brand = brand; }
+    public BrandModelsResponse() { }
 
-    public List<Model> getModels() { return models; }
-    public void setModels(List<Model> models) { this.models = models; }
-
-    public static class Brand {
-        @SerializedName("id")
-        private int id;
-
-        @SerializedName("name")
-        private String name;
-
-        public int getId() { return id; }
-        public void setId(int id) { this.id = id; }
-
-        public String getName() { return name; }
-        public void setName(String name) { this.name = name; }
+    public BrandModelsResponse(@NonNull Brand brand, @NonNull List<Model> models) {
+        if (brand == null || models == null)
+            throw new IllegalArgumentException("Brand and models must not be null");
+        this.brand = brand;
+        this.models = models;
     }
 
-    public static class Model {
-        @SerializedName("id")
-        private int id;
+    @NonNull
+    public Brand getBrand() { return brand; }
+    public void setBrand(@NonNull Brand brand) {
+        if (brand == null) throw new IllegalArgumentException("Brand cannot be null");
+        this.brand = brand;
+    }
 
-        @SerializedName("brand_id")
-        private int brandId;
-
-        @SerializedName("name")
-        private String name;
-
-        public int getId() { return id; }
-        public void setId(int id) { this.id = id; }
-
-        public int getBrandId() { return brandId; }
-        public void setBrandId(int brandId) { this.brandId = brandId; }
-
-        public String getName() { return name; }
-        public void setName(String name) { this.name = name; }
+    @NonNull
+    public List<Model> getModels() { return models; }
+    public void setModels(@NonNull List<Model> models) {
+        if (models == null) throw new IllegalArgumentException("Models list cannot be null");
+        this.models = models;
     }
 }

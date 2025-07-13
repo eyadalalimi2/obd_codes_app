@@ -1,9 +1,13 @@
+// File: app/src/main/java/com/proapp/obdcodes/network/model/Car.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
+import androidx.annotation.NonNull;
 
+/**
+ * Represents a Car DTO with its properties and timestamps.
+ */
 public class Car {
-
     @SerializedName("id")
     private int id;
 
@@ -11,112 +15,84 @@ public class Car {
     private int brandId;
 
     @SerializedName("brand_name")
+    @NonNull
     private String brandName;
 
     @SerializedName("model_id")
     private int modelId;
 
     @SerializedName("model_name")
+    @NonNull
     private String modelName;
 
     @SerializedName("year")
+    @NonNull
     private String year;
 
     @SerializedName("car_name")
+    @NonNull
     private String carName;
 
     @SerializedName("created_at")
+    @NonNull
     private String createdAt;
 
     @SerializedName("updated_at")
+    @NonNull
     private String updatedAt;
 
-    public Car() { }
-
-    public int getId() {
-        return id;
+    /** Default constructor for serialization. */
+    public Car() {
+        this.brandName = this.modelName = this.year = this.carName = this.createdAt = this.updatedAt = "";
     }
 
-    public int getBrandId() {
-        return brandId;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public String getBrandName() {
-        return brandName;
-    }
+    public int getBrandId() { return brandId; }
+    public void setBrandId(int brandId) { this.brandId = brandId; }
 
-    public int getModelId() {
-        return modelId;
-    }
-
-    public String getModelName() {
-        return modelName;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getCarName() {
-        return carName;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
-    }
-
-    public void setBrandName(String brandName) {
+    @NonNull
+    public String getBrandName() { return brandName; }
+    public void setBrandName(@NonNull String brandName) {
+        if (brandName.isEmpty()) throw new IllegalArgumentException("Brand name cannot be empty");
         this.brandName = brandName;
     }
 
-    public void setModelId(int modelId) {
-        this.modelId = modelId;
-    }
+    public int getModelId() { return modelId; }
+    public void setModelId(int modelId) { this.modelId = modelId; }
 
-    public void setModelName(String modelName) {
+    @NonNull
+    public String getModelName() { return modelName; }
+    public void setModelName(@NonNull String modelName) {
+        if (modelName.isEmpty()) throw new IllegalArgumentException("Model name cannot be empty");
         this.modelName = modelName;
     }
 
-    public void setYear(String year) {
+    @NonNull
+    public String getYear() { return year; }
+    public void setYear(@NonNull String year) {
+        if (year.isEmpty()) throw new IllegalArgumentException("Year cannot be empty");
         this.year = year;
     }
 
-    public void setCarName(String carName) {
+    @NonNull
+    public String getCarName() { return carName; }
+    public void setCarName(@NonNull String carName) {
+        if (carName.isEmpty()) throw new IllegalArgumentException("Car name cannot be empty");
         this.carName = carName;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+    @NonNull
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(@NonNull String createdAt) { this.createdAt = createdAt; }
 
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+    @NonNull
+    public String getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(@NonNull String updatedAt) { this.updatedAt = updatedAt; }
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", brandId=" + brandId +
-                ", brandName='" + brandName + '\'' +
-                ", modelId=" + modelId +
-                ", modelName='" + modelName + '\'' +
-                ", year='" + year + '\'' +
-                ", carName='" + carName + '\'' +
-                ", createdAt='" + createdAt + '\'' +
-                ", updatedAt='" + updatedAt + '\'' +
-                '}';
+        return brandName + " " + modelName + " (" + year + ")";
     }
 }

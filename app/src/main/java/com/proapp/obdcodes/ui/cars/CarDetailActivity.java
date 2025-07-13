@@ -1,10 +1,8 @@
-// File: com/proapp/obdcodes/ui/cars/CarDetailActivity.java
 package com.proapp.obdcodes.ui.cars;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.proapp.obdcodes.R;
@@ -20,13 +18,6 @@ public class CarDetailActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_detail);
-
-        Toolbar toolbar = findViewById(R.id.toolbarCarDetail);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("تفاصيل السيارة");
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         tvBrand = findViewById(R.id.tvBrand);
         tvModel = findViewById(R.id.tvModel);
@@ -45,8 +36,7 @@ public class CarDetailActivity extends BaseActivity {
             tvModel.setText(car.getModelName());
             tvYear.setText(car.getYear());
             tvName.setText(
-                    car.getCarName() != null && !car.getCarName().isEmpty()
-                            ? car.getCarName() : "-"
+                    (car.getCarName() != null && !car.getCarName().isEmpty()) ? car.getCarName() : "-"
             );
         }
     }

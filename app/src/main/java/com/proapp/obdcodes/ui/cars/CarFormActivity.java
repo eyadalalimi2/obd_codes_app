@@ -1,4 +1,3 @@
-// File: com/proapp/obdcodes/ui/cars/CarFormActivity.java
 package com.proapp.obdcodes.ui.cars;
 
 import android.os.Bundle;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.proapp.obdcodes.R;
@@ -27,19 +25,11 @@ public class CarFormActivity extends BaseActivity {
     private Spinner spBrand, spModel, spYear;
     private EditText etName;
     private Button btnSave;
-    private Integer editingId = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_form);
-
-        Toolbar toolbar = findViewById(R.id.toolbarCarForm);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar()!=null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("إضافة / تعديل سيارة");
-        }
 
         spBrand = findViewById(R.id.spBrand);
         spModel = findViewById(R.id.spModel);
@@ -55,7 +45,7 @@ public class CarFormActivity extends BaseActivity {
                 Brand b = (Brand)p.getItemAtPosition(pos);
                 viewModel.loadModels(b.getId());
             }
-            @Override public void onNothingSelected(AdapterView<?> p) { }
+            @Override public void onNothingSelected(AdapterView<?> p) {}
         });
 
         viewModel.getModels().observe(this, this::setupModels);
@@ -64,24 +54,44 @@ public class CarFormActivity extends BaseActivity {
                 Model m = (Model)p.getItemAtPosition(pos);
                 viewModel.loadYears(m.getId());
             }
-            @Override public void onNothingSelected(AdapterView<?> p) { }
+            @Override public void onNothingSelected(AdapterView<?> p) {}
         });
 
         viewModel.getYears().observe(this, this::setupYears);
 
         btnSave.setOnClickListener(v -> {
-            Brand  b = (Brand) spBrand.getSelectedItem();
-            Model  m = (Model) spModel.getSelectedItem();
-            String y = (String) spYear.getSelectedItem();
+            // 1) تحقق من اختيار الشركة
+            Brand b = (Brand) spBrand.getSelectedItem();
+            if (b == null) {
+                toast("الرجاء اختيار الشركة");
+                return;
+            }
+
+            // 2) تحقق من اختيار الطراز
+            Model m = (Model) spModel.getSelectedItem();
+            if (m == null) {
+                toast("الرجاء اختيار الطراز");
+                return;
+            }
+
+            // 3) تحقق من اختيار السنة
+            Object yearObj = spYear.getSelectedItem();
+            if (yearObj == null) {
+                toast("الرجاء اختيار السنة");
+                return;
+            }
+            String y = yearObj.toString().trim();
+            if (y.isEmpty()) {
+                toast("الرجاء اختيار السنة");
+                return;
+            }
+
+            // 4) اسم السيارة اختياري
             String n = etName.getText().toString().trim();
 
-            if (editingId==null) {
-                viewModel.addCar(b.getId(), m.getId(), y, n);
-                viewModel.getAddResult().observe(this, this::onAddResult);
-            } else {
-                viewModel.updateCar(editingId, b.getId(), m.getId(), y, n);
-                viewModel.getUpdateResult().observe(this, this::onUpdateResult);
-            }
+            // 5) استدعاء الإضافة
+            viewModel.addCar(b.getId(), m.getId(), y, n);
+            viewModel.getAddResult().observe(this, this::onAddResult);
         });
     }
 
@@ -91,12 +101,14 @@ public class CarFormActivity extends BaseActivity {
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spBrand.setAdapter(ad);
     }
+
     private void setupModels(List<Model> list) {
         ArrayAdapter<Model> ad = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, list);
         ad.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spModel.setAdapter(ad);
     }
+
     private void setupYears(List<String> list) {
         ArrayAdapter<String> ad = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, list);
@@ -105,11 +117,22 @@ public class CarFormActivity extends BaseActivity {
     }
 
     private void onAddResult(AddCarResponse resp) {
-        if (resp!=null && resp.getData()!=null) finish();
-        else showToast("فشل في إضافة السيارة");
+        if (resp != null && resp.getData() != null) {
+            toast("تمت إضافة السيارة بنجاح");
+            setResult(RESULT_OK);
+            finish();
+        } else {
+            toast("فشل في إضافة السيارة");
+        }
     }
+
     private void onUpdateResult(UpdateCarsResponse resp) {
-        if (resp!=null) finish();
-        else showToast("فشل في تحديث السيارة");
+        if (resp != null) {
+            toast("تم تحديث السيارة بنجاح");
+            setResult(RESULT_OK);
+            finish();
+        } else {
+            toast("فشل في تحديث السيارة");
+        }
     }
 }

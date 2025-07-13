@@ -1,165 +1,111 @@
-// File: com/proapp/obdcodes/repository/CarRepository.java
+// File: app/src/main/java/com/proapp/obdcodes/repository/CarRepository.java
 package com.proapp.obdcodes.repository;
 
 import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-
-import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.ApiService;
-import com.proapp.obdcodes.network.model.AddCarRequest;
-import com.proapp.obdcodes.network.model.AddCarResponse;
-import com.proapp.obdcodes.network.model.Brand;
-import com.proapp.obdcodes.network.model.BrandsResponse;
-import com.proapp.obdcodes.network.model.BrandModelsResponse;
-import com.proapp.obdcodes.network.model.DeleteCarResponse;
-import com.proapp.obdcodes.network.model.Model;
-import com.proapp.obdcodes.network.model.UpdateCarRequest;
-import com.proapp.obdcodes.network.model.UpdateCarsResponse;
-import com.proapp.obdcodes.network.model.UserCarsResponse;
-import com.proapp.obdcodes.network.model.Car;
-
+import com.proapp.obdcodes.network.model.*;
+import com.proapp.obdcodes.network.ApiClient;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository for Cars feature. Handles network calls and exposes LiveData.
+ */
 public class CarRepository {
+    private final ApiService api;
 
-    private final ApiService apiService;
-
-    public CarRepository(Application application) {
-        apiService = ApiClient.getInstance(application).create(ApiService.class);
+    public CarRepository(Application app) {
+        api = ApiClient.getInstance(app).create(ApiService.class);
     }
 
     public LiveData<List<Car>> getUserCars() {
-        MutableLiveData<List<Car>> liveData = new MutableLiveData<>();
-        apiService.getUserCars().enqueue(new Callback<UserCarsResponse>() {
-            @Override
-            public void onResponse(Call<UserCarsResponse> call, Response<UserCarsResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body().getData());
-                } else {
-                    liveData.postValue(null);
-                }
+        MutableLiveData<List<Car>> data = new MutableLiveData<>();
+        api.getUserCars().enqueue(new Callback<UserCarsResponse>() {
+            @Override public void onResponse(Call<UserCarsResponse> c, Response<UserCarsResponse> r) {
+                if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getData());
             }
-            @Override
-            public void onFailure(Call<UserCarsResponse> call, Throwable t) {
-                liveData.postValue(null);
-            }
+            @Override public void onFailure(Call<UserCarsResponse> c, Throwable t) { data.postValue(null); }
         });
-        return liveData;
+        return data;
     }
 
-    public LiveData<Boolean> deleteCar(int carId) {
-        MutableLiveData<Boolean> result = new MutableLiveData<>();
-        apiService.deleteUserCar(carId).enqueue(new Callback<DeleteCarResponse>() {
-            @Override
-            public void onResponse(Call<DeleteCarResponse> call, Response<DeleteCarResponse> resp) {
-                result.postValue(resp.isSuccessful());
+    public LiveData<AddCarResponse> addCar(AddCarRequest req) {
+        MutableLiveData<AddCarResponse> data = new MutableLiveData<>();
+        api.addUserCar(req).enqueue(new Callback<AddCarResponse>() {
+            @Override public void onResponse(Call<AddCarResponse> c, Response<AddCarResponse> r) {
+                data.postValue(r.isSuccessful()?r.body():null);
             }
-            @Override
-            public void onFailure(Call<DeleteCarResponse> call, Throwable t) {
-                result.postValue(false);
-            }
+            @Override public void onFailure(Call<AddCarResponse> c, Throwable t) { data.postValue(null); }
         });
-        return result;
+        return data;
     }
 
-    public LiveData<AddCarResponse> addCar(AddCarRequest request) {
-        MutableLiveData<AddCarResponse> liveData = new MutableLiveData<>();
-        apiService.addUserCar(request).enqueue(new Callback<AddCarResponse>() {
-            @Override
-            public void onResponse(Call<AddCarResponse> call, Response<AddCarResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body());
-                } else {
-                    liveData.postValue(null);
-                }
+    public LiveData<UpdateCarsResponse> updateCar(int id, UpdateCarRequest req) {
+        MutableLiveData<UpdateCarsResponse> data = new MutableLiveData<>();
+        api.updateUserCar(id, req).enqueue(new Callback<UpdateCarsResponse>() {
+            @Override public void onResponse(Call<UpdateCarsResponse> c, Response<UpdateCarsResponse> r) {
+                data.postValue(r.isSuccessful()?r.body():null);
             }
-            @Override
-            public void onFailure(Call<AddCarResponse> call, Throwable t) {
-                liveData.postValue(null);
-            }
+            @Override public void onFailure(Call<UpdateCarsResponse> c, Throwable t) { data.postValue(null); }
         });
-        return liveData;
+        return data;
     }
 
-    public LiveData<UpdateCarsResponse> updateCar(int carId, UpdateCarRequest request) {
-        MutableLiveData<UpdateCarsResponse> liveData = new MutableLiveData<>();
-        apiService.updateUserCar(carId, request).enqueue(new Callback<UpdateCarsResponse>() {
-            @Override
-            public void onResponse(Call<UpdateCarsResponse> call, Response<UpdateCarsResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body());
-                } else {
-                    liveData.postValue(null);
-                }
+    public LiveData<Boolean> deleteCar(int id) {
+        MutableLiveData<Boolean> data = new MutableLiveData<>();
+        api.deleteUserCar(id).enqueue(new Callback<DeleteCarResponse>() {
+            @Override public void onResponse(Call<DeleteCarResponse> c, Response<DeleteCarResponse> r) {
+                data.postValue(r.isSuccessful());
             }
-            @Override
-            public void onFailure(Call<UpdateCarsResponse> call, Throwable t) {
-                liveData.postValue(null);
-            }
+            @Override public void onFailure(Call<DeleteCarResponse> c, Throwable t) { data.postValue(false); }
         });
-        return liveData;
+        return data;
     }
 
     public LiveData<List<Brand>> getBrands() {
-        MutableLiveData<List<Brand>> liveData = new MutableLiveData<>();
-        apiService.getBrands().enqueue(new Callback<BrandsResponse>() {
-            @Override
-            public void onResponse(Call<BrandsResponse> call, Response<BrandsResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body().getData());
-                } else {
-                    liveData.postValue(null);
-                }
+        MutableLiveData<List<Brand>> data = new MutableLiveData<>();
+        api.getBrands().enqueue(new Callback<BrandsResponse>() {
+            @Override public void onResponse(Call<BrandsResponse> c, Response<BrandsResponse> r) {
+                if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getData());
             }
-            @Override
-            public void onFailure(Call<BrandsResponse> call, Throwable t) {
-                liveData.postValue(null);
-            }
+            @Override public void onFailure(Call<BrandsResponse> c, Throwable t) { data.postValue(null); }
         });
-        return liveData;
+        return data;
     }
 
     public LiveData<List<Model>> getModels(int brandId) {
-        MutableLiveData<List<Model>> liveData = new MutableLiveData<>();
-        apiService.getBrandModels(brandId).enqueue(new Callback<BrandModelsResponse>() {
-            @Override
-            public void onResponse(Call<BrandModelsResponse> call, Response<BrandModelsResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body().getModels());
-                } else {
-                    liveData.postValue(null);
-                }
+        MutableLiveData<List<Model>> data = new MutableLiveData<>();
+        api.getBrandModels(brandId).enqueue(new Callback<BrandModelsResponse>() {
+            @Override public void onResponse(Call<BrandModelsResponse> c, Response<BrandModelsResponse> r) {
+                if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getModels());
             }
-            @Override
-            public void onFailure(Call<BrandModelsResponse> call, Throwable t) {
-                liveData.postValue(null);
-            }
+            @Override public void onFailure(Call<BrandModelsResponse> c, Throwable t) { data.postValue(null); }
         });
-        return liveData;
+        return data;
     }
 
     public LiveData<List<String>> getYears(int modelId) {
-        MutableLiveData<List<String>> liveData = new MutableLiveData<>();
-        apiService.getModelYears(modelId).enqueue(new Callback<List<String>>() {
+        MutableLiveData<List<String>> data = new MutableLiveData<>();
+        api.getModelYears(modelId).enqueue(new Callback<List<String>>() {
             @Override
-            public void onResponse(Call<List<String>> call, Response<List<String>> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    liveData.postValue(resp.body());
+            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    data.postValue(response.body());
                 } else {
-                    liveData.postValue(null);
+                    data.postValue(null);
                 }
             }
+
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-                liveData.postValue(null);
+                data.postValue(null);
             }
         });
-        return liveData;
+        return data;
     }
+
 }

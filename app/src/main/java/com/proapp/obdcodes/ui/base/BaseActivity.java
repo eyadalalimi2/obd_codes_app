@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -54,7 +56,9 @@ import com.proapp.obdcodes.viewmodel.UserViewModel;
 
 public abstract class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    protected void toast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
     private DrawerLayout drawer;
     private BottomNavigationView bottomNav;
     private NavigationView navView; // إضافة هذا المتغير لسهولة الوصول إليه

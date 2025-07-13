@@ -1,9 +1,13 @@
+// File: app/src/main/java/com/proapp/obdcodes/network/model/Model.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
+import androidx.annotation.NonNull;
 
+/**
+ * Represents a vehicle model.
+ */
 public class Model {
-
     @SerializedName("id")
     private int id;
 
@@ -11,46 +15,31 @@ public class Model {
     private int brandId;
 
     @SerializedName("name")
+    @NonNull
     private String name;
 
-    public Model() { }
+    public Model() { this.name = ""; }
 
-    public Model(int id, int brandId, String name) {
+    public Model(int id, int brandId, @NonNull String name) {
+        if (name.isEmpty()) throw new IllegalArgumentException("Model name cannot be empty");
         this.id = id;
         this.brandId = brandId;
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getBrandId() { return brandId; }
+    public void setBrandId(int brandId) { this.brandId = brandId; }
 
-    public int getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(int brandId) {
-        this.brandId = brandId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    @NonNull
+    public String getName() { return name; }
+    public void setName(@NonNull String name) {
+        if (name.isEmpty()) throw new IllegalArgumentException("Model name cannot be empty");
         this.name = name;
     }
 
     @Override
-    public String toString() {
-        return "Model{" +
-                "id=" + id +
-                ", brandId=" + brandId +
-                ", name='" + name + '\'' +
-                '}';
-    }
+    public String toString() { return name; }
 }

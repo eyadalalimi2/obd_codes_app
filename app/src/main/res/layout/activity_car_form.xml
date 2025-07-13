@@ -1,16 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCarForm"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="إضافة / تعديل سيارة"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -26,21 +20,25 @@
                 android:id="@+id/spBrand"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:prompt="اختر الشركة"/>
+                android:minHeight="48dp"
+                android:prompt="@string/brand" />
 
             <Spinner
                 android:id="@+id/spModel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:prompt="اختر الطراز"/>
+                android:minHeight="48dp"
+                android:prompt="@string/model" />
 
             <Spinner
                 android:id="@+id/spYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:prompt="اختر السنة"/>
+                android:minHeight="48dp"
+                android:prompt="@string/year" />
+
 
             <EditText
                 android:id="@+id/etCarName"

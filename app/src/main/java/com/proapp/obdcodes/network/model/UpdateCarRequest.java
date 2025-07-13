@@ -1,4 +1,4 @@
-// File: com/proapp/obdcodes/network/model/UpdateCarRequest.java
+// File: app/src/main/java/com/proapp/obdcodes/network/model/UpdateCarRequest.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
