@@ -3,6 +3,7 @@ package com.proapp.obdcodes.ui.account;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
@@ -37,7 +38,12 @@ public class AccountActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_account);
 
-        initToolbar();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.my_account);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+        }
+
 
         // 1)هيّئ ViewModel الاشتراك ومراقبة البيانات قبل ربط أي مستمعين
         subscriptionVM = new ViewModelProvider(this).get(SubscriptionViewModel.class);
@@ -85,15 +91,7 @@ public class AccountActivity extends BaseActivity {
         loadProfile();
     }
 
-    private void initToolbar() {
-        Toolbar tb = binding.toolbar;
-        setSupportActionBar(tb);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(R.string.my_account);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        }
-    }
+
 
     private void setupListeners() {
         // تعديل الملف الشخصي
@@ -203,5 +201,9 @@ public class AccountActivity extends BaseActivity {
                     getString(R.string.saved_codes_prefix) + " " + user.getSavedCodesCount()
             );
         });
+    }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return false;
     }
 }
