@@ -26,45 +26,40 @@ public class DiagnosisHistoryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_diagnosis_history);
 
-        getSupportActionBar().setTitle("سجل التشخيص");
-
-        // ✅ التحقق من توفر الميزة
-        SubscriptionUtils.hasFeature(this, "DIAGNOSIS_HISTORY", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            // إذا كانت الميزة مفعلة، تابع التنفيذ العادي
-            initHistoryView();
-        });
+        // حماية الميزة: لا تهيئ الصفحة إلا بعد التأكد من الصلاحية
+        SubscriptionUtils.checkFeatureAccess(this, "DIAGNOSIS_HISTORY", this::initHistoryView);
     }
 
     private void initHistoryView() {
-        historyList = findViewById(R.id.lvHistory);
-        btnClearHistory = findViewById(R.id.btnClearHistory);
+        runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_diagnosis_history);
 
-        history = loadHistory();
+            if (getSupportActionBar() != null)
+                getSupportActionBar().setTitle("سجل التشخيص");
 
-        adapter = new DiagnosisHistoryAdapter(this, history);
-        historyList.setAdapter(adapter);
+            historyList = findViewById(R.id.lvHistory);
+            btnClearHistory = findViewById(R.id.btnClearHistory);
 
-        btnClearHistory.setOnClickListener(v -> {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            prefs.edit().remove("diagnosis_history").apply();
+            history = loadHistory();
 
-            history.clear();
-            adapter.notifyDataSetChanged();
+            adapter = new DiagnosisHistoryAdapter(this, history);
+            historyList.setAdapter(adapter);
 
-            Toast.makeText(this, "تم مسح السجل بالكامل", Toast.LENGTH_SHORT).show();
+            btnClearHistory.setOnClickListener(v -> {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+                prefs.edit().remove("diagnosis_history").apply();
+
+                history.clear();
+                adapter.notifyDataSetChanged();
+
+                Toast.makeText(this, "تم مسح السجل بالكامل", Toast.LENGTH_SHORT).show();
+            });
+
+            if (history.isEmpty()) {
+                Toast.makeText(this, "لا يوجد سجل بعد", Toast.LENGTH_SHORT).show();
+            }
         });
-
-        if (history.isEmpty()) {
-            Toast.makeText(this, "لا يوجد سجل بعد", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private List<String> loadHistory() {

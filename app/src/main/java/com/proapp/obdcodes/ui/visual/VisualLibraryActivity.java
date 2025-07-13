@@ -20,22 +20,16 @@ public class VisualLibraryActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_visual_library); // ✅ استخدام Layout مخصص
 
-        // تهيئة Toolbar ودعمه بزر الرجوع
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("المكتبة المرئية");
-        }
-// ✅ التحقق من صلاحية الميزة
-        SubscriptionUtils.hasFeature(this, "VISUAL_COMPONENT_LIBRARY", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                finish();
-                return;
+        // حماية الميزة VISUAL_COMPONENT_LIBRARY قبل تهيئة الواجهة
+        SubscriptionUtils.checkFeatureAccess(this, "VISUAL_COMPONENT_LIBRARY", () -> runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_visual_library);
+
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                getSupportActionBar().setTitle("المكتبة المرئية");
             }
 
-            // ✅ السماح بالوصول
             gridView = findViewById(R.id.gridView);
             items = new ArrayList<>();
 
@@ -46,11 +40,11 @@ public class VisualLibraryActivity extends BaseActivity {
 
             adapter = new VisualLibraryAdapter(this, items);
             gridView.setAdapter(adapter);
-        });
+        }));
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
-
 }

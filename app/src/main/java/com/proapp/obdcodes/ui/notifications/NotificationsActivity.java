@@ -24,62 +24,56 @@ public class NotificationsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle s) {
         super.onCreate(s);
-        setActivityLayout(R.layout.activity_notifications);
-        setTitle(getString(R.string.notifications));
 
-        // ✅ حماية الميزة
-        SubscriptionUtils.hasFeature(this, "SMART_NOTIFICATIONS", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
-
-            // إذا كان مشتركًا → نفذ الكود الطبيعي
-            setupNotifications();
-        });
+        // حماية الميزة المدفوعة قبل أي تنفيذ للواجهة
+        SubscriptionUtils.checkFeatureAccess(this, "SMART_NOTIFICATIONS", this::setupNotifications);
     }
 
     private void setupNotifications() {
-        vm = new ViewModelProvider(this).get(NotificationViewModel.class);
+        runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_notifications);
+            setTitle(getString(R.string.notifications));
 
-        androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.rv_notifications);
-        adapter = new NotificationsAdapter();
+            vm = new ViewModelProvider(this).get(NotificationViewModel.class);
 
-        adapter.setListener(new NotificationsAdapter.Listener() {
-            @Override
-            public void onMarkRead(long id) {
-                vm.markRead(id).observe(NotificationsActivity.this, ok -> {
-                    Toast.makeText(NotificationsActivity.this,
-                            ok ? R.string.marked_read : R.string.error, Toast.LENGTH_SHORT).show();
-                    vm.refreshNotifications();
-                });
-            }
+            androidx.recyclerview.widget.RecyclerView recyclerView = findViewById(R.id.rv_notifications);
+            adapter = new NotificationsAdapter();
 
-            @Override
-            public void onDelete(long id) {
-                vm.delete(id).observe(NotificationsActivity.this, ok -> {
-                    Toast.makeText(NotificationsActivity.this,
-                            ok ? R.string.deleted : R.string.error, Toast.LENGTH_SHORT).show();
-                    vm.refreshNotifications();
-                });
-            }
+            adapter.setListener(new NotificationsAdapter.Listener() {
+                @Override
+                public void onMarkRead(long id) {
+                    vm.markRead(id).observe(NotificationsActivity.this, ok -> {
+                        Toast.makeText(NotificationsActivity.this,
+                                ok ? R.string.marked_read : R.string.error, Toast.LENGTH_SHORT).show();
+                        vm.refreshNotifications();
+                    });
+                }
+
+                @Override
+                public void onDelete(long id) {
+                    vm.delete(id).observe(NotificationsActivity.this, ok -> {
+                        Toast.makeText(NotificationsActivity.this,
+                                ok ? R.string.deleted : R.string.error, Toast.LENGTH_SHORT).show();
+                        vm.refreshNotifications();
+                    });
+                }
+            });
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(adapter);
+
+            vm.getNotifications().observe(this, list -> {
+                int previousCount = adapter.getItemCount();
+                adapter.submitList(list);
+                if (list != null && list.size() > previousCount) {
+                    playNotificationSoundAndVibrate();
+                }
+            });
+
+            // مسح الشارة
+            NotificationStateViewModel stateVM = new ViewModelProvider(this).get(NotificationStateViewModel.class);
+            stateVM.clearBadge();
         });
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-
-        vm.getNotifications().observe(this, list -> {
-            int previousCount = adapter.getItemCount();
-            adapter.submitList(list);
-            if (list != null && list.size() > previousCount) {
-                playNotificationSoundAndVibrate();
-            }
-        });
-
-        // مسح الشارة
-        NotificationStateViewModel stateVM = new ViewModelProvider(this).get(NotificationStateViewModel.class);
-        stateVM.clearBadge();
     }
 
     private void playNotificationSoundAndVibrate() {

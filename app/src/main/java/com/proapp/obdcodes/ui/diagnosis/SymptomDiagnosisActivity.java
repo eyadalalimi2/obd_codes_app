@@ -26,33 +26,30 @@ public class SymptomDiagnosisActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_symptom_diagnosis);
 
-        // إعداد Toolbar
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // حماية الميزة: لا تعرض الصفحة إلا بعد التأكد من الصلاحية
+        SubscriptionUtils.checkFeatureAccess(this, "SYMPTOM_BASED_DIAGNOSIS", this::initSymptomUI);
+    }
 
-        etCustomSymptom = findViewById(R.id.etCustomSymptom);
-        symptomSpinner  = findViewById(R.id.symptomSpinner);
-        btnDiagnose     = findViewById(R.id.btnDiagnose);
-        lvResults       = findViewById(R.id.lvResults);
+    private void initSymptomUI() {
+        runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_symptom_diagnosis);
 
-        Button btnBackHome = findViewById(R.id.btnBackHome);
-        btnBackHome.setOnClickListener(v -> finish());
+            if (getSupportActionBar() != null)
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
-        symptomSpinner.setAdapter(spinnerAdapter);
+            etCustomSymptom = findViewById(R.id.etCustomSymptom);
+            symptomSpinner  = findViewById(R.id.symptomSpinner);
+            btnDiagnose     = findViewById(R.id.btnDiagnose);
+            lvResults       = findViewById(R.id.lvResults);
 
-        // ✅ التحقق من صلاحية الاشتراك
-        SubscriptionUtils.hasFeature(this, "SYMPTOM_BASED_DIAGNOSIS", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                btnDiagnose.setEnabled(false);
-                return;
-            }
+            Button btnBackHome = findViewById(R.id.btnBackHome);
+            btnBackHome.setOnClickListener(v -> finish());
 
-            // زر التشخيص مفعل فقط إذا كان الاشتراك يسمح
+            ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+                    this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
+            symptomSpinner.setAdapter(spinnerAdapter);
+
             btnDiagnose.setOnClickListener(v -> {
                 String selectedSymptom = symptomSpinner.getSelectedItem().toString();
                 String customSymptom = etCustomSymptom.getText().toString().trim();
@@ -72,18 +69,18 @@ public class SymptomDiagnosisActivity extends BaseActivity {
                     Toast.makeText(this, "لا توجد نتائج", Toast.LENGTH_SHORT).show();
                 }
             });
-        });
 
-        lvResults.setOnItemClickListener((parent, view, position, id) -> {
-            String selectedCode = (String) parent.getItemAtPosition(position);
-            Intent intent = new Intent(this, CodeDetailsActivity.class);
-            intent.putExtra("code", selectedCode);
-            startActivity(intent);
+            lvResults.setOnItemClickListener((parent, view, position, id) -> {
+                String selectedCode = (String) parent.getItemAtPosition(position);
+                Intent intent = new Intent(this, CodeDetailsActivity.class);
+                intent.putExtra("code", selectedCode);
+                startActivity(intent);
+            });
         });
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
-
 }

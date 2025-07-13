@@ -1,7 +1,5 @@
 package com.proapp.obdcodes.ui.compare;
 
-import static com.google.android.material.internal.ViewUtils.hideKeyboard;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,9 +8,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.proapp.obdcodes.util.SubscriptionUtils;
+
 import androidx.lifecycle.ViewModelProvider;
 import android.view.inputmethod.InputMethodManager;
+
 import com.bumptech.glide.Glide;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textfield.TextInputEditText;
@@ -20,6 +19,7 @@ import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.model.ObdCode;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.util.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.CompareViewModel;
 
 public class CompareCodesActivity extends BaseActivity {
@@ -27,60 +27,53 @@ public class CompareCodesActivity extends BaseActivity {
     private View card1, card2;
     private CompareViewModel vm;
     private View scrollCards;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_compare_codes);
-        setTitle(getString(R.string.compare_codes));
 
-        et1   = findViewById(R.id.etCode1);
-        et2   = findViewById(R.id.etCode2);
-        card1 = findViewById(R.id.card1);
-        card2 = findViewById(R.id.card2);
-        scrollCards = findViewById(R.id.scrollCards);
-        findViewById(R.id.btnCompare).setOnClickListener(v -> {
-            hideKeyboard(); 
-            onCompare();
-        });
-        View btnCompare = findViewById(R.id.btnCompare);
-        // ✅ تحقق من صلاحية استخدام المقارنة
-        SubscriptionUtils.hasFeature(this, "COMPARE_CODES", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                btnCompare.setEnabled(false);
-                return;
-            }
+        // ✅ منع تهيئة الواجهة حتى يتم التأكد من وجود صلاحية الوصول
+        SubscriptionUtils.checkFeatureAccess(this, "COMPARE_CODES", this::initCompareUI);
+    }
 
-            // ✅ تم السماح → فعل الزر
-            btnCompare.setOnClickListener(v -> {
+    /** تهيئة واجهة المقارنة فقط بعد التأكد من الصلاحية */
+    private void initCompareUI() {
+        runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_compare_codes);
+            setTitle(getString(R.string.compare_codes));
+
+            et1   = findViewById(R.id.etCode1);
+            et2   = findViewById(R.id.etCode2);
+            card1 = findViewById(R.id.card1);
+            card2 = findViewById(R.id.card2);
+            scrollCards = findViewById(R.id.scrollCards);
+
+            findViewById(R.id.btnCompare).setOnClickListener(v -> {
                 hideKeyboard();
                 onCompare();
             });
+
+            vm = new ViewModelProvider(
+                    this,
+                    ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
+                    .get(CompareViewModel.class);
         });
-        vm = new ViewModelProvider(
-                this,
-                ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()))
-                .get(CompareViewModel.class);
     }
 
     /** إخفاء لوحة المفاتيح وإزالة التركيز من الحقول */
     private void hideKeyboard() {
-        // 1) طلب التركيز إلى الحاوية الرئيسية
-        View root = findViewById(R.id.mainCoordinator); // أو المعرف الذي أعطيته للـ CoordinatorLayout
-        root.requestFocus();
+        View root = findViewById(R.id.mainCoordinator);
+        if (root != null) root.requestFocus();
 
-        // 2) إخفاء الكيبورد
         InputMethodManager imm = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null) {
-            // نحاول إخفاء بناءً على أي حقل كان لديه التركيز
             View current = getCurrentFocus();
             if (current != null) {
                 imm.hideSoftInputFromWindow(current.getWindowToken(), 0);
             }
         }
     }
-
 
     private void onCompare() {
         String code1 = et1.getText() != null ? et1.getText().toString().trim() : "";
@@ -107,71 +100,26 @@ public class CompareCodesActivity extends BaseActivity {
             });
         });
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
 
     private void bindCard(View card, ObdCode code) {
-        // 1) الكود باللون الأحمر
         ((TextView) card.findViewById(R.id.tvCardCode))
                 .setText(code.getCode());
-
-        // 2) العنوان
         ((TextView) card.findViewById(R.id.tvCardTitle))
                 .setText(code.getTitle());
-
-        // 3) الشدة
         LinearProgressIndicator sevBar =
                 card.findViewById(R.id.progressSeverity);
         sevBar.setProgress(parseSeverity(code.getSeverity()));
+        setupExpandable(card, R.id.headerDescription, R.id.tvDescriptionContent, R.id.ivToggleDescription, code.getDescription());
+        setupExpandable(card, R.id.headerSymptoms, R.id.tvSymptomsContent, R.id.ivToggleSymptoms, code.getSymptoms());
+        setupExpandable(card, R.id.headerCauses, R.id.tvCausesContent, R.id.ivToggleCauses, code.getCauses());
+        setupExpandable(card, R.id.headerSolutions, R.id.tvSolutionsContent, R.id.ivToggleSolutions, code.getSolutions());
+        setupExpandable(card, R.id.headerDiagnosis, R.id.tvDiagnosisContent, R.id.ivToggleDiagnosis, code.getDiagnosis());
 
-        // 4) الوصف قابل للطَيّ
-        setupExpandable(
-                card,
-                R.id.headerDescription,
-                R.id.tvDescriptionContent,
-                R.id.ivToggleDescription,
-                code.getDescription()
-        );
-
-        // 5) الأعراض الشائعة
-        setupExpandable(
-                card,
-                R.id.headerSymptoms,
-                R.id.tvSymptomsContent,
-                R.id.ivToggleSymptoms,
-                code.getSymptoms()
-        );
-
-        // 6) الأسباب
-        setupExpandable(
-                card,
-                R.id.headerCauses,
-                R.id.tvCausesContent,
-                R.id.ivToggleCauses,
-                code.getCauses()
-        );
-
-        // 7) الحلول
-        setupExpandable(
-                card,
-                R.id.headerSolutions,
-                R.id.tvSolutionsContent,
-                R.id.ivToggleSolutions,
-                code.getSolutions()
-        );
-
-        // 8) التشخيص قابل للطَيّ
-        setupExpandable(
-                card,
-                R.id.headerDiagnosis,
-                R.id.tvDiagnosisContent,
-                R.id.ivToggleDiagnosis,
-                code.getDiagnosis()
-        );
-
-        // 9) الصورة مع معالجة الفارغ
         ImageView iv = card.findViewById(R.id.ivCardImage);
         String imageUrl = ApiClient.IMAGE_BASE_URL + code.getImage();
         Log.d("CompareCodes", "Loading image → " + imageUrl);
@@ -179,8 +127,6 @@ public class CompareCodesActivity extends BaseActivity {
                 .load(imageUrl)
                 .placeholder(R.drawable.splash)
                 .into(iv);
-
-
     }
 
     /**
@@ -207,7 +153,7 @@ public class CompareCodesActivity extends BaseActivity {
         if (severity == null) return 0;
         switch (severity.toLowerCase()) {
             case "low":      return 25;
-            case "moderate": return 50;
+            case "medium": return 50;
             case "high":     return 80;
             default:         return 0;
         }

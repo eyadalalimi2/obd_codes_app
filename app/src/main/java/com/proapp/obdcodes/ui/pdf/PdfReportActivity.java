@@ -25,23 +25,23 @@ public class PdfReportActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_pdf_report);
-        setTitle(R.string.nav_pdf);
-        // ✅ تحقق من صلاحية استخدام ميزة تقارير PDF
-        SubscriptionUtils.hasFeature(this, "PDF_REPORT", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
 
-            // ✅ السماح بالوصول
+        // حماية الميزة PDF_REPORT قبل تهيئة الواجهة
+        SubscriptionUtils.checkFeatureAccess(this, "PDF_REPORT", () -> runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_pdf_report);
+            setTitle(R.string.nav_pdf);
+
             pdfListView = findViewById(R.id.pdfListView);
             loadPdfFiles();
 
             adapter = new PdfReportAdapter(this, pdfFiles);
             pdfListView.setAdapter(adapter);
-        });
+
+            pdfListView.setOnItemClickListener((parent, view, position, id) -> {
+                File file = pdfFiles.get(position);
+                openPdfExternally(file);
+            });
+        }));
     }
 
     private void loadPdfFiles() {
@@ -69,9 +69,9 @@ public class PdfReportActivity extends BaseActivity {
             Toast.makeText(this, "تعذر فتح الملف", Toast.LENGTH_SHORT).show();
         }
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return false;
     }
-
 }

@@ -21,30 +21,26 @@ public class TrendingCodesActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_trending_codes);
-        setTitle(getString(R.string.trending_codes));
 
-        // ✅ حماية الميزة بناءً على الاشتراك
-        SubscriptionUtils.hasFeature(this, "TRENDING_CODES_ANALYTICS", isAllowed -> {
-            if (!isAllowed) {
-                Toast.makeText(this, "هذه الميزة متاحة فقط للمشتركين", Toast.LENGTH_LONG).show();
-                finish();
-                return;
-            }
+        // حماية الميزة قبل تحميل أي محتوى
+        SubscriptionUtils.checkFeatureAccess(this, "TRENDING_CODES_ANALYTICS", () -> {
+            runOnUiThread(() -> {
+                setActivityLayout(R.layout.activity_trending_codes);
+                setTitle(getString(R.string.trending_codes));
 
-            // تابع تنفيذ الواجهة إذا كان الوصول مسموحًا
-            androidx.recyclerview.widget.RecyclerView rv = findViewById(R.id.rvTrendingCodes);
-            rv.setLayoutManager(new LinearLayoutManager(this));
-            adapter = new TrendingAdapter();
-            rv.setAdapter(adapter);
+                androidx.recyclerview.widget.RecyclerView rv = findViewById(R.id.rvTrendingCodes);
+                rv.setLayoutManager(new LinearLayoutManager(this));
+                adapter = new TrendingAdapter();
+                rv.setAdapter(adapter);
 
-            viewModel = new androidx.lifecycle.ViewModelProvider(this,
-                    androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
-            ).get(TrendingViewModel.class);
+                viewModel = new androidx.lifecycle.ViewModelProvider(this,
+                        androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
+                ).get(TrendingViewModel.class);
 
-            viewModel.getTrendingCodes().observe(this, codes -> {
-                adapter.setItems(codes);
-                adapter.setOnItemClickListener(this::showDetailsDialog);
+                viewModel.getTrendingCodes().observe(this, codes -> {
+                    adapter.setItems(codes);
+                    adapter.setOnItemClickListener(this::showDetailsDialog);
+                });
             });
         });
     }
