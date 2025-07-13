@@ -1,4 +1,3 @@
-// com.proapp.obdcodes.network.model/Subscription.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
@@ -10,7 +9,7 @@ import java.util.List;
 public class Subscription {
     @SerializedName("id")
     private long id;
-    // الاستجابة تضمّ حقل plan فيه بيانات الباقة
+
     @SerializedName("plan")
     private Plan plan;
 
@@ -21,71 +20,42 @@ public class Subscription {
     private String endAt;
 
     @SerializedName("status")
-    private String status;   // "active" أو "expired" أو ما شابه
+    private String status;
 
-    // ----------------- Getters -----------------
+    @SerializedName("features")
+    private List<String> features;
+
+    @SerializedName("google_product_id")
+    private String googleProductId;
+
     public long getId() { return id; }
-    public Plan getPlan() {
-        return plan;
-    }
+    public Plan getPlan() { return plan; }
+    public String getStatus() { return status; }
+    public List<String> getFeatures() { return features; }
+    public String getStartAt() { return startAt; }
+    public String getEndAt() { return endAt; }
+    public String getGoogleProductId() { return googleProductId; }
 
-    public String getStatus() {
-        return status;
-    }
-
-    /** صيغة العرض لاسم الباقة */
     public String getName() {
         return plan != null ? plan.getName() : null;
     }
-
-    /** السعر من داخل الـ plan */
     public String getFormattedPrice() {
         return plan != null ? plan.getFormattedPrice() : "-";
     }
-
-    /** قائمة مفاتيح المميزات */
-    public List<String> getFeatures() {
-        return plan != null ? plan.getFeatures() : null;
-    }
-
-    /** نصّ المميزات */
     public String getFeaturesText() {
-        if (plan == null || plan.getFeatures() == null || plan.getFeatures().isEmpty()) {
+        if (features == null || features.isEmpty()) {
             return "لا توجد مزايا";
         }
-        // تحوّل المفاتيح إلى نصوص قابلة للقراءة
-        return "- " + String.join("\n- ", plan.getFeatures());
+        return "- " + String.join("\n- ", features);
     }
-
-    // جديد: معرّف المنتج في Google Play
-    @SerializedName("google_product_id")
-    private String googleProductId;
-    // ----------------- تواريخ -----------------
-
-    public String getStartAt() {
-        return startAt;
-    }
-
-    public String getEndAt() {
-        return endAt;
-    }
-    public String getGoogleProductId() { return googleProductId; }
-    /**
-     * تاريخ البداية بصيغة مقروءة (yyyy-MM-dd أو حسب الحاجة)
-     */
     public String getStartDateFormatted() {
         if (startAt == null) return "-";
         try {
-            // لو تبيّا فقط الجزء الأول yyyy-MM-dd
             return startAt.split("T")[0];
         } catch (Exception e) {
             return startAt;
         }
     }
-
-    /**
-     * تاريخ الانتهاء بصيغة مقروءة
-     */
     public String getEndDateFormatted() {
         if (endAt == null) return "-";
         try {
@@ -94,10 +64,6 @@ public class Subscription {
             return endAt;
         }
     }
-
-    /**
-     * الأيام المتبقية من اليوم حتى نهاية الاشتراك
-     */
     public int getDaysLeft() {
         if (endAt == null) return 0;
         try {

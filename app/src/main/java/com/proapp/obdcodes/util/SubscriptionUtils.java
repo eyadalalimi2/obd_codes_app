@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
+import android.util.Log;
 
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.ui.subscription.SubscriptionRepository;
@@ -13,10 +14,6 @@ import java.util.List;
 
 public class SubscriptionUtils {
 
-    /**
-     * يتحقق من إمكانية الوصول للميزة، وإذا مسموح يُنفّذ onAllowed.run()
-     * وإلا يعرض رسالة ويوجهه لصفحة حالة الاشتراك.
-     */
     public static void checkFeatureAccess(
             Context context,
             String featureKey,
@@ -26,6 +23,7 @@ public class SubscriptionUtils {
                 .getCurrentSubscription(new SubscriptionRepository.CurrentSubscriptionCallback() {
                     @Override
                     public void onSuccess(Subscription subscription) {
+                        Log.d("SUB_FEATURES", "features=" + subscription.getFeatures() + ", required=" + featureKey);
                         if (subscription != null && hasFeature(subscription, featureKey)) {
                             onAllowed.run();
                         } else {
@@ -44,9 +42,6 @@ public class SubscriptionUtils {
                 });
     }
 
-    /**
-     * يستدعي callback.onResult(true) أو false بناءً على توفر الميزة.
-     */
     public static void hasFeature(
             Context context,
             String featureKey,
@@ -67,13 +62,20 @@ public class SubscriptionUtils {
                 });
     }
 
-    // يُعيد true إذا كانت Subscription تحتوي على featureKey
     private static boolean hasFeature(Subscription subscription, String featureKey) {
         List<String> features = subscription.getFeatures();
-        return features != null && features.contains(featureKey);
+        Log.d("SUB_FEATURES", "features=" + features + ", required=" + featureKey);
+        if (features == null) return false;
+        for (String f : features) {
+            if (f != null && f.equalsIgnoreCase(featureKey)) {
+                Log.d("SUB_FEATURES", "Feature FOUND: " + f);
+                return true;
+            }
+        }
+        Log.d("SUB_FEATURES", "Feature NOT FOUND");
+        return false;
     }
 
-    // يعرض رسالة ويبدأ SubscriptionStatusActivity
     private static void showLockedDialog(Context context) {
         Toast.makeText(
                 context,

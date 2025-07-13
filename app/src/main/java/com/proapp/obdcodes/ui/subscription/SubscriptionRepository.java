@@ -1,6 +1,7 @@
 package com.proapp.obdcodes.ui.subscription;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,9 @@ import com.proapp.obdcodes.network.ApiService;
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.model.SubscriptionRequest;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -17,14 +21,15 @@ import retrofit2.Response;
 public class SubscriptionRepository {
 
     private final ApiService api;
+    private final Context context;
+    private static final String PREF_NAME = "subscription_prefs";
+    private static final String KEY_FEATURES = "features_set";
 
     public SubscriptionRepository(@NonNull Context context) {
-        this.api = ApiClient
-                .getInstance(context)
-                .create(ApiService.class);
+        this.api = ApiClient.getInstance(context).create(ApiService.class);
+        this.context = context.getApplicationContext();
     }
 
-    // --- واجهات الكولباك للنتائج ---
     public interface CurrentSubscriptionCallback {
         void onSuccess(@NonNull Subscription subscription);
         void onFailure(@NonNull String errorMessage);
@@ -35,7 +40,7 @@ public class SubscriptionRepository {
         void onFailure(@NonNull String errorMessage);
     }
 
-    // --- جلب الاشتراك الحالي ---
+    // جلب الاشتراك وتخزين الميزات مع لوج
     public void getCurrentSubscription(
             @NonNull CurrentSubscriptionCallback callback
     ) {
@@ -47,13 +52,9 @@ public class SubscriptionRepository {
                             Response<Subscription> response
                     ) {
                         if (response.isSuccessful()) {
-                            try {
-                                // اطبع الـ JSON الأصلي للتحقق
-                                String rawJson = response.raw().body().string();
-                                Log.d("SubRepo", "RAW Subscription JSON: " + rawJson);
-                            } catch (Exception ignored) {}
-
                             if (response.body() != null) {
+                                Log.d("SubscriptionRepo", "Received features: " + response.body().getFeatures());
+                                storeFeaturesLocally(response.body().getFeatures());
                                 callback.onSuccess(response.body());
                             } else {
                                 callback.onFailure("لم يتم تحميل بيانات الاشتراك");
@@ -70,7 +71,22 @@ public class SubscriptionRepository {
                 });
     }
 
-    // --- تجديد الاشتراك ---
+    private void storeFeaturesLocally(java.util.List<String> features) {
+        if (features == null) return;
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        Set<String> set = new HashSet<>(features);
+        prefs.edit().putStringSet(KEY_FEATURES, set).apply();
+    }
+
+    public Set<String> getStoredFeatures() {
+        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+        return prefs.getStringSet(KEY_FEATURES, new HashSet<>());
+    }
+
+    public boolean hasFeature(String featureKey) {
+        return getStoredFeatures().contains(featureKey);
+    }
+
     public void renewSubscription(
             @NonNull SubscriptionRequest request,
             @NonNull SubscriptionCallback callback
@@ -82,24 +98,20 @@ public class SubscriptionRepository {
                             Call<Subscription> call,
                             Response<Subscription> response
                     ) {
-                        if (response.isSuccessful()) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            storeFeaturesLocally(response.body().getFeatures());
                             callback.onSuccess();
                         } else {
-                            callback.onFailure(
-                                    "فشل في التجديد: " + response.message()
-                            );
+                            callback.onFailure("فشل في التجديد: " + response.message());
                         }
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure(
-                                "فشل في الاتصال: " + t.getMessage()
-                        );
+                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
                     }
                 });
     }
 
-    // --- إلغاء الاشتراك ---
     public void cancelSubscription(
             @NonNull SubscriptionRequest request,
             @NonNull SubscriptionCallback callback
@@ -112,23 +124,19 @@ public class SubscriptionRepository {
                             Response<Subscription> response
                     ) {
                         if (response.isSuccessful()) {
+                            storeFeaturesLocally(new java.util.ArrayList<>());
                             callback.onSuccess();
                         } else {
-                            callback.onFailure(
-                                    "فشل في الإلغاء: " + response.message()
-                            );
+                            callback.onFailure("فشل في الإلغاء: " + response.message());
                         }
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure(
-                                "فشل في الاتصال: " + t.getMessage()
-                        );
+                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
                     }
                 });
     }
 
-    // --- الاشتراك الجديد (إن دعت الحاجة) ---
     public void createSubscription(
             @NonNull SubscriptionRequest request,
             @NonNull SubscriptionCallback callback
@@ -140,19 +148,16 @@ public class SubscriptionRepository {
                             Call<Subscription> call,
                             Response<Subscription> response
                     ) {
-                        if (response.isSuccessful()) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            storeFeaturesLocally(response.body().getFeatures());
                             callback.onSuccess();
                         } else {
-                            callback.onFailure(
-                                    "فشل في الاشتراك: " + response.message()
-                            );
+                            callback.onFailure("فشل في الاشتراك: " + response.message());
                         }
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure(
-                                "فشل في الاتصال: " + t.getMessage()
-                        );
+                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
                     }
                 });
     }

@@ -20,14 +20,12 @@ public class Plan {
     @SerializedName("description")
     private String description;
 
-    @SerializedName("features_json")
+    @SerializedName(value = "features_json", alternate = {"features"})
     private List<String> features;
 
-    // جديد: معرّف المنتج في Google Play
     @SerializedName("google_product_id")
     private String googleProductId;
 
-    // ------- Getters -------
     public long getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }
@@ -36,7 +34,6 @@ public class Plan {
     public List<String> getFeatures() { return features; }
     public String getGoogleProductId() { return googleProductId; }
 
-    // ------- Helpers -------
     public String getFormattedPrice() {
         return price == 0 ? "مجانية" : price + " $";
     }
@@ -46,5 +43,4 @@ public class Plan {
             return "لا توجد ميزات مذكورة";
         return "- " + String.join("\n- ", features);
     }
-
 }
