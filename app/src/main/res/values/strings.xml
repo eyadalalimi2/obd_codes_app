@@ -345,5 +345,6 @@
     <string name="view_cars">عرض السيارات</string>
     <string name="car_icon">رمز السيارة</string>
     <string name="my_cars">سياراتي</string>
+    <string name="view_saved_codes">عرض الأكواد المحفوظة</string>
 
 </resources>
