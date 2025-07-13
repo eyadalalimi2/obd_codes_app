@@ -23,6 +23,7 @@ import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.account.EditProfileActivity;
 import com.proapp.obdcodes.ui.cars.CarListActivity;
 import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
+import com.proapp.obdcodes.ui.subscription.SubscriptionViewModel;
 import com.proapp.obdcodes.utils.BindingAdapters;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
 
@@ -31,7 +32,7 @@ public class AccountActivity extends BaseActivity {
     private ActivityAccountBinding binding;
     private UserViewModel vm;
     private User currentUser;
-
+    private SubscriptionViewModel subscriptionVM;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,25 @@ public class AccountActivity extends BaseActivity {
         binding.btnEdit.setOnClickListener(v ->
                 startActivity(new Intent(this, EditProfileActivity.class))
         );
+
+        // 1) ViewModel للاشتراك
+        subscriptionVM = new ViewModelProvider(this).get(SubscriptionViewModel.class);
+        // راقب حالة الاشتراك
+        subscriptionVM.getCurrentSubscription().observe(this, sub -> {
+            if (sub != null) {
+                boolean isPaid = "active".equalsIgnoreCase(sub.getStatus());
+                binding.tvUserMode.setText(
+                        getString(R.string.user_mode) + ": " +
+                                (isPaid ? getString(R.string.paid) : getString(R.string.free))
+                );
+            }
+        });
+        // اجلب الحالة من السيرفر
+        subscriptionVM.refresh();
+
+        // 2) ViewModel لبيانات المستخدم
+        vm = new ViewModelProvider(this).get(UserViewModel.class);
+        loadProfile();
 
 
 
@@ -150,16 +170,12 @@ public class AccountActivity extends BaseActivity {
             binding.tvCar.setText(R.string.my_cars);
 
             // 2) ربط زر العرض للانتقال إلى قائمة السيارات
-            binding.btnViewCars.setOnClickListener(v ->
+            binding.llPackageCard.setOnClickListener(v ->
                     startActivity(new Intent(this, CarListActivity.class))
             );
 
 
-            boolean isPaid = "paid".equals(user.getUserMode());
-            binding.tvUserMode.setText(
-                    getString(R.string.user_mode) + " " +
-                            (isPaid ? getString(R.string.paid) : getString(R.string.free))
-            );
+
             binding.tvPhone.setText(
                     getString(R.string.phone) + " " +
                             (user.getPhone() != null ? user.getPhone() : "-")
@@ -175,10 +191,7 @@ public class AccountActivity extends BaseActivity {
 
 
             // معلومات الاشتراك
-            binding.tvCurrentPlan.setText(
-                    getString(R.string.status_prefix) + " " +
-                            (isPaid ? getString(R.string.paid) : getString(R.string.free))
-            );
+
             binding.tvCurrentPackage.setText(
                     getString(R.string.package_prefix) + " " + planName
             );
