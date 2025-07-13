@@ -43,13 +43,7 @@ public class AccountActivity extends BaseActivity {
         // 2) ربط DataBinding على root معرّف root_account_layout
         binding = DataBindingUtil.bind(findViewById(R.id.root_account_layout));
 
-        // 3) تخصيص شريط الأدوات الثابت من BaseActivity
-        ActionBar ab = getSupportActionBar();
-        if (ab != null) {
-            ab.setTitle(R.string.my_account);
-            ab.setDisplayHomeAsUpEnabled(true);
-            ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        }
+
 
         // 4) إخفاء الشريط السفلي لهذه الشاشة
         View bottomNav = findViewById(R.id.base_bottom_nav);
