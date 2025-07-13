@@ -88,37 +88,13 @@
                             android:textSize="14sp"
                             android:fontFamily="sans-serif-italic"/>
 
-                        <TextView
-                            android:id="@+id/tvRole"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="#222E36"
-                            android:textSize="14sp"
-                            android:fontFamily="sans-serif"/>
 
-                        <TextView
-                            android:id="@+id/tvStatus"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="#222E36"
-                            android:textSize="14sp"
-                            android:fontFamily="sans-serif"/>
 
-                        <TextView
-                            android:id="@+id/tvVerifiedAt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="#222E36"
-                            android:textSize="12sp"
-                            android:fontFamily="sans-serif"/>
 
                     </LinearLayout>
                 </LinearLayout>
 
-                <!-- بطاقة الباقة -->
+                <!-- بطاقة الباقة مع اسم السيارة وأيقونة عرض -->
                 <LinearLayout
                     android:id="@+id/llPackageCard"
                     android:layout_width="match_parent"
@@ -130,14 +106,17 @@
                     android:paddingEnd="18dp"
                     android:layout_marginBottom="16dp">
 
+                    <!-- أيقونة السيارة -->
                     <ImageView
+                        android:id="@+id/imgCarIcon"
                         android:layout_width="36dp"
                         android:layout_height="36dp"
                         android:layout_marginEnd="10dp"
-                        android:contentDescription="@string/package_icon"
+                        android:contentDescription="@string/car_icon"
                         android:src="@drawable/ic_car"
                         app:tint="#8CA2B1" />
 
+                    <!-- هنا سيظهر اسم السيارة -->
                     <TextView
                         android:id="@+id/tvPackageName"
                         android:layout_width="0dp"
@@ -148,16 +127,18 @@
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-medium"/>
 
+                    <!-- أيقونة العرض (العين) -->
                     <ImageView
-                        android:id="@+id/btnChangePackage"
+                        android:id="@+id/btnViewCars"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:background="@drawable/bg_edit_icon_orange"
-                        android:contentDescription="@string/edit_package"
+                        android:contentDescription="@string/view_cars"
                         android:padding="7dp"
-                        android:src="@drawable/ic_edit"
+                        android:src="@drawable/ic_eye_open"
                         app:tint="#FF9343" />
                 </LinearLayout>
+
 
                 <!-- عنوان معلومات الحساب -->
                 <TextView

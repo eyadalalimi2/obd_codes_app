@@ -5,7 +5,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
-
+import com.proapp.obdcodes.network.model.Car;
+import com.proapp.obdcodes.repository.CarRepository;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,6 +21,7 @@ import com.proapp.obdcodes.ui.auth.AuthActivity;
 import com.proapp.obdcodes.ui.auth.RegisterActivity;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.account.EditProfileActivity;
+import com.proapp.obdcodes.ui.cars.CarListActivity;
 import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
 import com.proapp.obdcodes.utils.BindingAdapters;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -135,21 +137,35 @@ public class AccountActivity extends BaseActivity {
             }
 
             // الحالة والبيانات الأساسية
-            binding.tvRole.setText(
-                    getString(R.string.user_type_prefix) + ": " +
-                            (user.isAdmin() ? getString(R.string.admin) : getString(R.string.user))
-            );
+
             boolean isActive = "active".equalsIgnoreCase(user.getStatus());
-            binding.tvStatus.setText(
-                    getString(R.string.account_status_prefix) + ": " +
-                            (isActive ? getString(R.string.active_ar) : getString(R.string.inactive_ar))
-            );
+
 
             binding.tvUsername.setText(getString(R.string.user_name) + ": " + user.getUsername());
             binding.tvEmail.setText(getString(R.string.email) + ": " + user.getEmail());
             binding.tvJobTitle.setText(
-                    user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.undefined)
+                    getString(R.string.job_title_prefix) + ": " +
+                            (user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.undefined))
             );
+            // 1) جلب اسم السيارة الخاصة بالمستخدم من المستودع
+            CarRepository carRepo = new CarRepository(this);
+            carRepo.getUserCars().observe(this, cars -> {
+                if (cars != null && !cars.isEmpty()) {
+                    Car first = cars.get(0);
+                    String displayName = (first.getCarName() != null && !first.getCarName().isEmpty())
+                            ? first.getCarName()
+                            : first.getBrandName() + " " + first.getModelName();
+                    binding.tvPackageName.setText(displayName);
+                } else {
+                    binding.tvPackageName.setText("-"); // أو رسالة مناسبة
+                }
+            });
+
+            // 2) ربط زر العرض للانتقال إلى قائمة السيارات
+            binding.btnViewCars.setOnClickListener(v ->
+                    startActivity(new Intent(this, CarListActivity.class))
+            );
+
 
             boolean isPaid = "paid".equals(user.getUserMode());
             binding.tvUserMode.setText(

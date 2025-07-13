@@ -204,7 +204,7 @@
     <string name="hint_email">البريد الإلكتروني</string>
     <string name="email">ألأيميل </string>
     <string name="account_email">البريد الإلكتروني</string>
-    <string name="phone">رقم الهاتف</string>
+    <string name="phone">رقم الهاتف :</string>
     <string name="hint_password">كلمة المرور</string>
     <string name="change_password">تغيير كلمة المرور</string>
     <string name="forgot_password">نسيت كلمة المرور؟</string>
@@ -381,5 +381,7 @@
     <string name="brand">اختر الشركة</string>
     <string name="model">اختر الطراز</string>
     <string name="year">اختر السنة</string>
+    <string name="job_title_prefix">المسمى الوظيفي</string>
+    <string name="view_cars">عرض السيارات</string>
 
 </resources>
