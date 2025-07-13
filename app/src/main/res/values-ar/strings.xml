@@ -229,12 +229,8 @@
     <string name="confirm_clear_message">هل أنت متأكد من رغبتك في مسح جميع بيانات الدخول؟</string>
 
     <!-- تسجيل الخروج وحذف الحساب -->
-    <string name="logged">تسجيل الخروج</string>
     <string name="logout">تسجيل الخروج</string>
-    <string name="account_logout">تسجيل الخروج</string>
-    <string name="log_out">↩ تسجيل الخروج</string>
     <string name="delete_account"> حذف الحساب</string>
-    <string name="account_delete">حذف الحساب</string>
 
     <!-- رسائل الحالة والخطأ (الحساب، البصمة، PIN) -->
     <string name="update_success">تم تحديث البيانات بنجاح</string>
@@ -383,5 +379,8 @@
     <string name="year">اختر السنة</string>
     <string name="job_title_prefix">المسمى الوظيفي</string>
     <string name="view_cars">عرض السيارات</string>
+    <string name="car_icon">رمز السيارة</string>
+    <string name="my_cars">أعدادات السياره</string>
+
 
 </resources>

@@ -147,19 +147,7 @@ public class AccountActivity extends BaseActivity {
                     getString(R.string.job_title_prefix) + ": " +
                             (user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.undefined))
             );
-            // 1) جلب اسم السيارة الخاصة بالمستخدم من المستودع
-            CarRepository carRepo = new CarRepository(this);
-            carRepo.getUserCars().observe(this, cars -> {
-                if (cars != null && !cars.isEmpty()) {
-                    Car first = cars.get(0);
-                    String displayName = (first.getCarName() != null && !first.getCarName().isEmpty())
-                            ? first.getCarName()
-                            : first.getBrandName() + " " + first.getModelName();
-                    binding.tvPackageName.setText(displayName);
-                } else {
-                    binding.tvPackageName.setText("-"); // أو رسالة مناسبة
-                }
-            });
+            binding.tvCar.setText(R.string.my_cars);
 
             // 2) ربط زر العرض للانتقال إلى قائمة السيارات
             binding.btnViewCars.setOnClickListener(v ->
@@ -184,7 +172,7 @@ public class AccountActivity extends BaseActivity {
             String planName = (user.getCurrentPlan() != null && !user.getCurrentPlan().isEmpty())
                     ? user.getCurrentPlan()
                     : getString(R.string.free);
-            binding.tvPackageName.setText(planName);
+
 
             // معلومات الاشتراك
             binding.tvCurrentPlan.setText(
