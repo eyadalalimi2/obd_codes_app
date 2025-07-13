@@ -11,6 +11,7 @@ public final class FeatureMapper {
         MAP.put("SAVE_CODES",            "حفظ الأكواد");
         MAP.put("SHARE_CODES",           "مشاركة الأكواد");
         MAP.put("COMPARE_CODES",         "مقارنة الأكواد");
+        MAP.put("OFFLINE_MODE",         " وضع الاتصال بدون انترنت");
         MAP.put("DIAGNOSIS_HISTORY",     "سجل التشخيص");
         MAP.put("SYMPTOM_BASED_DIAGNOSIS","التشخيص بالأعراض");
         MAP.put("SMART_NOTIFICATIONS",   "الإشعارات الذكية");
