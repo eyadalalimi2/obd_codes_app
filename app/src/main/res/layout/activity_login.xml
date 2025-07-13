@@ -52,13 +52,11 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/tab_height"
-                            android:orientation="horizontal"
-                            android:background="@drawable/bg_tab_container">
+                            android:orientation="horizontal">
 
                             <!-- تبويب تسجيل الدخول مفعل -->
                             <TextView
                                 android:id="@+id/tvLoginTab"
-                                style="@style/TitleGreenBold"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -70,7 +68,6 @@
                             <!-- تبويب إنشاء حساب غير مفعل -->
                             <TextView
                                 android:id="@+id/tvSignupTab"
-                                style="@style/TitleGreenBold"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"

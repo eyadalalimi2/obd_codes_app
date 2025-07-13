@@ -171,12 +171,7 @@
         <item name="android:layout_marginBottom">2dp</item>
     </style>
 
-    <!-- نصوص العناوين الخضراء -->
-    <style name="TitleGreenBold">
-        <item name="android:textColor">@color/blue</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
-    </style>
+
 
     <!-- زر رئيسي أخضر دائري -->
     <style name="ObdMainButton">

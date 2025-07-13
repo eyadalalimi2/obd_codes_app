@@ -49,17 +49,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/tab_height"
-                            android:orientation="horizontal"
-                            android:background="@drawable/bg_tab_container">
+                            android:orientation="horizontal">
 
                             <!-- تبويب تسجيل الدخول غير مفعل -->
                             <TextView
                                 android:id="@+id/tvLoginTab"
-                                style="@style/TitleGreenBold"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_tab_login"
+                                android:background="@drawable/bg_tab_signup"
                                 android:gravity="center"
                                 android:text="@string/login_tab"
                                 android:textColor="@color/blue"/>
@@ -67,11 +65,10 @@
                             <!-- تبويب إنشاء حساب مفعل -->
                             <TextView
                                 android:id="@+id/tvSignupTab"
-                                style="@style/TitleGreenBold"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
-                                android:background="@drawable/bg_tab_signup"
+                                android:background="@drawable/bg_tab_login"
                                 android:gravity="center"
                                 android:text="@string/signup_tab"
                                 android:textColor="@color/white"/>
