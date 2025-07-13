@@ -31,7 +31,7 @@ public class CarListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_list);
+        setActivityLayout(R.layout.activity_car_list);
 
         // إعداد RecyclerView و Adapter
         RecyclerView rv = findViewById(R.id.rvCars);
@@ -94,5 +94,9 @@ public class CarListActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         viewModel.refreshCars();
+    }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return true;
     }
 }

@@ -17,7 +17,7 @@ public class CarDetailActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_detail);
+        setActivityLayout(R.layout.activity_car_detail);
 
         tvBrand = findViewById(R.id.tvBrand);
         tvModel = findViewById(R.id.tvModel);
@@ -39,5 +39,9 @@ public class CarDetailActivity extends BaseActivity {
                     (car.getCarName() != null && !car.getCarName().isEmpty()) ? car.getCarName() : "-"
             );
         }
+    }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return true;
     }
 }

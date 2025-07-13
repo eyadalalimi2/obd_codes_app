@@ -64,7 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity
     private NavigationView navView; // إضافة هذا المتغير لسهولة الوصول إليه
     private NotificationViewModel notificationViewModel;
     private TextView badge;
-
+    private boolean backPressedToHome = false;
     // Dialog for no-internet state
     private AlertDialog noInternetDialog;
 
@@ -457,17 +457,28 @@ public abstract class BaseActivity extends AppCompatActivity
         FrameLayout container = findViewById(R.id.base_content_frame);
         getLayoutInflater().inflate(layoutResID, container, true);
     }
+
     @Override
     public void onBackPressed() {
-        if (!(this instanceof HomeActivity)) {
+        if (this instanceof HomeActivity) {
+            // الصفحة الرئيسية: خروج عادي من التطبيق
+            super.onBackPressed();
+            return;
+        }
+
+        // تحقق هل هذا النشاط هو الجذر (أول Activity في الـ stack)
+        if (isTaskRoot()) {
+            // إذا كان هو الجذر (لا يوجد صفحة سابقة): اذهب للرئيسية ولا تخرج نهائياً
             Intent intent = new Intent(this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
         } else {
+            // هناك صفحة سابقة: ترجع للوراء (سلوك طبيعي)
             super.onBackPressed();
         }
     }
+
     @Override
     public void startActivity(Intent intent) {
         super.startActivity(intent);

@@ -29,7 +29,7 @@ public class CarFormActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_car_form);
+        setActivityLayout(R.layout.activity_car_form);
 
         spBrand = findViewById(R.id.spBrand);
         spModel = findViewById(R.id.spModel);
@@ -135,4 +135,9 @@ public class CarFormActivity extends BaseActivity {
             toast("فشل في تحديث السيارة");
         }
     }
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return true;
+    }
+
 }
