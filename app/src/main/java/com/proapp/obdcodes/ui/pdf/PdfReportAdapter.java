@@ -1,10 +1,8 @@
 package com.proapp.obdcodes.ui.pdf;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,19 +16,23 @@ import androidx.core.content.FileProvider;
 import com.proapp.obdcodes.R;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.List;
 
 public class PdfReportAdapter extends ArrayAdapter<File> {
 
+    public interface OnSavePdfListener {
+        void onSavePdf(File file);
+    }
+
     private final Context context;
     private final List<File> files;
+    private final OnSavePdfListener saveListener;
 
-    public PdfReportAdapter(Context ctx, List<File> files) {
+    public PdfReportAdapter(Context ctx, List<File> files, OnSavePdfListener listener) {
         super(ctx, 0, files);
         this.context = ctx;
         this.files = files;
+        this.saveListener = listener;
     }
 
     @Override
@@ -61,7 +63,7 @@ public class PdfReportAdapter extends ArrayAdapter<File> {
         });
 
         btnDelete.setOnClickListener(v -> {
-            new AlertDialog.Builder(context)
+            new android.app.AlertDialog.Builder(context)
                     .setTitle("تأكيد الحذف")
                     .setMessage("هل تريد حذف هذا التقرير؟")
                     .setPositiveButton("نعم", (dialog, which) -> {
@@ -76,33 +78,10 @@ public class PdfReportAdapter extends ArrayAdapter<File> {
                     .setNegativeButton("إلغاء", null)
                     .show();
         });
-        // حفظ إلى التخزين العام
+
         btnSaveToStorage.setOnClickListener(v -> {
-            try {
-                File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                File targetDir = new File(downloadsDir, "OBD Codes/pdf");
-
-                if (!targetDir.exists()) targetDir.mkdirs();
-
-                File targetFile = new File(targetDir, file.getName());
-
-                FileInputStream in = new FileInputStream(file);
-                FileOutputStream out = new FileOutputStream(targetFile);
-
-                byte[] buffer = new byte[1024];
-                int len;
-                while ((len = in.read(buffer)) > 0) {
-                    out.write(buffer, 0, len);
-                }
-
-                in.close();
-                out.close();
-
-                Toast.makeText(context, "تم حفظ التقرير في OBD Codes/pdf", Toast.LENGTH_LONG).show();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(context, "فشل في حفظ التقرير", Toast.LENGTH_LONG).show();
+            if (saveListener != null) {
+                saveListener.onSavePdf(file);
             }
         });
 
