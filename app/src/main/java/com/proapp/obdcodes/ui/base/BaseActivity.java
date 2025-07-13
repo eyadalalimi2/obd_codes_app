@@ -369,7 +369,7 @@ public abstract class BaseActivity extends AppCompatActivity
         } else if (id == R.id.nav_compare) {
             intent = new Intent(this, CompareCodesActivity.class);
         } else if (id == R.id.nav_visual) { // تم تغيير nav_visuals إلى nav_visual بناءً على XML
-            intent = new Intent(this, MenuActivity.class);
+            intent = new Intent(this, VisualLibraryActivity.class);
         } else if (id == R.id.nav_history) {
             intent = new Intent(this, DiagnosisHistoryActivity.class);
         } else if (id == R.id.nav_pdf) {
