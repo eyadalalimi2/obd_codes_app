@@ -52,6 +52,20 @@
             android:name=".ui.auth.ForgotPasswordActivity"
             android:label="@string/forgot_password" />
 
+
+        <!-- شاشة "إعادة تعيين كلمة المرور" -->
+        <activity
+            android:name=".ui.auth.ResetPasswordActivity"
+            android:exported="false"
+            android:label="@string/reset_password_title" />
+
+        <!-- شاشة "التحقق من البريد الإلكتروني" -->
+        <activity
+            android:name=".ui.auth.EmailVerificationActivity"
+            android:exported="false"
+            android:label="@string/email_verification_title" />
+
+
         <!-- Home & Search -->
         <activity
             android:name=".ui.home.HomeActivity"

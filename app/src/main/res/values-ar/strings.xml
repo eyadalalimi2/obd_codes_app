@@ -244,7 +244,7 @@
     <string name="reg_success">تم التسجيل بنجاح</string>
     <string name="err_logout">فشل تسجيل الخروج</string>
     <string name="err_delete_account">فشل حذف الحساب</string>
-    <string name="err_send_verification">فشل في إرسال رابط التفعيل</string>
+    <string name="err_send_link">فشل في إرسال رابط التفعيل</string>
     <string name="err_fill_all">يرجى تعبئة جميع الحقول</string>
     <string name="err_invalid_email">البريد الإلكتروني غير صالح</string>
     <string name="err_invalid_pass">كلمة المرور قصيرة جدًا</string>
@@ -393,6 +393,17 @@
     <string name="view_subscription_details">عرض تفاصيل الاشتراك</string>
     <string name="save_changes">حفظ التغييرات</string>
     <string name="resend_verification_link">" إرسال رابط تفعيل البريد الالكتروني"</string>
-
+    <string name="profile_updated">تم تحديث الملف الشخصي بنجاح</string>
+    <string name="err_update_profile">فشل تحديث الملف الشخصي</string>
+    <string name="err_select_photo">يرجى اختيار صورة صالحة</string>
+    <string name="photo_updated">تم تحديث الصورة بنجاح</string>
+    <string name="err_update_photo">فشل تحديث الصورة</string>
+    <string name="send_reset_link">إرسال رابط التفعيل</string>
+    <string name="hint_token">Reset Token</string>
+    <string name="hint_confirm_password">أعادة كلمه المرور الجديده</string>
+    <string name="err_reset">فشل تغيير كلمه المرور</string>
+    <string name="email_verification_title">التحقق من البريد الالكتروني</string>
+    <string name="email_not_verified">حالة التحقق: غير مفعل</string>
+    <string name="reset_password_title">إعادة تعيين كلمة المرور</string>
 
 </resources>
