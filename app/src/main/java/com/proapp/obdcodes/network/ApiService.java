@@ -28,6 +28,7 @@ import com.proapp.obdcodes.network.model.ForgotPasswordRequest;
 import com.proapp.obdcodes.network.model.ResetPasswordRequest;
 import com.proapp.obdcodes.network.model.MessageResponse;
 import com.proapp.obdcodes.network.model.VerifyStatusResponse;
+import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import java.util.List;
 
 import okhttp3.MultipartBody;
@@ -63,19 +64,20 @@ public interface ApiService {
     @GET("user/profile")
     @Headers("Accept: application/json")
     Call<UserProfileResponse> getUserProfile();
-    /**
-     * تحديث بيانات البروفايل (مع رفع صورة اختيارية)
-     * Content-Type: multipart/form-data
-     */
-    @Multipart
+
+    // تحديث البيانات النصّية فقط
     @POST("user/profile/update")
     @Headers("Accept: application/json")
-    Call<UserProfileResponse> updateUserProfile(
-            @Part("username")    RequestBody username,
-            @Part("email")       RequestBody email,
-            @Part("phone")       RequestBody phone,
-            @Part("job_title")   RequestBody jobTitle,
-            @Part MultipartBody.Part profileImage
+    Call<UserProfileResponse> updateProfileData(
+            @Body UpdateProfileRequest request
+    );
+
+    // رفع صورة البروفايل فقط
+    @Multipart
+    @POST("user/profile/update_image")
+    @Headers("Accept: application/json")
+    Call<UserProfileResponse> updateProfileAvatar(
+            @Part MultipartBody.Part profile_image
     );
 
     // --------------- نسيت كلمة المرور (الميزة الثانية) ---------------
