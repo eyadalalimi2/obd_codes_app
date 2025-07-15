@@ -382,6 +382,17 @@
     <string name="car_icon">رمز السيارة</string>
     <string name="my_cars">أعدادات السياره</string>
     <string name="view_saved_codes">عرض الأكواد المحفوظة</string>
+    <string name="select_profile_image">حدد صوره الملف الشخصي</string>
+    <string name="check_verification_status">التحقق من تفعيل البريد الالكتروني</string>
+    <string name="choose_image">اختر صورة</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="enter_username">ادخل اسم المستخدم</string>
+    <string name="enter_email">ادخل البريد الالكتروني</string>
+    <string name="enter_phone">ادخل رقم الهاتف</string>
+    <string name="enter_job_title">ادخل المسمى الوضيفي</string>
+    <string name="view_subscription_details">عرض تفاصيل الاشتراك</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="resend_verification_link">" إرسال رابط تفعيل البريد الالكتروني"</string>
 
 
 </resources>
