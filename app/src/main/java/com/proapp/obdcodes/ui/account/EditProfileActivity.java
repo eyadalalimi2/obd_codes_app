@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.proapp.obdcodes.R;
-import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -84,25 +83,7 @@ public class EditProfileActivity extends BaseActivity {
             }
         });
 
-        // حفظ التعديلات عند الضغط على زر الحفظ
-        btnSave.setOnClickListener(v -> {
-            UpdateProfileRequest req = new UpdateProfileRequest(
-                    etUsername.getText().toString().trim(),
-                    etEmail   .getText().toString().trim(),
-                    etPhone   .getText().toString().trim(),
-                    etJobTitle.getText().toString().trim()
-            );
-            
 
-            vm.updateUserProfile(req).observe(this, success -> {
-                if (Boolean.TRUE.equals(success)) {
-                    Toast.makeText(this, R.string.msg_profile_saved, Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(this, R.string.err_save_profile, Toast.LENGTH_SHORT).show();
-                }
-            });
-        });
 
         // زر عرض تفاصيل الاشتراك
         btnViewSubscriptionDetails.setOnClickListener(v -> {

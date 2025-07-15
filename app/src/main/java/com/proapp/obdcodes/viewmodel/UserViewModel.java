@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.ApiService;
 import com.proapp.obdcodes.network.model.Subscription;
-import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
 import com.proapp.obdcodes.repository.ProfileRepository;
 
@@ -41,9 +40,7 @@ public class UserViewModel extends AndroidViewModel {
     /**
      * Update the authenticated user's profile.
      */
-    public LiveData<User> updateUserProfile(UpdateProfileRequest req) {
-        return repo.updateUserProfile(req);
-    }
+
 
     /**
      * Send email verification notification.

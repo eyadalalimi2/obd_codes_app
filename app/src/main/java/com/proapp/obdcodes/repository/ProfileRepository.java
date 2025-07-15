@@ -7,7 +7,6 @@ import androidx.lifecycle.MutableLiveData;
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.ApiService;
-import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
 import com.proapp.obdcodes.network.model.UserProfileResponse;
 
@@ -53,25 +52,7 @@ public class ProfileRepository {
     /**
      * Sends an update request for the authenticated user's profile.
      */
-    public LiveData<User> updateUserProfile(UpdateProfileRequest req) {
-        MutableLiveData<User> live = new MutableLiveData<>();
-        api.updateUserProfile(req).enqueue(new Callback<UserProfileResponse>() {
-            @Override
-            public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> resp) {
-                if (resp.isSuccessful() && resp.body() != null) {
-                    live.setValue(resp.body().getUser());
-                } else {
-                    live.setValue(null);
-                }
-            }
 
-            @Override
-            public void onFailure(Call<UserProfileResponse> call, Throwable t) {
-                live.setValue(null);
-            }
-        });
-        return live;
-    }
 
     /**
      * Fetches the list of available subscriptions.

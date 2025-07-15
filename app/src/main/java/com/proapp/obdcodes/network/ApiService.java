@@ -22,18 +22,23 @@ import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.model.SubscriptionRequest;
 import com.proapp.obdcodes.network.model.UpdateCarRequest;
 import com.proapp.obdcodes.network.model.UpdateCarsResponse;
-import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.UserCarsResponse;
 import com.proapp.obdcodes.network.model.UserProfileResponse;
-
+import com.proapp.obdcodes.network.model.ForgotPasswordRequest;
+import com.proapp.obdcodes.network.model.ResetPasswordRequest;
+import com.proapp.obdcodes.network.model.MessageResponse;
+import com.proapp.obdcodes.network.model.VerifyStatusResponse;
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.*;
 import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -58,11 +63,34 @@ public interface ApiService {
     @GET("user/profile")
     @Headers("Accept: application/json")
     Call<UserProfileResponse> getUserProfile();
-
-    @PUT("user/profile/update")
+    /**
+     * تحديث بيانات البروفايل (مع رفع صورة اختيارية)
+     * Content-Type: multipart/form-data
+     */
+    @Multipart
+    @POST("user/profile/update")
     @Headers("Accept: application/json")
-    Call<UserProfileResponse> updateUserProfile(@Body UpdateProfileRequest request);
+    Call<UserProfileResponse> updateUserProfile(
+            @Part("username")    RequestBody username,
+            @Part("email")       RequestBody email,
+            @Part("phone")       RequestBody phone,
+            @Part("job_title")   RequestBody jobTitle,
+            @Part MultipartBody.Part profileImage
+    );
 
+    // --------------- نسيت كلمة المرور (الميزة الثانية) ---------------
+    @POST("password/forgot")
+    @Headers("Accept: application/json")
+    Call<MessageResponse> forgotPassword(
+            @Body ForgotPasswordRequest request
+    );
+
+    // --------------- إعادة تعيين كلمة المرور (الميزة الثالثة) ---------------
+    @POST("password/reset")
+    @Headers("Accept: application/json")
+    Call<MessageResponse> resetPassword(
+            @Body ResetPasswordRequest request
+    );
     @DELETE("user/profile/delete")
     Call<Void> deleteAccount();
 
@@ -70,6 +98,24 @@ public interface ApiService {
     Call<Void> sendVerificationNotification();
 
 
+
+    // --------------- ميزة التحقق من البريد الإلكتروني ---------------
+    @POST("email/verification-notification")
+    @Headers("Accept: application/json")
+    Call<MessageResponse> sendEmailVerification();
+
+    @GET("email/verify/{id}/{hash}")
+    @Headers("Accept: application/json")
+    Call<MessageResponse> verifyEmail(
+            @Path("id") long userId,
+            @Path("hash") String hash,
+            @Query("expires") long expires,
+            @Query("signature") String signature
+    );
+
+    @GET("user/email/verify-status")
+    @Headers("Accept: application/json")
+    Call<VerifyStatusResponse> getEmailVerifyStatus();
     // ---------------- الإشعارات ----------------
     @GET("notifications")
     Call<NotificationResponse> getNotifications();
