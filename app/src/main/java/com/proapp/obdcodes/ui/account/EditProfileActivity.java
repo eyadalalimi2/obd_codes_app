@@ -99,15 +99,12 @@ public class EditProfileActivity extends BaseActivity {
 
         // 4. إعادة إرسال رابط التفعيل
         btnVerifyEmail.setOnClickListener(v ->
-                vm.sendEmailVerification().observe(this, sent ->
-                        Toast.makeText(
-                                this,
-                                sent
-                                        ? getString(R.string.verification_email_sent)
-                                        : getString(R.string.resend_verification),
-                                Toast.LENGTH_SHORT
-                        ).show()
-                )
+                vm.sendEmailVerification().observe(this, success -> {
+                    String msg = success
+                            ? "تم إرسال رابط التفعيل إلى بريدك الإلكتروني."
+                            : "فشل إرسال رابط التفعيل، حاول مجدداً.";
+                    Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+                })
         );
 
         // 5. حفظ التغييرات النصية — ثم رفع الصورة (إن وُجِدَت) — ثم إنهاء الشاشة

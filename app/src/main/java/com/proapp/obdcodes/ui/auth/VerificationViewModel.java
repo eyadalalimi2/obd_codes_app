@@ -32,20 +32,20 @@ public class VerificationViewModel extends AndroidViewModel {
     }
 
     /** إعادة إرسال رابط التفعيل */
+    /** إعادة إرسال رابط التفعيل */
     public void sendEmailVerification() {
-        api.sendEmailVerification()
+        api.sendEmailVerification()   // ← يذهب لمسار /email/resend-verification
                 .enqueue(new Callback<MessageResponse>() {
                     @Override
-                    public void onResponse(Call<MessageResponse> c, Response<MessageResponse> r) {
-                        if (r.isSuccessful() && r.body() != null)
-                            sendLink.setValue(r.body());
-                        else {
-                            MessageResponse error = new MessageResponse("فشل إرسال رابط التفعيل.");
-                            sendLink.setValue(error);
+                    public void onResponse(Call<MessageResponse> call, Response<MessageResponse> resp) {
+                        if (resp.isSuccessful() && resp.body() != null) {
+                            sendLink.setValue(resp.body());
+                        } else {
+                            sendLink.setValue(new MessageResponse("فشل إرسال رابط التفعيل."));
                         }
                     }
                     @Override
-                    public void onFailure(Call<MessageResponse> c, Throwable t) {
+                    public void onFailure(Call<MessageResponse> call, Throwable t) {
                         sendLink.setValue(new MessageResponse("خطأ في الاتصال: " + t.getMessage()));
                     }
                 });

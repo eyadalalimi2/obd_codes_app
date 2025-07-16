@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.ApiService;
+import com.proapp.obdcodes.network.model.MessageResponse;
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
@@ -50,14 +51,15 @@ public class UserViewModel extends AndroidViewModel {
      */
     public LiveData<Boolean> sendEmailVerification() {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
-        apiService.sendVerificationNotification()
-                .enqueue(new Callback<Void>() {
+        apiService.sendEmailVerification()
+                .enqueue(new Callback<MessageResponse>() {
                     @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                        result.postValue(response.isSuccessful());
+                    public void onResponse(Call<MessageResponse> call, Response<MessageResponse> response) {
+                        // true إذا نجح (status 200) وجسم الرد non-null
+                        result.postValue(response.isSuccessful() && response.body() != null);
                     }
                     @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
+                    public void onFailure(Call<MessageResponse> call, Throwable t) {
                         result.postValue(false);
                     }
                 });
