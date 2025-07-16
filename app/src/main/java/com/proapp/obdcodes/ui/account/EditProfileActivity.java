@@ -99,7 +99,7 @@ public class EditProfileActivity extends BaseActivity {
                 if (Boolean.TRUE.equals(sent)) {
                     Toast.makeText(this, R.string.verification_email_sent, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, R.string.err_send_verification, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.email_verification_title, Toast.LENGTH_SHORT).show();
                 }
             });
         });
