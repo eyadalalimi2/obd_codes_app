@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
@@ -17,7 +16,6 @@ import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.databinding.ActivityAccountBinding;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.ui.auth.AuthActivity;
-import com.proapp.obdcodes.ui.auth.RegisterActivity;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.cars.CarListActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
@@ -155,7 +153,7 @@ public class AccountActivity extends BaseActivity {
                                 .apply();
 
                         ApiClient.reset();
-                        startActivity(new Intent(this, RegisterActivity.class)
+                        startActivity(new Intent(this, AuthActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         );
                     } else {

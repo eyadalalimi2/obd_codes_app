@@ -369,4 +369,9 @@
     <string name="email_verification_title">التحقق من البريد الالكتروني</string>
     <string name="email_not_verified">حالة التحقق: غير مفعل</string>
     <string name="reset_password_title">إعادة تعيين كلمة المرور</string>
+    <string name="verified">مفعل</string>
+    <string name="not_verified">غير مفعل</string>
+    <string name="email_now_verified">جاري التحقق من البريد الالكتروني</string>
+    <string name="err_not_match">كلمتا المرور غير متطابقتين</string>
+
 </resources>

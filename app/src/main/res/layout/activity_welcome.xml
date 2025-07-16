@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".ui.welcome.WelcomeActivity">
+   >
     <ImageView
     android:id="@+id/illustration_image"
     android:layout_width="match_parent"
