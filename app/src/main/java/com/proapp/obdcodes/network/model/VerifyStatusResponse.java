@@ -1,22 +1,19 @@
-// File: com/proapp/obdcodes/network/model/VerifyStatusResponse.java
 package com.proapp.obdcodes.network.model;
 
 import com.google.gson.annotations.SerializedName;
 
 public class VerifyStatusResponse {
-
     @SerializedName("verified")
     private boolean verified;
 
-    public VerifyStatusResponse(boolean verified) {
-        this.verified = verified;
-    }
+    @SerializedName("email_verified_at")
+    private String emailVerifiedAt;
 
     public boolean isVerified() {
         return verified;
     }
 
-    public void setVerified(boolean verified) {
-        this.verified = verified;
+    public String getEmailVerifiedAt() {
+        return emailVerifiedAt;
     }
 }

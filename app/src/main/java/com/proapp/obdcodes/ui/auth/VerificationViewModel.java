@@ -51,20 +51,22 @@ public class VerificationViewModel extends AndroidViewModel {
                 });
     }
 
-    /** جلب حالة التحقق (مفعل / غير مفعل) */
-    public void getEmailVerifyStatus() {
+    // جلب حالة التفعيل الحالية
+    public void fetchEmailVerifyStatus() {
         api.getEmailVerifyStatus()
                 .enqueue(new Callback<VerifyStatusResponse>() {
                     @Override
-                    public void onResponse(Call<VerifyStatusResponse> c, Response<VerifyStatusResponse> r) {
-                        if (r.isSuccessful() && r.body() != null)
-                            status.setValue(r.body());
-                        else
-                            status.setValue(null);
+                    public void onResponse(Call<VerifyStatusResponse> call,
+                                           Response<VerifyStatusResponse> resp) {
+                        if (resp.isSuccessful() && resp.body() != null) {
+                            status.postValue(resp.body());
+                        } else {
+                            status.postValue(null);
+                        }
                     }
                     @Override
-                    public void onFailure(Call<VerifyStatusResponse> c, Throwable t) {
-                        status.setValue(null);
+                    public void onFailure(Call<VerifyStatusResponse> call, Throwable t) {
+                        status.postValue(null);
                     }
                 });
     }
