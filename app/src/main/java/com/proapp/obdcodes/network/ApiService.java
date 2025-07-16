@@ -111,7 +111,7 @@ public interface ApiService {
             @Query("expires") long expires,
             @Query("signature") String signature
     );
-
+     // حالة تفعيل البريد
     @GET("user/email/verify-status")
     @Headers("Accept: application/json")
     Call<VerifyStatusResponse> getEmailVerifyStatus();
