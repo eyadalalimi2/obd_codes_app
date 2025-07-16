@@ -19,8 +19,8 @@ import com.proapp.obdcodes.viewmodel.UserViewModel;
 public class EditProfileActivity extends BaseActivity {
 
     private EditText etUsername, etEmail, etPhone, etJobTitle;
-    private TextView tvPackageNameValue, tvSubscriptionStatusValue, tvPlanStartDateValue, tvPlanEndDateValue;
-    private Button btnSave, btnViewSubscriptionDetails, btnVerifyEmail;
+
+    private Button btnSave, btnVerifyEmail;
     private UserViewModel vm;
     private User currentUser;
 
@@ -36,12 +36,6 @@ public class EditProfileActivity extends BaseActivity {
         etJobTitle = findViewById(R.id.etJobTitle);
         btnSave    = findViewById(R.id.btnSaveProfile);
 
-        // حقول عرض الاشتراك
-        tvPackageNameValue        = findViewById(R.id.tvPackageNameValue);
-        tvSubscriptionStatusValue = findViewById(R.id.tvSubscriptionStatusValue);
-        tvPlanStartDateValue      = findViewById(R.id.tvPlanStartDateValue);
-        tvPlanEndDateValue        = findViewById(R.id.tvPlanEndDateValue);
-        btnViewSubscriptionDetails= findViewById(R.id.btnViewSubscriptionDetails);
 
         // زر إعادة التحقق من البريد (يظهر فقط إذا لم يتم التحقق)
         btnVerifyEmail = findViewById(R.id.btnVerifyEmail);
@@ -58,19 +52,6 @@ public class EditProfileActivity extends BaseActivity {
                 etPhone   .setText(user.getPhone());
                 etJobTitle.setText(user.getJobTitle());
 
-                // عرض بيانات الاشتراك
-                tvPackageNameValue.setText(
-                        user.getCurrentPlan() != null ? user.getCurrentPlan() : getString(R.string.undefined)
-                );
-                tvSubscriptionStatusValue.setText(
-                        "paid".equals(user.getUserMode()) ? getString(R.string.paid) : getString(R.string.free)
-                );
-                tvPlanStartDateValue.setText(
-                        user.getPlanStartDate() != null ? user.getPlanStartDate() : "-"
-                );
-                tvPlanEndDateValue.setText(
-                        user.getPlanRenewalDate() != null ? user.getPlanRenewalDate() : "-"
-                );
 
                 // إظهار أو إخفاء زر التحقق من الإيميل
                 if (user.getEmailVerifiedAt() == null) {
@@ -84,14 +65,6 @@ public class EditProfileActivity extends BaseActivity {
         });
 
 
-
-        // زر عرض تفاصيل الاشتراك
-        btnViewSubscriptionDetails.setOnClickListener(v -> {
-            if (currentUser != null) {
-                String url = "https://obdcode.xyz/users/" + currentUser.getId() + "/subscription";
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-            }
-        });
 
         // زر إعادة التحقق من البريد
         btnVerifyEmail.setOnClickListener(v -> {

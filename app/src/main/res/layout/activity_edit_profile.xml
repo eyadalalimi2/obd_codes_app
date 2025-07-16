@@ -93,62 +93,6 @@
             android:layout_height="wrap_content"
             android:hint="مثل: ميكانيكي سيارات" />
 
-        <!-- قسم الاشتراك: عرض فقط -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="اسم الباقة"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp" />
-        <TextView
-            android:id="@+id/tvPackageNameValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="غير محدد" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="حالة الاشتراك"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-        <TextView
-            android:id="@+id/tvSubscriptionStatusValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="مجاني" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="تاريخ بداية الخطة"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-        <TextView
-            android:id="@+id/tvPlanStartDateValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="-" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="تاريخ التجديد"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp" />
-        <TextView
-            android:id="@+id/tvPlanEndDateValue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="-" />
-
-        <!-- زر عرض تفاصيل الاشتراك -->
-        <Button
-            android:id="@+id/btnViewSubscriptionDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="عرض تفاصيل الاشتراك"
-            android:layout_marginTop="16dp" />
 
         <!-- زر حفظ -->
         <Button
