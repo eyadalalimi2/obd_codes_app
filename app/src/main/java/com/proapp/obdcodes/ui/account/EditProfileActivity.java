@@ -19,8 +19,8 @@ import com.proapp.obdcodes.viewmodel.UserViewModel;
 public class EditProfileActivity extends BaseActivity {
 
     private EditText etUsername, etEmail, etPhone, etJobTitle;
-
-    private Button btnSave, btnVerifyEmail;
+   
+    private Button btnSave,  btnVerifyEmail;
     private UserViewModel vm;
     private User currentUser;
 
@@ -52,7 +52,6 @@ public class EditProfileActivity extends BaseActivity {
                 etPhone   .setText(user.getPhone());
                 etJobTitle.setText(user.getJobTitle());
 
-
                 // إظهار أو إخفاء زر التحقق من الإيميل
                 if (user.getEmailVerifiedAt() == null) {
                     btnVerifyEmail.setVisibility(View.VISIBLE);
@@ -66,13 +65,14 @@ public class EditProfileActivity extends BaseActivity {
 
 
 
+
         // زر إعادة التحقق من البريد
         btnVerifyEmail.setOnClickListener(v -> {
             vm.sendVerificationEmail().observe(this, sent -> {
                 if (Boolean.TRUE.equals(sent)) {
                     Toast.makeText(this, R.string.verification_email_sent, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, R.string.email_verification_title, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.resend_verification, Toast.LENGTH_SHORT).show();
                 }
             });
         });
