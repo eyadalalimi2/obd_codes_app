@@ -96,15 +96,12 @@ public interface ApiService {
     @DELETE("user/profile/delete")
     Call<Void> deleteAccount();
 
-    @POST("email/verification-notification")
-    Call<Void> sendVerificationNotification();
-
-
 
     // --------------- ميزة التحقق من البريد الإلكتروني ---------------
-    @POST("email/verification-notification")
+    @POST("email/resend-verification")
     @Headers("Accept: application/json")
     Call<MessageResponse> sendEmailVerification();
+
 
     @GET("email/verify/{id}/{hash}")
     @Headers("Accept: application/json")
