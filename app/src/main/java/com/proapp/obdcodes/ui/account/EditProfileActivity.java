@@ -1,9 +1,12 @@
+// EditProfileActivity.java
 package com.proapp.obdcodes.ui.account;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -18,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
@@ -32,23 +36,26 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class EditProfileActivity extends BaseActivity {
-
+    private static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
     private static final int REQUEST_CODE_PICK_IMAGE = 1001;
-    private static final int REQUEST_CODE_PERMISSION = 2001;
+    private static final int REQUEST_CODE_PERMISSION  = 2001;
 
     private ImageView ivProfileImage;
-    private Button btnPickImage;
-    private EditText etUsername, etEmail, etPhone, etJobTitle;
-    private Button btnSave, btnVerifyEmail;
+    private Button    btnPickImage;
+    private EditText  etUsername, etEmail, etPhone, etJobTitle;
+    private Button    btnSave, btnVerifyEmail;
     private UserViewModel vm;
     private User currentUser;
+
+    // ↘ حقل جديد لحفظ صورة الأفاتار قبل الرفع
+    private MultipartBody.Part avatarPart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_edit_profile);
 
-        // ربط عناصر الواجهة
+        // 1. ربط عناصر الواجهة
         ivProfileImage = findViewById(R.id.ivProfileImage);
         btnPickImage   = findViewById(R.id.btnPickImage);
         etUsername     = findViewById(R.id.etUsername);
@@ -58,76 +65,115 @@ public class EditProfileActivity extends BaseActivity {
         btnSave        = findViewById(R.id.btnSaveProfile);
         btnVerifyEmail = findViewById(R.id.btnVerifyEmail);
 
-        // تهيئة ViewModel
+        // 2. تهيئة ViewModel وجلب بيانات المستخدم
         vm = new ViewModelProvider(this).get(UserViewModel.class);
+        vm.getUserProfile().observe(this, this::populateUserData);
 
-        // جلب البيانات الحالية للمستخدم
-        vm.getUserProfile().observe(this, user -> {
-            if (user != null) {
-                currentUser = user;
-                etUsername.setText(user.getUsername());
-                etEmail   .setText(user.getEmail());
-                etPhone   .setText(user.getPhone());
-                etJobTitle.setText(user.getJobTitle());
-
-                // إظهار أو إخفاء زر التحقق
-                btnVerifyEmail.setVisibility(
-                        user.getEmailVerifiedAt() == null ? View.VISIBLE : View.GONE
-                );
-
-                // (اختياري) تحميل صورة الملف الشخصي:
-                // Glide.with(this).load(user.getProfileImageUrl()).into(ivProfileImage);
-
-            } else {
-                Toast.makeText(this, R.string.err_fetch_profile, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // اختيار صورة جديدة مع التحقق من الأذونات
+        // 3. اختر صورة: تحقق من الإذن ثم افتح المعرض
         btnPickImage.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE)
+            String permission = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+                    ? Manifest.permission.READ_MEDIA_IMAGES
+                    : Manifest.permission.READ_EXTERNAL_STORAGE;
+
+            if (ContextCompat.checkSelfPermission(this, permission)
                     != PackageManager.PERMISSION_GRANTED) {
 
-                ActivityCompat.requestPermissions(this,
-                        new String[]{ Manifest.permission.READ_EXTERNAL_STORAGE },
-                        REQUEST_CODE_PERMISSION);
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
+                    new AlertDialog.Builder(this)
+                            .setTitle("صلاحية الوصول للصور")
+                            .setMessage("نحتاج إذن الوصول لاختيار صورة الملف الشخصي.")
+                            .setPositiveButton("موافق", (d, w) ->
+                                    ActivityCompat.requestPermissions(
+                                            this, new String[]{ permission }, REQUEST_CODE_PERMISSION))
+                            .setNegativeButton("إلغاء", null)
+                            .show();
+                } else {
+                    ActivityCompat.requestPermissions(
+                            this, new String[]{ permission }, REQUEST_CODE_PERMISSION);
+                }
 
             } else {
                 openImagePicker();
             }
         });
 
-        // إعادة إرسال رابط التفعيل
-        btnVerifyEmail.setOnClickListener(v -> {
-            vm.sendVerificationEmail().observe(this, sent -> {
-                String msg = Boolean.TRUE.equals(sent)
-                        ? getString(R.string.verification_email_sent)
-                        : getString(R.string.resend_verification);
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            });
-        });
+        // 4. إعادة إرسال رابط التفعيل
+        btnVerifyEmail.setOnClickListener(v ->
+                vm.sendEmailVerification().observe(this, sent ->
+                        Toast.makeText(
+                                this,
+                                sent
+                                        ? getString(R.string.verification_email_sent)
+                                        : getString(R.string.resend_verification),
+                                Toast.LENGTH_SHORT
+                        ).show()
+                )
+        );
 
-        // حفظ التغييرات النصية
+        // 5. حفظ التغييرات النصية + (اختياري) رفع الصورة إن وُجِدَت
         btnSave.setOnClickListener(v -> {
-            String username = etUsername.getText().toString().trim();
-            String email    = etEmail   .getText().toString().trim();
-            String phone    = etPhone   .getText().toString().trim();
-            String jobTitle = etJobTitle.getText().toString().trim();
+            // أ. تحديث البيانات النصية أولاً
+            UpdateProfileRequest req = new UpdateProfileRequest(
+                    etUsername.getText().toString().trim(),
+                    etEmail   .getText().toString().trim(),
+                    etPhone   .getText().toString().trim(),
+                    etJobTitle.getText().toString().trim()
+            );
+            vm.updateProfileData(req).observe(this, updated -> {
+                if (updated != null) {
+                    Toast.makeText(this, "تم حفظ التغييرات النصّية", Toast.LENGTH_SHORT).show();
 
-            vm.updateProfileData(new UpdateProfileRequest(username, email, phone, jobTitle))
-                    .observe(this, updated -> {
-                        String msg = (updated != null)
-                                ? "تم حفظ التغييرات بنجاح"
-                                : "فشل حفظ التغييرات";
-                        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-                    });
+                    // ب. إذا اختار المستخدم صورة جديد، نرفعها بعد النصّيات
+                    if (avatarPart != null) {
+                        vm.updateProfileAvatar(avatarPart)
+                                .observe(this, u2 -> {
+                                    Toast.makeText(
+                                            this,
+                                            u2 != null
+                                                    ? "تم تحديث الصورة بنجاح"
+                                                    : "فشل تحديث الصورة",
+                                            Toast.LENGTH_SHORT
+                                    ).show();
+                                });
+                    }
+                } else {
+                    Toast.makeText(this, "فشل حفظ التغييرات النصّية", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 
+    private void populateUserData(User user) {
+        if (user == null) {
+            Toast.makeText(this, R.string.err_fetch_profile, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        currentUser = user;
+
+        etUsername.setText(user.getUsername());
+        etEmail   .setText(user.getEmail());
+        etPhone   .setText(user.getPhone());
+        etJobTitle.setText(user.getJobTitle());
+
+        // تحميل الصورة السابقة عبر Glide
+        String imgPath = user.getProfileImage();
+        if (imgPath != null && !imgPath.isEmpty()) {
+            String fullUrl = imgPath.startsWith("http") ? imgPath : IMAGE_BASE_URL + imgPath;
+            Glide.with(this)
+                    .load(fullUrl)
+                    .circleCrop()
+                    .placeholder(R.drawable.profile)
+                    .error(R.drawable.profile_sample)
+                    .into(ivProfileImage);
+        }
+
+        btnVerifyEmail.setVisibility(
+                user.getEmailVerifiedAt() == null ? View.VISIBLE : View.GONE
+        );
+    }
+
     private void openImagePicker() {
-        Intent pick = new Intent(Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent pick = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(pick, REQUEST_CODE_PICK_IMAGE);
     }
 
@@ -146,16 +192,19 @@ public class EditProfileActivity extends BaseActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode,
+                                    int resultCode,
+                                    @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE_PICK_IMAGE
                 && resultCode == RESULT_OK
-                && data != null) {
+                && data != null
+                && data.getData() != null) {
 
             Uri uri = data.getData();
             ivProfileImage.setImageURI(uri);
 
-            // تحويل Uri إلى ملف (FileUtils.getPath)
+            // تحويل الـ Uri إلى MultipartPart وتخزينه للرفع لاحقًا
             String path = FileUtils.getPath(this, uri);
             if (path == null) {
                 Toast.makeText(this, "فشل تحديد مسار الصورة", Toast.LENGTH_SHORT).show();
@@ -163,17 +212,10 @@ public class EditProfileActivity extends BaseActivity {
             }
 
             File file = new File(path);
-            RequestBody bodyRequest = RequestBody.create(
-                    MediaType.parse("image/*"), file);
-            MultipartBody.Part part = MultipartBody.Part.createFormData(
-                    "profile_image", file.getName(), bodyRequest);
-
-            vm.updateProfileAvatar(part).observe(this, updated -> {
-                String msg = (updated != null)
-                        ? "تم تحديث الصورة بنجاح"
-                        : "فشل تحديث الصورة";
-                Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-            });
+            RequestBody rb = RequestBody.create(MediaType.parse("image/*"), file);
+            avatarPart = MultipartBody.Part.createFormData(
+                    "profile_image", file.getName(), rb
+            );
         }
     }
 

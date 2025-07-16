@@ -48,7 +48,7 @@ public class UserViewModel extends AndroidViewModel {
     /**
      * Send email verification notification.
      */
-    public LiveData<Boolean> sendVerificationEmail() {
+    public LiveData<Boolean> sendEmailVerification() {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
         apiService.sendVerificationNotification()
                 .enqueue(new Callback<Void>() {
