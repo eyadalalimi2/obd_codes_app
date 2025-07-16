@@ -1,32 +1,40 @@
 package com.proapp.obdcodes.viewmodel;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
-import com.proapp.obdcodes.network.model.LoginResponse;
-import com.proapp.obdcodes.network.model.RegisterResponse;
 import com.proapp.obdcodes.repository.AuthRepository;
 
 public class AuthViewModel extends AndroidViewModel {
     private final AuthRepository repo;
+
+    private final MutableLiveData<AuthRepository.Result> loginResult = new MutableLiveData<>();
+    private final MutableLiveData<AuthRepository.Result> registerResult = new MutableLiveData<>();
+    private final MutableLiveData<AuthRepository.Result> googleLoginResult = new MutableLiveData<>();
 
     public AuthViewModel(@NonNull Application app) {
         super(app);
         repo = new AuthRepository(app);
     }
 
-    public LiveData<LoginResponse> login(String email, String password) {
-        return repo.login(email, password);
+    public LiveData<AuthRepository.Result> getLoginResult() { return loginResult; }
+    public LiveData<AuthRepository.Result> getRegisterResult() { return registerResult; }
+    public LiveData<AuthRepository.Result> getGoogleLoginResult() { return googleLoginResult; }
+
+    // عند الاستدعاء يتم تحديث الـ LiveData داخلياً ليتم المراقبة من الـ Activity مباشرة
+    public void login(String email, String password) {
+        repo.login(email, password).observeForever(loginResult::postValue);
     }
 
-    public LiveData<RegisterResponse> register(String username, String email, String password) {
-        return repo.register(username, email, password);
+    public void register(String username, String email, String password) {
+        repo.register(username, email, password).observeForever(registerResult::postValue);
     }
 
-    public LiveData<LoginResponse> loginWithGoogle(String idToken) {
-        return repo.loginWithGoogle(idToken);
+    public void loginWithGoogle(String idToken) {
+        repo.loginWithGoogle(idToken).observeForever(googleLoginResult::postValue);
     }
 }
+

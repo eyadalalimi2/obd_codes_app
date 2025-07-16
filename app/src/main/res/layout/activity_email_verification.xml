@@ -6,27 +6,33 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="@string/forgot_password_title"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:text="@string/email_verification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <EditText
-        android:id="@+id/etEmail"
+    <TextView
+        android:id="@+id/tv_status"
         android:layout_marginTop="16dp"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
+        android:text="@string/email_not_verified"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/btnSendLink"
+        android:id="@+id/btn_resend"
         android:layout_marginTop="24dp"
-        android:text="@string/send_reset_link"
+        android:text="@string/resend_verification_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_check_status"
+        android:layout_marginTop="16dp"
+        android:text="@string/check_verification_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <ProgressBar
-        android:id="@+id/progress"
+        android:id="@+id/progress_bar"
         android:visibility="gone"
         android:layout_gravity="center"
         android:layout_marginTop="16dp"

@@ -22,13 +22,11 @@ import com.google.android.gms.tasks.Task;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.databinding.ActivityAuthBinding;
 import com.proapp.obdcodes.network.ApiClient;
-import com.proapp.obdcodes.network.model.LoginResponse;
-import com.proapp.obdcodes.network.model.RegisterResponse;
 import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.viewmodel.AuthViewModel;
-import com.proapp.obdcodes.viewmodel.UserViewModel;
 
 public class AuthActivity extends AppCompatActivity {
+
     private static final int RC_SIGN_IN = 1001;
     private ActivityAuthBinding binding;
     private AuthViewModel viewModel;
@@ -40,13 +38,11 @@ public class AuthActivity extends AppCompatActivity {
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // نهيئ ViewModel
         viewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
         ).get(AuthViewModel.class);
 
-        // إعداد Google Sign-In كما كان
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
                 GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -54,37 +50,85 @@ public class AuthActivity extends AppCompatActivity {
                 .build();
         googleClient = GoogleSignIn.getClient(this, gso);
 
-        // أزرار التبديل والاستدعاء
-        binding.tvLoginTab       .setOnClickListener(v -> showLogin());
-        binding.tvSignupTab      .setOnClickListener(v -> showSignup());
-        binding.btnLogin         .setOnClickListener(v -> loginWithEmail());
-        binding.btnCreateAccount .setOnClickListener(v -> registerWithEmail());
-        binding.btnGoogleSignIn  .setOnClickListener(v ->
-                startActivityForResult(
-                        googleClient.getSignInIntent(), RC_SIGN_IN
-                )
+        binding.tvLoginTab.setOnClickListener(v -> showLogin());
+        binding.tvSignupTab.setOnClickListener(v -> showSignup());
+
+        binding.btnLogin.setOnClickListener(v -> loginWithEmail());
+        binding.btnCreateAccount.setOnClickListener(v -> registerWithEmail());
+        binding.btnGoogleSignIn.setOnClickListener(v ->
+                startActivityForResult(googleClient.getSignInIntent(), RC_SIGN_IN)
+        );
+
+        binding.tvForgot.setOnClickListener(v ->
+                startActivity(new Intent(this, ForgotPasswordActivity.class))
         );
 
         showLogin();
+
+        // مراقبة نتائج تسجيل الدخول (الإيميل/الباسورد)
+        viewModel.getLoginResult().observe(this, result -> {
+            setLoading(false);
+            if (result == null) {
+                showToast(R.string.login_failed);
+                return;
+            }
+            if (result.isOk() && result.getToken() != null) {
+                saveLogin(result.getToken());
+                navigateHome();
+            } else {
+                showToast(result.getMessage());
+            }
+        });
+
+        // مراقبة نتائج التسجيل
+        viewModel.getRegisterResult().observe(this, result -> {
+            setLoading(false);
+            if (result == null) {
+                showToast(R.string.reg_failed);
+                return;
+            }
+            if (result.isOk() && result.getToken() != null) {
+                saveLogin(result.getToken());
+                startActivity(new Intent(this, EmailVerificationActivity.class));
+                finish();
+            } else {
+                showToast(result.getMessage());
+            }
+        });
+
+        // مراقبة نتائج تسجيل دخول Google (يتم تفعيلها فقط بعد استدعاء loginWithGoogle)
+        viewModel.getGoogleLoginResult().observe(this, result -> {
+            setLoading(false);
+            if (result == null) {
+                showToast(R.string.login_failed);
+                return;
+            }
+            if (result.isOk() && result.getToken() != null) {
+                saveLogin(result.getToken());
+                navigateHome();
+            } else {
+                showToast(result.getMessage());
+            }
+        });
     }
 
     private void showLogin() {
-        binding.tvAuthTitle .setText(R.string.login_title);
-        binding.llLoginForm .setVisibility(View.VISIBLE);
+        binding.tvAuthTitle.setText(R.string.login_title);
+        binding.llLoginForm.setVisibility(View.VISIBLE);
         binding.llSignupForm.setVisibility(View.GONE);
-        binding.tvLoginTab  .setTextColor(
+        binding.tvLoginTab.setTextColor(
                 ContextCompat.getColor(this, R.color.colorPrimary));
-        binding.tvSignupTab .setTextColor(
+        binding.tvSignupTab.setTextColor(
                 ContextCompat.getColor(this, R.color.colorSubText));
     }
 
     private void showSignup() {
-        binding.tvAuthTitle .setText(R.string.signup_title);
-        binding.llLoginForm .setVisibility(View.GONE);
+        binding.tvAuthTitle.setText(R.string.signup_title);
+        binding.llLoginForm.setVisibility(View.GONE);
         binding.llSignupForm.setVisibility(View.VISIBLE);
-        binding.tvLoginTab  .setTextColor(
+        binding.tvLoginTab.setTextColor(
                 ContextCompat.getColor(this, R.color.colorSubText));
-        binding.tvSignupTab .setTextColor(
+        binding.tvSignupTab.setTextColor(
                 ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
@@ -94,24 +138,18 @@ public class AuthActivity extends AppCompatActivity {
         if (!validate(email, pass, true)) return;
 
         setLoading(true);
-        viewModel.login(email, pass).observe(this, resp -> {
-            setLoading(false);
-            if (resp != null && resp.getToken() != null) {
-                saveLogin(resp.getToken());
-                navigateHome();
-            } else {
-                showToast(R.string.login_failed);
-            }
-        });
+        viewModel.login(email, pass); // يجب أن يقوم بتغيير الـ LiveData في ViewModel
     }
 
     private void registerWithEmail() {
         String username = binding.etName.getText().toString().trim();
         String email    = binding.etSignupEmail.getText().toString().trim();
         String pass     = binding.etSignupPassword.getText().toString().trim();
+
         if (username.isEmpty() || !binding.cbAgree.isChecked() ||
                 !Patterns.EMAIL_ADDRESS.matcher(email).matches() ||
-                pass.length() < 6) {
+                pass.length() < 6)
+        {
             if (username.isEmpty())      showToast(R.string.err_fill_all);
             else if (!binding.cbAgree.isChecked())
                 showToast(R.string.err_agree);
@@ -124,15 +162,7 @@ public class AuthActivity extends AppCompatActivity {
         }
 
         setLoading(true);
-        viewModel.register(username, email, pass).observe(this, resp -> {
-            setLoading(false);
-            if (resp != null && resp.isSuccess() && resp.getToken() != null) {
-                saveLogin(resp.getToken());
-                navigateHome();
-            } else {
-                showToast(R.string.reg_failed);
-            }
-        });
+        viewModel.register(username, email, pass); // يجب أن يقوم بتغيير الـ LiveData في ViewModel
     }
 
     private boolean validate(String email, String pass, boolean isLogin) {
@@ -168,8 +198,6 @@ public class AuthActivity extends AppCompatActivity {
                 .putString("auth_token", token)
                 .putBoolean("is_logged_in", true)
                 .apply();
-
-        // نعيد بناء الـ Retrofit client ليشمل التوكن الجديد
         ApiClient.reset();
     }
 
@@ -181,28 +209,21 @@ public class AuthActivity extends AppCompatActivity {
     private void showToast(int resId) {
         Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
     }
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
-    protected void onActivityResult(int req, int res, @Nullable Intent data) {
-        super.onActivityResult(req, res, data);
-        if (req == RC_SIGN_IN) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task =
                     GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount acct = task.getResult(ApiException.class);
                 if (acct != null) {
                     setLoading(true);
-                    // تضيف loginWithGoogle بنفس نمط login()
-                    viewModel.loginWithGoogle(acct.getIdToken())
-                            .observe(this, resp -> {
-                                setLoading(false);
-                                if (resp != null && resp.getToken() != null) {
-                                    saveLogin(resp.getToken());
-                                    navigateHome();
-                                } else {
-                                    showToast(R.string.login_failed);
-                                }
-                            });
+                    viewModel.loginWithGoogle(acct.getIdToken()); // هذا فقط يغير الـ LiveData في ViewModel
                 }
             } catch (ApiException e) {
                 setLoading(false);
