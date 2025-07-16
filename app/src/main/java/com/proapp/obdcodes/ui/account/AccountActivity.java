@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
@@ -26,7 +27,7 @@ import com.proapp.obdcodes.viewmodel.UserViewModel;
 
 public class AccountActivity extends BaseActivity {
     private static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
-
+    private static final int RC_EDIT_PROFILE = 3001;
     private ActivityAccountBinding binding;
     private UserViewModel vm;
     private SubscriptionViewModel subscriptionVM;
@@ -102,7 +103,10 @@ public class AccountActivity extends BaseActivity {
     private void setupListeners() {
         // تعديل الملف الشخصي
         binding.btnEdit.setOnClickListener(v ->
-                startActivity(new Intent(this, EditProfileActivity.class))
+                startActivityForResult(
+                        new Intent(this, EditProfileActivity.class),
+                        RC_EDIT_PROFILE
+                )
         );
 
         // إدارة الاشتراك
@@ -162,7 +166,14 @@ public class AccountActivity extends BaseActivity {
                 })
         );
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_EDIT_PROFILE && resultCode == RESULT_OK) {
+            // إعادة تحميل البيانات عند العودة من شاشة التحرير
+            loadProfile();
+        }
+    }
     @SuppressLint("SetTextI18n")
     private void loadProfile() {
         vm.getUserProfile().observe(this, user -> {
@@ -178,11 +189,11 @@ public class AccountActivity extends BaseActivity {
                 Glide.with(this)
                         .load(fullUrl)
                         .circleCrop()
-                        .placeholder(R.drawable.profile_sample)
+                        .placeholder(R.drawable.profile)
                         .error(R.drawable.profile_sample)
                         .into(binding.imgProfile);
             } else {
-                binding.imgProfile.setImageResource(R.drawable.profile_sample);
+                binding.imgProfile.setImageResource(R.drawable.profile);
             }
 
             // البيانات الأساسية

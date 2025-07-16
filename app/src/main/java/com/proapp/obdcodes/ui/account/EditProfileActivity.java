@@ -36,19 +36,18 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class EditProfileActivity extends BaseActivity {
-    private static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
-    private static final int REQUEST_CODE_PICK_IMAGE = 1001;
-    private static final int REQUEST_CODE_PERMISSION  = 2001;
+    private static final String IMAGE_BASE_URL     = "https://obdcode.xyz/storage/";
+    private static final int     REQUEST_PICK_IMAGE = 1001;
+    private static final int     REQUEST_PERMISSION = 2001;
 
     private ImageView ivProfileImage;
     private Button    btnPickImage;
     private EditText  etUsername, etEmail, etPhone, etJobTitle;
     private Button    btnSave, btnVerifyEmail;
-    private UserViewModel vm;
-    private User currentUser;
 
-    // ↘ حقل جديد لحفظ صورة الأفاتار قبل الرفع
-    private MultipartBody.Part avatarPart;
+    private UserViewModel vm;
+    private User          currentUser;
+    private MultipartBody.Part avatarPart;  // لحفظ صورة الأفاتار قبل الرفع
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,11 +64,11 @@ public class EditProfileActivity extends BaseActivity {
         btnSave        = findViewById(R.id.btnSaveProfile);
         btnVerifyEmail = findViewById(R.id.btnVerifyEmail);
 
-        // 2. تهيئة ViewModel وجلب بيانات المستخدم
+        // 2. تهيئة ViewModel وجلب بيانات المستخدم الحالية
         vm = new ViewModelProvider(this).get(UserViewModel.class);
         vm.getUserProfile().observe(this, this::populateUserData);
 
-        // 3. اختر صورة: تحقق من الإذن ثم افتح المعرض
+        // 3. إعداد زر اختيار الصورة مع إدارة الأذونات
         btnPickImage.setOnClickListener(v -> {
             String permission = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
                     ? Manifest.permission.READ_MEDIA_IMAGES
@@ -84,12 +83,12 @@ public class EditProfileActivity extends BaseActivity {
                             .setMessage("نحتاج إذن الوصول لاختيار صورة الملف الشخصي.")
                             .setPositiveButton("موافق", (d, w) ->
                                     ActivityCompat.requestPermissions(
-                                            this, new String[]{ permission }, REQUEST_CODE_PERMISSION))
+                                            this, new String[]{ permission }, REQUEST_PERMISSION))
                             .setNegativeButton("إلغاء", null)
                             .show();
                 } else {
                     ActivityCompat.requestPermissions(
-                            this, new String[]{ permission }, REQUEST_CODE_PERMISSION);
+                            this, new String[]{ permission }, REQUEST_PERMISSION);
                 }
 
             } else {
@@ -110,32 +109,36 @@ public class EditProfileActivity extends BaseActivity {
                 )
         );
 
-        // 5. حفظ التغييرات النصية + (اختياري) رفع الصورة إن وُجِدَت
+        // 5. حفظ التغييرات النصية — ثم رفع الصورة (إن وُجِدَت) — ثم إنهاء الشاشة
         btnSave.setOnClickListener(v -> {
-            // أ. تحديث البيانات النصية أولاً
+            // أ. تجهيز طلب التحديث النصي
             UpdateProfileRequest req = new UpdateProfileRequest(
                     etUsername.getText().toString().trim(),
                     etEmail   .getText().toString().trim(),
                     etPhone   .getText().toString().trim(),
                     etJobTitle.getText().toString().trim()
             );
+
+            // ب. إرسال الطلب
             vm.updateProfileData(req).observe(this, updated -> {
                 if (updated != null) {
                     Toast.makeText(this, "تم حفظ التغييرات النصّية", Toast.LENGTH_SHORT).show();
 
-                    // ب. إذا اختار المستخدم صورة جديد، نرفعها بعد النصّيات
+                    // ج. إذا اختار المستخدم صورة، ارفعها
                     if (avatarPart != null) {
-                        vm.updateProfileAvatar(avatarPart)
-                                .observe(this, u2 -> {
-                                    Toast.makeText(
-                                            this,
-                                            u2 != null
-                                                    ? "تم تحديث الصورة بنجاح"
-                                                    : "فشل تحديث الصورة",
-                                            Toast.LENGTH_SHORT
-                                    ).show();
-                                });
+                        vm.updateProfileAvatar(avatarPart).observe(this, u2 -> {
+                            Toast.makeText(
+                                    this,
+                                    u2 != null ? "تم تحديث الصورة بنجاح" : "فشل تحديث الصورة",
+                                    Toast.LENGTH_SHORT
+                            ).show();
+                            finishWithResult();
+                        });
+                    } else {
+                        // لا صورة، ننهي مباشرة
+                        finishWithResult();
                     }
+
                 } else {
                     Toast.makeText(this, "فشل حفظ التغييرات النصّية", Toast.LENGTH_SHORT).show();
                 }
@@ -149,16 +152,17 @@ public class EditProfileActivity extends BaseActivity {
             return;
         }
         currentUser = user;
+        etUsername  .setText(user.getUsername());
+        etEmail     .setText(user.getEmail());
+        etPhone     .setText(user.getPhone());
+        etJobTitle  .setText(user.getJobTitle());
 
-        etUsername.setText(user.getUsername());
-        etEmail   .setText(user.getEmail());
-        etPhone   .setText(user.getPhone());
-        etJobTitle.setText(user.getJobTitle());
-
-        // تحميل الصورة السابقة عبر Glide
+        // تحميل الصورة السابقة
         String imgPath = user.getProfileImage();
         if (imgPath != null && !imgPath.isEmpty()) {
-            String fullUrl = imgPath.startsWith("http") ? imgPath : IMAGE_BASE_URL + imgPath;
+            String fullUrl = imgPath.startsWith("http")
+                    ? imgPath
+                    : IMAGE_BASE_URL + imgPath;
             Glide.with(this)
                     .load(fullUrl)
                     .circleCrop()
@@ -173,8 +177,11 @@ public class EditProfileActivity extends BaseActivity {
     }
 
     private void openImagePicker() {
-        Intent pick = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pick, REQUEST_CODE_PICK_IMAGE);
+        Intent pick = new Intent(
+                Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        );
+        startActivityForResult(pick, REQUEST_PICK_IMAGE);
     }
 
     @Override
@@ -182,7 +189,7 @@ public class EditProfileActivity extends BaseActivity {
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSION
+        if (requestCode == REQUEST_PERMISSION
                 && grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openImagePicker();
@@ -196,7 +203,7 @@ public class EditProfileActivity extends BaseActivity {
                                     int resultCode,
                                     @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE_PICK_IMAGE
+        if (requestCode == REQUEST_PICK_IMAGE
                 && resultCode == RESULT_OK
                 && data != null
                 && data.getData() != null) {
@@ -204,7 +211,6 @@ public class EditProfileActivity extends BaseActivity {
             Uri uri = data.getData();
             ivProfileImage.setImageURI(uri);
 
-            // تحويل الـ Uri إلى MultipartPart وتخزينه للرفع لاحقًا
             String path = FileUtils.getPath(this, uri);
             if (path == null) {
                 Toast.makeText(this, "فشل تحديد مسار الصورة", Toast.LENGTH_SHORT).show();
@@ -217,6 +223,12 @@ public class EditProfileActivity extends BaseActivity {
                     "profile_image", file.getName(), rb
             );
         }
+    }
+
+    private void finishWithResult() {
+        // يمكن إرسال نتيجة للشاشة الرئيسية إن احتجت onActivityResult
+        setResult(RESULT_OK);
+        finish();
     }
 
     @Override
