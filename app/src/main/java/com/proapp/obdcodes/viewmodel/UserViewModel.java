@@ -10,11 +10,14 @@ import androidx.lifecycle.MutableLiveData;
 import com.proapp.obdcodes.network.ApiClient;
 import com.proapp.obdcodes.network.ApiService;
 import com.proapp.obdcodes.network.model.Subscription;
+import com.proapp.obdcodes.network.model.UpdateProfileRequest;
 import com.proapp.obdcodes.network.model.User;
+import com.proapp.obdcodes.network.model.UserProfileResponse;
 import com.proapp.obdcodes.repository.ProfileRepository;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -77,4 +80,45 @@ public class UserViewModel extends AndroidViewModel {
     public LiveData<Boolean> deleteAccount() {
         return repo.deleteAccount();
     }
+
+    public LiveData<User> updateProfileData(UpdateProfileRequest request) {
+        MutableLiveData<User> result = new MutableLiveData<>();
+        apiService.updateProfileData(request)
+                .enqueue(new Callback<UserProfileResponse>() {
+                    @Override
+                    public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            result.postValue(response.body().getUser());
+                        } else {
+                            result.postValue(null);
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<UserProfileResponse> call, Throwable t) {
+                        result.postValue(null);
+                    }
+                });
+        return result;
+    }
+
+    public LiveData<User> updateProfileAvatar(MultipartBody.Part imagePart) {
+        MutableLiveData<User> result = new MutableLiveData<>();
+        apiService.updateProfileAvatar(imagePart)
+                .enqueue(new Callback<UserProfileResponse>() {
+                    @Override
+                    public void onResponse(Call<UserProfileResponse> call, Response<UserProfileResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            result.postValue(response.body().getUser());
+                        } else {
+                            result.postValue(null);
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<UserProfileResponse> call, Throwable t) {
+                        result.postValue(null);
+                    }
+                });
+        return result;
+    }
+
 }
