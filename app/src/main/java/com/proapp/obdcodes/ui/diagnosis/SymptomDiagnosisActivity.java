@@ -2,11 +2,19 @@ package com.proapp.obdcodes.ui.diagnosis;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.*;
+import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
+import com.google.android.material.snackbar.Snackbar;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.code_details.CodeDetailsActivity;
 import com.proapp.obdcodes.util.SubscriptionUtils;
+
 import java.util.*;
 
 public class SymptomDiagnosisActivity extends BaseActivity {
@@ -16,7 +24,10 @@ public class SymptomDiagnosisActivity extends BaseActivity {
     private ListView lvResults;
     private EditText etCustomSymptom;
 
-    private final Map<String, String[]> symptomMap = new HashMap<String, String[]>() {{
+    private Animation shakeAnimation;
+
+    // ملاحظــة: استخدم LinkedHashMap للحفاظ على ترتيب العناصر
+    private final Map<String, String[]> symptomMap = new LinkedHashMap<String, String[]>() {{
         put("اهتزاز بالمحرك", new String[]{"P0300", "P0310"});
         put("دخان أسود", new String[]{"P0172", "P2196"});
         put("صوت عالي", new String[]{"P0420", "P0325"});
@@ -24,10 +35,9 @@ public class SymptomDiagnosisActivity extends BaseActivity {
     }};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // حماية الميزة: لا تعرض الصفحة إلا بعد التأكد من الصلاحية
         SubscriptionUtils.checkFeatureAccess(this, "SYMPTOM_BASED_DIAGNOSIS", this::initSymptomUI);
     }
 
@@ -38,45 +48,80 @@ public class SymptomDiagnosisActivity extends BaseActivity {
             if (getSupportActionBar() != null)
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+            symptomSpinner = findViewById(R.id.symptomSpinner);
+            btnDiagnose = findViewById(R.id.btnDiagnose);
+
+            lvResults = findViewById(R.id.lvResults);
             etCustomSymptom = findViewById(R.id.etCustomSymptom);
-            symptomSpinner  = findViewById(R.id.symptomSpinner);
-            btnDiagnose     = findViewById(R.id.btnDiagnose);
-            lvResults       = findViewById(R.id.lvResults);
 
-            Button btnBackHome = findViewById(R.id.btnBackHome);
-            btnBackHome.setOnClickListener(v -> finish());
+            // تحميل الأنيميشن
+            shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
 
+            // إعداد القائمة المنسدلة
             ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
                     this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
             symptomSpinner.setAdapter(spinnerAdapter);
 
-            btnDiagnose.setOnClickListener(v -> {
-                String selectedSymptom = symptomSpinner.getSelectedItem().toString();
-                String customSymptom = etCustomSymptom.getText().toString().trim();
-                String[] relatedCodes;
 
-                if (!customSymptom.isEmpty()) {
+
+            btnDiagnose.setOnClickListener(v -> {
+                String selectedSymptom = symptomSpinner.getSelectedItem() != null
+                        ? symptomSpinner.getSelectedItem().toString() : "";
+                String customSymptom = etCustomSymptom.getText().toString().trim();
+                String[] relatedCodes = null;
+
+                // التحقق من صحة الإدخال اليدوي
+                if (!TextUtils.isEmpty(customSymptom)) {
+                    if (customSymptom.length() < 3) {
+                        etCustomSymptom.startAnimation(shakeAnimation);
+                        showSnackbar("يرجى إدخال وصف صحيح للعرض (3 أحرف على الأقل)", false);
+                        return;
+                    }
+                    // ملاحظة: يمكنك هنا ربط استعلام API حقيقي مستقبلاً
                     relatedCodes = new String[]{"P0001", "P0002"};
-                } else {
+                } else if (!TextUtils.isEmpty(selectedSymptom)) {
                     relatedCodes = symptomMap.get(selectedSymptom);
                 }
 
-                if (relatedCodes != null) {
+                if (relatedCodes != null && relatedCodes.length > 0) {
                     ArrayAdapter<String> resultAdapter = new ArrayAdapter<>(
                             this, android.R.layout.simple_list_item_1, relatedCodes);
                     lvResults.setAdapter(resultAdapter);
+
+                    showSnackbar("تم جلب النتائج بنجاح", true);
                 } else {
-                    Toast.makeText(this, "لا توجد نتائج", Toast.LENGTH_SHORT).show();
+                    showSnackbar("لا توجد نتائج مرتبطة بالعرض", false);
+                    lvResults.setAdapter(null);
                 }
             });
 
             lvResults.setOnItemClickListener((parent, view, position, id) -> {
                 String selectedCode = (String) parent.getItemAtPosition(position);
                 Intent intent = new Intent(this, CodeDetailsActivity.class);
-                intent.putExtra("code", selectedCode);
+                intent.putExtra("CODE", selectedCode);
                 startActivity(intent);
             });
         });
+    }
+
+    // Snackbar مخصص مع دعم الخطوط (دون مشاكل API)
+    private void showSnackbar(String message, boolean isSuccess) {
+        View root = findViewById(android.R.id.content);
+        Snackbar snackbar = Snackbar.make(root, message, Snackbar.LENGTH_SHORT);
+        View snackbarView = snackbar.getView();
+        TextView textView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
+
+        // دعم الخط المخصص Tajawal بطريقة متوافقة مع كل الإصدارات
+        textView.setTypeface(ResourcesCompat.getFont(this, R.font.tajawal_medium));
+
+        if (isSuccess) {
+            snackbarView.setBackgroundColor(0xFF43A047); // أخضر
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0);
+        } else {
+            snackbarView.setBackgroundColor(0xFFD32F2F); // أحمر
+            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info, 0, 0, 0);
+        }
+        snackbar.show();
     }
 
     @Override
