@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +24,8 @@ import com.proapp.obdcodes.util.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.CompareViewModel;
 
 public class CompareCodesActivity extends BaseActivity {
-    private TextInputEditText et1, et2;
+    private AutoCompleteTextView et1, et2;
+
     private View card1, card2;
     private CompareViewModel vm;
     private View scrollCards;
@@ -41,9 +43,8 @@ public class CompareCodesActivity extends BaseActivity {
         runOnUiThread(() -> {
             setActivityLayout(R.layout.activity_compare_codes);
             setTitle(getString(R.string.compare_codes));
-
-            et1   = findViewById(R.id.etCode1);
-            et2   = findViewById(R.id.etCode2);
+            et1 = findViewById(R.id.etCode1);
+            et2 = findViewById(R.id.etCode2);
             card1 = findViewById(R.id.card1);
             card2 = findViewById(R.id.card2);
             scrollCards = findViewById(R.id.scrollCards);

@@ -4,80 +4,91 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="280dp"
     android:layout_height="match_parent"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:layout_margin="10dp"
+    android:backgroundTint="#FFFFFF"
+    android:clipToPadding="false"
+    android:padding="12dp">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="12dp">
+        android:overScrollMode="never"
+        android:padding="4dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- 1) الكود باللون الأحمر -->
+            <!-- كود العطل باللون الأحمر وبخط كبير -->
             <TextView
                 android:id="@+id/tvCardCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/holo_red_dark" />
+                android:textColor="#D32F2F"
+                android:fontFamily="@font/font_family_tajawal"/>
 
-            <!-- 2) كلمة "العنوان" -->
+            <!-- كلمة العنوان -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="العنوان"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_family_tajawal"/>
 
-            <!-- 3) عنوان الكود -->
+            <!-- عنوان الكود -->
             <TextView
                 android:id="@+id/tvCardTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="4dp"/>
+                android:textSize="17sp"
+                android:textColor="#212121"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/font_family_tajawal"/>
+
             <!-- مسافة -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="12dp"/>
+                android:layout_height="14dp" />
 
-            <!-- 4) الشدة -->
+            <!-- الشدة -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="الشدة"
                 android:textStyle="bold"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:fontFamily="@font/font_family_tajawal"
+                android:textColor="#424242"/>
+
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progressSeverity"
                 android:layout_width="match_parent"
-                android:layout_height="6dp"
-                android:layout_marginTop="4dp"
-                app:trackColor="@android:color/darker_gray"
-                app:indicatorColor="@color/colorAccent"
+                android:layout_height="8dp"
+                android:layout_marginTop="6dp"
+                app:trackColor="#BDBDBD"
+                app:indicatorColor="#1976D2"
                 android:progress="0"/>
 
             <!-- مسافة -->
             <View
                 android:layout_width="match_parent"
-                android:layout_height="12dp"/>
-            <!-- 4) قسم الوصف القابل للطَيّ -->
+                android:layout_height="14dp" />
+
+            <!-- قسم قابل للطَي: الوصف -->
             <LinearLayout
                 android:id="@+id/sectDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="14dp">
 
-                <!-- رأس الوصف -->
                 <LinearLayout
                     android:id="@+id/headerDescription"
                     android:layout_width="match_parent"
@@ -85,22 +96,27 @@
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="8dp"
-                    android:background="?selectableItemBackground">
+                    android:paddingVertical="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="الوصف"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_family_tajawal"
+                        android:textColor="#212121"/>
 
                     <ImageView
                         android:id="@+id/ivToggleDescription"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_expand_more"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_expand_more"
+                        app:tint="#616161" />
                 </LinearLayout>
 
                 <TextView
@@ -108,18 +124,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="#424242"
+                    android:fontFamily="@font/font_family_tajawal" />
             </LinearLayout>
 
-            <!-- 5) قسم الأعراض الشائعة -->
+            <!-- قسم قابل للطَي: الأعراض الشائعة -->
             <LinearLayout
                 android:id="@+id/sectSymptoms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="14dp">
 
                 <LinearLayout
                     android:id="@+id/headerSymptoms"
@@ -128,8 +145,10 @@
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="8dp"
-                    android:background="?selectableItemBackground">
+                    android:paddingVertical="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <TextView
                         android:id="@+id/tvHeaderSymptoms"
@@ -137,14 +156,17 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="الأعراض الشائعة"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_family_tajawal"
+                        android:textColor="#212121"/>
 
                     <ImageView
                         android:id="@+id/ivToggleSymptoms"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_expand_more"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_expand_more"
+                        app:tint="#616161" />
                 </LinearLayout>
 
                 <TextView
@@ -152,18 +174,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="#424242"
+                    android:fontFamily="@font/font_family_tajawal" />
             </LinearLayout>
 
-            <!-- 6) قسم الأسباب -->
+            <!-- قسم قابل للطَي: الأسباب -->
             <LinearLayout
                 android:id="@+id/sectCauses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="14dp">
 
                 <LinearLayout
                     android:id="@+id/headerCauses"
@@ -172,8 +195,10 @@
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="8dp"
-                    android:background="?selectableItemBackground">
+                    android:paddingVertical="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <TextView
                         android:id="@+id/tvHeaderCauses"
@@ -181,14 +206,17 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="الأسباب"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_family_tajawal"
+                        android:textColor="#212121"/>
 
                     <ImageView
                         android:id="@+id/ivToggleCauses"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_expand_more"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_expand_more"
+                        app:tint="#616161" />
                 </LinearLayout>
 
                 <TextView
@@ -196,18 +224,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="#424242"
+                    android:fontFamily="@font/font_family_tajawal" />
             </LinearLayout>
 
-            <!-- 7) قسم الحلول -->
+            <!-- قسم قابل للطَي: الحلول -->
             <LinearLayout
                 android:id="@+id/sectSolutions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="14dp">
 
                 <LinearLayout
                     android:id="@+id/headerSolutions"
@@ -216,8 +245,10 @@
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="8dp"
-                    android:background="?selectableItemBackground">
+                    android:paddingVertical="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <TextView
                         android:id="@+id/tvHeaderSolutions"
@@ -225,14 +256,17 @@
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="الحلول"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_family_tajawal"
+                        android:textColor="#212121"/>
 
                     <ImageView
                         android:id="@+id/ivToggleSolutions"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_expand_more"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_expand_more"
+                        app:tint="#616161" />
                 </LinearLayout>
 
                 <TextView
@@ -240,18 +274,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="#424242"
+                    android:fontFamily="@font/font_family_tajawal" />
             </LinearLayout>
 
-            <!-- 8) قسم التشخيص القابل للطَيّ -->
+            <!-- قسم قابل للطَي: التشخيص -->
             <LinearLayout
                 android:id="@+id/sectDiagnosis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="12dp">
+                android:layout_marginTop="14dp">
 
                 <LinearLayout
                     android:id="@+id/headerDiagnosis"
@@ -260,22 +295,27 @@
                     android:orientation="horizontal"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="8dp"
-                    android:background="?selectableItemBackground">
+                    android:paddingVertical="12dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="wrap_content"
                         android:text="التشخيص"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/font_family_tajawal"
+                        android:textColor="#212121"/>
 
                     <ImageView
                         android:id="@+id/ivToggleDiagnosis"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_expand_more"/>
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_expand_more"
+                        app:tint="#616161" />
                 </LinearLayout>
 
                 <TextView
@@ -283,18 +323,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="#424242"
+                    android:fontFamily="@font/font_family_tajawal" />
             </LinearLayout>
 
-            <!-- 9) الصورة -->
+            <!-- صورة الكود مع ظل بسيط -->
             <ImageView
                 android:id="@+id/ivCardImage"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="18dp"
                 android:scaleType="centerCrop"
+                android:elevation="6dp"
+                android:background="@drawable/image_shadow_rounded"
                 android:contentDescription="@string/code_image"/>
 
         </LinearLayout>
