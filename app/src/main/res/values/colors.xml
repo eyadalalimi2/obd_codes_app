@@ -14,6 +14,7 @@
     <color name="code_box_bg">#FFFFFF</color>
     <color name="base_background">#FAFAFA</color>
     <color name="colorToolbarText">#FFFFFF</color>
+    <color name="colorBackground">#FFFFFF</color>
     <color name="colorSurfaceLight">#F3F6F7</color>
     <color name="colorCardStroke">#E3EAF0</color>
     <color name="colorCardBg">#F7FAFC</color>
@@ -40,7 +41,10 @@
     <color name="colorOnPrimary">#FFFFFF</color>
     <color name="bubble_user">#DCF8C6</color>
     <color name="bubble_assistant">#ECECEC</color>
-
+    <!-- ألوان رئيسية -->
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#FF9800</color>
 
     <!-- ألوان النص -->
     <color name="textPrimary">#222E36</color>
@@ -52,27 +56,4 @@
     <color name="cardBackground">#F9F9F9</color>
     <color name="dialogBackground">#FFFFFF</color>
     <color name="editTextBackground">#F0F0F0</color>
-
-    <!-- الالوان الرئيسية للتطبيق اللذي سيتم اعتمادها -->
-    <!-- Main Brand Colors -->
-    <color name="colorPrimary">#1F41BB</color>
-    <color name="colorPrimaryDark">#172B68</color>
-    <color name="colorAccent">#1F41BB</color>
-
-    <!-- Backgrounds -->
-    <color name="colorBackground">#FFFFFF</color>
-    <color name="colorCard">#FFFFFF</color>
-    <color name="colorDivider">#EEEEEE</color>
-    <color name="colorSecondaryBackground">#F3F6FF</color>
-
-    <!-- Text Colors -->
-    <color name="colorTextPrimary">#222222</color>
-    <color name="colorTextSecondary">#666666</color>
-
-    <!-- Status/Alert Colors -->
-    <color name="colorSuccess">#13B86A</color>
-    <color name="colorError">#FF3B30</color>
-
-    <!-- Disabled State -->
-    <color name="colorDisabled">#B0B0B0</color>
 </resources>
