@@ -1,40 +1,80 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="12dp"
-    android:orientation="vertical"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EEEEEE"
-    android:layout_marginBottom="8dp">
+    android:layout_marginVertical="@dimen/margin_half"
+    android:layout_marginHorizontal="@dimen/margin_half"
+    app:cardCornerRadius="@dimen/card_corner"
+    app:cardElevation="@dimen/card_elevation"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_standard">
 
+        <!-- كود العطل وعنوانه -->
         <TextView
             android:id="@+id/tvCodeTitle"
-            android:text="P0420 - مشكلة في العادم"
-            android:textStyle="bold"
-            android:textSize="16sp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnShareItem"
+            app:layout_constraintWidth_default="spread"/>
 
+        <!-- تاريخ التشخيص -->
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"
+            app:layout_constraintTop_toBottomOf="@id/tvCodeTitle"
+            app:layout_constraintStart_toStartOf="@id/tvCodeTitle"
+            app:layout_constraintEnd_toEndOf="@id/tvCodeTitle"
+            android:layout_marginTop="@dimen/margin_half"/>
+
+        <!-- زر المشاركة -->
+        <Button
+            android:id="@+id/btnShareItem"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height"
+            android:text="@string/share_this_app"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/accent"
+            android:drawableLeft="@drawable/ic_share"
+            android:drawablePadding="@dimen/margin_half"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- زر الحذف -->
         <Button
             android:id="@+id/btnDeleteItem"
-            android:text="🗑"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minWidth="0dp"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
+            android:layout_height="@dimen/button_height"
+            android:text="@string/delete"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/error"
+            android:backgroundTint="@color/bg_screen"
+            android:drawableLeft="@drawable/ic_delete"
+            android:drawablePadding="@dimen/margin_half"
+            app:layout_constraintTop_toBottomOf="@id/btnShareItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_half"/>
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:text="2025-05-22"
-        android:textColor="#666666"
-        android:textSize="14sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,19 +1,99 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="24dp"
-    android:orientation="vertical"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainCoordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen"
+    android:padding="@dimen/margin_standard">
 
-    <!-- زر الحذف -->
+
+    <!-- فاصل -->
+
+    <FrameLayout
+        android:id="@+id/frameList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/dividerBottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ListView
+            android:id="@+id/lvHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:divider="@color/divider"
+            android:dividerHeight="1dp"
+            android:paddingBottom="@dimen/margin_half" />
+
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_standard"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:contentDescription="@string/no_history"
+                android:src="@drawable/ic_history_empty"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_half"
+                android:fontFamily="@font/font_family_tajawal"
+                android:text="@string/no_history"
+                android:textColor="@color/text_secondary"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnStartNew"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height"
+                android:layout_marginTop="@dimen/margin_standard"
+                android:backgroundTint="@color/accent"
+                android:drawableLeft="@drawable/ic_diagnose"
+                android:drawablePadding="@dimen/margin_half"
+                android:fontFamily="@font/font_family_tajawal"
+                android:text="@string/new_diagnosis"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- فاصل سفلي -->
+    <View
+        android:id="@+id/dividerBottom"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        app:layout_constraintBottom_toTopOf="@+id/btnClearHistory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- زر مسح السجل -->
     <Button
         android:id="@+id/btnClearHistory"
-        android:text="مسح السجل"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"/>
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:text="@string/clear_history"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/font_family_tajawal"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/accent"
+        android:drawableLeft="@drawable/ic_delete"
+        android:drawablePadding="@dimen/margin_half"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <ListView
-        android:id="@+id/lvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

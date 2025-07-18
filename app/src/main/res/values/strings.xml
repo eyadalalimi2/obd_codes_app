@@ -39,7 +39,6 @@
     <string name="terms_of_service">Terms of Service</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="back">Back</string>
-    <string name="logged">Logged</string>
     <string name="menu_pages">Menu Pages</string>
     <string name="go_to_dashboard">Go to Dashboard</string>
     <string name="share">Check out OBD Codes App: https://yourlink.com</string>
@@ -101,15 +100,12 @@
     <string name="current_package">Current Package : FREE</string>
     <string name="plan_start_date">Plan Start Date : May 2, 2025</string>
     <string name="manage_subscription">Manage Subscription</string>
-    <string name="log_out">↩ Log Out</string>
-    <string name="delete_account">🗑 Delete Account</string>
+    <string name="delete_account"> Delete Account</string>
     <string name="profile_image_desc">Profile Picture</string>
     <string name="account_name">Username</string>
     <string name="account_email">Email</string>
     <string name="account_job_title">Job Title</string>
     <string name="account_edit">Edit Account</string>
-    <string name="account_delete">Delete Account</string>
-    <string name="account_logout">Log Out</string>
     <string name="save_code">Save Code</string>
     <string name="share_code">Share Code</string>
     <string name="no_fault">No fault detected</string>
@@ -373,5 +369,12 @@
     <string name="not_verified">غير مفعل</string>
     <string name="email_now_verified">جاري التحقق من البريد الالكتروني</string>
     <string name="err_not_match">كلمتا المرور غير متطابقتين</string>
-
+    <string name="history_title">سجل التشخيص</string>
+    <string name="no_history">لا يوجد سجل بعد</string>
+    <string name="new_diagnosis">تشخيص جديد</string>
+    <string name="clear_history">مسح السجل</string>
+    <string name="confirm_delete">تأكيد الحذف</string>
+    <string name="confirm_delete_message">هل أنت متأكد أنك تريد حذف هذا العنصر؟</string>
+    <string name="history_date">التاريخ: %1$s</string>
+    <string name="share_history_text">كود التشخيص: %1$s\nالتاريخ: %2$s</string>
 </resources>

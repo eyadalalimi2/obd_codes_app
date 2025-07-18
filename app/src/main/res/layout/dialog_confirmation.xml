@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_background"
+    android:padding="20dp">
+
+    <!-- العنوان -->
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="تأكيد الحذف"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/font_family_tajawal"
+        android:textColor="#212121"/>
+
+    <!-- الرسالة -->
+    <TextView
+        android:id="@+id/tvDialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="هل أنت متأكد؟"
+        android:textSize="15sp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/font_family_tajawal"
+        android:textColor="#757575"/>
+
+    <!-- أزرار الإجراء -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="إلغاء"
+            android:textAllCaps="false"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textSize="14sp"
+            android:textColor="#757575"
+            android:background="?attr/selectableItemBackground"/>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:text="نعم"
+            android:textAllCaps="false"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textSize="14sp"
+            android:textColor="#D32F2F"
+            android:background="?attr/selectableItemBackground"/>
+    </LinearLayout>
+</LinearLayout>

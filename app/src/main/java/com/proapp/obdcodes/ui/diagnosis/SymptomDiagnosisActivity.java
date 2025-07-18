@@ -1,6 +1,7 @@
 package com.proapp.obdcodes.ui.diagnosis;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,7 +15,8 @@ import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.code_details.CodeDetailsActivity;
 import com.proapp.obdcodes.util.SubscriptionUtils;
-
+import org.json.JSONArray;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class SymptomDiagnosisActivity extends BaseActivity {
@@ -23,10 +25,8 @@ public class SymptomDiagnosisActivity extends BaseActivity {
     private Button btnDiagnose;
     private ListView lvResults;
     private EditText etCustomSymptom;
-
     private Animation shakeAnimation;
 
-    // ملاحظــة: استخدم LinkedHashMap للحفاظ على ترتيب العناصر
     private final Map<String, String[]> symptomMap = new LinkedHashMap<String, String[]>() {{
         put("اهتزاز بالمحرك", new String[]{"P0300", "P0310"});
         put("دخان أسود", new String[]{"P0172", "P2196"});
@@ -37,47 +37,47 @@ public class SymptomDiagnosisActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        SubscriptionUtils.checkFeatureAccess(this, "SYMPTOM_BASED_DIAGNOSIS", this::initSymptomUI);
+        SubscriptionUtils.checkFeatureAccess(
+                this,
+                "SYMPTOM_BASED_DIAGNOSIS",
+                this::initSymptomUI
+        );
     }
 
     private void initSymptomUI() {
         runOnUiThread(() -> {
             setActivityLayout(R.layout.activity_symptom_diagnosis);
-
             if (getSupportActionBar() != null)
                 getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-            symptomSpinner = findViewById(R.id.symptomSpinner);
-            btnDiagnose = findViewById(R.id.btnDiagnose);
-
-            lvResults = findViewById(R.id.lvResults);
+            symptomSpinner  = findViewById(R.id.symptomSpinner);
+            btnDiagnose     = findViewById(R.id.btnDiagnose);
+            lvResults       = findViewById(R.id.lvResults);
             etCustomSymptom = findViewById(R.id.etCustomSymptom);
+            shakeAnimation  = AnimationUtils.loadAnimation(this, R.anim.shake);
 
-            // تحميل الأنيميشن
-            shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake);
-
-            // إعداد القائمة المنسدلة
+            // تهيئة الـ Spinner
             ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
-                    this, android.R.layout.simple_spinner_dropdown_item, new ArrayList<>(symptomMap.keySet()));
+                    this,
+                    android.R.layout.simple_spinner_dropdown_item,
+                    new ArrayList<>(symptomMap.keySet())
+            );
             symptomSpinner.setAdapter(spinnerAdapter);
-
-
 
             btnDiagnose.setOnClickListener(v -> {
                 String selectedSymptom = symptomSpinner.getSelectedItem() != null
-                        ? symptomSpinner.getSelectedItem().toString() : "";
+                        ? symptomSpinner.getSelectedItem().toString()
+                        : "";
                 String customSymptom = etCustomSymptom.getText().toString().trim();
                 String[] relatedCodes = null;
 
-                // التحقق من صحة الإدخال اليدوي
+                // تحقق الإدخال اليدوي
                 if (!TextUtils.isEmpty(customSymptom)) {
                     if (customSymptom.length() < 3) {
                         etCustomSymptom.startAnimation(shakeAnimation);
                         showSnackbar("يرجى إدخال وصف صحيح للعرض (3 أحرف على الأقل)", false);
                         return;
                     }
-                    // ملاحظة: يمكنك هنا ربط استعلام API حقيقي مستقبلاً
                     relatedCodes = new String[]{"P0001", "P0002"};
                 } else if (!TextUtils.isEmpty(selectedSymptom)) {
                     relatedCodes = symptomMap.get(selectedSymptom);
@@ -85,8 +85,15 @@ public class SymptomDiagnosisActivity extends BaseActivity {
 
                 if (relatedCodes != null && relatedCodes.length > 0) {
                     ArrayAdapter<String> resultAdapter = new ArrayAdapter<>(
-                            this, android.R.layout.simple_list_item_1, relatedCodes);
+                            this, android.R.layout.simple_list_item_1, relatedCodes
+                    );
                     lvResults.setAdapter(resultAdapter);
+
+                    // حفظ الحدث في السجل
+                    saveDiagnosisHistory(
+                            TextUtils.isEmpty(customSymptom) ? selectedSymptom : customSymptom,
+                            relatedCodes
+                    );
 
                     showSnackbar("تم جلب النتائج بنجاح", true);
                 } else {
@@ -95,8 +102,8 @@ public class SymptomDiagnosisActivity extends BaseActivity {
                 }
             });
 
-            lvResults.setOnItemClickListener((parent, view, position, id) -> {
-                String selectedCode = (String) parent.getItemAtPosition(position);
+            lvResults.setOnItemClickListener((parent, view, pos, id) -> {
+                String selectedCode = (String) parent.getItemAtPosition(pos);
                 Intent intent = new Intent(this, CodeDetailsActivity.class);
                 intent.putExtra("CODE", selectedCode);
                 startActivity(intent);
@@ -104,22 +111,40 @@ public class SymptomDiagnosisActivity extends BaseActivity {
         });
     }
 
-    // Snackbar مخصص مع دعم الخطوط (دون مشاكل API)
+    private void saveDiagnosisHistory(String symptom, String[] codes) {
+        SharedPreferences prefs = androidx.preference.PreferenceManager
+                .getDefaultSharedPreferences(this);
+        String raw = prefs.getString("diagnosis_history", "[]");
+        JSONArray arr;
+        try {
+            arr = new JSONArray(raw);
+        } catch (Exception e) {
+            arr = new JSONArray();
+        }
+        String codesCsv = TextUtils.join(",", codes);
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                .format(new Date());
+        String entry = symptom + " - " + codesCsv + " - " + date;
+        arr.put(entry);
+        prefs.edit().putString("diagnosis_history", arr.toString()).apply();
+    }
+
     private void showSnackbar(String message, boolean isSuccess) {
         View root = findViewById(android.R.id.content);
         Snackbar snackbar = Snackbar.make(root, message, Snackbar.LENGTH_SHORT);
-        View snackbarView = snackbar.getView();
-        TextView textView = snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
-
-        // دعم الخط المخصص Tajawal بطريقة متوافقة مع كل الإصدارات
-        textView.setTypeface(ResourcesCompat.getFont(this, R.font.tajawal_medium));
-
+        View  view     = snackbar.getView();
+        TextView text  = view.findViewById(
+                com.google.android.material.R.id.snackbar_text
+        );
+        text.setTypeface(
+                ResourcesCompat.getFont(this, R.font.tajawal_medium)
+        );
         if (isSuccess) {
-            snackbarView.setBackgroundColor(0xFF43A047); // أخضر
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0);
+            view.setBackgroundColor(0xFF43A047);
+            text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check, 0, 0, 0);
         } else {
-            snackbarView.setBackgroundColor(0xFFD32F2F); // أحمر
-            textView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info, 0, 0, 0);
+            view.setBackgroundColor(0xFFD32F2F);
+            text.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_info, 0, 0, 0);
         }
         snackbar.show();
     }

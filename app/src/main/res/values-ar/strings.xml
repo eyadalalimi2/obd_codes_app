@@ -409,5 +409,12 @@
     <string name="not_verified">غير مفعل</string>
     <string name="email_now_verified">جاري التحقق من البريد الالكتروني</string>
     <string name="err_not_match">كلمتا المرور غير متطابقتين</string>
-
+    <string name="history_title">سجل التشخيص</string>
+    <string name="no_history">لا يوجد سجل بعد</string>
+    <string name="new_diagnosis">تشخيص جديد</string>
+    <string name="clear_history">مسح السجل</string>
+    <string name="confirm_delete">تأكيد الحذف</string>
+    <string name="confirm_delete_message">هل أنت متأكد أنك تريد حذف هذا العنصر؟</string>
+    <string name="history_date">التاريخ: %1$s</string>
+    <string name="share_history_text">كود التشخيص: %1$s\nالتاريخ: %2$s</string>
 </resources>
