@@ -42,22 +42,29 @@ public class TrendingAdapter
     @Override
     public void onBindViewHolder(
             @NonNull ViewHolder holder, int position) {
-        ObdCode c = items.get(position);
-        holder.tvCode.setText(c.getCode());
-        holder.tvTitle.setText(c.getTitle());
+        ObdCode code = items.get(position);
+        holder.tvCode.setText(code.getCode());
+        holder.tvTitle.setText(code.getTitle());
         holder.itemView.setOnClickListener(v -> {
-            if (listener != null) listener.onItemClick(c);
+            if (listener != null) {
+                listener.onItemClick(code);
+            }
         });
     }
 
-    @Override public int getItemCount() { return items.size(); }
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         final TextView tvCode, tvTitle;
+
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvCode  = itemView.findViewById(R.id.tvTrendingCode);
-            tvTitle = itemView.findViewById(R.id.tvTrendingTitle);
+            // هذه المعرفات يجب أن تتطابق مع item_trending_code.xml
+            tvCode  = itemView.findViewById(R.id.tvItemCode);
+            tvTitle = itemView.findViewById(R.id.tvItemTitle);
         }
     }
 }

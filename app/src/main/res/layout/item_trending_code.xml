@@ -1,28 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:orientation="vertical"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:padding="12dp">
-
-<!-- رمز الكود باللون الأحمر -->
-<TextView
-    android:id="@+id/tvTrendingCode"
-    android:layout_width="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="18sp"
-    android:textStyle="bold"
-    android:text="P0001"
-    android:textColor="@android:color/holo_red_dark" />
+    android:layout_marginVertical="@dimen/margin_half"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/card_corner"
+    app:cardElevation="@dimen/card_elevation"
+    tools:ignore="TouchTargetSizeCheck">
 
-<!-- عنوان الكود باللون الأسود -->
-<TextView
-    android:id="@+id/tvTrendingTitle"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:textSize="14sp"
-    android:text="Fuel Volume Regulator Control Circuit/Open"
-    android:textColor="@android:color/black" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_half">
+
+        <!-- الكود -->
+        <TextView
+            android:id="@+id/tvItemCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:text="P0420"
+            android:textColor="@color/accent"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- العنوان -->
+        <TextView
+            android:id="@+id/tvItemTitle"
+            android:layout_width="328dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_half"
+            android:fontFamily="@font/font_family_tajawal"
+            android:text="حاقن الوقود منخفض الكفاءة"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            app:layout_constraintWidth_default="spread" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

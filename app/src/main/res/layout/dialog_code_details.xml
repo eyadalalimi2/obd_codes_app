@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="@dimen/margin_standard">
 
     <LinearLayout
         android:orientation="vertical"
@@ -12,66 +13,118 @@
         <!-- رمز الكود -->
         <TextView
             android:id="@+id/tvDialogCode"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
 
         <!-- عنوان الكود -->
         <TextView
             android:id="@+id/tvDialogTitle"
-            style="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:layout_marginTop="4dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half"
+            android:textSize="18sp"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- الوصف -->
+        <!-- قسم الوصف -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الوصف"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogDescription"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- الأعراض -->
+        <!-- قسم الأعراض -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الأعراض"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogSymptoms"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- الأسباب -->
+        <!-- قسم الأسباب -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الأسباب"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogCauses"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- الحلول -->
+        <!-- قسم الحلول -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الحلول"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogSolutions"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- شدة العطل -->
+        <!-- قسم الشدة -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/severity"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogSeverity"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
-        <!-- التشخيص -->
+        <!-- قسم التشخيص -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="التشخيص"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_primary"/>
         <TextView
             android:id="@+id/tvDialogDiagnosis"
-            style="@style/TextAppearance.MaterialComponents.Body2"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_family_tajawal"
+            android:textColor="@color/text_secondary"/>
 
     </LinearLayout>
 </ScrollView>

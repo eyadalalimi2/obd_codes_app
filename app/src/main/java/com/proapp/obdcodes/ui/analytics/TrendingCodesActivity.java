@@ -4,9 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.ObdCode;
@@ -15,37 +16,46 @@ import com.proapp.obdcodes.util.SubscriptionUtils;
 import com.proapp.obdcodes.viewmodel.TrendingViewModel;
 
 public class TrendingCodesActivity extends BaseActivity {
+
     private TrendingAdapter adapter;
     private TrendingViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SubscriptionUtils.checkFeatureAccess(
+                this,
+                "TRENDING_CODES_ANALYTICS",
+                this::initTrendingUI
+        );
+    }
 
-        // حماية الميزة قبل تحميل أي محتوى
-        SubscriptionUtils.checkFeatureAccess(this, "TRENDING_CODES_ANALYTICS", () -> {
-            runOnUiThread(() -> {
-                setActivityLayout(R.layout.activity_trending_codes);
-                setTitle(getString(R.string.trending_codes));
+    private void initTrendingUI() {
+        runOnUiThread(() -> {
+            setActivityLayout(R.layout.activity_trending_codes);
+            setTitle(getString(R.string.trending_codes));
 
-                androidx.recyclerview.widget.RecyclerView rv = findViewById(R.id.rvTrendingCodes);
-                rv.setLayoutManager(new LinearLayoutManager(this));
-                adapter = new TrendingAdapter();
-                rv.setAdapter(adapter);
+            RecyclerView rv = findViewById(R.id.rvTrendingCodes);
+            rv.setLayoutManager(new LinearLayoutManager(this));
 
-                viewModel = new androidx.lifecycle.ViewModelProvider(this,
-                        androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())
-                ).get(TrendingViewModel.class);
+            // تهيئة adapter بدون لامبدا في الـ Constructor
+            adapter = new TrendingAdapter();
+            // ضبط listener بعدها
+            adapter.setOnItemClickListener(code -> showDetailsDialog(code));
+            rv.setAdapter(adapter);
 
-                viewModel.getTrendingCodes().observe(this, codes -> {
-                    adapter.setItems(codes);
-                    adapter.setOnItemClickListener(this::showDetailsDialog);
-                });
+            viewModel = new ViewModelProvider(
+                    this,
+                    new ViewModelProvider.AndroidViewModelFactory(getApplication())
+            ).get(TrendingViewModel.class);
+
+            viewModel.getTrendingCodes().observe(this, codes -> {
+                adapter.setItems(codes);
             });
         });
     }
 
-    /** عرض تفاصيل الكود */
+
     private void showDetailsDialog(ObdCode code) {
         View view = LayoutInflater.from(this)
                 .inflate(R.layout.dialog_code_details, null);
@@ -75,6 +85,6 @@ public class TrendingCodesActivity extends BaseActivity {
 
     @Override
     protected boolean shouldShowBottomNav() {
-        return false;
+        return true;
     }
 }
