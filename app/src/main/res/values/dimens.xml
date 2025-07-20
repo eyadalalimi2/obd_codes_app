@@ -68,5 +68,6 @@
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="dialog_padding">24dp</dimen>
     <dimen name="dialog_corner">12dp</dimen>
-
+    <!-- ارتفاع حقول الإدخال والـ SearchView -->
+    <dimen name="input_height">48dp</dimen>
 </resources>

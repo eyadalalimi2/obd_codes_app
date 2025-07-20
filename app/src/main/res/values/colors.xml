@@ -56,9 +56,17 @@
     <color name="cardBackground">#F9F9F9</color>
     <color name="dialogBackground">#FFFFFF</color>
     <color name="editTextBackground">#F0F0F0</color>
+    <!-- خلفية الصفحات -->
     <color name="bg_screen">#F7F7F9</color>
+    <!-- نصوص رئيسية وثانوية -->
     <color name="text_primary">#212121</color>
     <color name="text_secondary">#757575</color>
-    <color name="divider">#E0E0E0</color>
+    <!-- لون التمييز (أزرق التطبيق) -->
     <color name="accent">#1976D2</color>
+    <!-- لون أزرار التنزيل -->
+    <color name="button_accent">#1976D2</color>
+    <!-- لون نصّ الأزرار البيضاء -->
+    <color name="button_text">#FFFFFF</color>
+    <!-- فواصل وخلفيات فاتحة -->
+    <color name="divider">#E0E0E0</color>
 </resources>

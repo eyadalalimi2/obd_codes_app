@@ -417,4 +417,20 @@
     <string name="confirm_delete_message">هل أنت متأكد أنك تريد حذف هذا العنصر؟</string>
     <string name="history_date">التاريخ: %1$s</string>
     <string name="share_history_text">كود التشخيص: %1$s\nالتاريخ: %2$s</string>
+    <!-- صفحة وضع الأوفلاين -->
+    <string name="offline_mode">وضع الأوفلاين</string>
+    <string name="download_codes">تحميل الأكواد</string>
+    <string name="view_offline_codes">عرض الأكواد المحملة</string>
+    <string name="last_synced_on">آخر تحميل: %1$s</string>
+    <string name="enable_offline_first">فعّل وضع الأوفلاين أولاً</string>
+    <string name="downloading_codes">جاري تحميل الأكواد...</string>
+    <string name="codes_downloaded">تم تحميل %1$d أكواد بنجاح</string>
+    <string name="status_enabled">الوضع: مفعل</string>
+    <string name="status_disabled">الوضع: معطل</string>
+
+    <!-- صفحة عرض الأكواد المحملة -->
+    <string name="title_offline_codes">الأكواد المحفوظة محليًا</string>
+    <string name="search_code_hint">ابحث عن كود</string>
+    <string name="no_offline_codes">لا توجد أكواد محملة بعد</string>
+
 </resources>
