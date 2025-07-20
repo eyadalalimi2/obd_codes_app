@@ -1,34 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/white"
-    tools:ignore="VisualLintTextFieldSize">
+    android:background="@color/bg_screen"
+    android:padding="@dimen/margin_standard">
 
-    <TextView
-        android:id="@+id/tvOfflineTitle"
-        android:layout_width="wrap_content"
+    <!-- بطاقة البحث -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSearch"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="الأكواد المحفوظة محليًا"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        app:cardCornerRadius="@dimen/card_corner"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <SearchView
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/input_height"
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/search_code_hint"
+            android:background="@color/white"
+            android:fontFamily="@font/font_family_tajawal"
+            android:layout_margin="@dimen/margin_half"/>
+    </androidx.cardview.widget.CardView>
 
-    <SearchView
-        android:id="@+id/etSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:queryHint="ابحث عن كود "
-        android:layout_marginBottom="12dp" />
-
+    <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvOfflineCodes"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_marginTop="@dimen/margin_standard"
+        app:layout_constraintTop_toBottomOf="@id/cardSearch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/margin_half"/>
+
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_standard"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:contentDescription="@string/no_offline_codes"
+            android:src="@drawable/ic_offline"
+            app:tint="@color/text_secondary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half"
+            android:fontFamily="@font/font_family_tajawal"
+            android:text="@string/no_offline_codes"
+            android:textColor="@color/text_secondary"
+            android:textSize="18sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
