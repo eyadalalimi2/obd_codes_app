@@ -1,4 +1,4 @@
-// com.proapp.obdcodes.ui.subscription/SubscriptionStatusActivity.java
+
 package com.proapp.obdcodes.ui.plans;
 
 import android.os.Bundle;
