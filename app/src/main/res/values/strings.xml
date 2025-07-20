@@ -392,5 +392,20 @@
     <string name="title_offline_codes">الأكواد المحفوظة محليًا</string>
     <string name="search_code_hint">ابحث عن كود</string>
     <string name="no_offline_codes">لا توجد أكواد محملة بعد</string>
+    <string name="current_subscription">اشتراكك الحالي: %1$s (%2$s)، متبقي %3$d يوم</string>
+    <string name="no_active_subscription">لا يوجد اشتراك نشط</string>
+    <string name="most_popular">الأكثر شهرة</string>
+    <string name="plan_policy_explanation">يمكنك تجديد أو إلغاء اشتراكك عبر الأزرار أعلاه حسب السياسة.</string>
+    <string name="confirm_cancel">هل أنت متأكد أنك تريد إلغاء الاشتراك؟</string>
+    <string name="plan_features">مميزات الباقة الحالية:</string>
+    <!-- صفحة خطط الاشتراك -->
+    <string name="no_plans">لا توجد باقات متاحة حالياً</string>
 
+
+    <!-- صفحة حالة الاشتراك -->
+    <string name="status_active">نشط</string>
+    <string name="status_expired">منتهي</string>
+    <string name="subscription_start">تاريخ التفعيل:</string>
+    <string name="subscription_end">تاريخ الانتهاء:</string>
+    <string name="days_left">الأيام المتبقية:</string>
 </resources>

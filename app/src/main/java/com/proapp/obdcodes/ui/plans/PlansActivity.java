@@ -1,4 +1,3 @@
-// com.proapp.obdcodes.ui.plans/PlansActivity.java
 package com.proapp.obdcodes.ui.plans;
 
 import android.app.AlertDialog;
@@ -10,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,31 +24,29 @@ import java.util.List;
 public class PlansActivity extends BaseActivity {
 
     private PlansViewModel viewModel;
-    private RecyclerView   rvPlans;
-    private ProgressBar    progressBar;
+    private RecyclerView rvPlans;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_plans);
 
-        // ربط الـ Views
-        rvPlans      = findViewById(R.id.rvPlans);
+        rvPlans     = findViewById(R.id.rvPlans);
+        progressBar = findViewById(R.id.progressBar);
         rvPlans.setLayoutManager(new LinearLayoutManager(this));
-        progressBar  = findViewById(R.id.progressBar);
 
-        // تهيئة الـ ViewModel
         viewModel = new ViewModelProvider(this).get(PlansViewModel.class);
 
         // مراقبة حالة التحميل
-        viewModel.getLoading().observe(this, isLoading ->
-                progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE)
+        viewModel.getLoading().observe(this, loading ->
+                progressBar.setVisibility(loading ? View.VISIBLE : View.GONE)
         );
 
         // مراقبة الأخطاء
         viewModel.getError().observe(this, this::showError);
 
-        // بعد نجاح الاشتراك عبر Google
+        // مراقبة نتيجة الاشتراك
         viewModel.getSubscribeResult().observe(this, success -> {
             if (success) {
                 Toast.makeText(this, "✅ تم الاشتراك بنجاح", Toast.LENGTH_SHORT).show();
@@ -58,7 +56,7 @@ public class PlansActivity extends BaseActivity {
             }
         });
 
-        // بعد نجاح التفعيل بالكود
+        // مراقبة نتيجة التفعيل
         viewModel.getActivateResult().observe(this, success -> {
             if (success) {
                 Toast.makeText(this, "✅ تم التفعيل بنجاح", Toast.LENGTH_SHORT).show();
@@ -68,27 +66,26 @@ public class PlansActivity extends BaseActivity {
             }
         });
 
-        // جلب الباقات
-        viewModel.loadPlans();
+        // مراقبة الباقات
         viewModel.getPlans().observe(this, this::showPlans);
+        viewModel.loadPlans();
     }
 
     private void showPlans(List<Plan> plans) {
         if (plans == null || plans.isEmpty()) {
-            Toast.makeText(this, "لا توجد باقات حالياً", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.no_plans, Toast.LENGTH_SHORT).show();
             return;
         }
 
         PlanRecyclerAdapter adapter = new PlanRecyclerAdapter(
-                this,
-                plans,
+                this, plans,
                 new PlanRecyclerAdapter.OnPlanClickListener() {
                     @Override
-                    public void onActivateCodeClick(Plan plan) {
+                    public void onActivateCodeClick(@NonNull Plan plan) {
                         showActivateDialog(plan);
                     }
                     @Override
-                    public void onBuyWithGoogleClick(Plan plan) {
+                    public void onBuyWithGoogleClick(@NonNull Plan plan) {
                         viewModel.subscribeWithToken(
                                 plan.getId(),
                                 plan.getGoogleProductId()
@@ -109,17 +106,18 @@ public class PlansActivity extends BaseActivity {
                 .setCancelable(true)
                 .create();
 
+        dialog.show();
+
+        // زر التفعيل من داخل XML
         dialogView.findViewById(R.id.btnSubmitCode).setOnClickListener(v -> {
             String code = etCode.getText().toString().trim();
             if (code.isEmpty()) {
-                Toast.makeText(this, "الرجاء إدخال كود التفعيل", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.enter_activation_code, Toast.LENGTH_SHORT).show();
                 return;
             }
             dialog.dismiss();
             viewModel.activateByCode(plan.getId(), code);
         });
-
-        dialog.show();
     }
 
     private void navigateToSubscriptionStatus() {
@@ -128,7 +126,7 @@ public class PlansActivity extends BaseActivity {
     }
 
     private void showError(String message) {
-        if (message != null) {
+        if (message != null && !message.isEmpty()) {
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
     }
@@ -138,4 +136,3 @@ public class PlansActivity extends BaseActivity {
         return false;
     }
 }
-

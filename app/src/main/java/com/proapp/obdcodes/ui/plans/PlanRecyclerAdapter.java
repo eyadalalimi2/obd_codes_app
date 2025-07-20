@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.proapp.obdcodes.R;
@@ -16,8 +18,7 @@ import com.proapp.obdcodes.util.FeatureMapper;
 
 import java.util.List;
 
-public class PlanRecyclerAdapter
-        extends RecyclerView.Adapter<PlanRecyclerAdapter.PlanViewHolder> {
+public class PlanRecyclerAdapter extends RecyclerView.Adapter<PlanRecyclerAdapter.PlanViewHolder> {
 
     public interface OnPlanClickListener {
         void onActivateCodeClick(@NonNull Plan plan);
@@ -53,28 +54,26 @@ public class PlanRecyclerAdapter
         holder.tvPlanName.setText("اسم الباقة: " + plan.getName());
         holder.tvPrice.setText("السعر: " + plan.getFormattedPrice());
 
-
-
-        // المميزات
-        List<String> keys = plan.getFeatures();
-        if (keys == null || keys.isEmpty()) {
-            holder.tvFeatures.setText("المميزات:\nلا توجد مميزات مذكورة");
+        if ("Pro".equalsIgnoreCase(plan.getName()) || "Premium".equalsIgnoreCase(plan.getName())) {
+            holder.tvBadge.setVisibility(View.VISIBLE);
         } else {
-            StringBuilder sb = new StringBuilder("المميزات:\n");
-            for (String key : keys) {
-                sb.append("- ")
-                        .append(FeatureMapper.toReadable(key))
-                        .append("\n");
-            }
-            holder.tvFeatures.setText(sb.toString().trim());
+            holder.tvBadge.setVisibility(View.GONE);
         }
 
-        holder.btnActivateWithCode.setOnClickListener(v ->
-                listener.onActivateCodeClick(plan)
-        );
-        holder.btnBuyWithGoogle.setOnClickListener(v ->
-                listener.onBuyWithGoogleClick(plan)
-        );
+        holder.featuresContainer.removeAllViews();
+        List<String> features = plan.getFeatures();
+        if (features == null || features.isEmpty()) {
+            holder.featuresContainer.addView(createFeatureTextView("لا توجد مميزات مذكورة"));
+        } else {
+            for (String key : features) {
+                holder.featuresContainer.addView(
+                        createFeatureTextView("• " + FeatureMapper.toReadable(key))
+                );
+            }
+        }
+
+        holder.btnActivateWithCode.setOnClickListener(v -> listener.onActivateCodeClick(plan));
+        holder.btnBuyWithGoogle.setOnClickListener(v -> listener.onBuyWithGoogleClick(plan));
     }
 
     @Override
@@ -83,16 +82,30 @@ public class PlanRecyclerAdapter
     }
 
     static class PlanViewHolder extends RecyclerView.ViewHolder {
-        TextView tvPlanName, tvPrice, tvDuration, tvFeatures;
-        Button btnActivateWithCode, btnBuyWithGoogle;
+        final TextView tvPlanName;
+        final TextView tvPrice;
+        final TextView tvBadge;
+        final LinearLayout featuresContainer;
+        final Button btnActivateWithCode;
+        final Button btnBuyWithGoogle;
 
         PlanViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvPlanName          = itemView.findViewById(R.id.tvPlanName);
-            tvPrice             = itemView.findViewById(R.id.tvPrice);
-            tvFeatures          = itemView.findViewById(R.id.tvFeatures);
+            tvPlanName = itemView.findViewById(R.id.tvPlanName);
+            tvPrice = itemView.findViewById(R.id.tvPrice);
+            tvBadge = itemView.findViewById(R.id.tvBadge);
+            featuresContainer = itemView.findViewById(R.id.tvFeatures);
             btnActivateWithCode = itemView.findViewById(R.id.btnActivateWithCode);
-            btnBuyWithGoogle    = itemView.findViewById(R.id.btnBuyWithGoogle);
+            btnBuyWithGoogle = itemView.findViewById(R.id.btnBuyWithGoogle);
         }
+    }
+
+    private TextView createFeatureTextView(String text) {
+        TextView tv = new TextView(context);
+        tv.setText(text);
+        tv.setTextSize(14);
+        tv.setTextColor(ContextCompat.getColor(context, R.color.text_secondary));
+        tv.setPadding(0, 4, 0, 4);
+        return tv;
     }
 }

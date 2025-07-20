@@ -265,7 +265,6 @@
     <!-- ========================================================================================= -->
     <string name="pricing">خطط الاشتراك</string>
     <string name="subscription_plans">خطط الاشتراك</string>
-    <string name="choose_plan">اختر خطتك المفضلة</string>
     <string name="package_free">مجانية</string>
     <string name="free">مجاني</string>
     <string name="paid">مدفوع</string>
@@ -363,17 +362,11 @@
     <string name="plan_name_placeholder">اسم الباقة</string>
     <string name="plan_price_placeholder">السعر</string>
     <string name="plan_features_placeholder">مميزات الباقة</string>
-    <string name="activate_code">تفعيل بالكود</string>
-    <string name="buy_with_google">شراء عبر Google</string>
     <string name="subscription_status">حالة الاشتراك</string>
     <string name="subscription_start_date">تاريخ التفعيل</string>
     <string name="subscription_expiry_date">تاريخ الانتهاء</string>
     <string name="subscription_days_left">الأيام المتبقية</string>
-    <string name="renew_subscription">تجديد الاشتراك</string>
-    <string name="cancel_subscription">إلغاء الاشتراك</string>
     <string name="activation_code_hint">مثال: ABC123</string>
-    <string name="enter_activation_code">أدخل كود التفعيل:</string>
-    <string name="activate_now">تفعيل الآن</string>
     <string name="brand">اختر الشركة</string>
     <string name="model">اختر الطراز</string>
     <string name="year">اختر السنة</string>
@@ -432,5 +425,34 @@
     <string name="title_offline_codes">الأكواد المحفوظة محليًا</string>
     <string name="search_code_hint">ابحث عن كود</string>
     <string name="no_offline_codes">لا توجد أكواد محملة بعد</string>
+    <!-- صفحة خطط الاشتراك -->
+    <string name="choose_plan">اختر الباقة المناسبة</string>
+    <string name="no_plans">لا توجد باقات متاحة حالياً</string>
+    <string name="most_popular">الأكثر شهرة</string>
+    <string name="plan_policy_explanation">
+        يمكنك تجديد أو إلغاء اشتراكك عبر الأزرار أعلاه حسب السياسة.
+    </string>
+    <string name="no_active_subscription">لا يوجد اشتراك نشط</string>
+    <string name="current_subscription">
+        اشتراكك الحالي: %1$s (%2$s)، متبقي %3$d يوم
+    </string>
 
+    <!-- حوار كود التفعيل -->
+    <string name="enter_activation_code">الرجاء إدخال كود التفعيل</string>
+    <string name="activate_code">تفعيل بالكود</string>
+    <string name="activate_now">تفعيل الآن</string>
+
+    <!-- شراء عبر Google -->
+    <string name="buy_with_google">شراء عبر Google</string>
+
+    <!-- صفحة حالة الاشتراك -->
+    <string name="renew_subscription">تجديد الاشتراك</string>
+    <string name="cancel_subscription">إلغاء الاشتراك</string>
+    <string name="confirm_cancel">هل أنت متأكد أنك تريد إلغاء الاشتراك؟</string>
+    <string name="status_active">نشط</string>
+    <string name="status_expired">منتهي</string>
+    <string name="subscription_start">تاريخ التفعيل:</string>
+    <string name="subscription_end">تاريخ الانتهاء:</string>
+    <string name="days_left">الأيام المتبقية:</string>
+    <string name="plan_features">مميزات الباقة الحالية:</string>
 </resources>

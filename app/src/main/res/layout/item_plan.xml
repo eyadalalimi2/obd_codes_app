@@ -1,64 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@drawable/bg_list_cards"
-    android:padding="16dp"
-    android:layout_marginBottom="12dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="@dimen/margin_half">
 
-    <TextView
-        android:id="@+id/tvPlanName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plan_name_placeholder"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="#222E36"
-        android:layout_marginBottom="4dp" />
-
-    <TextView
-        android:id="@+id/tvPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/plan_price_placeholder"
-        android:textSize="16sp"
-        android:textColor="#009688"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:id="@+id/tvFeatures"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPlan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/plan_features_placeholder"
-        android:textSize="14sp"
-        android:textColor="#444"
-        android:layout_marginBottom="12dp" />
+        app:cardCornerRadius="@dimen/card_corner"
+        app:cardElevation="@dimen/card_elevation"
+        android:background="@color/white"
+        android:padding="@dimen/margin_standard"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
-
-        <Button
-            android:id="@+id/btnActivateWithCode"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/activate_code"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#FF9800"
-            android:textColor="@android:color/white" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnBuyWithGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/buy_with_google"
-            android:backgroundTint="#4CAF50"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
+            <!-- شارة الأكثر شهرة -->
+            <TextView
+                android:id="@+id/tvBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/most_popular"
+                android:textSize="12sp"
+                android:textColor="@color/button_text"
+                android:background="@color/accent"
+                android:padding="4dp"
+                android:visibility="gone"
+                android:layout_gravity="end"/>
 
+            <!-- اسم الباقة كما يأتي من السيرفر -->
+            <TextView
+                android:id="@+id/tvPlanName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/font_family_tajawal"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="@dimen/margin_half"/>
 
-</LinearLayout>
+            <!-- السعر -->
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:fontFamily="@font/font_family_tajawal"
+                android:textColor="@color/accent"
+                android:layout_marginTop="@dimen/margin_half"/>
+
+            <!-- قائمة المميزات يُعبأ برمجياً -->
+            <LinearLayout
+                android:id="@+id/tvFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/margin_standard">
+            </LinearLayout>
+
+            <!-- أزرار التفعيل والشراء -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="@dimen/margin_standard">
+
+                <Button
+                    android:id="@+id/btnActivateWithCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/activate_code"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/button_accent"
+                    android:textColor="@color/button_text"
+                    android:layout_marginEnd="@dimen/margin_half"/>
+
+                <Button
+                    android:id="@+id/btnBuyWithGoogle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/button_height"
+                    android:text="@string/buy_with_google"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/divider"
+                    android:textColor="@color/text_primary"/>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
