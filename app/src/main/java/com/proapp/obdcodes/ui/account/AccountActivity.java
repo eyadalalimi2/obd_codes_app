@@ -20,8 +20,8 @@ import com.proapp.obdcodes.ui.auth.AuthActivity;
 import com.proapp.obdcodes.ui.base.BaseActivity;
 import com.proapp.obdcodes.ui.cars.CarListActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
-import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
-import com.proapp.obdcodes.ui.subscription.SubscriptionViewModel;
+import com.proapp.obdcodes.ui.plans.SubscriptionStatusActivity;
+import com.proapp.obdcodes.viewmodel.SubscriptionViewModel;
 import com.proapp.obdcodes.utils.BindingAdapters;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
 

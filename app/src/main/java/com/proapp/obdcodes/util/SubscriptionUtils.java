@@ -7,8 +7,8 @@ import android.widget.Toast;
 import android.util.Log;
 
 import com.proapp.obdcodes.network.model.Subscription;
-import com.proapp.obdcodes.ui.subscription.SubscriptionRepository;
-import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
+import com.proapp.obdcodes.repository.SubscriptionRepository;
+import com.proapp.obdcodes.ui.plans.SubscriptionStatusActivity;
 
 import java.util.List;
 

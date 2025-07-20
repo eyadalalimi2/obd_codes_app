@@ -167,7 +167,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
         <activity android:name=".ui.offline.OfflineCodeListActivity"
             android:label="Offline"/>
-        <activity android:name=".ui.subscription.SubscriptionStatusActivity"
+        <activity android:name=".ui.plans.SubscriptionStatusActivity"
             android:label="@string/subscription_details"/>
         <activity android:name=".ui.plans.PlansActivity"
             android:label="@string/pricing" />

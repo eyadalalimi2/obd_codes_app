@@ -1,5 +1,5 @@
 // com.proapp.obdcodes.ui.plans/PlansViewModel.java
-package com.proapp.obdcodes.ui.plans;
+package com.proapp.obdcodes.viewmodel;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -9,6 +9,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.proapp.obdcodes.network.model.Plan;
 import com.proapp.obdcodes.network.model.SubscriptionRequest;
 import com.proapp.obdcodes.network.model.ActivationRequest;
+import com.proapp.obdcodes.repository.PlanRepository;
+
 import java.util.List;
 
 public class PlansViewModel extends AndroidViewModel {

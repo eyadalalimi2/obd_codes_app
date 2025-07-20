@@ -2,7 +2,6 @@ package com.proapp.obdcodes.ui.base;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ import com.proapp.obdcodes.ui.pdf.PdfReportActivity;
 import com.proapp.obdcodes.ui.plans.PlansActivity;
 import com.proapp.obdcodes.ui.saved.SavedCodesActivity;
 import com.proapp.obdcodes.ui.settings.SettingsActivity;
-import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
+import com.proapp.obdcodes.ui.plans.SubscriptionStatusActivity;
 import com.proapp.obdcodes.ui.visual.VisualLibraryActivity;
 import com.proapp.obdcodes.viewmodel.NotificationStateViewModel;
 import com.proapp.obdcodes.viewmodel.NotificationViewModel;

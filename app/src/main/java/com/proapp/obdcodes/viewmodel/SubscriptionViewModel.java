@@ -1,4 +1,4 @@
-package com.proapp.obdcodes.ui.subscription;
+package com.proapp.obdcodes.viewmodel;
 
 import android.app.Application;
 
@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.network.model.SubscriptionRequest;
+import com.proapp.obdcodes.repository.SubscriptionRepository;
 
 public class SubscriptionViewModel extends AndroidViewModel {
 

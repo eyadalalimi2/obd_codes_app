@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Plan;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.ui.subscription.SubscriptionStatusActivity;
+import com.proapp.obdcodes.viewmodel.PlansViewModel;
 
 import java.util.List;
 

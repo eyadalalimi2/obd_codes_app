@@ -1,4 +1,4 @@
-package com.proapp.obdcodes.ui.subscription;
+package com.proapp.obdcodes.repository;
 
 import android.content.Context;
 import android.content.SharedPreferences;

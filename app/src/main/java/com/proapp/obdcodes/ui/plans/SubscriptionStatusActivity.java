@@ -1,7 +1,6 @@
 // com.proapp.obdcodes.ui.subscription/SubscriptionStatusActivity.java
-package com.proapp.obdcodes.ui.subscription;
+package com.proapp.obdcodes.ui.plans;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Subscription;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.ui.plans.PlansActivity;
+import com.proapp.obdcodes.viewmodel.SubscriptionViewModel;
 
 public class SubscriptionStatusActivity extends BaseActivity {
 

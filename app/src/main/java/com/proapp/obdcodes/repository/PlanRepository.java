@@ -1,5 +1,5 @@
 // com.proapp.obdcodes.ui.plans/PlanRepository.java
-package com.proapp.obdcodes.ui.plans;
+package com.proapp.obdcodes.repository;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
