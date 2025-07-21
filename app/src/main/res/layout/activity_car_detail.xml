@@ -1,60 +1,86 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- File: app/src/main/res/layout/activity_car_detail.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:text="الشركة:"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold" />
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_margin="16dp"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvBrand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:text="الطراز:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold" />
+                <!-- صورة أو شعار السيارة -->
+                <ImageView
+                    android:id="@+id/ivCarImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/splash"
+                    android:contentDescription="صورة السيارة"
+                    android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:id="@+id/tvModel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+                <TextView
+                    android:text="الشركة:"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvBrand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:text="سنة الإنتاج:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold" />
+                <TextView
+                    android:text="الطراز:"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:id="@+id/tvYear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
+                <TextView
+                    android:text="سنة الإنتاج:"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:text="الاسم:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold" />
+                <TextView
+                    android:text="الاسم:"
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </ScrollView>

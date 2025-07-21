@@ -1,6 +1,8 @@
+// File: app/src/main/java/com/proapp/obdcodes/ui/cars/CarDetailActivity.java
 package com.proapp.obdcodes.ui.cars;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.lifecycle.ViewModelProvider;
@@ -14,16 +16,18 @@ public class CarDetailActivity extends BaseActivity {
 
     private CarDetailViewModel viewModel;
     private TextView tvBrand, tvModel, tvYear, tvName;
+    private ImageView ivCarImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActivityLayout(R.layout.activity_car_detail);
 
-        tvBrand = findViewById(R.id.tvBrand);
-        tvModel = findViewById(R.id.tvModel);
-        tvYear  = findViewById(R.id.tvYear);
-        tvName  = findViewById(R.id.tvName);
+        tvBrand    = findViewById(R.id.tvBrand);
+        tvModel    = findViewById(R.id.tvModel);
+        tvYear     = findViewById(R.id.tvYear);
+        tvName     = findViewById(R.id.tvName);
+        ivCarImage = findViewById(R.id.ivCarImage);
 
         int carId = getIntent().getIntExtra("CAR_ID", -1);
         viewModel = new ViewModelProvider(this).get(CarDetailViewModel.class);
@@ -33,6 +37,7 @@ public class CarDetailActivity extends BaseActivity {
 
     private void displayCar(Car car) {
         if (car != null) {
+            // ivCarImage: استخدم الصورة الفعلية إن وُجدت
             tvBrand.setText(car.getBrandName());
             tvModel.setText(car.getModelName());
             tvYear.setText(car.getYear());
@@ -41,6 +46,7 @@ public class CarDetailActivity extends BaseActivity {
             );
         }
     }
+
     @Override
     protected boolean shouldShowBottomNav() {
         return true;

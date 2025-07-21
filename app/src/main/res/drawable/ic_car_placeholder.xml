@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- نفس مسار ic_car ولكن بلون رمادي فاتح -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp"
     android:height="24dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="#000000"
+        android:fillColor="#B0B0B0"
         android:pathData="M18.92,6.01C18.69,5.42 18.13,5 17.50,5H6.50C5.87,5 5.31,5.42 5.08,6.01L3,12v8c0,0.55 0.45,1 1,1h1c0.55,0 1,-0.45 1,-1v-1h12v1c0,0.55 0.45,1 1,1h1c0.55,0 1,-0.45 1,-1v-8l-2.08,-5.99zM6.85,7h10.29l1.04,3H5.82l1.03,-3zM19,18c-1.10,0 -1.99,-0.90 -1.99,-2S17.90,14 19,14s2,0.90 2,2 -0.90,2 -2,2zM5,18c-1.10,0 -1.99,-0.90 -1.99,-2S3.90,14 5,14s2,0.90 2,2 -0.90,2 -2,2zM6,14h12v-3H6v3z"/>
 </vector>

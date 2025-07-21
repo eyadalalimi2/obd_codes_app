@@ -20,7 +20,7 @@ import com.proapp.obdcodes.viewmodel.CarFormViewModel;
 
 import java.util.List;
 
-public class CarFormActivity extends BaseActivity {
+public class AddCarActivity extends BaseActivity {
 
     private CarFormViewModel viewModel;
     private Spinner spBrand, spModel, spYear;
@@ -30,7 +30,7 @@ public class CarFormActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_car_form);
+        setActivityLayout(R.layout.activity_add_car);
 
         spBrand = findViewById(R.id.spBrand);
         spModel = findViewById(R.id.spModel);

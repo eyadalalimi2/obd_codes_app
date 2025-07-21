@@ -1,6 +1,7 @@
 // File: app/src/main/java/com/proapp/obdcodes/ui/cars/CarViewHolder.java
 package com.proapp.obdcodes.ui.cars;
 
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -33,7 +34,7 @@ public class CarViewHolder extends RecyclerView.ViewHolder {
         String info = brandName + " " + modelName + " - " + year;
         tvCarInfo.setText(info);
 
-        // عرض أو إخفاء اسم السيارة مع حماية من null
+        // عرض أو إخفاء اسم السيارة
         String carName = car.getCarName();
         if (carName != null && !carName.isEmpty()) {
             tvCarName.setText(carName);
@@ -42,7 +43,7 @@ public class CarViewHolder extends RecyclerView.ViewHolder {
             tvCarName.setVisibility(View.GONE);
         }
 
-        // التعامل مع الأزرار
+        // تعامل أزرار العرض والحذف
         btnViewCar.setOnClickListener(v -> listener.onViewClick(car));
         btnDeleteCar.setOnClickListener(v -> listener.onDeleteClick(car));
     }

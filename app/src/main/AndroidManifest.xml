@@ -178,7 +178,7 @@
 
         <!-- صفحة إضافة/تعديل سيارة -->
         <activity
-            android:name="com.proapp.obdcodes.ui.cars.CarFormActivity"
+            android:name="com.proapp.obdcodes.ui.cars.AddCarActivity"
             android:label="إضافة / تعديل سيارة" />
 
         <!-- صفحة تفاصيل السيارة -->

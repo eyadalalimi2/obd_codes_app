@@ -4,9 +4,12 @@ package com.proapp.obdcodes.ui.cars;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Car;
+
 import java.util.List;
 
 public class CarAdapter extends RecyclerView.Adapter<CarViewHolder> {

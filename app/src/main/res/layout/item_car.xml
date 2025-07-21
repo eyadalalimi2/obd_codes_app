@@ -1,49 +1,60 @@
+<!-- File: app/src/main/res/layout/item_car.xml -->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:padding="16dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvCarInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"/>
 
         <TextView
             android:id="@+id/tvCarName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:textColor="@color/textSecondary"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:gravity="end">
 
             <Button
                 android:id="@+id/btnViewCar"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/accent"
                 android:layout_height="wrap_content"
                 android:text="عرض"/>
+
             <Space
                 android:layout_width="16dp"
                 android:layout_height="wrap_content"/>
+
             <Button
                 android:id="@+id/btnDeleteCar"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/red"
                 android:layout_height="wrap_content"
-                android:text="حذف"/>
+                android:text="حذف"
+                android:backgroundTint="@color/error"
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

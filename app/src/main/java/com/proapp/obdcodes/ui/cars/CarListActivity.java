@@ -43,6 +43,9 @@ public class CarListActivity extends BaseActivity {
                 startActivity(new Intent(CarListActivity.this, CarDetailActivity.class)
                         .putExtra("CAR_ID", car.getId()));
             }
+
+
+
             @Override
             public void onDeleteClick(Car car) {
                 showDeleteDialog(car);
@@ -53,7 +56,7 @@ public class CarListActivity extends BaseActivity {
         // زر الإضافة
         FloatingActionButton fab = findViewById(R.id.fabAddCar);
         fab.setOnClickListener(v ->
-                startActivity(new Intent(this, CarFormActivity.class))
+                startActivity(new Intent(this, AddCarActivity.class))
         );
 
         // ViewModel واستقبال البيانات
