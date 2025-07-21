@@ -9,7 +9,6 @@
     <string name="app_logo">شعار التطبيق</string>
     <string name="splash_tagline">التشخيص بضغطة زر</string>
     <string name="about_this_app">عن التطبيق</string>
-    <string name="how_it_works">كيف يعمل التطبيق</string>
     <string name="empty_prefix"> </string> <!-- قد يستخدم كبادئة فارغة لتنسيق معين -->
 
     <!-- ========================================================================================= -->
@@ -93,8 +92,6 @@
     <string name="loading">جاري التحميل…</string>
     <string name="undefined">غير محدد</string>
     <string name="update_data">تحديث البيانات</string>
-    <string name="send_message">إرسال رسالة</string>
-    <string name="send_via">إرسال عبر</string>
     <string name="send_link">أرسل لي رابطًا</string>
     <string name="btn_search">بحث</string>
     <!-- ========================================================================================= -->
@@ -329,13 +326,19 @@
     <!-- ========================================================================================= -->
     <string name="contact_us">تواصل معنا</string>
     <string name="ask_support">الدعم</string>
-    <string name="welcome_support">مرحبًا بك في الدعم!</string>
-    <string name="support_instructions">لأي طلب، يُرجى مراسلتنا عبر البريد الإلكتروني support@obdquest.com أو استخدام النموذج أدناه.</string>
+    <string name="fill_all_fields">يرجى تعبئة جميع الحقول</string>
+    <string name="send_message">إرسال الرسالة</string>
+    <string name="send_via">إرسال عبر</string>
+    <string name="support_email">بريد الدعم</string>
+    <string name="how_it_works">كيف يعمل التطبيق؟</string>
+    <string name="enter_subject">أدخل موضوع الرسالة</string>
+    <string name="enter_message">أدخل رسالتك هنا</string>
+    <string name="message_sent_success">تم إرسال الرسالة بنجاح!</string>
+    <string name="welcome_support">مرحباً بك في الدعم الفني!</string>
+    <string name="support_instructions">يرجى كتابة مشكلتك أو استفسارك وسيتم الرد عليك بأسرع وقت.</string>
     <string name="subject">الموضوع</string>
-    <string name="enter_subject">أدخل الموضوع</string>
     <string name="message">الرسالة</string>
-    <string name="enter_message">أدخل رسالتك هنا…</string>
-    <string name="fill_all_fields">يرجى ملء كلٍّ من الموضوع والرسالة.</string>
+
 
     <!-- ========================================================================================= -->
     <!-- السياسات والشروط (Policies & Terms) -->
@@ -455,4 +458,28 @@
     <string name="subscription_end">تاريخ الانتهاء:</string>
     <string name="days_left">الأيام المتبقية:</string>
     <string name="plan_features">مميزات الباقة الحالية:</string>
+    <string name="privacy_lock_icon">قفل الخصوصية</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

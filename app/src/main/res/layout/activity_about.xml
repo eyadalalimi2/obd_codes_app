@@ -1,13 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="24dp"
+    android:padding="0dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <TextView
-        android:id="@+id/tvAbout"
-        android:textSize="16sp"
-        android:lineSpacingExtra="6dp"
-        android:textColor="#333"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="18dp">
+
+        <!-- لوجو التطبيق -->
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/icon"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/app_logo"/>
+
+        <!-- اسم التطبيق وتعريف مبسط -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OBD Codes - Car Fault Finder"
+            android:textSize="22sp"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/tajawal_bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:fontFamily="@font/tajawal_regular"
+            android:text="أداة ذكية لمساعدتك في فهم أكواد أعطال سيارتك بسرعة وسهولة."
+            android:textColor="@color/colorSubText"
+            android:textSize="15sp" />
+
+        <!-- اسم المطور القابل للنقر -->
+        <TextView
+            android:id="@+id/tvDeveloper"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="18dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/tajawal_medium"
+            android:minHeight="48dp"
+            android:text="تم التطوير بواسطة: اياد جابر العليمي"
+            android:textColor="@color/blue"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <!-- Card الميزات -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorCardBg"
+            android:elevation="3dp"
+            android:padding="18dp"
+            android:clipToOutline="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الميزات الأساسية:"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:fontFamily="@font/tajawal_bold"
+                android:layout_marginBottom="10dp"/>
+
+            <!-- قائمة الميزات مع أيقونات -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:src="@drawable/ic_feature_search"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="9dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="البحث اليدوي عن كود العطل"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray_text"
+                        android:fontFamily="@font/tajawal_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:src="@drawable/ic_feature_symptom"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="9dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="تشخيص بالأعراض"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray_text"
+                        android:fontFamily="@font/tajawal_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:src="@drawable/ic_feature_save"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="9dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="حفظ الأكواد ومشاركتها"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray_text"
+                        android:fontFamily="@font/tajawal_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <ImageView
+                        android:src="@drawable/ic_feature_ai"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="9dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="تحليل الذكاء الاصطناعي"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray_text"
+                        android:fontFamily="@font/tajawal_regular"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:src="@drawable/ic_feature_offline"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="9dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="دعم الوضع غير المتصل بالإنترنت"
+                        android:textSize="15sp"
+                        android:textColor="@color/gray_text"
+                        android:fontFamily="@font/tajawal_regular"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- نص توصية -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تم تصميم التطبيق ليكون سهل وسريع للمستخدم العربي.\nنوصي دائمًا بمراجعة فني معتمد قبل أي إصلاح."
+            android:textColor="@color/colorSubText"
+            android:textSize="15sp"
+            android:fontFamily="@font/tajawal_regular"
+            android:layout_marginBottom="22dp"
+            android:layout_gravity="center_horizontal"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnShareApp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="مشاركة التطبيق"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_search_button"
+            android:fontFamily="@font/tajawal_bold"
+            android:textSize="16sp"
+            android:drawablePadding="8dp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
 </ScrollView>

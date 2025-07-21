@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- العنوان مع أيقونة القفل -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <ImageView
+            android:src="@drawable/ic_password"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="@string/privacy_lock_icon"
+            android:layout_marginEnd="10dp"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="سياسة الخصوصية"
+            android:textSize="22sp"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/tajawal_bold"/>
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/base_content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- جمع البيانات -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="جمع البيانات"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/tajawal_regular"
+                    android:text="نقوم بجمع معلومات الجهاز (للتحليلات وتحسين الأداء)، البريد الإلكتروني (عند إنشاء حساب أو للدعم الفني)، وبعض بيانات الاستخدام بشكل مجهول بهدف تحسين الخدمة."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp" />
+
+                <!-- مشاركة البيانات -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="مشاركة البيانات"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/tajawal_regular"
+                    android:text="قد نستعين بخدمات خارجية مثل Firebase وAdMob وOneSignal والتي قد تجمع بعض البيانات بحسب سياساتها الخاصة. نحن لا نبيع بياناتك لأي جهة."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp" />
+
+                <!-- حقوق المستخدم -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:text="حقوق المستخدم"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="18dp"
+                    android:fontFamily="@font/tajawal_regular"
+                    android:text="يمكنك مراجعة أو حذف بياناتك في أي وقت عبر التواصل معنا. لن نحتفظ بأي بيانات بعد حذف حسابك، ونلتزم بحماية معلوماتك وفق المعايير."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp" />
+
+                <!-- ملخص عامية -->
+                <TextView
+                    android:id="@+id/summaryText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="14dp"
+                    android:background="@color/green_background"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/tajawal_medium"
+                    android:padding="12dp"
+                    android:text="ملخص مبسط: بياناتك في أمان معنا وما نستخدمها إلا لتحسين تجربتك في التطبيق. ما نشاركش معلوماتك مع أي أحد إلا إذا كان ضروري ولخدمة التطبيق فقط. وأنت تقدر تطلب حذف كل بياناتك وقت ما تحب، وخصوصيتك هي أولويتنا."
+                    android:textColor="#2E7D32"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

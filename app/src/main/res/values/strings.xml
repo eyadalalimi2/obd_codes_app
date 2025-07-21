@@ -137,16 +137,6 @@
     <string name="select">Choose</string>
     <string name="saved_searches">Saved codes</string>
     <string name="ask_support">Support</string>
-    <string name="welcome_support">Welcome to support!</string>
-    <string name="support_instructions">For any request, please send us email to support@obdquest.com or use the form below.</string>
-    <string name="subject">Subject</string>
-    <string name="enter_subject">Enter subject</string>
-    <string name="message">Message</string>
-    <string name="enter_message">Enter your message here…</string>
-    <string name="send_message">Send Message</string>
-    <string name="support_email" translatable="false">support@obdquest.com</string>
-    <string name="send_via">Send via</string>
-    <string name="fill_all_fields">Please fill in both subject and message.</string>
     <string name="code_details">Code Details </string>
     <string name="label_search_code">Search by Code</string>
     <string name="hint_code_part">Enter code part</string>
@@ -408,4 +398,44 @@
     <string name="subscription_start">تاريخ التفعيل:</string>
     <string name="subscription_end">تاريخ الانتهاء:</string>
     <string name="days_left">الأيام المتبقية:</string>
+    <string name="privacy_lock_icon">قفل الخصوصية</string>
+    <string name="fill_all_fields">يرجى تعبئة جميع الحقول</string>
+    <string name="send_message">إرسال الرسالة</string>
+    <string name="send_via">إرسال عبر</string>
+    <string name="support_email">بريد الدعم</string>
+    <string name="enter_subject">أدخل موضوع الرسالة</string>
+    <string name="enter_message">أدخل رسالتك هنا</string>
+    <string name="message_sent_success">تم إرسال الرسالة بنجاح!</string>
+    <string name="welcome_support">مرحباً بك في الدعم الفني!</string>
+    <string name="support_instructions">يرجى كتابة مشكلتك أو استفسارك وسيتم الرد عليك بأسرع وقت.</string>
+    <string name="subject">الموضوع</string>
+    <string name="message">الرسالة</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </resources>

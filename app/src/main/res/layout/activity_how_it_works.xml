@@ -1,12 +1,164 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:background="@color/white"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp">
 
-    <TextView
-        android:id="@+id/tvHow"
+    <!-- خطوات العمل بشكل مرقّم مع أيقونات -->
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#333333" />
-</ScrollView>
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_marginBottom="6dp">
+
+        <!-- الخطوة 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:src="@drawable/ic_step1"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1. قم بتوصيل جهاز OBD-II إلى سيارتك."
+                android:textColor="@color/textPrimary"
+                android:textSize="17sp"
+                android:fontFamily="@font/tajawal_medium" />
+        </LinearLayout>
+
+        <!-- الخطوة 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:src="@drawable/ic_step2"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2. افتح التطبيق واختر كود العطل أو استخدم التشخيص بالأعراض."
+                android:textColor="@color/textPrimary"
+                android:textSize="17sp"
+                android:fontFamily="@font/tajawal_medium" />
+        </LinearLayout>
+
+        <!-- الخطوة 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:src="@drawable/ic_step3"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3. استعرض تفاصيل الكود: الوصف، الأسباب، الحلول."
+                android:textColor="@color/textPrimary"
+                android:textSize="17sp"
+                android:fontFamily="@font/tajawal_medium" />
+        </LinearLayout>
+
+        <!-- الخطوة 4 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="4dp">
+
+            <ImageView
+                android:src="@drawable/ic_step4"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="4. يمكنك حفظ الكود أو توليد تقرير PDF."
+                android:textColor="@color/textPrimary"
+                android:textSize="17sp"
+                android:fontFamily="@font/tajawal_medium" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- بطاقة النصائح -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorCardBg"
+        android:elevation="2dp"
+        android:padding="18dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:clipToOutline="true">
+
+        <ImageView
+            android:src="@drawable/ic_tips"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="12dp"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="- تأكد من الاتصال الجيد بـ OBD عبر البلوتوث أو الواي فاي.\n- استخدم الخطط المدفوعة للوصول إلى ميزات متقدمة."
+            android:textColor="@color/gray_text"
+            android:textSize="16sp"
+            android:fontFamily="@font/tajawal_regular"/>
+    </LinearLayout>
+
+    <!-- زر جرب الآن -->
+    <Button
+        android:id="@+id/btnTryNow"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="جرب الآن"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_search_button"
+        android:fontFamily="@font/tajawal_bold"
+        android:textSize="17sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawableStart="@drawable/ic_play"
+        android:drawablePadding="8dp"/>
+</LinearLayout>

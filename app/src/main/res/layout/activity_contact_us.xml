@@ -5,162 +5,177 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-
-    <!-- المحتوى -->
-    <ScrollView
+    <!-- Card رئيسي لكل التعليمات وأدوات التواصل -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorCardBg"
+        android:padding="22dp"
+        android:layout_margin="18dp"
+        android:elevation="3dp"
+        android:clipToOutline="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="22dp"
+        android:backgroundTint="@color/colorCardBg">
 
-        <LinearLayout
-            android:orientation="vertical"
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_support"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorSubText"
+            android:fontFamily="@font/tajawal_bold"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvInstructions"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:text="@string/support_instructions"
+            android:textSize="15sp"
+            android:textColor="@color/textPrimary"
+            android:fontFamily="@font/tajawal_regular"
+            android:layout_marginBottom="18dp"/>
 
-            <!-- عنوان ترحيبي وتعليمات -->
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/welcome_support"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#54616C"
-                android:layout_marginBottom="8dp"/>
+        <!-- حقل الموضوع -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subject"
+            android:textStyle="bold"
+            android:textColor="@color/colorSubText"
+            android:textSize="15sp"
+            android:fontFamily="@font/tajawal_medium"
+            android:layout_marginBottom="4dp"/>
 
-            <TextView
-                android:id="@+id/tvInstructions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/support_instructions"
-                android:textSize="16sp"
-                android:textColor="#222E36"
-                android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/etSubject"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/enter_subject"
+            android:background="@drawable/bg_code_box"
+            android:padding="12dp"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"
+            android:fontFamily="@font/tajawal_regular"
+            android:layout_marginBottom="16dp"/>
 
-            <!-- حقل الموضوع -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/subject"
-                android:textStyle="bold"
-                android:textColor="#54616C"
-                android:textSize="15sp"
-                android:layout_marginBottom="4dp"/>
+        <!-- حقل الرسالة -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message"
+            android:textStyle="bold"
+            android:textColor="@color/colorSubText"
+            android:textSize="15sp"
+            android:fontFamily="@font/tajawal_medium"
+            android:layout_marginBottom="4dp"/>
 
-            <EditText
-                android:id="@+id/etSubject"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:hint="@string/enter_subject"
-                android:background="@drawable/bg_code_box"
-                android:padding="12dp"
-                android:textColor="#222E36"
-                android:textSize="16sp"
-                android:layout_marginBottom="16dp"/>
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="@string/enter_message"
+            android:background="@drawable/bg_field"
+            android:padding="12dp"
+            android:textColor="@color/textPrimary"
+            android:textSize="16sp"
+            android:fontFamily="@font/tajawal_regular"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="24dp"/>
 
-            <!-- حقل الرسالة -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/message"
-                android:textStyle="bold"
-                android:textColor="#54616C"
-                android:textSize="15sp"
-                android:layout_marginBottom="4dp"/>
 
-            <EditText
-                android:id="@+id/etMessage"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:hint="@string/enter_message"
-                android:background="@drawable/bg_field"
-                android:padding="12dp"
-                android:textColor="#222E36"
-                android:textSize="16sp"
-                android:gravity="top"
-                android:inputType="textMultiLine"
-                android:layout_marginBottom="24dp"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="20dp">
 
-            <!-- زر الإرسال -->
             <Button
                 android:id="@+id/btnSend"
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
+                android:layout_height="match_parent"
                 android:text="@string/send_message"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:background="@drawable/bg_search_button"
                 android:drawableStart="@drawable/ic_mail"
                 android:drawablePadding="8dp"
-                android:layout_marginBottom="24dp"/>
+                android:fontFamily="@font/tajawal_bold"
+                android:textSize="17sp"/>
 
-            <!-- روابط الدعم السفلية -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Progress دائري صغير يظهر فوق الزر عند الإرسال -->
+            <ProgressBar
+                android:id="@+id/progressView"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center|end"
+                android:visibility="gone"/>
+        </FrameLayout>
+
+        <!-- بريد الدعم داخل Card صغير -->
+        <LinearLayout
+            android:id="@+id/llEmailLink"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_link_box"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="14dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_mail"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:id="@+id/tvSupportEmail"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                android:gravity="center">
-
-                <!-- بريد الدعم -->
-                <LinearLayout
-                    android:id="@+id/llEmailLink"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:background="@drawable/bg_link_box"
-                    android:layout_marginEnd="8dp"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_mail"
-                        android:layout_marginBottom="4dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/support_email"
-                        android:textColor="#222E36"
-                        android:textSize="14sp"
-                        android:gravity="center"/>
-                </LinearLayout>
-
-                <!-- رابط How It Works -->
-                <LinearLayout
-                    android:id="@+id/llHowItWorks"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:padding="12dp"
-                    android:background="@drawable/bg_link_box"
-                    android:clickable="true"
-                    android:focusable="true">
-
-                    <ImageView
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_search"
-                        android:layout_marginBottom="4dp"
-                        app:tint="@color/blue" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/how_it_works"
-                        android:textColor="#222E36"
-                        android:textSize="14sp"
-                        android:gravity="center"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:text=" للتواصل بنا عبر البريد الالكتروني"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:fontFamily="@font/tajawal_bold"
+                android:textStyle="bold"/>
         </LinearLayout>
-    </ScrollView>
+
+        <!-- رابط How It Works داخل Card كبير -->
+        <LinearLayout
+            android:id="@+id/llHowItWorks"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_link_box"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="14dp"
+            android:elevation="2dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_search"
+                app:tint="@color/blue"
+                android:layout_marginEnd="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/how_it_works"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:fontFamily="@font/tajawal_bold"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

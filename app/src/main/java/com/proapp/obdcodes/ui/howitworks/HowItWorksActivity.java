@@ -1,37 +1,41 @@
 package com.proapp.obdcodes.ui.howitworks;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.ui.home.HomeActivity;
 
 public class HowItWorksActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setActivityLayout(R.layout.activity_how_it_works); // ✅ تحميل المحتوى داخل base layout
+        setActivityLayout(R.layout.activity_how_it_works);
 
-        // إعداد عنوان الصفحة في شريط الأدوات
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("كيف يعمل التطبيق؟");
         }
 
-        // ربط عنصر النص وعرض المحتوى
-        TextView tv = findViewById(R.id.tvHow);
-        tv.setText("كيفية استخدام التطبيق:\n\n" +
-                "1. قم بتوصيل جهاز OBD-II إلى سيارتك.\n" +
-                "2. افتح التطبيق واختر كود العطل أو استخدم ميزة التشخيص بالأعراض.\n" +
-                "3. استعرض تفاصيل الكود: الوصف، الأسباب، الحلول.\n" +
-                "4. يمكنك حفظ الكود أو توليد تقرير PDF.\n\n" +
-                "نصائح:\n" +
-                "- تأكد من الاتصال الجيد بـ OBD عبر البلوتوث أو الواي فاي.\n" +
-                "- استخدم الخطط المدفوعة للوصول إلى ميزات متقدمة.");
-    }
-    @Override
-    protected boolean shouldShowBottomNav() {
-        return false;
+        // زر "جرب الآن"
+        Button btnTry = findViewById(R.id.btnTryNow);
+        btnTry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // استبدل هذا بأي إجراء فعلي (فتح الصفحة الرئيسية أو ميزة التشخيص)
+                Toast.makeText(HowItWorksActivity.this, "سيتم تحويلك إلى تجربة التطبيق...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HowItWorksActivity.this, HomeActivity.class); // ✅
+                startActivity(intent);
+            }
+        });
     }
 
+    @Override
+    protected boolean shouldShowBottomNav() {
+        return true;
+    }
 }

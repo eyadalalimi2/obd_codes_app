@@ -1,31 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-
-
-    <!-- Base content -->
-    <FrameLayout
-        android:id="@+id/base_content_frame"
+    <!-- العنوان مع أيقونة القانون -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingTop="32dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp">
 
-        <ScrollView
+        <ImageView
+            android:src="@drawable/ic_law"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="10dp"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="شروط الخدمة"
+            android:textSize="22sp"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/tajawal_bold"/>
+    </LinearLayout>
+
+    <!-- ملخص سريع -->
+    <TextView
+        android:id="@+id/summaryText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/green_background"
+        android:elevation="2dp"
+        android:fontFamily="@font/tajawal_medium"
+        android:padding="12dp"
+        android:text="استخدامك للتطبيق يعني موافقتك على الشروط، وأهم شيء: التطبيق للمساعدة وليس بديل لميكانيكي محترف."
+        android:textColor="#2E7D32"
+        android:textSize="16sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="24dp">
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
 
-            <TextView
-                android:id="@+id/legalText"
+            <!-- البند 1 -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="#333333"
-                android:text="شروط الاستخدام :\n\nنحن نأخذ خصوصيتك على محمل الجد. هذا النص هو تمثيل تجريبي لسياسة الخصوصية. عند ربط التطبيق بلوحة التحكم سيتم تحميل المحتوى من السيرفر تلقائياً." />
-        </ScrollView>
-    </FrameLayout>
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorCardBg"
+                android:backgroundTintMode="src_in"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="١. رخصة الاستخدام"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="يحق لك استخدام التطبيق بشكل شخصي أو مهني ضمن شروط الاستخدام، والرخصة غير قابلة للنقل."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+            <!-- البند 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="٢. القيود"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="لا يسمح بنسخ أو توزيع أو عكس هندسة التطبيق. التطبيق للمعرفة فقط وليس بديلاً عن الفحص الميكانيكي."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+            <!-- البند 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="٣. الاشتراك والدفع"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="بعض الميزات تتطلب اشتراك PRO أو شراء لمرة واحدة. كل عمليات الدفع تتم عبر المتاجر الرسمية."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+            <!-- البند 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="٤. إخلاء المسؤولية"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="لا نضمن دقة المعلومات بنسبة 100%. يجب دائمًا مراجعة ميكانيكي متخصص قبل أي صيانة حساسة."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+            <!-- البند 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="12dp"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="٥. الإنهاء"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="يحق لنا إيقاف وصولك للتطبيق إذا لم تلتزم بالشروط."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+            <!-- البند 6 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorCardBg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:padding="14dp"
+                android:layout_marginBottom="18dp"
+                android:clipToOutline="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="٦. التعديلات على الشروط"
+                    android:textSize="17sp"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/tajawal_bold"
+                    android:layout_marginBottom="3dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="قد نقوم بتحديث الشروط في أي وقت دون إشعار. استمرارك باستخدام التطبيق يعتبر قبولك لأي تعديل."
+                    android:textColor="@color/gray_text"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/tajawal_regular"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
