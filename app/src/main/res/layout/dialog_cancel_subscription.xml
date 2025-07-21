@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/margin_standard">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/card_corner"
+        app:cardElevation="@dimen/card_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_dialog_rounded"
+            android:padding="@dimen/margin_standard">
+
+            <TextView
+                android:id="@+id/tvCancelPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="هل أنت متأكد أنك تريد إلغاء الاشتراك؟"
+                android:textSize="16sp"
+                android:fontFamily="@font/font_family_tajawal"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="@dimen/margin_standard" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <Button
+                    android:id="@+id/btnCancelNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="لا"
+                    android:backgroundTint="@color/divider"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginEnd="@dimen/margin_half"/>
+
+                <Button
+                    android:id="@+id/btnCancelYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نعم، إلغاء"
+                    android:backgroundTint="@color/error"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</FrameLayout>
