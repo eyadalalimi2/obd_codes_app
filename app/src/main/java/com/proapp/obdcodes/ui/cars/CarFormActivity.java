@@ -16,6 +16,7 @@ import com.proapp.obdcodes.network.model.Brand;
 import com.proapp.obdcodes.network.model.Model;
 import com.proapp.obdcodes.network.model.UpdateCarsResponse;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.viewmodel.CarFormViewModel;
 
 import java.util.List;
 

@@ -15,6 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.proapp.obdcodes.R;
 import com.proapp.obdcodes.network.model.Car;
 import com.proapp.obdcodes.ui.base.BaseActivity;
+import com.proapp.obdcodes.viewmodel.CarListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

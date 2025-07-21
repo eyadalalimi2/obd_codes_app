@@ -1,4 +1,4 @@
-package com.proapp.obdcodes.ui.cars;
+package com.proapp.obdcodes.viewmodel;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
