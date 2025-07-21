@@ -1,7 +1,6 @@
 package com.proapp.obdcodes.ui.chat;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +20,6 @@ import com.proapp.obdcodes.network.model.ChatMessage;
 import com.proapp.obdcodes.network.model.ChatResponse;
 import com.proapp.obdcodes.network.model.User;
 import com.proapp.obdcodes.ui.base.BaseActivity;
-import com.proapp.obdcodes.ui.home.HomeActivity;
 import com.proapp.obdcodes.viewmodel.AiChatViewModel;
 import com.proapp.obdcodes.viewmodel.ChatRoomViewModel;
 import com.proapp.obdcodes.viewmodel.UserViewModel;
@@ -72,7 +69,7 @@ public class ChatActivity extends BaseActivity {
 
         ImageButton btnClearChat = findViewById(R.id.btn_clear_chat);
         btnClearChat.setOnClickListener(v -> {
-            View dialogView = getLayoutInflater().inflate(R.layout.dialog_confirm_delete, null);
+            View dialogView = getLayoutInflater().inflate(R.layout.dialog_confirm_delete_chat, null);
             AlertDialog dialog = new AlertDialog.Builder(this)
                     .setView(dialogView)
                     .setCancelable(false)

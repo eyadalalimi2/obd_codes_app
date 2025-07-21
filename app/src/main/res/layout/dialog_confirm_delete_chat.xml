@@ -17,10 +17,10 @@
         android:fontFamily="@font/tajawal_bold"/>
 
     <TextView
-        android:id="@+id/tvDialogMessage"
+        android:id="@+id/tvMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="هل تريد حذف الاكواد / الكود ؟"
+        android:text="هل تريد حذف جميع رسائل الدردشة؟"
         android:textSize="18sp"
         android:gravity="center"
         android:layout_marginTop="16dp"
@@ -35,7 +35,7 @@
         android:layout_marginTop="24dp">
 
         <Button
-            android:id="@+id/btnConfirmDialog"
+            android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -49,13 +49,13 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/btnCancelDialog"
+            android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="إلغاء"
             android:textColor="@color/white"
-            android:backgroundTint="@color/accent"
+            android:backgroundTint="@color/blue"
             android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>
