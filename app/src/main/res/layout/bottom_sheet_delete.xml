@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_delete"
+        android:layout_gravity="center_horizontal"
+        app:tint="@color/colorRed" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_delete"
+        android:textSize="17sp"
+        android:textColor="@color/colorTitleDark"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btnConfirmDelete"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/delete"
+        android:backgroundTint="@color/colorRed"
+        android:textColor="@color/white"/>
+    <Button
+        android:id="@+id/btnCancelDelete"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/cancel"
+        android:backgroundTint="@color/colorGrayListBg"
+        android:textColor="@color/colorMutedText"
+        android:layout_marginTop="8dp"/>
+</LinearLayout>

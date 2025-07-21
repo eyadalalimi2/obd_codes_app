@@ -84,7 +84,6 @@
     <string name="yes">نعم</string>
     <string name="no">لا</string>
     <string name="cancel">إلغاء</string>
-    <string name="clear_all">حذف الكل</string>
     <string name="delete">حذف</string>
     <string name="save">حفظ</string>
     <string name="close">إغلاق</string>
@@ -143,15 +142,12 @@
     <string name="saved_codes_title">الأكواد المحفوظة</string>
     <string name="saved_codes_prefix">الأكواد المحفوظة:</string>
     <string name="saved_searches">الأكواد المحفوظة</string>
-    <string name="_0_saved">لاتوجد رموز محفوظه</string>
     <string name="save_code">حفظ الكود</string>
     <string name="code_saved">تم حفظ الكود بنجاح</string>
-    <string name="saved">saved</string> <!-- كلمة "محفوظ" بالإنجليزية، تأكد من استخدامها أو ترجمتها -->
+    <string name="saved">محفوظ</string>
     <string name="code_already_saved">الكود محفوظ مسبقًا</string>
     <string name="save_failed">فشل في حفظ الكود</string>
     <string name="err_saving_code">خطأ أثناء حفظ الكود. يرجى المحاولة مرة أخرى.</string>
-    <string name="delete_item">حذف الكود</string>
-    <string name="open_item">فتح الكود</string>
     <string name="share_code">مشاركة الكود</string>
     <string name="share_via">مشاركة عبر</string>
     <string name="share">تحقق من تطبيق OBD Codes: https://obdcodes.net</string>
@@ -459,6 +455,10 @@
     <string name="days_left">الأيام المتبقية:</string>
     <string name="plan_features">مميزات الباقة الحالية:</string>
     <string name="privacy_lock_icon">قفل الخصوصية</string>
+    <string name="delete_item">حذف</string>
+    <string name="open_item">عرض التفاصيل</string>
+    <string name="clear_all">حذف الكل</string>
+    <string name="_0_saved">0 كود محفوظ</string>
 
 
 

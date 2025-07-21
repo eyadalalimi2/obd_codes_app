@@ -27,6 +27,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="DialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- يمكنك تخصيص خصائص الحوار هنا -->
+        <item name="android:windowMinWidthMajor">80%</item>
+        <item name="android:windowBackground">@drawable/bg_card</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+        <!-- ... أي تخصيص آخر -->
+    </style>
 
 
 
