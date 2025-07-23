@@ -37,7 +37,7 @@ public class AuthActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        hideSystemUI();
         viewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
@@ -111,6 +111,28 @@ public class AuthActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void hideSystemUI() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(false);
+            getWindow().getInsetsController().hide(
+                    android.view.WindowInsets.Type.statusBars() | android.view.WindowInsets.Type.navigationBars()
+            );
+            getWindow().getInsetsController().setSystemBarsBehavior(
+                    android.view.WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            );
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    android.view.View.SYSTEM_UI_FLAG_IMMERSIVE
+                            | android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+        }
+    }
+
 
     private void showLogin() {
         binding.tvAuthTitle.setText(R.string.login_title);

@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg_dialog_rounded"
     android:padding="24dp">
+
     <ImageView
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -26,7 +27,7 @@
         android:id="@+id/tvDialogMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="هل تريد حذف الاكواد / الكود ؟"
+        android:text="@string/confirm_delete_message_accunt"
         android:textSize="18sp"
         android:gravity="center"
         android:layout_marginTop="16dp"
@@ -41,13 +42,13 @@
         android:layout_marginTop="24dp">
 
         <Button
-            android:id="@+id/btnConfirmDialog"
+            android:id="@+id/btnCancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="حذف"
+            android:text="الغاء"
             android:textColor="@color/white"
-            android:backgroundTint="@color/red"
+            android:backgroundTint="@color/accent"
             android:textStyle="bold"/>
 
         <Space
@@ -55,13 +56,13 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:id="@+id/btnCancelDialog"
+            android:id="@+id/btnDelete"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="إلغاء"
+            android:text="حذف الحساب"
             android:textColor="@color/white"
-            android:backgroundTint="@color/accent"
+            android:backgroundTint="@color/error"
             android:textStyle="bold"/>
     </LinearLayout>
 </LinearLayout>

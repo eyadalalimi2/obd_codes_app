@@ -35,9 +35,31 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        hideSystemUI();
         fetchEncryptionKey();
     }
+
+    private void hideSystemUI() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(false);
+            getWindow().getInsetsController().hide(
+                    android.view.WindowInsets.Type.statusBars() | android.view.WindowInsets.Type.navigationBars()
+            );
+            getWindow().getInsetsController().setSystemBarsBehavior(
+                    android.view.WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            );
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    android.view.View.SYSTEM_UI_FLAG_IMMERSIVE
+                            | android.view.View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | android.view.View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | android.view.View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+        }
+    }
+
 
     private void fetchEncryptionKey() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

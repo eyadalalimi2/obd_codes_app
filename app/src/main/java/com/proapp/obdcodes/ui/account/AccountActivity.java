@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -44,11 +45,7 @@ public class AccountActivity extends BaseActivity {
 
 
 
-        // 4) إخفاء الشريط السفلي لهذه الشاشة
-        View bottomNav = findViewById(R.id.base_bottom_nav);
-        if (bottomNav != null) {
-            bottomNav.setVisibility(View.GONE);
-        }
+
 
         // 5) تهيئة ViewModel للاشتراك
         subscriptionVM = new ViewModelProvider(this)
@@ -97,7 +94,7 @@ public class AccountActivity extends BaseActivity {
     @Override
     protected boolean shouldShowBottomNav() {
         // نخفي القائمة السفلية تماماً
-        return false;
+        return true;
     }
 
     private void setupListeners() {
@@ -146,7 +143,22 @@ public class AccountActivity extends BaseActivity {
         );
 
         // حذف الحساب
-        binding.btnDelete.setOnClickListener(v ->
+        binding.btnDelete.setOnClickListener(v -> {
+            View dialogView = getLayoutInflater().inflate(R.layout.custom_confirm_delete_dialog, null);
+
+            androidx.appcompat.app.AlertDialog dialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setView(dialogView)
+                    .setCancelable(false)
+                    .create();
+
+            // ربط الأزرار
+            Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+            Button btnDelete = dialogView.findViewById(R.id.btnDelete);
+
+            btnCancel.setOnClickListener(x -> dialog.dismiss());
+
+            btnDelete.setOnClickListener(x -> {
+                dialog.dismiss();
                 vm.deleteAccount().observe(this, success -> {
                     if (Boolean.TRUE.equals(success)) {
                         SharedPreferences prefs = PreferenceManager
@@ -163,8 +175,12 @@ public class AccountActivity extends BaseActivity {
                     } else {
                         Toast.makeText(this, R.string.err_delete_account, Toast.LENGTH_SHORT).show();
                     }
-                })
-        );
+                });
+            });
+
+            dialog.show();
+        });
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -174,6 +190,7 @@ public class AccountActivity extends BaseActivity {
             loadProfile();
         }
     }
+
     @SuppressLint("SetTextI18n")
     private void loadProfile() {
         vm.getUserProfile().observe(this, user -> {

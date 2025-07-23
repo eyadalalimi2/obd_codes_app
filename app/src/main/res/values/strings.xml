@@ -410,7 +410,9 @@
     <string name="support_instructions">يرجى كتابة مشكلتك أو استفسارك وسيتم الرد عليك بأسرع وقت.</string>
     <string name="subject">الموضوع</string>
     <string name="message">الرسالة</string>
-
+    <string name="confirm_delete_title">تأكيد حذف الحساب</string>
+    <string name="confirm_delete_message_accunt">هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع عن هذه العملية.</string>
+    <string name="warning">تحذير</string>
 
 
 

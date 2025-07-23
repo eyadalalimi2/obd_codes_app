@@ -457,6 +457,10 @@
     <string name="open_item">عرض التفاصيل</string>
     <string name="clear_all">حذف الكل</string>
     <string name="_0_saved">0 كود محفوظ</string>
+    <string name="confirm_delete_title">تأكيد حذف الحساب</string>
+    <string name="confirm_delete_message_accunt">هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع عن هذه العملية.</string>
+
+    <string name="warning">تحذير</string>
 
 
 

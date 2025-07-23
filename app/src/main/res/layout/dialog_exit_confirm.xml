@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/dialog_background_white"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:ignore="TextSizeCheck">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_language_dropdown">
 
     <TextView
-        android:id="@+id/tv_exit_message"
+        android:id="@+id/tvDialogTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="هل أنت متأكد أنك تريد الخروج؟"
+        android:text="تأكيد الخروج"
+        android:textColor="@color/black"
         android:textSize="18sp"
+        android:textStyle="bold"
         android:gravity="center"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        tools:ignore="HardcodedText" />
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tvDialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="هل تريد حقًا تسجيل الخروج؟"
+        android:textSize="15sp"
+        android:textColor="#444"
+        android:gravity="center"/>
 
     <LinearLayout
-        android:layout_marginTop="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginTop="24dp">
 
         <Button
             android:id="@+id/btn_exit_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="إلغاء"
-            tools:ignore="ButtonStyle,HardcodedText" />
+            android:text="لا"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/accent"
+            android:minWidth="100dp" />
+
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="1dp"/>
 
         <Button
             android:id="@+id/btn_exit_confirm"
-            android:layout_marginStart="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="خروج"
-            tools:ignore="ButtonStyle,HardcodedText" />
-
+            android:text="نعم"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/red"
+            android:minWidth="100dp" />
     </LinearLayout>
 </LinearLayout>
