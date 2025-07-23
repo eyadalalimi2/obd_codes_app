@@ -3,7 +3,6 @@
     <!-- ========================================================================================= -->
     <!-- معلومات التطبيق الأساسية وشاشات البداية -->
     <!-- ========================================================================================= -->
-    <string name="app_name">أكواد أعطال السيارات</string>
     <string name="app_version">تطبيق OBD Code الإصدار 1.0.0</string>
     <string name="version_placeholder">نسخه التطبيق V1.0</string>
     <string name="app_logo">شعار التطبيق</string>
@@ -207,7 +206,6 @@
     <string name="verification_email_sent">تم إرسال رابط التفعيل إلى بريدك</string>
     <string name="resend_verification">إعادة إرسال رابط التفعيل</string>
     <string name="agree_text">أوافق على سياسة الخصوصية وشروط الخدمة</string>
-    <string name="server_client_id">ضع هنا Google Client ID</string>
 
     <!-- تسجيل الدخول بالبصمة و PIN -->
     <string name="btn_fingerprint_login">تسجيل الدخول بالبصمة</string>
