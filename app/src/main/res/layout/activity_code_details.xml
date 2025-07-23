@@ -119,26 +119,35 @@
                 </LinearLayout>
 
                 <!-- حقول مفصلة -->
-                <TextView android:text="Description:" android:textStyle="bold"
+                <TextView
+                    android:text="Description:"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <TextView android:id="@+id/tvDescription"
+                <TextView
+                    android:id="@+id/tvDescription"
                     android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <TextView android:text="Symptoms:" android:textStyle="bold"
+                <TextView
+                    android:text="Symptoms:"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <TextView android:id="@+id/tvSymptoms"
+                <TextView
+                    android:id="@+id/tvSymptoms"
                     android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
-                <TextView android:text="Causes:" android:textStyle="bold"
+                <TextView
+                    android:text="Causes:"
+                    android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-                <TextView android:id="@+id/tvCauses"
+                <TextView
+                    android:id="@+id/tvCauses"
                     android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
