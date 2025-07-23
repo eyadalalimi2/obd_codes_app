@@ -77,15 +77,18 @@ public class CodeDetailsActivity extends BaseActivity {
         btnShare.setEnabled(false);
         btnPdf.setEnabled(false);
 
-        // 5) جلب الكود من intent
-        String code = getIntent().getStringExtra("CODE");
+        // 5) جلب الكود ورمز اللغة من intent
+        String code     = getIntent().getStringExtra("CODE");
+        String langCode = getIntent().getStringExtra("LANG_CODE");
+
         boolean isOnline = com.proapp.obdcodes.utils.NetworkUtil.isConnected(this);
-        // 6) تهيئة ViewModel وتحميل البيانات
+
+        // 6) تهيئة ViewModel وتحميل البيانات عبر API المناسب بناءً على اللغة
         if (isOnline) {
             CodeDetailViewModel viewModel = new ViewModelProvider(this,
                     new ViewModelProvider.AndroidViewModelFactory(getApplication()))
                     .get(CodeDetailViewModel.class);
-            viewModel.loadCodeDetail(code);
+            viewModel.loadCodeDetail(code, langCode);
             viewModel.getCodeDetail().observe(this, this::bindData);
         } else {
             new Thread(() -> {
@@ -120,12 +123,12 @@ public class CodeDetailsActivity extends BaseActivity {
             ivImage.setVisibility(ImageView.VISIBLE);
             Glide.with(this)
                     .load(ApiClient.IMAGE_BASE_URL + d.getImage())
-                    .placeholder(R.drawable.ic_onboarding_1)  // صورة افتراضية أثناء التحميل
-                    .error(R.drawable.ic_onboarding_1)        // صورة افتراضية عند الخطأ
+                    .placeholder(R.drawable.ic_onboarding_1)
+                    .error(R.drawable.ic_onboarding_1)
                     .into(ivImage);
         } else {
-            ivImage.setVisibility(ImageView.VISIBLE);  // تأكد أن الصورة مرئية
-            ivImage.setImageResource(R.drawable.splash); // تعيين صورة افتراضية
+            ivImage.setVisibility(ImageView.VISIBLE);
+            ivImage.setImageResource(R.drawable.splash);
         }
 
         // بيانات الكود
@@ -177,7 +180,6 @@ public class CodeDetailsActivity extends BaseActivity {
                     .append("Severity: ").append(currentCode.getSeverity()).append("\n\n")
                     .append("Diagnosis:\n").append(currentCode.getDiagnosis());
 
-            // إضافة رابط الصورة إذا كانت موجودة
             if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
                 String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
                 sb.append("\n\n Image:\n").append(imageUrl);
@@ -191,7 +193,6 @@ public class CodeDetailsActivity extends BaseActivity {
             startActivity(Intent.createChooser(shareIntent, getString(R.string.share_code)));
         });
 
-
         // زر توليد وفتح PDF
         btnPdf.setOnClickListener(v -> {
             try {
@@ -204,17 +205,16 @@ public class CodeDetailsActivity extends BaseActivity {
                 PdfWriter.getInstance(document, new FileOutputStream(file));
                 document.open();
 
-                // إدراج صورة الكود إن وجدت
                 if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
                     String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
                     try {
                         Image img = Image.getInstance(new java.net.URL(imageUrl));
-                        img.scaleToFit(500, 300); // تغيير الحجم حسب الحاجة
+                        img.scaleToFit(500, 300);
                         img.setAlignment(Image.ALIGN_CENTER);
                         document.add(img);
-                        document.add(new Paragraph(" ")); // مسافة بعد الصورة
+                        document.add(new Paragraph(" "));
                     } catch (Exception e) {
-                        e.printStackTrace(); // في حال فشل تحميل الصورة
+                        e.printStackTrace();
                     }
                 }
 
@@ -242,7 +242,6 @@ public class CodeDetailsActivity extends BaseActivity {
                 e.printStackTrace();
             }
         });
-
 
     }
 }

@@ -22,7 +22,8 @@ public class HomeActivity extends BaseActivity {
     private AlertDialog exitDialog;
     private TextView[] codeBoxes;
     private TextView tvLanguage;
-    private String[] arr1, arr2, arrRest, arrLang;
+    private String[] arr1, arr2, arrRest, arrLang, arrLangCodes;
+    private int selectedLangIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,16 @@ public class HomeActivity extends BaseActivity {
 
         // 2. ربط اختيار اللغة
         LinearLayout languageSelect = findViewById(R.id.languageSelect);
-        tvLanguage     = findViewById(R.id.tvLanguage);
+        tvLanguage = findViewById(R.id.tvLanguage);
 
         // 3. تحميل المصفوفات
-        arr1    = getResources().getStringArray(R.array.array_box1);
-        arr2    = getResources().getStringArray(R.array.array_box2);
-        arrRest = getResources().getStringArray(R.array.array_box_rest);
-        arrLang = getResources().getStringArray(R.array.array_languages);
+        arr1         = getResources().getStringArray(R.array.array_box1);
+        arr2         = getResources().getStringArray(R.array.array_box2);
+        arrRest      = getResources().getStringArray(R.array.array_box_rest);
+        arrLang      = getResources().getStringArray(R.array.array_languages);
+        arrLangCodes = getResources().getStringArray(R.array.array_language_codes);
+
+        // تحديد اللغة الافتراضية بناءً على لغة الجهاز
         String deviceLangCode = Locale.getDefault().getLanguage();
         int defaultIndex = 0;
         if ("en".equals(deviceLangCode)) {
@@ -66,10 +70,10 @@ public class HomeActivity extends BaseActivity {
                 }
             }
         }
+        selectedLangIndex = defaultIndex;
         tvLanguage.setText(arrLang[defaultIndex]);
 
-
-        // 4. إعداد النقر لفتح Dialog الشبكة
+        // 4. إعداد النقر لفتح Dialog الشبكة لاختيار حروف الكود
         for (int i = 0; i < codeBoxes.length; i++) {
             final int idx = i;
             codeBoxes[i].setOnClickListener(v -> showPicker(idx));
@@ -79,7 +83,10 @@ public class HomeActivity extends BaseActivity {
         languageSelect.setOnClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.select_language)
-                    .setItems(arrLang, (d, which) -> tvLanguage.setText(arrLang[which]))
+                    .setItems(arrLang, (dialog, which) -> {
+                        tvLanguage.setText(arrLang[which]);
+                        selectedLangIndex = which;
+                    })
                     .show();
         });
 
@@ -87,10 +94,12 @@ public class HomeActivity extends BaseActivity {
         Button btnSearch = findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(v -> {
             StringBuilder code = new StringBuilder();
-            for (TextView tv : codeBoxes) code.append(tv.getText());
+            for (TextView tv : codeBoxes) {
+                code.append(tv.getText());
+            }
             Intent intent = new Intent(this, CodeDetailsActivity.class);
             intent.putExtra("CODE", code.toString());
-            intent.putExtra("LANG", tvLanguage.getText().toString());
+            intent.putExtra("LANG_CODE", arrLangCodes[selectedLangIndex]);
             startActivity(intent);
         });
 
@@ -148,6 +157,7 @@ public class HomeActivity extends BaseActivity {
     private int dpToPx(int dp) {
         return Math.round(dp * getResources().getDisplayMetrics().density);
     }
+
     private void setupExitDialog() {
         View view = getLayoutInflater().inflate(R.layout.dialog_exit_confirm, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
@@ -164,6 +174,7 @@ public class HomeActivity extends BaseActivity {
             finishAffinity(); // يغلق كل الـ Activities وينهي التطبيق
         });
     }
+
     @Override
     public void onBackPressed() {
         // بدل تنفيذ finish() مباشرة، نعرض مربع التأكيد

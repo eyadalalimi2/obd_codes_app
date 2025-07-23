@@ -13,6 +13,8 @@
         <item>8</item><item>9</item><item>A</item><item>B</item>
         <item>C</item><item>D</item><item>E</item><item>F</item>
     </string-array>
+
+
     <!-- قائمة عرض اللغات في الـ Spinner / AlertDialog -->
     <string-array name="array_languages">
         <item>English</item>
@@ -20,6 +22,15 @@
         <item>Français</item>
         <item>Русский</item>
         <item>Türkçe</item>
+    </string-array>
+
+    <!-- رموز اللغات الموافقة لكل عنصر في array_languages -->
+    <string-array name="array_language_codes">
+        <item>en</item>
+        <item>ar</item>
+        <item>fr</item>
+        <item>ru</item>
+        <item>tr</item>
     </string-array>
 
     <!-- الأسماء المرئية في تفضيلات المستخدم -->
@@ -39,6 +50,4 @@
         <item>ru</item>
         <item>tr</item>
     </string-array>
-
-
 </resources>
