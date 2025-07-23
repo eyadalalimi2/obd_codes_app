@@ -413,7 +413,20 @@
     <string name="confirm_delete_title">تأكيد حذف الحساب</string>
     <string name="confirm_delete_message_accunt">هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع عن هذه العملية.</string>
     <string name="warning">تحذير</string>
+    <string name="cd_title_description">Description</string>
+    <string name="cd_title_symptoms">Symptoms</string>
+    <string name="cd_title_causes">Causes</string>
+    <string name="cd_title_solutions">Solutions</string>
+    <string name="cd_title_diagnosis">Diagnosis</string>
 
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="shared_successfully">Shared successfully</string>
+    <string name="pdf_generated">PDF generated</string>
+    <string name="cd_image_desc">Code diagram</string>
+    <string name="cd_title_type">Type</string>
+    <string name="cd_title_brand_id">Brand ID</string>
+    <string name="cd_title_severity">Severity</string>
+    <string name="cd_title_title">Title</string>
 
 
 
