@@ -1,5 +1,8 @@
 package com.proapp.obdcodes.ui.code_details;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -7,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +41,7 @@ import java.util.Date;
 
 public class CodeDetailsActivity extends BaseActivity {
 
+    private LinearLayout llMeta;
     private TextView tvCode, tvTitle, tvType, tvBrandId,
             tvDescription, tvSymptoms,
             tvCauses, tvSolutions,
@@ -49,13 +54,11 @@ public class CodeDetailsActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 1) حقن layout داخل BaseActivity
         setActivityLayout(R.layout.activity_code_details);
+        findViewById(R.id.base_bottom_nav).setVisibility(View.VISIBLE);
 
-        // 2) إخفاء BottomNav في شاشة التفاصيل
-        findViewById(R.id.base_bottom_nav).setVisibility(View.GONE);
-
-        // 3) ربط عناصر الواجهة
+        // ربط الواجهات
+        llMeta        = findViewById(R.id.llMeta);
         tvCode        = findViewById(R.id.tvCode);
         tvTitle       = findViewById(R.id.tvTitle);
         ivImage       = findViewById(R.id.ivImage);
@@ -67,40 +70,36 @@ public class CodeDetailsActivity extends BaseActivity {
         tvSolutions   = findViewById(R.id.tvSolutions);
         tvSeverity    = findViewById(R.id.tvSeverity);
         tvDiagnosis   = findViewById(R.id.tvDiagnosis);
+        btnSave       = findViewById(R.id.btnSave);
+        btnShare      = findViewById(R.id.btnShare);
+        btnPdf        = findViewById(R.id.btnPdf);
 
-        btnSave  = findViewById(R.id.btnSave);
-        btnShare = findViewById(R.id.btnShare);
-        btnPdf   = findViewById(R.id.btnPdf);
-
-        // 4) تعطيل الأزرار حتى يتم التحميل
+        // تعطيل الأزرار مؤقتاً
         btnSave.setEnabled(false);
         btnShare.setEnabled(false);
         btnPdf.setEnabled(false);
 
-        // 5) جلب الكود ورمز اللغة من intent
+        // جلب بيانات Intent
         String code     = getIntent().getStringExtra("CODE");
         String langCode = getIntent().getStringExtra("LANG_CODE");
+        tvCode.setText(code);
 
+        // تحميل البيانات Online/Offline
         boolean isOnline = com.proapp.obdcodes.utils.NetworkUtil.isConnected(this);
-
-        // 6) تهيئة ViewModel وتحميل البيانات عبر API المناسب بناءً على اللغة
         if (isOnline) {
-            CodeDetailViewModel viewModel = new ViewModelProvider(this,
+            CodeDetailViewModel vm = new ViewModelProvider(this,
                     new ViewModelProvider.AndroidViewModelFactory(getApplication()))
                     .get(CodeDetailViewModel.class);
-            viewModel.loadCodeDetail(code, langCode);
-            viewModel.getCodeDetail().observe(this, this::bindData);
+            vm.loadCodeDetail(code, langCode);
+            vm.getCodeDetail().observe(this, this::bindData);
         } else {
             new Thread(() -> {
-                ObdCodeEntity entity = AppDatabase.getInstance(getApplicationContext())
-                        .obdCodeDao()
-                        .findByCode(code);
-                if (entity != null) {
-                    ObdCode offlineCode = entity.toObdCode();
-                    runOnUiThread(() -> bindData(offlineCode));
-                } else {
-                    runOnUiThread(() -> bindData(null));
-                }
+                ObdCodeEntity ent = AppDatabase.getInstance(getApplicationContext())
+                        .obdCodeDao().findByCode(code);
+                runOnUiThread(() -> {
+                    if (ent != null) bindData(ent.toObdCode());
+                    else bindData(null);
+                });
             }).start();
         }
 
@@ -109,50 +108,53 @@ public class CodeDetailsActivity extends BaseActivity {
 
     private void bindData(@Nullable ObdCode d) {
         if (d == null) {
-            tvCode.setText(R.string.err_fetch_data);
+            Toast.makeText(this, R.string.err_fetch_data, Toast.LENGTH_SHORT).show();
             return;
         }
-
         currentCode = d;
 
-        tvCode.setText(d.getCode());
         tvTitle.setText(d.getTitle());
 
-        // عرض الصورة إن وجدت، أو عرض صورة افتراضية في حال عدم وجودها
+        // إظهار/إخفاء صف النوع والشركة
+        if (d.getBrandId() == null) {
+            llMeta.setVisibility(View.GONE);
+        } else {
+            llMeta.setVisibility(View.VISIBLE);
+            tvType.setText(d.getType());
+            tvBrandId.setText(String.valueOf(d.getBrandId()));
+        }
+
+        // عرض الصورة
         if (d.getImage() != null && !d.getImage().trim().isEmpty()) {
-            ivImage.setVisibility(ImageView.VISIBLE);
+            ivImage.setVisibility(View.VISIBLE);
             Glide.with(this)
                     .load(ApiClient.IMAGE_BASE_URL + d.getImage())
                     .placeholder(R.drawable.ic_onboarding_1)
                     .error(R.drawable.ic_onboarding_1)
                     .into(ivImage);
         } else {
-            ivImage.setVisibility(ImageView.VISIBLE);
             ivImage.setImageResource(R.drawable.splash);
         }
 
-        // بيانات الكود
-        tvType.setText(d.getType());
-        tvBrandId.setText(d.getBrandId() != null
-                ? String.valueOf(d.getBrandId()) : "-");
+        // ملء الحقول المتبقية
         tvDescription.setText(d.getDescription());
-        tvSymptoms.setText(d.getSymptoms());
-        tvCauses.setText(d.getCauses());
-        tvSolutions.setText(d.getSolutions());
-        tvSeverity.setText(d.getSeverity());
-        tvDiagnosis.setText(d.getDiagnosis());
+        tvSymptoms   .setText(d.getSymptoms());
+        tvCauses     .setText(d.getCauses());
+        tvSolutions  .setText(d.getSolutions());
+        tvSeverity   .setText(d.getSeverity());
+        tvDiagnosis  .setText(d.getDiagnosis());
 
-        // تفعيل الأزرار بعد التحميل
-        btnSave.setEnabled(true);
+        // تفعيل الأزرار
+        btnSave .setEnabled(true);
         btnShare.setEnabled(true);
-        btnPdf.setEnabled(true);
+        btnPdf  .setEnabled(true);
     }
 
     private void setupButtonListeners() {
-        // زر الحفظ
+        // حفظ
         btnSave.setOnClickListener(v -> {
-            SharedPreferences prefs =
-                    PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences prefs = PreferenceManager
+                    .getDefaultSharedPreferences(this);
             String savedJson = prefs.getString("saved_codes", "[]");
             try {
                 JSONArray arr = new JSONArray(savedJson);
@@ -168,32 +170,23 @@ public class CodeDetailsActivity extends BaseActivity {
             }
         });
 
-        // زر المشاركة كنص
+        // مشاركة
         btnShare.setOnClickListener(v -> {
-            StringBuilder sb = new StringBuilder();
-            sb.append("Code: ").append(currentCode.getCode()).append("\n")
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            StringBuilder sb = new StringBuilder()
+                    .append("Code: ").append(currentCode.getCode()).append("\n")
                     .append("Title: ").append(currentCode.getTitle()).append("\n\n")
                     .append("Description:\n").append(currentCode.getDescription()).append("\n\n")
                     .append("Symptoms:\n").append(currentCode.getSymptoms()).append("\n\n")
                     .append("Causes:\n").append(currentCode.getCauses()).append("\n\n")
                     .append("Solutions:\n").append(currentCode.getSolutions()).append("\n\n")
-                    .append("Severity: ").append(currentCode.getSeverity()).append("\n\n")
                     .append("Diagnosis:\n").append(currentCode.getDiagnosis());
-
-            if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
-                String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
-                sb.append("\n\n Image:\n").append(imageUrl);
-            }
-
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, currentCode.getCode());
-            shareIntent.putExtra(Intent.EXTRA_TEXT, sb.toString());
-
-            startActivity(Intent.createChooser(shareIntent, getString(R.string.share_code)));
+            share.putExtra(Intent.EXTRA_TEXT, sb.toString());
+            startActivity(Intent.createChooser(share, getString(R.string.share_code)));
         });
 
-        // زر توليد وفتح PDF
+        // توليد PDF
         btnPdf.setOnClickListener(v -> {
             try {
                 String fileName = "OBD_" + currentCode.getCode() + ".pdf";
@@ -201,47 +194,36 @@ public class CodeDetailsActivity extends BaseActivity {
                 if (!mainDir.exists()) mainDir.mkdirs();
                 File file = new File(mainDir, fileName);
 
-                Document document = new Document();
-                PdfWriter.getInstance(document, new FileOutputStream(file));
-                document.open();
-
+                Document doc = new Document();
+                PdfWriter.getInstance(doc, new FileOutputStream(file));
+                doc.open();
                 if (currentCode.getImage() != null && !currentCode.getImage().isEmpty()) {
-                    String imageUrl = ApiClient.IMAGE_BASE_URL + currentCode.getImage();
-                    try {
-                        Image img = Image.getInstance(new java.net.URL(imageUrl));
-                        img.scaleToFit(500, 300);
-                        img.setAlignment(Image.ALIGN_CENTER);
-                        document.add(img);
-                        document.add(new Paragraph(" "));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+                    Image img = Image.getInstance(
+                            new java.net.URL(ApiClient.IMAGE_BASE_URL + currentCode.getImage()));
+                    img.scaleToFit(500, 300);
+                    doc.add(img);
+                    doc.add(new Paragraph(" "));
                 }
+                doc.add(new Paragraph("Code: " + currentCode.getCode()));
+                doc.add(new Paragraph("Title: " + currentCode.getTitle()));
+                doc.add(new Paragraph("Description:\n" + currentCode.getDescription()));
+                doc.add(new Paragraph("Symptoms:\n"    + currentCode.getSymptoms()));
+                doc.add(new Paragraph("Causes:\n"      + currentCode.getCauses()));
+                doc.add(new Paragraph("Solutions:\n"   + currentCode.getSolutions()));
+                doc.add(new Paragraph("Diagnosis:\n"   + currentCode.getDiagnosis()));
+                doc.close();
 
-                document.add(new Paragraph("Code: " + currentCode.getCode()));
-                document.add(new Paragraph("Title: " + currentCode.getTitle()));
-                document.add(new Paragraph(""));
-                document.add(new Paragraph("Description:\n" + currentCode.getDescription()));
-                document.add(new Paragraph("Symptoms:\n" + currentCode.getSymptoms()));
-                document.add(new Paragraph("Causes:\n" + currentCode.getCauses()));
-                document.add(new Paragraph("Solutions:\n" + currentCode.getSolutions()));
-                document.add(new Paragraph("Severity: " + currentCode.getSeverity()));
-                document.add(new Paragraph("Diagnosis:\n" + currentCode.getDiagnosis()));
-                document.close();
-
-                Toast.makeText(this, "تم حفظ التقرير بنجاح", Toast.LENGTH_SHORT).show();
-
-                Uri uri = FileProvider.getUriForFile(this, getPackageName() + ".provider", file);
-                Intent openIntent = new Intent(Intent.ACTION_VIEW);
-                openIntent.setDataAndType(uri, "application/pdf");
-                openIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(openIntent, "فتح التقرير باستخدام..."));
+                Uri uri = FileProvider.getUriForFile(this,
+                        getPackageName() + ".provider", file);
+                Intent open = new Intent(Intent.ACTION_VIEW)
+                        .setDataAndType(uri, "application/pdf")
+                        .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(open, "فتح التقرير باستخدام..."));
 
             } catch (Exception e) {
-                Toast.makeText(this, "فشل في توليد التقرير", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.err_generating_pdf, Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
         });
-
     }
 }
