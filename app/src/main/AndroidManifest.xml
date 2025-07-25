@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.proapp.obdcodes"
+    package="com.eyadalalimi.car.obd2"
     xmlns:tools="http://schemas.android.com/tools">
 
 
@@ -173,17 +173,17 @@
             android:label="@string/pricing" />
         <!-- صفحة قائمة السيارات -->
         <activity
-            android:name="com.proapp.obdcodes.ui.cars.CarListActivity"
+            android:name=".ui.cars.CarListActivity"
             android:label="سياراتي" />
 
         <!-- صفحة إضافة/تعديل سيارة -->
         <activity
-            android:name="com.proapp.obdcodes.ui.cars.AddCarActivity"
+            android:name=".ui.cars.AddCarActivity"
             android:label="إضافة / تعديل سيارة" />
 
         <!-- صفحة تفاصيل السيارة -->
         <activity
-            android:name="com.proapp.obdcodes.ui.cars.CarDetailActivity"
+            android:name=".ui.cars.CarDetailActivity"
             android:label="تفاصيل السيارة" />
 
 

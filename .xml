@@ -3,8 +3,8 @@
   <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/proapp/obdcodes/ExampleInstrumentedTest.java</file>
   <line>19</line>
   <module>Obd_Codes.app.androidTest</module>
-  <package>com.proapp.obdcodes</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ExampleInstrumentedTest" />
+  <package>com.eyadalalimi.car.obd2</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ExampleInstrumentedTest" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>23</length>
@@ -20,8 +20,8 @@
   <file>file://$PROJECT_DIR$/app/src/androidTest/java/com/proapp/obdcodes/ExampleInstrumentedTest.java</file>
   <line>21</line>
   <module>Obd_Codes.app.androidTest</module>
-  <package>com.proapp.obdcodes</package>
-  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ExampleInstrumentedTest void useAppContext()" />
+  <package>com.eyadalalimi.car.obd2</package>
+  <entry_point TYPE="method" FQNAME="com.eyadalalimi.car.obd2.ExampleInstrumentedTest void useAppContext()" />
   <language>JAVA</language>
   <offset>16</offset>
   <length>13</length>
@@ -37,8 +37,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/TestActivity.java</file>
   <line>16</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.TestActivity" />
+  <package>com.eyadalalimi.car.obd2.ui</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.TestActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>12</length>
@@ -54,8 +54,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/about/AboutActivity.java</file>
   <line>8</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.about</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.about.AboutActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.about</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.about.AboutActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>13</length>
@@ -71,8 +71,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/account/AccountActivity.java</file>
   <line>18</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.account</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.account.AccountActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.account</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.account.AccountActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>15</length>
@@ -88,8 +88,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/ai/AiAssistantActivity.java</file>
   <line>11</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.ai</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.ai.AiAssistantActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.ai</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.ai.AiAssistantActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>19</length>
@@ -105,8 +105,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/analytics/TrendingCodesActivity.java</file>
   <line>11</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.analytics</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.analytics.TrendingCodesActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.analytics</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.analytics.TrendingCodesActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>21</length>
@@ -122,8 +122,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/auth/AuthActivity.java</file>
   <line>14</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.auth</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.auth.AuthActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.auth</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.auth.AuthActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>12</length>
@@ -139,8 +139,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/auth/ForgotPasswordActivity.java</file>
   <line>10</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.auth</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.auth.ForgotPasswordActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.auth</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.auth.ForgotPasswordActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>22</length>
@@ -156,8 +156,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/base/BaseActivity.java</file>
   <line>31</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.base</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.base.BaseActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.base</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.base.BaseActivity" />
   <language>JAVA</language>
   <offset>22</offset>
   <length>12</length>
@@ -173,8 +173,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/code_details/CodeDetailsActivity.java</file>
   <line>25</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.code_details</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.code_details.CodeDetailsActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.code_details</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.code_details.CodeDetailsActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>19</length>
@@ -190,8 +190,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/code_search/CodeSearchActivity.java</file>
   <line>12</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.code_search</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.code_search.CodeSearchActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.code_search</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.code_search.CodeSearchActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>18</length>
@@ -207,8 +207,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/compare/CompareCodesActivity.java</file>
   <line>10</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.compare</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.compare.CompareCodesActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.compare</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.compare.CompareCodesActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>20</length>
@@ -224,8 +224,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/diagnosis/SymptomDiagnosisActivity.java</file>
   <line>11</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.diagnosis</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.diagnosis.SymptomDiagnosisActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.diagnosis</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.diagnosis.SymptomDiagnosisActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>24</length>
@@ -241,8 +241,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/history/DiagnosisHistoryActivity.java</file>
   <line>15</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.history</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.history.DiagnosisHistoryActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.history</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.history.DiagnosisHistoryActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>24</length>
@@ -258,8 +258,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/home/HomeActivity.java</file>
   <line>18</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.home</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.home.HomeActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.home</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.home.HomeActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>12</length>
@@ -275,8 +275,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/howitworks/HowItWorksActivity.java</file>
   <line>8</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.howitworks</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.howitworks.HowItWorksActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.howitworks</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.howitworks.HowItWorksActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>18</length>
@@ -292,8 +292,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/DisclaimerActivity.java</file>
   <line>8</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.legal</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.DisclaimerActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.legal.DisclaimerActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>18</length>
@@ -309,8 +309,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/PrivacyActivity.java</file>
   <line>7</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.legal</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.PrivacyActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.legal.PrivacyActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>15</length>
@@ -326,8 +326,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/legal/TermsActivity.java</file>
   <line>8</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.legal</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.legal.TermsActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.legal</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.legal.TermsActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>13</length>
@@ -343,8 +343,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/menu/MenuActivity.java</file>
   <line>22</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.menu</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.menu.MenuActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.menu</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.menu.MenuActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>12</length>
@@ -360,8 +360,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/notifications/SmartNotificationsActivity.java</file>
   <line>13</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.notifications</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.notifications.SmartNotificationsActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.notifications</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.notifications.SmartNotificationsActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>26</length>
@@ -377,8 +377,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/offline/OfflineModeActivity.java</file>
   <line>11</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.offline</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.offline.OfflineModeActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.offline</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.offline.OfflineModeActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>19</length>
@@ -394,8 +394,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/onboarding/OnboardingActivity.java</file>
   <line>18</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.onboarding</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.onboarding.OnboardingActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.onboarding</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.onboarding.OnboardingActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>18</length>
@@ -411,8 +411,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/pdf/PdfReportActivity.java</file>
   <line>10</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.pdf</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.pdf.PdfReportActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.pdf</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.pdf.PdfReportActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>17</length>
@@ -428,8 +428,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/pricing/PricingActivity.java</file>
   <line>14</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.pricing</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.pricing.PricingActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.pricing</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.pricing.PricingActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>15</length>
@@ -445,8 +445,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/saved/SavedCodesActivity.java</file>
   <line>24</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.saved</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.saved.SavedCodesActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.saved</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.saved.SavedCodesActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>18</length>
@@ -462,8 +462,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/settings/LanguageSettingsActivity.java</file>
   <line>12</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.settings</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.settings.LanguageSettingsActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.settings</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.settings.LanguageSettingsActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>24</length>
@@ -479,8 +479,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/splash/SplashActivity.java</file>
   <line>13</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.splash</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.splash.SplashActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.splash</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.splash.SplashActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>14</length>
@@ -496,8 +496,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/support/ContactUsActivity.java</file>
   <line>15</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.support</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.support.ContactUsActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.support</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.support.ContactUsActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>17</length>
@@ -513,8 +513,8 @@
   <file>file://$PROJECT_DIR$/app/src/main/java/com/proapp/obdcodes/ui/visual/VisualLibraryActivity.java</file>
   <line>10</line>
   <module>Obd_Codes.app.main</module>
-  <package>com.proapp.obdcodes.ui.visual</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ui.visual.VisualLibraryActivity" />
+  <package>com.eyadalalimi.car.obd2.ui.visual</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ui.visual.VisualLibraryActivity" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>21</length>
@@ -530,8 +530,8 @@
   <file>file://$PROJECT_DIR$/app/src/test/java/com/proapp/obdcodes/ExampleUnitTest.java</file>
   <line>12</line>
   <module>Obd_Codes.app.unitTest</module>
-  <package>com.proapp.obdcodes</package>
-  <entry_point TYPE="class" FQNAME="com.proapp.obdcodes.ExampleUnitTest" />
+  <package>com.eyadalalimi.car.obd2</package>
+  <entry_point TYPE="class" FQNAME="com.eyadalalimi.car.obd2.ExampleUnitTest" />
   <language>JAVA</language>
   <offset>13</offset>
   <length>15</length>
@@ -547,8 +547,8 @@
   <file>file://$PROJECT_DIR$/app/src/test/java/com/proapp/obdcodes/ExampleUnitTest.java</file>
   <line>14</line>
   <module>Obd_Codes.app.unitTest</module>
-  <package>com.proapp.obdcodes</package>
-  <entry_point TYPE="method" FQNAME="com.proapp.obdcodes.ExampleUnitTest void addition_isCorrect()" />
+  <package>com.eyadalalimi.car.obd2</package>
+  <entry_point TYPE="method" FQNAME="com.eyadalalimi.car.obd2.ExampleUnitTest void addition_isCorrect()" />
   <language>JAVA</language>
   <offset>16</offset>
   <length>18</length>

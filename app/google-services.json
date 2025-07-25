@@ -7,12 +7,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:66098252270:android:2c268c29d3605a7f7e66ff",
+        "mobilesdk_app_id": "1:66098252270:android:b2d02185337ccc417e66ff",
         "android_client_info": {
-          "package_name": "com.proapp.obdcodes"
+          "package_name": "com.eyadalalimi.car.obd2"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "66098252270-rs1p4d8iibean0j0a08d519fad89cvci.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eyadalalimi.car.obd2",
+            "certificate_hash": "82195083e982641a071ca6297effdef4f1e16a13"
+          }
+        },
+        {
+          "client_id": "66098252270-jl8pq5e9fm12cf59esisgpfqdjib5ua0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDc9zJk_zCJSJlSFq-odEpDZIQ7HXRhwC8"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66098252270-jl8pq5e9fm12cf59esisgpfqdjib5ua0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

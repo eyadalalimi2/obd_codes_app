@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace 'com.proapp.obdcodes'
+    namespace 'com.eyadalalimi.car.obd2'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.proapp.obdcodes"
+        applicationId "com.eyadalalimi.car.obd2"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0.0"
+        versionCode 26
+        versionName "26"
 
         // Instrumentation runner للاختبارات
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
