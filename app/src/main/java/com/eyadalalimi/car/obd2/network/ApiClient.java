@@ -14,8 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static String currentToken = null;
-    private static final String BASE_URL = "https://obdcode.xyz/api/";
-    public static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
+    private static final String BASE_URL = "https://obdcodehub.com/api/";
+    public static final String IMAGE_BASE_URL = "https://obdcodehub.com/storage/";
 
     // لا نخزن الـ Retrofit نهائيًا ـ نجعلها تتجدد
     private static Retrofit retrofit;

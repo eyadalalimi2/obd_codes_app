@@ -27,7 +27,7 @@ import com.eyadalalimi.car.obd2.utils.BindingAdapters;
 import com.eyadalalimi.car.obd2.viewmodel.UserViewModel;
 
 public class AccountActivity extends BaseActivity {
-    private static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
+    private static final String IMAGE_BASE_URL = "https://obdcodehub.com/storage/";
     private static final int RC_EDIT_PROFILE = 3001;
     private ActivityAccountBinding binding;
     private UserViewModel vm;

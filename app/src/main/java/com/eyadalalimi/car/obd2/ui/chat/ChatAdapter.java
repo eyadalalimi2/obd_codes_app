@@ -23,7 +23,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPING    = 3;
 
     private User user;
-    private static final String IMAGE_BASE_URL = "https://obdcode.xyz/storage/";
+    private static final String IMAGE_BASE_URL = "https://obdcodehub.com/storage/";
     private final List<ChatMessage> messages = new ArrayList<>();
 
     public ChatAdapter(List<ChatMessage> initial, User user) {

@@ -36,7 +36,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
 public class EditProfileActivity extends BaseActivity {
-    private static final String IMAGE_BASE_URL     = "https://obdcode.xyz/storage/";
+    private static final String IMAGE_BASE_URL     = "https://obdcodehub.com/storage/";
     private static final int     REQUEST_PICK_IMAGE = 1001;
     private static final int     REQUEST_PERMISSION = 2001;
 

@@ -65,7 +65,7 @@ public class ContactUsActivity extends BaseActivity {
 
                 // فتح تطبيق البريد لإرسال الرسالة
                 Intent email = new Intent(Intent.ACTION_SENDTO,
-                        Uri.parse("mailto:support@obdcode.xyz"));
+                        Uri.parse("mailto:support@obdcodehub.com"));
                 email.putExtra(Intent.EXTRA_SUBJECT, subject);
                 email.putExtra(Intent.EXTRA_TEXT, message);
                 startActivity(Intent.createChooser(email, getString(R.string.send_via)));
@@ -76,7 +76,7 @@ public class ContactUsActivity extends BaseActivity {
 
         // روابط الدعم السفلي
         llEmailLink.setOnClickListener(v -> {
-            Intent email = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:support@obdcode.xyz"));
+            Intent email = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:support@obdcodehub.com"));
             startActivity(Intent.createChooser(email, getString(R.string.send_via)));
         });
         llHowItWorks.setOnClickListener(v -> startActivity(new Intent(this, HowItWorksActivity.class)));

@@ -122,7 +122,7 @@ public abstract class BaseActivity extends AppCompatActivity
         UserViewModel headerVm = new ViewModelProvider(this).get(UserViewModel.class);
         headerVm.getUserProfile().observe(this, user -> {
             if (user != null) {
-                String imageUrl = "https://obdcode.xyz/storage/" + user.getProfileImage();
+                String imageUrl = "https://obdcodehub.com/storage/" + user.getProfileImage();
                 Glide.with(this)
                         .load(imageUrl)
                         .circleCrop()
