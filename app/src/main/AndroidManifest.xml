@@ -207,6 +207,5 @@
                     tools:ignore="BatteryLife" />
             </intent-filter>
         </receiver>
-
     </application>
 </manifest>
