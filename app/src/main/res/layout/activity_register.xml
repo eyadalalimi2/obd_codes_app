@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -11,139 +12,166 @@
         android:padding="24dp"
         android:gravity="center_horizontal">
 
-        <!-- العنوان -->
+        <!-- عنوان الشاشة (ثابت) -->
         <TextView
             android:id="@+id/createAccountTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="أنشاء حساب"
+            android:text="إنشاء حساب"
             android:textColor="@color/blue"
             android:textSize="28sp"
             android:textStyle="bold"
             android:layout_marginTop="32dp"/>
-        <!-- Hidden space of 16dp -->
+
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp" />
-        <!-- الوصف -->
+
+        <!-- وصف الشاشة (ثابت) -->
         <TextView
             android:id="@+id/subtitle"
-            android:layout_width="wrap_content"
-            android:layout_height="66dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="قم بإنشاء حساب حتى تتمكن من استكشاف جميع الوظائف الموجودة"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp"
+            />
 
-        <!-- حقل الإيميل (مع حد خارجي أزرق) -->
+        <EditText
+            android:id="@+id/nameField"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:background="@drawable/input_outline"
+            android:drawablePadding="8dp"
+            android:drawableStart="@drawable/ic_user"
+            android:hint="@string/hint_name"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:autofillHints="username"
+            android:layout_marginBottom="16dp"/>
+        <!-- حقل البريد الإلكتروني -->
         <EditText
             android:id="@+id/emailField"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="32dp"
-            android:drawablePadding="8dp"
-            android:drawableStart="@drawable/ic_email"
-            android:hint="البريد الالكتروني"
+            android:hint="البريد الإلكتروني"
             android:inputType="textEmailAddress"
-            android:background="@drawable/input_outline"
-            android:paddingHorizontal="16dp" />
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="8dp"
+            android:background="@drawable/input_fill"
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="16dp"/>
 
         <!-- حقل كلمة المرور -->
         <EditText
             android:id="@+id/passwordField"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:hint="كلمه المرور"
+            android:hint="كلمة المرور"
+            android:inputType="textPassword"
             android:drawableStart="@drawable/ic_password"
             android:drawableEnd="@drawable/ic_eye_off"
             android:drawablePadding="8dp"
-            android:inputType="textPassword"
             android:background="@drawable/input_fill"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:autofillHints="password"/>
 
         <!-- حقل تأكيد كلمة المرور -->
-        <EditText
-            android:id="@+id/confirmPasswordField"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="16dp"
-            android:hint="تأكيد كلمة المرور"
-            android:drawableStart="@drawable/ic_password"
-            android:drawableEnd="@drawable/ic_eye_off"
-            android:drawablePadding="8dp"
-            android:inputType="textPassword"
-            android:background="@drawable/input_fill"
-            android:paddingHorizontal="16dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <!-- زر التسجيل -->
+            <CheckBox
+                android:id="@+id/cbAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/colorSubText"/>
+
+            <TextView
+                android:id="@+id/tvAgreeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_standard"
+                android:text="@string/agree_text"
+                android:textColor="@android:color/black"/>
+        </LinearLayout>
+
+        <!-- زر إنشاء الحساب -->
         <Button
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_marginTop="24dp"
-            android:text="أنشاء حساب"
+            android:text="إنشاء حساب"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textStyle="bold"
             android:backgroundTint="@color/blue"
-            android:padding="8dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Already have an account -->
+        <!-- رابط: هل لديك حساب بالفعل؟ -->
         <TextView
             android:id="@+id/alreadyAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="هل لديك حساب بالفعل؟"
             android:textColor="#000000"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textAlignment="viewStart"/>
+            android:layout_marginBottom="24dp"/>
 
-        <!-- Or continue with -->
+        <!-- نص “أو الاستمرار مع” -->
         <TextView
             android:id="@+id/orContinueWith"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="أو الاستمرار مع"
             android:textColor="#1976D2"
             android:textSize="14sp"
-            android:textAlignment="center"/>
-        <!-- Hidden space of 16dp -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
+            android:textAlignment="center"
+            android:layout_marginBottom="16dp"/>
+
         <!-- أيقونات التواصل الاجتماعي -->
         <LinearLayout
-            android:id="@+id/socialIcons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginTop="12dp">
+            android:layout_marginBottom="24dp">
 
             <ImageView
+                android:id="@+id/ivGoogleSignIn"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_google"
                 android:layout_marginEnd="16dp"/>
 
             <ImageView
+                android:id="@+id/ivFacebookSignIn"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/ic_facebook"
                 android:layout_marginEnd="16dp"/>
 
             <ImageView
+                android:id="@+id/ivAppleSignIn"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/apple"/>
         </LinearLayout>
 
-    </LinearLayout>
+        <!-- مؤشر التحميل -->
+        <ProgressBar
+            android:id="@+id/progressAuth"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_marginBottom="24dp"/>
 
+    </LinearLayout>
 </ScrollView>

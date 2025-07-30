@@ -1,95 +1,190 @@
+// LoginActivity.java
 package com.eyadalalimi.car.obd2.ui.auth;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.View;
+import android.view.WindowInsetsController;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.eyadalalimi.car.obd2.R;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.ui.home.HomeActivity;
+import com.eyadalalimi.car.obd2.ui.auth.ForgotPasswordActivity;
+import com.eyadalalimi.car.obd2.ui.auth.RegisterActivity;
 import com.eyadalalimi.car.obd2.viewmodel.AuthViewModel;
 
 public class LoginActivity extends AppCompatActivity {
+
+    private static final int RC_SIGN_IN = 1001;
+
     private EditText etEmail, etPassword;
     private Button btnSignIn;
     private TextView tvForgot, tvCreateAccount;
+    private ImageView ivGoogleSignIn, ivFacebookSignIn, ivAppleSignIn;
+    private ProgressBar progressAuth;
     private AuthViewModel viewModel;
+    private GoogleSignInClient googleClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        hideSystemUI();
         initViews();
         initViewModel();
+        initGoogleSignIn();
         bindActions();
     }
 
+    private void hideSystemUI() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getWindow().setDecorFitsSystemWindows(false);
+            getWindow().getInsetsController().hide(
+                    android.view.WindowInsets.Type.statusBars()
+                            | android.view.WindowInsets.Type.navigationBars()
+            );
+            getWindow().getInsetsController().setSystemBarsBehavior(
+                    WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            );
+        } else {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_IMMERSIVE
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+        }
+    }
+
     private void initViews() {
-        etEmail          = findViewById(R.id.emailField);
-        etPassword       = findViewById(R.id.passwordField);
-        btnSignIn        = findViewById(R.id.signInButton);
-        tvForgot         = findViewById(R.id.forgotPassword);
-        tvCreateAccount  = findViewById(R.id.createAccount);
+        etEmail         = findViewById(R.id.emailField);
+        etPassword      = findViewById(R.id.passwordField);
+        btnSignIn       = findViewById(R.id.signInButton);
+        tvForgot        = findViewById(R.id.forgotPassword);
+        tvCreateAccount = findViewById(R.id.createAccount);
+        ivGoogleSignIn  = findViewById(R.id.ivGoogleSignIn);
+        ivFacebookSignIn= findViewById(R.id.ivFacebookSignIn);
+        ivAppleSignIn   = findViewById(R.id.ivAppleSignIn);
+        progressAuth    = findViewById(R.id.progressAuth);
     }
 
     private void initViewModel() {
-        viewModel = new ViewModelProvider(
-                this,
+        viewModel = new ViewModelProvider(this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
         ).get(AuthViewModel.class);
 
         viewModel.getLoginResult().observe(this, result -> {
+            setLoading(false);
             if (result == null) {
-                toast(R.string.login_failed);
-                btnSignIn.setEnabled(true);
+                showToast(R.string.login_failed);
                 return;
             }
             if (result.isOk() && result.getToken() != null) {
                 saveLogin(result.getToken());
                 navigateHome();
             } else {
-                toast(result.getMessage());
-                btnSignIn.setEnabled(true);
+                showToast(result.getMessage());
+            }
+        });
+
+        viewModel.getGoogleLoginResult().observe(this, result -> {
+            setLoading(false);
+            if (result == null) {
+                showToast(R.string.login_failed);
+                return;
+            }
+            if (result.isOk() && result.getToken() != null) {
+                saveLogin(result.getToken());
+                navigateHome();
+            } else {
+                showToast(result.getMessage());
             }
         });
     }
 
+    private void initGoogleSignIn() {
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(
+                GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .requestIdToken(getString(R.string.server_client_id))
+                .build();
+        googleClient = GoogleSignIn.getClient(this, gso);
+    }
+
     private void bindActions() {
-        btnSignIn.setOnClickListener(v -> attemptLogin());
+        btnSignIn.setOnClickListener(v -> loginWithEmail());
+
         tvForgot.setOnClickListener(v ->
                 startActivity(new Intent(this, ForgotPasswordActivity.class))
         );
         tvCreateAccount.setOnClickListener(v ->
                 startActivity(new Intent(this, RegisterActivity.class))
         );
+
+        ivGoogleSignIn.setOnClickListener(v ->
+                startActivityForResult(googleClient.getSignInIntent(), RC_SIGN_IN)
+        );
+        ivFacebookSignIn.setOnClickListener(v ->
+                Toast.makeText(this, "Facebook sign-in غير متوفر", Toast.LENGTH_SHORT).show()
+        );
+        ivAppleSignIn.setOnClickListener(v ->
+                Toast.makeText(this, "Apple sign-in غير متوفر", Toast.LENGTH_SHORT).show()
+        );
     }
 
-    private void attemptLogin() {
+    private void loginWithEmail() {
         String email = etEmail.getText().toString().trim();
         String pass  = etPassword.getText().toString().trim();
+        if (!validate(email, pass)) return;
 
+        setLoading(true);
+        viewModel.login(email, pass);
+    }
+
+    private boolean validate(String email, String pass) {
         if (email.isEmpty() || pass.isEmpty()) {
-            toast(R.string.err_fill_all);
-            return;
+            showToast(R.string.err_fill_all);
+            return false;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError(getString(R.string.err_invalid_email));
-            return;
+            return false;
         }
         if (pass.length() < 6) {
             etPassword.setError(getString(R.string.err_invalid_pass));
-            return;
+            return false;
         }
+        return true;
+    }
 
-        btnSignIn.setEnabled(false);
-        viewModel.login(email, pass);
+    private void setLoading(boolean loading) {
+        progressAuth.setVisibility(loading ? View.VISIBLE : View.GONE);
+        btnSignIn.setEnabled(!loading);
+        ivGoogleSignIn.setEnabled(!loading);
+        ivFacebookSignIn.setEnabled(!loading);
+        ivAppleSignIn.setEnabled(!loading);
     }
 
     private void saveLogin(String token) {
@@ -107,10 +202,29 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void toast(int resId) {
-        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
-    }
-    private void toast(String msg) {
+    private void showToast(int resId) {
+        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();    }
+
+    private void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task =
+                    GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                GoogleSignInAccount acct = task.getResult(ApiException.class);
+                if (acct != null) {
+                    setLoading(true);
+                    viewModel.loginWithGoogle(acct.getIdToken());
+                }
+            } catch (ApiException e) {
+                setLoading(false);
+                showToast(R.string.google_signin_failed);
+            }
+        }
     }
 }
