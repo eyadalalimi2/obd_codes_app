@@ -19,7 +19,7 @@ public class App extends Application {
 
         // OneSignal
         OneSignal.initWithContext(this);
-        OneSignal.setAppId(getString(R.string.todo));
+        OneSignal.setAppId(getString(R.string.onesignal_app_id));
 
         // Firebase
         FirebaseAnalytics.getInstance(this);
