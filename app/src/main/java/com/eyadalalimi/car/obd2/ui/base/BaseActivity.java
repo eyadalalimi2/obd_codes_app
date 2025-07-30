@@ -310,7 +310,6 @@ public abstract class BaseActivity extends AppCompatActivity
         }
         return 0;
     }
-
     protected int getCurrentBottomNavItemId() {
         if (this instanceof HomeActivity) {
             return R.id.nav_home;
