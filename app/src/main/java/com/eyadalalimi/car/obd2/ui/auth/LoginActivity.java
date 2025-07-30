@@ -81,12 +81,12 @@ public class LoginActivity extends AppCompatActivity {
     private void initViews() {
         etEmail         = findViewById(R.id.emailField);
         etPassword      = findViewById(R.id.passwordField);
-        btnSignIn       = findViewById(R.id.signInButton);
-        tvForgot        = findViewById(R.id.forgotPassword);
-        tvCreateAccount = findViewById(R.id.createAccount);
-        ivGoogleSignIn  = findViewById(R.id.ivGoogleSignIn);
-        ivFacebookSignIn= findViewById(R.id.ivFacebookSignIn);
-        ivAppleSignIn   = findViewById(R.id.ivAppleSignIn);
+        btnSignIn       = findViewById(R.id.btnLogin);
+        tvForgot        = findViewById(R.id.tvForgot);
+        tvCreateAccount = findViewById(R.id.tvCreateAccount);
+        ivGoogleSignIn  = findViewById(R.id.ivGoogleLogin);
+        ivFacebookSignIn= findViewById(R.id.ivFacebookLogin);
+        ivAppleSignIn   = findViewById(R.id.ivAppleLogin);
         progressAuth    = findViewById(R.id.progressAuth);
     }
 

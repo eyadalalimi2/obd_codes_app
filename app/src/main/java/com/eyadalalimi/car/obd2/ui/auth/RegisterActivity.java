@@ -80,11 +80,11 @@ public class RegisterActivity extends AppCompatActivity {
         etEmail          = findViewById(R.id.emailField);
         etPassword       = findViewById(R.id.passwordField);
         etConfirm        = findViewById(R.id.nameField);
-        btnSignUp        = findViewById(R.id.signUpButton);
-        tvAlreadyAccount = findViewById(R.id.alreadyAccount);
-        ivGoogleSignIn   = findViewById(R.id.ivGoogleSignIn);
-        ivFacebookSignIn = findViewById(R.id.ivFacebookSignIn);
-        ivAppleSignIn    = findViewById(R.id.ivAppleSignIn);
+        btnSignUp        = findViewById(R.id.btnRegister);
+        tvAlreadyAccount = findViewById(R.id.tvHaveAccount);
+        ivGoogleSignIn   = findViewById(R.id.ivGoogleReg);
+        ivFacebookSignIn = findViewById(R.id.ivFacebookReg);
+        ivAppleSignIn    = findViewById(R.id.ivAppleReg);
         progressAuth     = findViewById(R.id.progressAuth);
     }
 
