@@ -1,110 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
-   >
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@drawable/screen">
+
+    <!-- Illustration -->
     <ImageView
-    android:id="@+id/illustration_image"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="1"
-    android:contentDescription="@string/todo"
-    android:scaleType="fitCenter"
-    android:src="@drawable/welcome_image"
-    android:adjustViewBounds="true"
-    android:paddingTop="50dp"
-    android:paddingBottom="20dp" />
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/welcome_image"
+        android:contentDescription="Illustration"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Title with line break and blue color -->
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:paddingBottom="40dp">
-
-        <TextView
-            android:id="@+id/discover_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/discover_your"
-            android:textColor="#3F51B5"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center" />
-
-        <TextView
-            android:id="@+id/dream_job_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dream_job_here"
-            android:textColor="#3F51B5"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_marginBottom="15dp" />
-
-        <TextView
-            android:id="@+id/description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/description_text"
-            android:textColor="#757575"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:lineSpacingExtra="4dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        style="?android:attr/buttonBarStyle"
-        android:layout_width="match_parent"
+        android:text="مرحبا بك في تطبيق"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1976D2"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:text="OBD Code"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1976D2"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"/>
+
+    <!-- Description (unchanged) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="63dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:paddingBottom="50dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="قم بفحص سيارتك الان واكتشف جميع الاعطل مع طرق اصلاحها بدقه"
+        android:textColor="#666666"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Buttons row -->
+    <LinearLayout
+        android:layout_width="411dp"
+        android:layout_height="87dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/login_button"
-            android:layout_width="0dp"
+            android:id="@+id/loginButton"
+            android:layout_width="164dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/btn_login"
-            android:textColor="@android:color/white"
-            android:background="@drawable/rounded_button"
-            android:minHeight="50dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#1740CE"
+            android:text="تسجيل الدخول"
+            android:textStyle="bold"
             android:textAllCaps="false"
-            android:textSize="18sp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            tools:ignore="ButtonStyle" />
-
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/btn_create_account"
-            android:textColor="#3F51B5"
-            android:background="@android:color/transparent"
-            android:minHeight="50dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
+            android:textColor="#FFFFFF" />
+        <!-- Hidden space of 16dp -->
+        <Space
+            android:layout_width="16dp"
+            android:layout_height="match_parent" />
+        <!-- Register as plain text -->
+        <TextView
+            android:id="@+id/registerButton"
+            android:layout_width="144dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="30dp"
+            android:text="أنشاء حساب"
+            android:textStyle="bold"
             android:textAllCaps="false"
-            android:textSize="18sp"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            tools:ignore="ButtonStyle"/>
-
+            android:textColor="#000000" />
     </LinearLayout>
-
 </LinearLayout>
