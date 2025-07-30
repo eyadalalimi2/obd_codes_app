@@ -79,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void initViews() {
         etEmail          = findViewById(R.id.emailField);
         etPassword       = findViewById(R.id.passwordField);
-        etConfirm        = findViewById(R.id.nameField);
+        etConfirm        = findViewById(R.id.etRegUsername);
         btnSignUp        = findViewById(R.id.btnRegister);
         tvAlreadyAccount = findViewById(R.id.tvHaveAccount);
         ivGoogleSignIn   = findViewById(R.id.ivGoogleReg);

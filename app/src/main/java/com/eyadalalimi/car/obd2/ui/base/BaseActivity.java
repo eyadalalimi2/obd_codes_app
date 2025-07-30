@@ -307,10 +307,6 @@ public abstract class BaseActivity extends AppCompatActivity
             return R.id.nav_settings;
         } else if (this instanceof OfflineModeActivity) {
             return R.id.nav_offline;
-        } else if (this instanceof PlansActivity) {
-            return R.id.nav_plans;
-        } else if (this instanceof SubscriptionStatusActivity) {
-            return R.id.nav_subscription_status;
         }
         return 0;
     }
@@ -392,12 +388,6 @@ public abstract class BaseActivity extends AppCompatActivity
             intent = new Intent(this, SettingsActivity.class);
         } else if (id == R.id.nav_offline) {
             intent = new Intent(this, OfflineModeActivity.class);
-        } else if (id == R.id.nav_subscription_status) {
-            intent = new Intent(this, SubscriptionStatusActivity.class);
-        } else if (id == R.id.nav_plans) {
-            intent = new Intent(this, PlansActivity.class);
-        } else if (id == R.id.nav_cars) {
-            intent = new Intent(this, CarListActivity.class);
         }
 
         if (intent != null) {

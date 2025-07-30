@@ -45,7 +45,7 @@ public class AuthActivity extends AppCompatActivity {
     private ProgressBar progressLogin;
 
     // register views
-    private EditText etRegEmail, etRegPassword, etRegConfirm;
+    private EditText etRegUsername, etRegEmail, etRegPassword, etRegConfirm;
     private Button btnRegister;
     private TextView tvHaveAccount;
     private ImageView ivGoogleReg, ivFacebookReg, ivAppleReg;
@@ -137,6 +137,7 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void bindRegisterViews() {
+        etRegUsername    = findViewById(R.id.etRegUsername);
         etRegEmail       = findViewById(R.id.etRegEmail);
         etRegPassword    = findViewById(R.id.etRegPassword);
         etRegConfirm     = findViewById(R.id.etRegConfirm);
@@ -217,12 +218,13 @@ public class AuthActivity extends AppCompatActivity {
             showToast("يُرجى تعطيل VPN ثم المحاولة مرة أخرى.");
             return;
         }
+        String username = etRegUsername.getText().toString().trim();
         String email = etRegEmail.getText().toString().trim();
         String pass  = etRegPassword.getText().toString().trim();
         String conf  = etRegConfirm.getText().toString().trim();
         if (!validate(email, pass, conf)) return;
         setLoading(true);
-        viewModel.register(/* username= */"", email, pass);
+        viewModel.register(username, email, pass);
     }
 
     private boolean validate(String email, String pass) {
