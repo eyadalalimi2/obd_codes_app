@@ -427,29 +427,7 @@
     <string name="cd_title_brand_id">Brand ID</string>
     <string name="cd_title_severity">Severity</string>
     <string name="cd_title_title">Title</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <string name="err_pass_mismatch">كلمه المرور غير متطابقه</string>
 
 
 </resources>

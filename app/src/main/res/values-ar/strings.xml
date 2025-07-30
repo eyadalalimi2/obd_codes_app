@@ -474,27 +474,7 @@
     <string name="shared_successfully">تمت المشاركة بنجاح</string>
     <string name="pdf_generated">تم إنشاء ملف PDF</string>
     <string name="cd_image_desc">مخطط الكود</string>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <string name="err_pass_mismatch">كلمه المرور غير متطابقه</string>
 
 
 </resources>
