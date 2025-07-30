@@ -1,152 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-        <ScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/screen">
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/screen">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp"
-                android:gravity="center_horizontal">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
 
-                <!-- عنوان -->
-                <TextView
-                    android:id="@+id/createAccountTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="تسجيل الدخول"
-                    android:textColor="@color/blue"
-                    android:textSize="28sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="32dp"/>
+    <TextView
+        android:id="@+id/tvLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_title"
+        android:textColor="@color/blue"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginTop="32dp"/>
+    <!-- نص الترحيب -->
+    <TextView
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="مرحبًا بك مرة أخرى، لقد افتقدناك!"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+    <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-                <!-- نص الترحيب -->
-                <TextView
-                    android:id="@+id/welcomeText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="مرحبًا بك مرة أخرى، لقد افتقدناك!"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="8dp"/>
+    <EditText
+        android:id="@+id/emailField"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="8dp"
+        android:background="@drawable/input_outline"
+        android:paddingHorizontal="16dp"/>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="16dp"/>
+    <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-                <!-- بريد الإلكتروني -->
-                <EditText
-                    android:id="@+id/emailField"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="البريد الإلكتروني"
-                    android:inputType="textEmailAddress"
-                    android:drawableStart="@drawable/ic_email"
-                    android:drawablePadding="8dp"
-                    android:background="@drawable/input_outline"
-                    android:paddingHorizontal="16dp"
-                    android:layout_marginBottom="16dp"/>
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/ic_password"
+        android:drawableEnd="@drawable/ic_eye_off"
+        android:drawablePadding="8dp"
+        android:background="@drawable/input_fill"
+        android:paddingHorizontal="16dp"/>
 
-                <!-- كلمة المرور -->
-                <EditText
-                    android:id="@+id/passwordField"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:hint="كلمة المرور"
-                    android:inputType="textPassword"
-                    android:drawableStart="@drawable/ic_password"
-                    android:drawableEnd="@drawable/ic_eye_off"
-                    android:drawablePadding="8dp"
-                    android:background="@drawable/input_fill"
-                    android:paddingHorizontal="16dp"
-                    android:layout_marginBottom="16dp"/>
+    <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-                <View android:layout_width="match_parent" android:layout_height="16dp"/>
+    <TextView
+        android:id="@+id/tvForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/forgot_password"
+        android:textColor="@color/blue"
+        android:layout_gravity="start"/>
 
-                <!-- نسيت كلمة المرور -->
-                <TextView
-                    android:id="@+id/forgotPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="هل نسيت كلمة المرور؟"
-                    android:textColor="@color/blue"
-                    android:textSize="14sp"
-                    android:layout_gravity="start"
-                    android:layout_marginBottom="24dp"/>
+    <View android:layout_width="match_parent" android:layout_height="24dp"/>
 
-                <!-- زر تسجيل الدخول -->
-                <Button
-                    android:id="@+id/signInButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:text="تسجيل الدخول"
-                    android:textAllCaps="false"
-                    android:backgroundTint="@color/blue"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginBottom="16dp"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/btn_login"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/blue"
+        android:textColor="#FFF"/>
 
-                <!-- إنشاء حساب جديد -->
-                <TextView
-                    android:id="@+id/createAccount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="إنشاء حساب جديد"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="32dp"/>
+    <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-                <!-- أو الاستمرار مع -->
-                <TextView
-                    android:id="@+id/orContinueWith"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="أو الاستمرار مع"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp"
-                    android:layout_marginBottom="16dp"/>
+    <TextView
+        android:id="@+id/tvCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_create_account"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
 
-                <!-- أيقونات التواصل الاجتماعي -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginBottom="24dp">
+    <View android:layout_width="match_parent" android:layout_height="32dp"/>
 
-                    <ImageView
-                        android:id="@+id/ivGoogleSignIn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_google"
-                        android:layout_marginEnd="16dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/or_continue_with"
+        android:textColor="@color/gray"/>
 
-                    <ImageView
-                        android:id="@+id/ivFacebookSignIn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/ic_facebook"
-                        android:layout_marginEnd="16dp"/>
+    <View android:layout_width="match_parent" android:layout_height="16dp"/>
 
-                    <ImageView
-                        android:id="@+id/ivAppleSignIn"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:src="@drawable/apple"/>
-                </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
 
-                <!-- مؤشر التحميل -->
-                <ProgressBar
-                    android:id="@+id/progressAuth"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_marginBottom="24dp"/>
+        <ImageView
+            android:id="@+id/ivGoogleLogin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_google"
+            android:layout_marginEnd="16dp"/>
+        <ImageView
+            android:id="@+id/ivFacebookLogin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_facebook"
+            android:layout_marginEnd="16dp"/>
+        <ImageView
+            android:id="@+id/ivAppleLogin"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/apple"/>
+    </LinearLayout>
 
-            </LinearLayout>
-        </ScrollView>
+    <View android:layout_width="match_parent" android:layout_height="24dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressAuth"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
+
+</LinearLayout>
+</ScrollView>
