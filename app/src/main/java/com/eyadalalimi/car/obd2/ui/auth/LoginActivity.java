@@ -15,10 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -33,9 +37,14 @@ import com.eyadalalimi.car.obd2.ui.auth.ForgotPasswordActivity;
 import com.eyadalalimi.car.obd2.ui.auth.RegisterActivity;
 import com.eyadalalimi.car.obd2.viewmodel.AuthViewModel;
 
-public class LoginActivity extends AppCompatActivity {
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 
-    private static final int RC_SIGN_IN = 1001;
+/**
+ * شاشة تسجيل الدخول بحساب البريد الإلكتروني أو Google.
+ * تم تحديث هذه النسخة لاستخدام EncryptedSharedPreferences وActivityResultLauncher.
+ */
+public class LoginActivity extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnSignIn;
@@ -45,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     private AuthViewModel viewModel;
     private GoogleSignInClient googleClient;
 
+    private ActivityResultLauncher<Intent> googleSignInLauncher;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +64,7 @@ public class LoginActivity extends AppCompatActivity {
         initViews();
         initViewModel();
         initGoogleSignIn();
+        initActivityResultLauncher();
         bindActions();
     }
 
@@ -133,6 +145,27 @@ public class LoginActivity extends AppCompatActivity {
         googleClient = GoogleSignIn.getClient(this, gso);
     }
 
+    /** إعداد ActivityResultLauncher لمعالجة نتيجة تسجيل الدخول عبر Google. */
+    private void initActivityResultLauncher() {
+        googleSignInLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                        try {
+                            GoogleSignInAccount account = task.getResult(ApiException.class);
+                            if (account != null) {
+                                setLoading(true);
+                                viewModel.loginWithGoogle(account.getIdToken());
+                            }
+                        } catch (ApiException e) {
+                            setLoading(false);
+                            showToast(R.string.google_signin_failed);
+                        }
+                    }
+                });
+    }
+
     private void bindActions() {
         btnSignIn.setOnClickListener(v -> loginWithEmail());
 
@@ -144,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
         );
 
         ivGoogleSignIn.setOnClickListener(v ->
-                startActivityForResult(googleClient.getSignInIntent(), RC_SIGN_IN)
+                googleSignInLauncher.launch(googleClient.getSignInIntent())
         );
         ivFacebookSignIn.setOnClickListener(v ->
                 Toast.makeText(this, "Facebook sign-in غير متوفر", Toast.LENGTH_SHORT).show()
@@ -187,13 +220,32 @@ public class LoginActivity extends AppCompatActivity {
         ivAppleSignIn.setEnabled(!loading);
     }
 
+    /**
+     * حفظ التوكن في تفضيلات مشفرة بشكل آمن ثم إعادة تهيئة عميل الشبكة.
+     */
     private void saveLogin(String token) {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        prefs.edit()
-                .putString("auth_token", token)
-                .putBoolean("is_logged_in", true)
-                .apply();
+        try {
+            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+            SharedPreferences securePrefs = EncryptedSharedPreferences.create(
+                    "secure_prefs",
+                    masterKeyAlias,
+                    this,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            );
+            securePrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        } catch (GeneralSecurityException | IOException e) {
+            // إذا فشل التخزين المشفر، استخدم التفضيلات الافتراضية كحل احتياطي.
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        }
+        // إعادة تهيئة عميل الشبكة بعد حفظ التوكن.
         ApiClient.reset();
     }
 
@@ -203,28 +255,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showToast(int resId) {
-        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();    }
+        Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+    }
 
     private void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task =
-                    GoogleSignIn.getSignedInAccountFromIntent(data);
-            try {
-                GoogleSignInAccount acct = task.getResult(ApiException.class);
-                if (acct != null) {
-                    setLoading(true);
-                    viewModel.loginWithGoogle(acct.getIdToken());
-                }
-            } catch (ApiException e) {
-                setLoading(false);
-                showToast(R.string.google_signin_failed);
-            }
-        }
     }
 }

@@ -480,6 +480,7 @@
     <string name="tv__have_account">هل لديك حساب من قبل ؟ اضغط هنا</string>
     <string name="btn_sign_up">أنشاء حساب</string>
     <string name="register_subtitle">قم بإنشاء حساب حتى تتمكن من استكشاف جميع الوظائف الموجودة</string>
+    <string name="code_invalid_format">الرجاء إدخال كود بصيغة صحيحة (مثل P0420)</string>
 
 
 </resources>
