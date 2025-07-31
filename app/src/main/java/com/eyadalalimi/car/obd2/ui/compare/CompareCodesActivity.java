@@ -22,12 +22,17 @@ import com.eyadalalimi.car.obd2.ui.base.BaseActivity;
 import com.eyadalalimi.car.obd2.util.SubscriptionUtils;
 import com.eyadalalimi.car.obd2.viewmodel.CompareViewModel;
 
+import java.util.regex.Pattern;
+
 public class CompareCodesActivity extends BaseActivity {
     private AutoCompleteTextView et1, et2;
 
     private View card1, card2;
     private CompareViewModel vm;
     private View scrollCards;
+
+    /** نمط التحقق من صحة كود OBD (حرف P/C/B/U متبوع بـ4 أرقام) */
+    private static final Pattern CODE_PATTERN = Pattern.compile("^[PCBU][0-9]{4}$", Pattern.CASE_INSENSITIVE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,8 +84,9 @@ public class CompareCodesActivity extends BaseActivity {
         String code1 = et1.getText() != null ? et1.getText().toString().trim() : "";
         String code2 = et2.getText() != null ? et2.getText().toString().trim() : "";
 
-        if (TextUtils.isEmpty(code1) || TextUtils.isEmpty(code2)) {
-            Toast.makeText(this, R.string.invalid_selection, Toast.LENGTH_SHORT).show();
+        // التحقق من صحة الكودين وفق النمط المحدد
+        if (!isValidCode(code1) || !isValidCode(code2)) {
+            Toast.makeText(this, R.string.code_invalid_format, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -99,6 +105,11 @@ public class CompareCodesActivity extends BaseActivity {
                 bindCard(card2, c2);
             });
         });
+    }
+
+    /** التحقق من صحة الكود */
+    private boolean isValidCode(String code) {
+        return !TextUtils.isEmpty(code) && CODE_PATTERN.matcher(code).matches();
     }
 
     @Override

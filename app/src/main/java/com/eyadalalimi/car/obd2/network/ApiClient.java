@@ -2,8 +2,13 @@ package com.eyadalalimi.car.obd2.network;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import androidx.preference.PreferenceManager;
 
+import androidx.preference.PreferenceManager;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -12,15 +17,16 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * عميل Retrofit لإدارة الاتصالات بالشبكة.
+ * يقرأ التوكن بأمان من تفضيلات مشفرة ويقلل مستوى السجلات إلى BASIC لحماية البيانات الحساسة.
+ */
 public class ApiClient {
-    private static String currentToken = null;
+    private static Retrofit retrofit;
     private static final String BASE_URL = "https://obdcodehub.com/api/";
     public static final String IMAGE_BASE_URL = "https://obdcodehub.com/storage/";
 
-    // لا نخزن الـ Retrofit نهائيًا ـ نجعلها تتجدد
-    private static Retrofit retrofit;
-
-    /** إذا أردنا إجبار إعادة بناء client (بعد حفظ توكن جديد) */
+    /** إعادة تهيئة Retrofit عند تحديث التوكن أو تغيير الإعدادات. */
     public static void reset() {
         retrofit = null;
     }
@@ -28,7 +34,8 @@ public class ApiClient {
     public static Retrofit getInstance(Context context) {
         if (retrofit == null) {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+            // استخدم المستوى BASIC لتسجيل الطلبات بطريقة مختصرة وآمنة
+            logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
 
             OkHttpClient client = new OkHttpClient.Builder()
                     .addInterceptor(logging)
@@ -36,12 +43,9 @@ public class ApiClient {
                     .readTimeout(30, TimeUnit.SECONDS)
                     .addInterceptor(chain -> {
                         Request original = chain.request();
-                        SharedPreferences prefs =
-                                PreferenceManager.getDefaultSharedPreferences(context);
-                        String token = prefs.getString("auth_token", null);
-
                         Request.Builder builder = original.newBuilder()
                                 .header("Accept", "application/json");
+                        String token = loadToken(context);
                         if (token != null) {
                             builder.header("Authorization", "Bearer " + token);
                         }
@@ -61,37 +65,25 @@ public class ApiClient {
     public static ApiService getApiService(Context context) {
         return getInstance(context).create(ApiService.class);
     }
-    public static void resetWithToken(String token) {
-        currentToken = token;
 
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request original = chain.request();
-                    Request.Builder builder = original.newBuilder()
-                            .header("Accept", "application/json");
-
-                    // إذا وُجد توكن نضيفه
-                    if (currentToken != null) {
-                        builder.header("Authorization", "Bearer " + currentToken);
-                    }
-
-                    Request request = builder.build();
-                    return chain.proceed(request);
-                })
-                .build();
-
-        retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-    public static Retrofit getClient() {
-        if (retrofit == null) {
-            resetWithToken(null); // بدون توكن
+    /**
+     * تحميل التوكن من EncryptedSharedPreferences إن أمكن، وإلا العودة إلى SharedPreferences الاعتيادية.
+     */
+    private static String loadToken(Context context) {
+        try {
+            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+            SharedPreferences securePrefs = EncryptedSharedPreferences.create(
+                    "secure_prefs",
+                    masterKeyAlias,
+                    context,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            );
+            return securePrefs.getString("auth_token", null);
+        } catch (GeneralSecurityException | IOException e) {
+            // في حال فشل القراءة من التفضيلات المشفرة، استخدم التفضيلات الافتراضية
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            return prefs.getString("auth_token", null);
         }
-        return retrofit;
     }
-
-
 }

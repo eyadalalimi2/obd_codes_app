@@ -1,21 +1,31 @@
 package com.eyadalalimi.car.obd2.ui.offline;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
+
 import com.eyadalalimi.car.obd2.R;
 import com.eyadalalimi.car.obd2.sync.SyncManager;
 import com.eyadalalimi.car.obd2.ui.base.BaseActivity;
 import com.eyadalalimi.car.obd2.util.SubscriptionUtils;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+/**
+ * واجهة وضع عدم الاتصال بعد تحديثها للتخلي عن ProgressDialog واستخدام ProgressBar للمزامنة.
+ */
 public class OfflineModeActivity extends BaseActivity {
 
     private Switch switchOffline;
@@ -24,14 +34,12 @@ public class OfflineModeActivity extends BaseActivity {
     private Button btnDownload, btnViewOfflineCodes;
     private SharedPreferences prefs;
     private boolean offlineEnabled;
-    private ProgressDialog progressDialog;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SubscriptionUtils.checkFeatureAccess(
-                this, "OFFLINE_MODE", this::initOfflineUI
-        );
+        SubscriptionUtils.checkFeatureAccess(this, "OFFLINE_MODE", this::initOfflineUI);
     }
 
     private void initOfflineUI() {
@@ -46,6 +54,7 @@ public class OfflineModeActivity extends BaseActivity {
             tvLastSync          = findViewById(R.id.tvLastSync);
             btnDownload         = findViewById(R.id.btnDownloadData);
             btnViewOfflineCodes = findViewById(R.id.btnViewOfflineCodes);
+            progressBar         = findViewById(R.id.progressBarOffline); // تأكد من وجود ProgressBar في التخطيط
 
             // استرجاع الحالة والتاريخ
             offlineEnabled = prefs.getBoolean("offline_enabled", false);
@@ -63,46 +72,30 @@ public class OfflineModeActivity extends BaseActivity {
 
             btnDownload.setOnClickListener(v -> {
                 if (!offlineEnabled) {
-                    Toast.makeText(
-                            this, R.string.enable_offline_first,
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    Toast.makeText(this, R.string.enable_offline_first, Toast.LENGTH_SHORT).show();
                     return;
                 }
-                // عرض ProgressDialog
-                progressDialog = new ProgressDialog(this);
-                progressDialog.setMessage(getString(R.string.downloading_codes));
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-
+                // إظهار ProgressBar والبدء في تحميل الأكواد
+                progressBar.setVisibility(ProgressBar.VISIBLE);
                 SyncManager.downloadCodes(this, new SyncManager.SyncCallback() {
                     @Override
                     public void onSuccess(int count) {
                         runOnUiThread(() -> {
-                            progressDialog.dismiss();
-                            String date = new SimpleDateFormat(
-                                    "yyyy-MM-dd", Locale.getDefault()
-                            ).format(new Date());
+                            progressBar.setVisibility(ProgressBar.GONE);
+                            String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                             prefs.edit().putString("last_sync_date", date).apply();
-                            tvLastSync.setText(
-                                    getString(R.string.last_synced_on, date)
-                            );
-                            Toast.makeText(
-                                    OfflineModeActivity.this,
+                            tvLastSync.setText(getString(R.string.last_synced_on, date));
+                            Toast.makeText(OfflineModeActivity.this,
                                     getString(R.string.codes_downloaded, count),
-                                    Toast.LENGTH_SHORT
-                            ).show();
+                                    Toast.LENGTH_SHORT).show();
                         });
                     }
 
                     @Override
                     public void onFailure(String error) {
                         runOnUiThread(() -> {
-                            progressDialog.dismiss();
-                            Toast.makeText(
-                                    OfflineModeActivity.this,
-                                    error, Toast.LENGTH_LONG
-                            ).show();
+                            progressBar.setVisibility(ProgressBar.GONE);
+                            Toast.makeText(OfflineModeActivity.this, error, Toast.LENGTH_LONG).show();
                         });
                     }
                 });
@@ -110,33 +103,18 @@ public class OfflineModeActivity extends BaseActivity {
 
             btnViewOfflineCodes.setOnClickListener(v -> {
                 if (offlineEnabled) {
-                    startActivity(new Intent(
-                            this, OfflineCodeListActivity.class
-                    ));
+                    startActivity(new Intent(this, OfflineCodeListActivity.class));
                 } else {
-                    Toast.makeText(
-                            this, R.string.enable_offline_first,
-                            Toast.LENGTH_SHORT
-                    ).show();
+                    Toast.makeText(this, R.string.enable_offline_first, Toast.LENGTH_SHORT).show();
                 }
             });
         });
     }
 
     private void updateStatusUI() {
-        int tint = offlineEnabled
-                ? R.color.accent
-                : R.color.text_secondary;
-        ivOfflineStatus.setImageTintList(
-                ContextCompat.getColorStateList(this, tint)
-        );
-        tvStatus.setText(
-                getString(
-                        offlineEnabled
-                                ? R.string.status_enabled
-                                : R.string.status_disabled
-                )
-        );
+        int tint = offlineEnabled ? R.color.accent : R.color.text_secondary;
+        ivOfflineStatus.setImageTintList(ContextCompat.getColorStateList(this, tint));
+        tvStatus.setText(getString(offlineEnabled ? R.string.status_enabled : R.string.status_disabled));
     }
 
     @Override

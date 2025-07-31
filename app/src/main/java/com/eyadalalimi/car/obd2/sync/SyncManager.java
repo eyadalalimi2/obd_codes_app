@@ -1,7 +1,8 @@
 package com.eyadalalimi.car.obd2.sync;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.eyadalalimi.car.obd2.local.AppDatabase;
 import com.eyadalalimi.car.obd2.local.dao.ObdCodeDao;
@@ -15,11 +16,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * مدير المزامنة يستخدم Thread Executor بدلاً من AsyncTask لمعالجة الحفظ في الخلفية.
+ */
 public class SyncManager {
 
     public interface SyncCallback {
@@ -36,75 +42,66 @@ public class SyncManager {
             public void onResponse(Call<List<ObdCode>> call, Response<List<ObdCode>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<ObdCode> codes = response.body();
-                    new SaveTask(context, codes, callback).execute();
+                    // استخدام ExecutorService لمعالجة الحفظ في الخلفية
+                    ExecutorService executor = Executors.newSingleThreadExecutor();
+                    executor.execute(() -> {
+                        AppDatabase db = AppDatabase.getInstance(context);
+                        ObdCodeDao dao = db.obdCodeDao();
+                        int updatedCount = 0;
+
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                        List<ObdCodeEntity> toInsert = new ArrayList<>();
+
+                        for (ObdCode remote : codes) {
+                            String localUpdated = dao.getUpdatedAtForCode(remote.getCode());
+
+                            boolean shouldInsert = false;
+                            if (localUpdated == null) {
+                                shouldInsert = true;
+                            } else {
+                                try {
+                                    long localTime = sdf.parse(localUpdated).getTime();
+                                    long remoteTime = sdf.parse(remote.getUpdatedAt()).getTime();
+                                    if (remoteTime > localTime) {
+                                        shouldInsert = true;
+                                    }
+                                } catch (ParseException e) {
+                                    shouldInsert = true;
+                                }
+                            }
+
+                            if (shouldInsert) {
+                                ObdCodeEntity entity = ObdCodeEntity.fromObdCode(remote);
+                                entity.updatedAt = remote.getUpdatedAt(); // مهم جدًا
+                                toInsert.add(entity);
+                                updatedCount++;
+                            }
+                        }
+
+                        if (!toInsert.isEmpty()) {
+                            dao.insertAll(toInsert);
+                        }
+
+                        int finalCount = updatedCount;
+                        // استدعاء الرد على واجهة المستخدم في الـ Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> callback.onSuccess(finalCount));
+                        executor.shutdown();
+                    });
                 } else {
-                    callback.onFailure("فشل في تحميل الأكواد من السيرفر");
+                    // في حالة عدم نجاح الاستجابة
+                    new Handler(Looper.getMainLooper()).post(
+                            () -> callback.onFailure("فشل في تحميل الأكواد من السيرفر")
+                    );
                 }
             }
 
             @Override
             public void onFailure(Call<List<ObdCode>> call, Throwable t) {
-                callback.onFailure("خطأ في الاتصال: " + t.getMessage());
+                // استدعاء الرد على واجهة المستخدم في الـ Main Thread
+                new Handler(Looper.getMainLooper()).post(
+                        () -> callback.onFailure("خطأ في الاتصال: " + t.getMessage())
+                );
             }
         });
-    }
-
-    private static class SaveTask extends AsyncTask<Void, Void, Integer> {
-        private final Context context;
-        private final List<ObdCode> remoteCodes;
-        private final SyncCallback callback;
-
-        public SaveTask(Context context, List<ObdCode> remoteCodes, SyncCallback callback) {
-            this.context = context;
-            this.remoteCodes = remoteCodes;
-            this.callback = callback;
-        }
-
-        @Override
-        protected Integer doInBackground(Void... voids) {
-            AppDatabase db = AppDatabase.getInstance(context);
-            ObdCodeDao dao = db.obdCodeDao();
-            int updatedCount = 0;
-
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-            List<ObdCodeEntity> toInsert = new ArrayList<>();
-
-            for (ObdCode remote : remoteCodes) {
-                String localUpdated = dao.getUpdatedAtForCode(remote.getCode());
-
-                boolean shouldInsert = false;
-                if (localUpdated == null) {
-                    shouldInsert = true;
-                } else {
-                    try {
-                        long localTime = sdf.parse(localUpdated).getTime();
-                        long remoteTime = sdf.parse(remote.getUpdatedAt()).getTime();
-                        if (remoteTime > localTime) {
-                            shouldInsert = true;
-                        }
-                    } catch (ParseException e) {
-                        shouldInsert = true;
-                    }
-                }
-
-                if (shouldInsert) {
-                    ObdCodeEntity entity = ObdCodeEntity.fromObdCode(remote);
-                    entity.updatedAt = remote.getUpdatedAt(); // مهم جدًا
-                    toInsert.add(entity);
-                    updatedCount++;
-                }
-            }
-
-            if (!toInsert.isEmpty()) {
-                dao.insertAll(toInsert);
-            }
-
-            return updatedCount;
-        }
-
-        @Override
-        protected void onPostExecute(Integer count) {
-            callback.onSuccess(count);
-        }
     }
 }
