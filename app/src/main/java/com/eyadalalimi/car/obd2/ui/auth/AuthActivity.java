@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -31,6 +33,12 @@ import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.ui.home.HomeActivity;
 import com.eyadalalimi.car.obd2.viewmodel.AuthViewModel;
 
+import java.io.IOException;
+
+/**
+ * شاشة تجمع بين تسجيل الدخول وتسجيل مستخدم جديد.
+ * تم تحديث طريقة saveLogin لتخزين التوكن في تفضيلات مشفرة وتفضيلات عادية.
+ */
 public class AuthActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1001;
@@ -162,7 +170,6 @@ public class AuthActivity extends AppCompatActivity {
         viewModel.getLoginResult().observe(this, result -> {
             setLoading(false);
             if (result == null) {
-                // استدعاء الصيغة الخاصة بالموارد (int)
                 showToast(R.string.login_failed);
                 return;
             }
@@ -170,11 +177,9 @@ public class AuthActivity extends AppCompatActivity {
                 saveLogin(result.getToken());
                 navigateHome();
             } else {
-                // استدعاء الصيغة الخاصة بالنصوص (String)
                 showToast(result.getMessage());
             }
         });
-
     }
 
     private void observeRegister() {
@@ -192,14 +197,11 @@ public class AuthActivity extends AppCompatActivity {
                 showToast(result.getMessage());
             }
         });
-
     }
+
     private boolean isProbablyUsingVpn() {
-        // طريقة مبسطة: يمكنك فحص الشبكات المثبتة أو IP العام إن توفر لك
-        // هنا سنجعل المستخدم يقرر بنفسه
-        return false; // أو true بناءً على فحصك
+        return false; // هنا يمكنك إضافة منطق فحص الشبكة
     }
-
 
     private void loginWithEmail() {
         if (isProbablyUsingVpn()) {
@@ -279,13 +281,38 @@ public class AuthActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * حفظ التوكن في تفضيلات مشفرة وتفضيلات عادية لإتاحة قراءته بسهولة في جميع أجزاء التطبيق.
+     */
     private void saveLogin(String token) {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        prefs.edit()
-                .putString("auth_token", token)
-                .putBoolean("is_logged_in", true)
-                .apply();
+        try {
+            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+            SharedPreferences securePrefs = EncryptedSharedPreferences.create(
+                    "secure_prefs",
+                    masterKeyAlias,
+                    this,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            );
+            securePrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+
+            // حفظ التوكن أيضاً في التفضيلات الافتراضية للرجوع إليها في حال فشل قراءة المشفر
+            SharedPreferences fallbackPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+            fallbackPrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        } catch (Exception e) {
+            // في حال حدوث استثناء أثناء التخزين المشفر، استخدم التفضيلات الافتراضية
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        }
         ApiClient.reset();
     }
 
@@ -297,10 +324,10 @@ public class AuthActivity extends AppCompatActivity {
     private void showToast(int res) {
         Toast.makeText(this, res, Toast.LENGTH_SHORT).show();
     }
+
     private void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     protected void onActivityResult(int req, int res, @Nullable Intent data) {
