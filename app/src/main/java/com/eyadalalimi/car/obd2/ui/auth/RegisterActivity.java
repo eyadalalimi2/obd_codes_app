@@ -19,6 +19,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -31,6 +33,13 @@ import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.ui.home.HomeActivity;
 import com.eyadalalimi.car.obd2.viewmodel.AuthViewModel;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
+/**
+ * شاشة تسجيل مستخدم جديد.
+ * تم تحديث طريقة saveLogin لتخزين التوكن في تفضيلات مشفرة وتفضيلات عادية ولتصحيح ربط حقل التأكيد.
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 1001;
@@ -79,7 +88,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void initViews() {
         etEmail          = findViewById(R.id.emailField);
         etPassword       = findViewById(R.id.passwordField);
-        etConfirm        = findViewById(R.id.etRegUsername);
+        etConfirm        = findViewById(R.id.etRegConfirm); // ربط صحيح لحقل تأكيد كلمة المرور
         btnSignUp        = findViewById(R.id.btnRegister);
         tvAlreadyAccount = findViewById(R.id.tvHaveAccount);
         ivGoogleSignIn   = findViewById(R.id.ivGoogleReg);
@@ -170,13 +179,38 @@ public class RegisterActivity extends AppCompatActivity {
         ivAppleSignIn   .setEnabled(!loading);
     }
 
+    /**
+     * حفظ التوكن في تفضيلات مشفرة وتفضيلات عادية لضمان قراءته من جميع أجزاء التطبيق.
+     */
     private void saveLogin(String token) {
-        SharedPreferences prefs = PreferenceManager
-                .getDefaultSharedPreferences(this);
-        prefs.edit()
-                .putString("auth_token", token)
-                .putBoolean("is_logged_in", true)
-                .apply();
+        try {
+            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+            SharedPreferences securePrefs = EncryptedSharedPreferences.create(
+                    "secure_prefs",
+                    masterKeyAlias,
+                    this,
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+            );
+            securePrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+
+            // حفظ نسخة في التفضيلات الافتراضية للتوافق
+            SharedPreferences fallbackPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+            fallbackPrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        } catch (GeneralSecurityException | IOException e) {
+            // في حالة فشل التخزين المشفر، استخدم التفضيلات الافتراضية
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+            prefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
+        }
         ApiClient.reset();
     }
 

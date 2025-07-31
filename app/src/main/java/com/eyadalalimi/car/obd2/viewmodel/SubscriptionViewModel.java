@@ -49,6 +49,7 @@ public class SubscriptionViewModel extends AndroidViewModel {
     }
 
     /** يجدد الاشتراك يدوياً */
+    // SubscriptionViewModel.java
     public void renewSubscription() {
         Subscription current = subscriptionLD.getValue();
         if (current == null) {
@@ -57,11 +58,11 @@ public class SubscriptionViewModel extends AndroidViewModel {
         }
 
         loadingLD.setValue(true);
-        // بناء الطلب وتمريره للمخزن
+        // استخدام ID الخطة و googleProductId بدلاً من id و endAt
         SubscriptionRequest req = new SubscriptionRequest(
-                current.getId(),
-                current.getEndAt(),
-                "google_play"
+                current.getPlan().getId(),       // plan_id الصحيح
+                current.getGoogleProductId(),     // purchase_token (محتوى التوكن من Google Play)
+                "google_play"                    // المنصة
         );
 
         repository.renewSubscription(req, new SubscriptionRepository.SubscriptionCallback() {
@@ -78,6 +79,7 @@ public class SubscriptionViewModel extends AndroidViewModel {
             }
         });
     }
+
 
     /** يلغي الاشتراك الحالي */
     public void cancelSubscription() {
