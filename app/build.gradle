@@ -55,6 +55,8 @@ dependencies {
     // Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:32.1.1')
     implementation 'com.itextpdf:itextpdf:5.5.13.3'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
 
 
