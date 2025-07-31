@@ -92,6 +92,7 @@ dependencies {
     implementation libs.androidx.appcompat
     implementation 'com.android.billingclient:billing:6.0.1'
     implementation libs.androidx.security.crypto
+    implementation libs.firebase.auth
     annotationProcessor libs.room.compiler
 
     // Splash Screen

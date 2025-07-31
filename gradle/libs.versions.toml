@@ -37,6 +37,7 @@ tinkAndroid = "1.6.1"
 appcompatVersion = "1.7.1"
 billing = "8.0.0"
 securityCryptoVersion = "1.0.0"
+firebaseAuth = "24.0.0"
 
 [libraries]
 android-pdf-viewer = { module = "com.github.barteksc:android-pdf-viewer", version.ref = "androidPdfViewer" }
@@ -78,6 +79,7 @@ tink-android = { module = "com.google.crypto.tink:tink-android", version.ref = "
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
 billing = { group = "com.android.billingclient", name = "billing", version.ref = "billing" }
 androidx-security-crypto = { group = "androidx.security", name = "security-crypto", version.ref = "securityCryptoVersion" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

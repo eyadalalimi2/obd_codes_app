@@ -9,10 +9,9 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
-import androidx.security.crypto.EncryptedSharedPreferences;
-import androidx.security.crypto.MasterKeys;
 
 import com.google.android.datatransport.backend.cct.BuildConfig;
+import com.google.firebase.auth.FirebaseAuth;
 import com.eyadalalimi.car.obd2.R;
 import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
@@ -22,15 +21,13 @@ import com.eyadalalimi.car.obd2.ui.auth.AuthActivity;
 import com.eyadalalimi.car.obd2.ui.home.HomeActivity;
 import com.eyadalalimi.car.obd2.ui.onboarding.OnboardingActivity;
 
-import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
  * شاشة البداية للتطبيق. تجلب مفتاح التشفير ثم تنتقل إلى الشاشة المناسبة.
- * تم تحديثها لاستخدام ApiClient.getApiService() ومعالجة انقطاع الاتصال.
- * كما تم تحديث isUserLoggedIn() لقراءة التوكن أولاً من التفضيلات المشفرة ثم التفضيلات العادية.
+ * بعد دمج Firebase يتم التحقق من حالة المستخدم عبر FirebaseAuth وليس من التفضيلات.
  */
 public class SplashActivity extends AppCompatActivity {
 
@@ -126,33 +123,10 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     /**
-     * يفحص حالة تسجيل الدخول بقراءة التوكن من التفضيلات المشفرة أولاً ثم من التفضيلات العادية.
+     * التحقق من حالة تسجيل الدخول باستخدام FirebaseAuth.
      */
     private boolean isUserLoggedIn() {
-        // حاول أولاً قراءة من EncryptedSharedPreferences
-        try {
-            String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
-            SharedPreferences securePrefs = EncryptedSharedPreferences.create(
-                    "secure_prefs",
-                    masterKeyAlias,
-                    this,
-                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-            );
-            String token = securePrefs.getString("auth_token", null);
-            boolean loggedIn = securePrefs.getBoolean("is_logged_in", false);
-            if (loggedIn && token != null && !token.trim().isEmpty()) {
-                return true;
-            }
-        } catch (Exception e) {
-            // تجاهل أي خطأ في الوصول للتفضيلات المشفرة
-        }
-
-        // fallback للتفضيلات العادية
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        String token = prefs.getString("auth_token", null);
-        boolean loggedIn = prefs.getBoolean("is_logged_in", false);
-        return loggedIn && token != null && !token.trim().isEmpty();
+        return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 
     private void navigateTo(Class<?> target) {

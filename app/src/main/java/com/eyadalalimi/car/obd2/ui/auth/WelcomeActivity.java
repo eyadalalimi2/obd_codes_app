@@ -17,11 +17,11 @@ public class WelcomeActivity extends AppCompatActivity {
         TextView registerBtn = findViewById(R.id.registerButton);
 
         loginBtn.setOnClickListener(v ->
-                startActivity(new Intent(this, LoginActivity.class))
+                startActivity(new Intent(this, AuthActivity.class))
         );
 
         registerBtn.setOnClickListener(v ->
-                startActivity(new Intent(this, RegisterActivity.class))
+                startActivity(new Intent(this, AuthActivity.class))
         );
     }
 }

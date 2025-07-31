@@ -50,13 +50,9 @@
         <activity
             android:name=".ui.auth.WelcomeActivity"
             android:label="Welcome Activity" />
-        <!-- تسجيل الدخول -->
-        <activity android:name=".ui.auth.LoginActivity"
-            android:label="تسجيل الدخول"/>
 
-        <!-- إنشاء حساب -->
-        <activity android:name=".ui.auth.RegisterActivity"
-            android:label="إنشاء حساب"/>
+
+
         <activity
             android:name=".ui.auth.ForgotPasswordActivity"
             android:label="@string/forgot_password" />
