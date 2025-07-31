@@ -221,7 +221,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     /**
-     * حفظ التوكن في تفضيلات مشفرة بشكل آمن ثم إعادة تهيئة عميل الشبكة.
+     /**
+     * حفظ التوكن في تفضيلات مشفرة وتفضيلات عادية لضمان التوافق.
      */
     private void saveLogin(String token) {
         try {
@@ -237,15 +238,22 @@ public class LoginActivity extends AppCompatActivity {
                     .putString("auth_token", token)
                     .putBoolean("is_logged_in", true)
                     .apply();
+
+            // حفظ التوكن أيضاً في التفضيلات الافتراضية (للتوافق مع أجزاء أخرى من التطبيق)
+            SharedPreferences fallbackPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+            fallbackPrefs.edit()
+                    .putString("auth_token", token)
+                    .putBoolean("is_logged_in", true)
+                    .apply();
         } catch (GeneralSecurityException | IOException e) {
-            // إذا فشل التخزين المشفر، استخدم التفضيلات الافتراضية كحل احتياطي.
+            // إذا فشل التخزين المشفر، استخدم التفضيلات الافتراضية كحل احتياطي
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit()
                     .putString("auth_token", token)
                     .putBoolean("is_logged_in", true)
                     .apply();
         }
-        // إعادة تهيئة عميل الشبكة بعد حفظ التوكن.
+        // إعادة تهيئة عميل الشبكة
         ApiClient.reset();
     }
 
