@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Repository لتخزين رسائل المحادثة محليًا في قاعدة بيانات Room.
+ * لا يحتوي على استدعاءات للشبكة وبالتالي لا يتطلب معالجة NoConnectivityException.
+ */
 public class ChatMessageRepository {
     private final ChatMessageDao chatDao;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();

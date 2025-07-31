@@ -12,6 +12,7 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.datatransport.backend.cct.BuildConfig;
 import com.eyadalalimi.car.obd2.R;
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.EncryptionKeyResponse;
@@ -23,13 +24,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * شاشة البداية للتطبيق. تجلب مفتاح التشفير ثم تنتقل إلى الشاشة المناسبة.
+ * تم تحديثها لاستخدام ApiClient.getApiService() ومعالجة انقطاع الاتصال.
+ */
 public class SplashActivity extends AppCompatActivity {
 
     private static final long SPLASH_DELAY = 1500;
     private static final String ENCRYPTION_KEY_PREF = "db_encryption_key";
     private final String PACKAGE_NAME = getPackageName();
     private final String VERSION_CODE = BuildConfig.VERSION_NAME;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +64,6 @@ public class SplashActivity extends AppCompatActivity {
         }
     }
 
-
     private void fetchEncryptionKey() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         String existingKey = prefs.getString(ENCRYPTION_KEY_PREF, null);
@@ -70,7 +73,8 @@ public class SplashActivity extends AppCompatActivity {
             return;
         }
 
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        // استخدام ApiClient.getApiService للحصول على ApiService مهيأ بالتوكن
+        ApiService apiService = ApiClient.getApiService(this);
         apiService.getEncryptionKey(PACKAGE_NAME, VERSION_CODE).enqueue(new Callback<EncryptionKeyResponse>() {
             @Override
             public void onResponse(Call<EncryptionKeyResponse> call, Response<EncryptionKeyResponse> response) {
@@ -87,7 +91,11 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<EncryptionKeyResponse> call, Throwable t) {
-                Log.e("Splash", "فشل الاتصال بالخادم: " + t.getMessage());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    Log.e("Splash", "لا يوجد اتصال بالإنترنت");
+                } else {
+                    Log.e("Splash", "فشل الاتصال بالخادم: " + t.getMessage());
+                }
                 prefs.edit().putString(ENCRYPTION_KEY_PREF, "defaultKey").apply();
                 continueToApp();
             }
@@ -112,7 +120,6 @@ public class SplashActivity extends AppCompatActivity {
             }
         }, SPLASH_DELAY);
     }
-
 
     private boolean isUserLoggedIn() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);

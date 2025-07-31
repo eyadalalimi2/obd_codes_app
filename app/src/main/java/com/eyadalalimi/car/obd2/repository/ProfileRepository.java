@@ -4,6 +4,8 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.model.Subscription;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
@@ -16,6 +18,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository لإدارة الملف الشخصي والاشتراك للمستخدم.
+ * تمت إضافة فحص لاستثناء NoConnectivityException رغم أن المعالجة الحالية تعيد null أو قائمة فارغة.
+ */
 public class ProfileRepository {
 
     private final ApiService api;
@@ -43,16 +49,15 @@ public class ProfileRepository {
 
             @Override
             public void onFailure(Call<UserProfileResponse> call, Throwable t) {
-                live.setValue(null);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    live.setValue(null);
+                } else {
+                    live.setValue(null);
+                }
             }
         });
         return live;
     }
-
-    /**
-     * Sends an update request for the authenticated user's profile.
-     */
-
 
     /**
      * Fetches the list of available subscriptions.
@@ -72,12 +77,15 @@ public class ProfileRepository {
 
             @Override
             public void onFailure(Call<Subscription> call, Throwable t) {
-                live.setValue(Collections.emptyList());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    live.setValue(Collections.emptyList());
+                } else {
+                    live.setValue(Collections.emptyList());
+                }
             }
         });
         return live;
     }
-
 
     public LiveData<Boolean> logout() {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -88,11 +96,16 @@ public class ProfileRepository {
             }
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                result.postValue(false);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    result.postValue(false);
+                } else {
+                    result.postValue(false);
+                }
             }
         });
         return result;
     }
+
     public LiveData<Boolean> deleteAccount() {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
         api.deleteAccount().enqueue(new Callback<Void>() {
@@ -102,7 +115,11 @@ public class ProfileRepository {
             }
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                result.postValue(false);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    result.postValue(false);
+                } else {
+                    result.postValue(false);
+                }
             }
         });
         return result;

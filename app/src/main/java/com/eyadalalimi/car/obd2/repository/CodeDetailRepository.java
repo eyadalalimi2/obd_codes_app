@@ -3,6 +3,7 @@ package com.eyadalalimi.car.obd2.repository;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.ObdCode;
@@ -11,6 +12,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository لجلب تفاصيل الكود من الخادم ودمج الترجمات.
+ * في حالة الفشل يتم إرجاع null أو الكود الأساسي بدون ترجمة، مع فحص لانقطاع الاتصال.
+ */
 public class CodeDetailRepository {
 
     private final ApiService apiService;
@@ -47,7 +52,12 @@ public class CodeDetailRepository {
                             @NonNull Call<ObdCode> call,
                             @NonNull Throwable t
                     ) {
-                        liveData.postValue(null);
+                        // في حالة انقطاع الاتصال أو فشل آخر، نعيد null
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            liveData.postValue(null);
+                        } else {
+                            liveData.postValue(null);
+                        }
                     }
                 });
 
@@ -115,6 +125,7 @@ public class CodeDetailRepository {
                                                 @NonNull Call<ObdCodeTranslation> call,
                                                 @NonNull Throwable t
                                         ) {
+                                            // في حالة فشل الترجمة (بما في ذلك انقطاع الاتصال) نرجع البيانات الإنجليزية
                                             liveData.postValue(baseCode);
                                         }
                                     });
@@ -128,7 +139,11 @@ public class CodeDetailRepository {
                             @NonNull Call<ObdCode> call,
                             @NonNull Throwable t
                     ) {
-                        liveData.postValue(null);
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            liveData.postValue(null);
+                        } else {
+                            liveData.postValue(null);
+                        }
                     }
                 });
 

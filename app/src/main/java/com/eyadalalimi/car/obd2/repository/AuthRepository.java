@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.GoogleLoginRequest;
@@ -70,12 +71,15 @@ public class AuthRepository {
                     }
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        data.postValue(new Result(false, "تعذر الاتصال بالخادم", null));
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            data.postValue(new Result(false, "لا يوجد اتصال بالإنترنت", null));
+                        } else {
+                            data.postValue(new Result(false, "تعذر الاتصال بالخادم", null));
+                        }
                     }
                 });
         return data;
     }
-
 
     public LiveData<Result> register(String username, String email, String password) {
         MutableLiveData<Result> data = new MutableLiveData<>();
@@ -95,7 +99,11 @@ public class AuthRepository {
                     }
                     @Override
                     public void onFailure(Call<RegisterResponse> call, Throwable t) {
-                        data.postValue(new Result(false, "فشل الاتصال: " + t.getMessage(), null));
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            data.postValue(new Result(false, "لا يوجد اتصال بالإنترنت", null));
+                        } else {
+                            data.postValue(new Result(false, "فشل الاتصال: " + t.getMessage(), null));
+                        }
                     }
                 });
         return data;
@@ -119,7 +127,11 @@ public class AuthRepository {
                     }
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        data.postValue(new Result(false, "فشل الاتصال: " + t.getMessage(), null));
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            data.postValue(new Result(false, "لا يوجد اتصال بالإنترنت", null));
+                        } else {
+                            data.postValue(new Result(false, "فشل الاتصال: " + t.getMessage(), null));
+                        }
                     }
                 });
         return data;

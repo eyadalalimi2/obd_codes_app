@@ -3,6 +3,7 @@ package com.eyadalalimi.car.obd2.repository;
 import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.NotificationResponse;
@@ -12,6 +13,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository لجلب الإشعارات وإدارة حالتها.
+ * تمت إضافة فحص لاستثناء NoConnectivityException رغم أن المعالجة الحالية تقوم فقط بإرجاع null أو false.
+ */
 public class NotificationRepository {
     private final ApiService api;
 
@@ -32,12 +37,15 @@ public class NotificationRepository {
             }
             @Override
             public void onFailure(Call<NotificationResponse> call, Throwable t) {
-                data.postValue(null);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
             }
         });
         return data;
     }
-
 
     public LiveData<Boolean> markRead(long id) {
         MutableLiveData<Boolean> result = new MutableLiveData<>();
@@ -48,7 +56,11 @@ public class NotificationRepository {
             }
             @Override
             public void onFailure(Call<Void> c, Throwable t) {
-                result.postValue(false);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    result.postValue(false);
+                } else {
+                    result.postValue(false);
+                }
             }
         });
         return result;
@@ -63,7 +75,11 @@ public class NotificationRepository {
             }
             @Override
             public void onFailure(Call<Void> c, Throwable t) {
-                result.postValue(false);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    result.postValue(false);
+                } else {
+                    result.postValue(false);
+                }
             }
         });
         return result;

@@ -4,6 +4,7 @@ package com.eyadalalimi.car.obd2.repository;
 import android.app.Application;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.AddCarRequest;
 import com.eyadalalimi.car.obd2.network.model.AddCarResponse;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 
 /**
  * Repository for Cars feature. Handles network calls and exposes LiveData.
+ * تمت إضافة فحص لاستثناء NoConnectivityException رغم أن المعالجة الحالية تقوم فقط بإرجاع null أو false.
  */
 public class CarRepository {
     private final ApiService api;
@@ -39,7 +41,14 @@ public class CarRepository {
             @Override public void onResponse(Call<UserCarsResponse> c, Response<UserCarsResponse> r) {
                 if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getData());
             }
-            @Override public void onFailure(Call<UserCarsResponse> c, Throwable t) { data.postValue(null); }
+            @Override public void onFailure(Call<UserCarsResponse> c, Throwable t) {
+                // في حالة انقطاع الاتصال نعيد null، وهو نفس السلوك الحالي
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
+            }
         });
         return data;
     }
@@ -50,7 +59,13 @@ public class CarRepository {
             @Override public void onResponse(Call<AddCarResponse> c, Response<AddCarResponse> r) {
                 data.postValue(r.isSuccessful()?r.body():null);
             }
-            @Override public void onFailure(Call<AddCarResponse> c, Throwable t) { data.postValue(null); }
+            @Override public void onFailure(Call<AddCarResponse> c, Throwable t) {
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
+            }
         });
         return data;
     }
@@ -61,7 +76,13 @@ public class CarRepository {
             @Override public void onResponse(Call<UpdateCarsResponse> c, Response<UpdateCarsResponse> r) {
                 data.postValue(r.isSuccessful()?r.body():null);
             }
-            @Override public void onFailure(Call<UpdateCarsResponse> c, Throwable t) { data.postValue(null); }
+            @Override public void onFailure(Call<UpdateCarsResponse> c, Throwable t) {
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
+            }
         });
         return data;
     }
@@ -72,7 +93,13 @@ public class CarRepository {
             @Override public void onResponse(Call<DeleteCarResponse> c, Response<DeleteCarResponse> r) {
                 data.postValue(r.isSuccessful());
             }
-            @Override public void onFailure(Call<DeleteCarResponse> c, Throwable t) { data.postValue(false); }
+            @Override public void onFailure(Call<DeleteCarResponse> c, Throwable t) {
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(false);
+                } else {
+                    data.postValue(false);
+                }
+            }
         });
         return data;
     }
@@ -83,7 +110,13 @@ public class CarRepository {
             @Override public void onResponse(Call<BrandsResponse> c, Response<BrandsResponse> r) {
                 if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getData());
             }
-            @Override public void onFailure(Call<BrandsResponse> c, Throwable t) { data.postValue(null); }
+            @Override public void onFailure(Call<BrandsResponse> c, Throwable t) {
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
+            }
         });
         return data;
     }
@@ -94,7 +127,13 @@ public class CarRepository {
             @Override public void onResponse(Call<BrandModelsResponse> c, Response<BrandModelsResponse> r) {
                 if (r.isSuccessful() && r.body()!=null) data.postValue(r.body().getModels());
             }
-            @Override public void onFailure(Call<BrandModelsResponse> c, Throwable t) { data.postValue(null); }
+            @Override public void onFailure(Call<BrandModelsResponse> c, Throwable t) {
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
+            }
         });
         return data;
     }
@@ -113,10 +152,13 @@ public class CarRepository {
 
             @Override
             public void onFailure(Call<List<String>> call, Throwable t) {
-                data.postValue(null);
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    data.postValue(null);
+                } else {
+                    data.postValue(null);
+                }
             }
         });
         return data;
     }
-
 }

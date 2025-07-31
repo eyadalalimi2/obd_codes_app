@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.Subscription;
@@ -66,7 +67,11 @@ public class SubscriptionRepository {
 
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            callback.onFailure("لا يوجد اتصال بالإنترنت");
+                        } else {
+                            callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        }
                     }
                 });
     }
@@ -107,7 +112,11 @@ public class SubscriptionRepository {
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            callback.onFailure("لا يوجد اتصال بالإنترنت");
+                        } else {
+                            callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        }
                     }
                 });
     }
@@ -132,7 +141,11 @@ public class SubscriptionRepository {
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            callback.onFailure("لا يوجد اتصال بالإنترنت");
+                        } else {
+                            callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        }
                     }
                 });
     }
@@ -157,7 +170,11 @@ public class SubscriptionRepository {
                     }
                     @Override
                     public void onFailure(Call<Subscription> call, Throwable t) {
-                        callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                            callback.onFailure("لا يوجد اتصال بالإنترنت");
+                        } else {
+                            callback.onFailure("فشل في الاتصال: " + t.getMessage());
+                        }
                     }
                 });
     }

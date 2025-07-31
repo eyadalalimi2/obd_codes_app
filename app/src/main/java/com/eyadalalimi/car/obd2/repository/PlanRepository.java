@@ -3,6 +3,7 @@ package com.eyadalalimi.car.obd2.repository;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.Plan;
@@ -48,7 +49,11 @@ public class PlanRepository {
             }
             @Override
             public void onFailure(Call<List<Plan>> call, Throwable t) {
-                cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    cb.onFailure("لا يوجد اتصال بالإنترنت");
+                } else {
+                    cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                }
             }
         });
     }
@@ -65,7 +70,11 @@ public class PlanRepository {
             }
             @Override
             public void onFailure(Call<Subscription> c, Throwable t) {
-                cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    cb.onFailure("لا يوجد اتصال بالإنترنت");
+                } else {
+                    cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                }
             }
         });
     }
@@ -82,7 +91,11 @@ public class PlanRepository {
             }
             @Override
             public void onFailure(Call<Subscription> c, Throwable t) {
-                cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    cb.onFailure("لا يوجد اتصال بالإنترنت");
+                } else {
+                    cb.onFailure("فشل في الاتصال: " + t.getMessage());
+                }
             }
         });
     }

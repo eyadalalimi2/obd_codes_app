@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.local.AppDatabase;
 import com.eyadalalimi.car.obd2.local.dao.ObdCodeDao;
 import com.eyadalalimi.car.obd2.local.entity.ObdCodeEntity;
@@ -22,6 +23,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository للتعامل مع أكواد OBD. يستخدم قاعدة البيانات المحلية والوصول للشبكة.
+ * تم إضافة فحص لاستثناء NoConnectivityException في onFailure رغم أن التحقق من الاتصال يتم مسبقًا.
+ */
 public class ObdRepository {
     private final ApiService api;
     private final ObdCodeDao localDao;
@@ -50,7 +55,11 @@ public class ObdRepository {
 
                 @Override
                 public void onFailure(Call<ObdCode> call, Throwable t) {
-                    liveData.postValue(null);
+                    if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                        liveData.postValue(null);
+                    } else {
+                        liveData.postValue(null);
+                    }
                 }
             });
         } else {
@@ -94,7 +103,11 @@ public class ObdRepository {
 
                 @Override
                 public void onFailure(Call<List<ObdCode>> call, Throwable t) {
-                    liveData.postValue(null);
+                    if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                        liveData.postValue(null);
+                    } else {
+                        liveData.postValue(null);
+                    }
                 }
             });
         } else {
@@ -125,7 +138,11 @@ public class ObdRepository {
 
                 @Override
                 public void onFailure(Call<CompareResult> call, Throwable t) {
-                    liveData.postValue(null);
+                    if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                        liveData.postValue(null);
+                    } else {
+                        liveData.postValue(null);
+                    }
                 }
             });
         } else {

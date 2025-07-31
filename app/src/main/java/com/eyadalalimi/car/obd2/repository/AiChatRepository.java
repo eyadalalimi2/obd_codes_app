@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.eyadalalimi.car.obd2.base.ConnectivityInterceptor;
 import com.eyadalalimi.car.obd2.network.ApiClient;
 import com.eyadalalimi.car.obd2.network.ApiService;
 import com.eyadalalimi.car.obd2.network.model.ChatMessage;
@@ -17,6 +18,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Repository للتعامل مع محادثات الذكاء الاصطناعي.
+ * تمت إضافة معالجة خاصة لاستثناء NoConnectivityException لإبلاغ المستخدم بانقطاع الاتصال.
+ */
 public class AiChatRepository {
     private final ApiService api;
 
@@ -54,7 +59,12 @@ public class AiChatRepository {
             @Override
             public void onFailure(Call<ChatResponse> call, Throwable t) {
                 ChatResponse cr = new ChatResponse();
-                cr.setError("فشل الاتصال: " + t.getMessage());
+                if (t instanceof ConnectivityInterceptor.NoConnectivityException) {
+                    // رسالة مخصصة عند عدم وجود اتصال بالإنترنت
+                    cr.setError("لا يوجد اتصال بالإنترنت");
+                } else {
+                    cr.setError("فشل الاتصال: " + t.getMessage());
+                }
                 // حافظ على سجل الدردشة السابق أيضاً عند الفشل
                 cr.setHistory(history);
                 liveData.postValue(cr);
