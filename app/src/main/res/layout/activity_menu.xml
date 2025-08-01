@@ -24,7 +24,7 @@
                 android:id="@+id/btnPricing"
                 style="@style/MenuButton"
                 android:drawableLeft="@drawable/ic_pricing"
-                android:text="@string/pricing" />
+                android:text="@string/subscription_plans" />
 
             <Button
                 android:id="@+id/btnAbout"
@@ -72,7 +72,7 @@
                 android:id="@+id/btnSaved"
                 style="@style/MenuButton"
                 android:drawableLeft="@drawable/ic_saved"
-                android:text="@string/my_saved_items" />
+                android:text="@string/saved_codes" />
 
             <Button
                 android:id="@+id/btnAccount"

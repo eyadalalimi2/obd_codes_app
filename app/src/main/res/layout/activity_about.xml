@@ -22,7 +22,7 @@
             android:src="@drawable/icon"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
-            android:contentDescription="@string/app_logo"/>
+            android:contentDescription="@string/todo"/>
 
         <!-- اسم التطبيق وتعريف مبسط -->
         <TextView

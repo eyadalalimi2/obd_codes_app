@@ -33,7 +33,7 @@
         android:id="@+id/btnCancelDelete"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="@string/cancel"
+        android:text="إلغاء"
         android:backgroundTint="@color/colorGrayListBg"
         android:textColor="@color/colorMutedText"
         android:layout_marginTop="8dp"/>

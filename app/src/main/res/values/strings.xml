@@ -192,6 +192,7 @@
     <string name="causes_label">Causes</string>
     <string name="solutions_label">Solutions</string>
     <string name="diagnosis_label">Diagnosis</string>
+    <string name="change_language">Change Language</string>
 
 
 </resources>

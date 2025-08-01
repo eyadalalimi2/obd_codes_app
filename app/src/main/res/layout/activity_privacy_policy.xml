@@ -22,7 +22,6 @@
             android:src="@drawable/ic_password"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:contentDescription="@string/privacy_lock_icon"
             android:layout_marginEnd="10dp"
             app:tint="@color/blue" />
 

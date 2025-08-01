@@ -35,7 +35,7 @@
                     android:id="@+id/btn_saved"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/my_saved_items"
+                    android:text="@string/saved_codes"
                     android:layout_marginTop="12dp" />
 
                 <Button
@@ -49,7 +49,7 @@
                     android:id="@+id/btn_pricing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/pricing"
+                    android:text="@string/subscription_plans"
                     android:layout_marginTop="12dp" />
 
                 <Button
@@ -76,7 +76,7 @@
                     android:id="@+id/btn_language"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Change Language"
+                    android:text="@string/change_language"
                     android:layout_marginTop="12dp"/>
 
 

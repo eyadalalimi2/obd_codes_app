@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/base"
+    android:background="@drawable/screen"
     android:fillViewport="true">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:id="@+id/tvSelectCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/select_code"
+            android:text="@string/code_hint"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/blue"

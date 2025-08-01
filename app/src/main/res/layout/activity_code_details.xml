@@ -132,7 +132,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_title"
+                        android:text="@string/tv_title"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_description"
+                        android:text="@string/description_label"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"
@@ -210,7 +210,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_symptoms"
+                        android:text="@string/symptoms_label"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"
@@ -249,7 +249,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_causes"
+                        android:text="@string/causes_label"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"
@@ -288,7 +288,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_solutions"
+                        android:text="@string/solutions_label"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"
@@ -366,7 +366,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"/>
                     <TextView
-                        android:text="@string/cd_title_diagnosis"
+                        android:text="@string/diagnosis_label"
                         android:textStyle="bold"
                         android:layout_marginStart="8dp"
                         android:layout_width="wrap_content"

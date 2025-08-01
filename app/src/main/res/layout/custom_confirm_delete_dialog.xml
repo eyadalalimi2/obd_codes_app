@@ -10,7 +10,6 @@
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginBottom="12dp"
-        android:contentDescription="@string/warning"
         android:src="@drawable/ic_warning_yallow" />
     <TextView
         android:id="@+id/tvTitle"

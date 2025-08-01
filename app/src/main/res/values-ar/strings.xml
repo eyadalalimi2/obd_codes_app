@@ -178,4 +178,5 @@
     <string name="causes_label">الأسباب</string>
     <string name="solutions_label">الحلول</string>
     <string name="diagnosis_label">التشخيص</string>
+    <string name="change_language">تغيير اللغه</string>
 </resources>

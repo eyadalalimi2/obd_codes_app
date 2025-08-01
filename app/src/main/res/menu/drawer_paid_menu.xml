@@ -3,47 +3,47 @@
         <item 
         android:id="@+id/nav_symptom" 
         android:icon="@drawable/ic_symptom" 
-        android:title="@string/nav_symptom"/>
+        android:title="@string/symptom_diagnosis"/>
 
         <item 
         android:id="@+id/nav_compare" 
         android:icon="@drawable/ic_compare" 
-        android:title="@string/nav_compare"/>
+        android:title="@string/compare_codes"/>
 
         <item 
         android:id="@+id/nav_history" 
         android:icon="@drawable/ic_history" 
-        android:title="@string/nav_history"/>
+        android:title="@string/diagnosis_history"/>
 
         <item 
         android:id="@+id/nav_notifications" 
         android:icon="@drawable/ic_notify" 
-        android:title="@string/nav_notifications"/>
+        android:title="@string/notifications"/>
 
         <item 
         android:id="@+id/nav_trending" 
         android:icon="@drawable/ic_trending" 
-        android:title="@string/nav_trending"/>
+        android:title="@string/trending_codes"/>
 
         <item 
         android:id="@+id/nav_visual" 
         android:icon="@drawable/ic_visual" 
-        android:title="@string/nav_visual"/>
+        android:title="@string/visual_library"/>
 
         <item 
         android:id="@+id/nav_pdf" 
         android:icon="@drawable/ic_pdf" 
-        android:title="@string/nav_pdf"/>
+        android:title="@string/generate_pdf"/>
 
         <item 
         android:id="@+id/nav_ai_assistant"
         android:icon="@drawable/ic_ai" 
-        android:title="@string/nav_ai"/>
+        android:title="@string/ai_assistant"/>
 
         <item 
         android:id="@+id/nav_offline"
         android:icon="@drawable/no_internet" 
-        android:title="@string/nav_offline"/>
+        android:title="@string/offline_mode"/>
 
         <item 
         android:id="@+id/nav_dashboard" 

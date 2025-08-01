@@ -46,14 +46,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/one_time_title"
+                    android:text="شراء لمرة واحدة (3 أيام)"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#00838F"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/one_time_price"
+                    android:text="5 دولار"
                     android:textSize="16sp"
                     android:textColor="#54616C"
                     android:layout_marginTop="4dp"/>
@@ -61,7 +61,7 @@
                     android:id="@+id/btnOneTime"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:text="@string/select"
+                    android:text="اختر"
                     android:textAllCaps="false"
                     android:background="@drawable/bg_search_button"
                     android:textColor="@android:color/white"
@@ -81,14 +81,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/monthly_title"
+                    android:text="اشتراك شهري"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#00838F"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/monthly_price"
+                    android:text="9.99 دولار/شهريًا"
                     android:textSize="16sp"
                     android:textColor="#54616C"
                     android:layout_marginTop="4dp"/>
@@ -96,7 +96,7 @@
                     android:id="@+id/btnMonthly"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:text="@string/select"
+                    android:text="اختر"
                     android:textAllCaps="false"
                     android:background="@drawable/bg_search_button"
                     android:textColor="@android:color/white"
@@ -116,14 +116,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yearly_title"
+                    android:text="اشتراك سنوي"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#00838F"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/yearly_price"
+                    android:text="99.99 دولار/سنويا"
                     android:textSize="16sp"
                     android:textColor="#54616C"
                     android:layout_marginTop="4dp"/>
@@ -131,7 +131,7 @@
                     android:id="@+id/btnYearly"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
-                    android:text="@string/select"
+                    android:text="اختر"
                     android:textAllCaps="false"
                     android:background="@drawable/bg_search_button"
                     android:textColor="@android:color/white"

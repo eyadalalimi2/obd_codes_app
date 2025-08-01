@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/screen">
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8dp"
             android:lineSpacingMultiplier="1.2"
-            android:text="@string/register_subtitle"
+            android:text="@string/create_account_description"
             android:textAlignment="center"
             android:textColor="#000"
             android:layout_marginBottom="24dp"/>
@@ -41,7 +41,7 @@
             android:background="@drawable/input_outline"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/ic_user"
-            android:hint="@string/hint_name"
+            android:hint="@string/user_name"
             android:inputType="textPersonName"
             android:padding="12dp"
             android:autofillHints="username"
@@ -50,7 +50,7 @@
             android:id="@+id/etRegEmail"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:hint="@string/hint_email"
+            android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:drawableStart="@drawable/ic_email"
             android:background="@drawable/input_outline"
@@ -65,7 +65,7 @@
             android:inputType="textPassword"
             android:drawableStart="@drawable/ic_password"
             android:drawableEnd="@drawable/ic_eye_off"
-            android:background="@drawable/input_fill"
+            android:background="@drawable/input_outline"
             android:paddingHorizontal="16dp"
             android:layout_marginBottom="16dp"/>
 
@@ -79,28 +79,43 @@
             android:drawableEnd="@drawable/ic_eye_off"
             android:background="@drawable/input_fill"
             android:paddingHorizontal="16dp"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="4dp"/>
+
         <!-- حقل تأكيد كلمة المرور -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_standard"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
 
             <CheckBox
                 android:id="@+id/cbAgree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:buttonTint="@color/colorSubText"/>
-
             <TextView
-                android:id="@+id/tvAgreeText"
+                android:id="@+id/tvPrivacyPolicy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_standard"
-                android:text="@string/agree_text"
-                android:textColor="@android:color/black"/>
+                android:layout_marginEnd="24dp"
+                android:clickable="true"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/app_bar_green"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tvTermsOfService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="@string/terms_of_service"
+                android:textColor="@color/app_bar_green"
+                android:textStyle="bold"
+                tools:ignore="TouchTargetSizeCheck" />
+
         </LinearLayout>
 
         <Button
