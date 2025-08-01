@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- ========================================================================================= -->
     <string name="hint_letter" translatable="false">P</string>
     <string name="hint_type" translatable="false">0</string>
@@ -12,6 +12,10 @@
     <string name="app_open_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/3419835294</string>
     <string name="onesignal_app_id" translatable="false">576df901-762b-4d96-b779-6d78ae42fb3c</string>
     <string name="server_client_id" translatable="false">66098252270-rs1p4d8iibean0j0a08d519fad89cvci.apps.googleusercontent.com</string>
+    <string name="app_name_about" translatable="false">OBD Codes - Car Fault Finder</string>
+    <string name="obd_code_ai" translatable="false">OBD Code AI</string>
+
+
     <!-- ========================================================================================= -->
     <string name="app_name">Car Fault Scanner</string>
     <string name="app_version">App Version V26</string>
@@ -144,7 +148,7 @@
     <string name="reset_password_title">Reset Password</string>
     <string name="verified">Verified</string>
     <string name="not_verified">Not Verified</string>
-    <string name="email_now_verified">Verifying email...</string>
+    <string name="email_now_verified">Verifying email…</string>
     <string name="err_not_match">Passwords do not match</string>
     <string name="no_history">No history yet</string>
     <string name="new_diagnosis">New Diagnosis</string>
@@ -193,27 +197,27 @@
     <string name="solutions_label">Solutions</string>
     <string name="diagnosis_label">Diagnosis</string>
     <string name="change_language">Change Language</string>
-    <string name="app_name_about">OBD Codes - Car Fault Finder</string>
-    <string name="abiut_tixet">\nأداة ذكية لمساعدتك في فهم أكواد أعطال سيارتك بسرعة وسهولة.</string>
-    <string name="devloper_app">تم التطوير بواسطة: اياد جابر العليمي</string>
-    <string name="key_features">الميزات الأساسية:</string>
-    <string name="key_features1">البحث اليدوي عن كود العطل</string>
-    <string name="key_features2">تشخيص بالأعراض</string>
-    <string name="key_features3">حفظ الأكواد ومشاركتها</string>
-    <string name="key_features4">تحليل الذكاء الاصطناعي</string>
-    <string name="key_features5">دعم الوضع غير المتصل بالإنترنت</string>
-    <string name="about_desc">تم تصميم التطبيق ليكون سهل وسريع للمستخدم .\nنوصي دائمًا بمراجعة فني معتمد قبل أي إصلاح.</string>
-    <string name="car_name">اسم السيارة (اختياري)</string>
-    <string name="save">حفظ</string>
-    <string name="cansel">الغاء</string>
-    <string name="models">الطراز:</string>
-    <string name="years">سنة الإنتاج:</string>
-    <string name="cars_name">أسم السيارة :</string>
-    <string name="no_car">لا توجد سيارات. اضغط + لإضافة أول سيارة.</string>
-    <string name="del_chat">حذف الدردشة</string>
-    <string name="obd_code_ai">OBD Code AI</string>
-    <string name="write_a_letter">اكتب رسالة...</string>
-    <string name="tvInstructions">أدخل رمزين للمقارنة لتظهر النتائج أدناه</string>
+
+    <string name="abiut_tixet">\nA smart tool to help you understand your car’s fault codes quickly and easily.</string>
+    <string name="devloper_app">Developed by: Eyad Jaber Al-Alimi</string>
+    <string name="key_features">Key Features:</string>
+    <string name="key_features1">Manual fault code search</string>
+    <string name="key_features2">Symptom-based diagnosis</string>
+    <string name="key_features3">Save and share codes</string>
+    <string name="key_features4">AI-powered analysis</string>
+    <string name="key_features5">Offline mode support</string>
+    <string name="about_desc">The app is designed to be fast and user-friendly.\nWe always recommend consulting a certified technician before any repair.</string>
+    <string name="car_name">Car Name (Optional)</string>
+    <string name="save">Save</string>
+    <string name="cansel">Cancel</string>
+    <string name="models">Model:</string>
+    <string name="years">Production Year:</string>
+    <string name="cars_name">Car Name:</string>
+    <string name="no_car">No cars available. Tap + to add your first car.</string>
+    <string name="del_chat">Delete Chat</string>
+    <string name="write_a_letter">Write a message…</string>
+    <string name="tvInstructions">Enter two codes to compare and view the results below</string>
+
 
 
 </resources>
