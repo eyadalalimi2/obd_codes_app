@@ -16,20 +16,19 @@
         android:layout_height="match_parent"
         android:padding="16dp">
 
-        <!-- تعليمات الاستخدام -->
+
         <TextView
             android:id="@+id/tvInstructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="أدخل رمزين للمقارنة لتظهر النتائج أدناه"
-            android:textColor="#1976D2"
+            android:text="@string/tvInstructions"
+            android:textColor="@color/accent"
             android:textSize="16sp"
             android:textStyle="bold"
             android:fontFamily="@font/font_family_tajawal"
             android:layout_marginBottom="20dp"
             tools:ignore="HardcodedText" />
 
-        <!-- بطاقة الكود الأول -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,8 +46,9 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_code"
-                    app:tint="#1976D2" />
+                    app:tint="@color/accent" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="0dp"
@@ -70,15 +70,14 @@
                         android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColorHint="#757575"
+                        android:textColorHint="@color/colorSubText"
                         android:textSize="16sp"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- بطاقة الكود الثاني -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -97,8 +96,9 @@
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_code"
-                    app:tint="#1976D2" />
+                    app:tint="@color/accent" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -121,15 +121,14 @@
                         android:inputType="text"
                         android:maxLines="1"
                         android:singleLine="true"
-                        android:textColorHint="#757575"
+                        android:textColorHint="@color/colorSubText"
                         android:textSize="16sp"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,TextContrastCheck,VisualLintTextFieldSize" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- زر مقارنة -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCompare"
             android:layout_width="match_parent"
@@ -140,14 +139,13 @@
             android:textStyle="bold"
             android:fontFamily="@font/font_family_tajawal"
             android:background="@drawable/bg_button_primary"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/white"
             app:iconGravity="textStart"
             app:iconPadding="14dp"
             app:cornerRadius="16dp"
-            android:layout_marginBottom="28dp" />
+            android:layout_marginBottom="28dp"
+            tools:ignore="VisualLintButtonSize" />
 
-
-        <!-- عرض نتائج المقارنة -->
         <HorizontalScrollView
             android:id="@+id/scrollCards"
             android:layout_width="match_parent"

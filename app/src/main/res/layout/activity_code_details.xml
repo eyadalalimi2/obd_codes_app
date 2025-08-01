@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:ndroid="http://schemas.android.com/tools"
     android:padding="16dp"
-    android:background="@color/white">
+    android:background="@drawable/screen">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- بطاقة: الكود والعنوان -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +31,7 @@
                 <ImageView
                     android:layout_width="36dp"
                     android:layout_height="36dp"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_settings"
                     android:layout_marginEnd="12dp"/>
                 <TextView
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:textColor="@color/blue"
-                    android:text="تفاصيل الكود "
+                    android:text="@string/code_details"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -51,13 +51,13 @@
                     android:text="P0001"
                     android:textColor="@color/red"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- بطاقة: الصورة -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardImageContainer"
             android:layout_width="match_parent"
@@ -70,11 +70,12 @@
                 android:id="@+id/ivImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
                 android:background="@drawable/splash"/>
 
         </com.google.android.material.card.MaterialCardView>
-        <!-- صف: Type & Brand ID (مغلف ليتم إخفاؤه) -->
+
         <LinearLayout
             android:id="@+id/llMeta"
             android:orientation="horizontal"
@@ -108,7 +109,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-        <!-- Title -->
+
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_marginBottom="12dp"
@@ -125,8 +126,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -141,13 +144,13 @@
 
                 <TextView
                     android:id="@+id/tvTitle"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        <!-- Description -->
+
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_marginBottom="12dp"
@@ -164,8 +167,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -180,7 +185,7 @@
 
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -203,8 +208,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -219,7 +226,7 @@
 
                 <TextView
                     android:id="@+id/tvSymptoms"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -242,8 +249,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -258,13 +267,13 @@
 
                 <TextView
                     android:id="@+id/tvCauses"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        <!-- Solutions -->
+
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_marginBottom="12dp"
@@ -281,8 +290,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -297,13 +308,13 @@
 
                 <TextView
                     android:id="@+id/tvSolutions"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        <!-- Severity -->
+
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_marginBottom="12dp"
@@ -320,8 +331,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -336,13 +349,13 @@
 
                 <TextView
                     android:id="@+id/tvSeverity"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-        <!-- Diagnosis -->
+
         <com.google.android.material.card.MaterialCardView
             style="@style/Widget.MaterialComponents.CardView"
             android:layout_marginBottom="24dp"
@@ -359,8 +372,10 @@
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    tools:ignore="UseCompoundDrawables">
                     <ImageView
+                        android:contentDescription="@string/todo"
                         android:src="@drawable/ic_check"
                         app:tint="@color/accent"
                         android:layout_width="24dp"
@@ -375,17 +390,15 @@
 
                 <TextView
                     android:id="@+id/tvDiagnosis"
-                    android:text="—"
+                    android:text=""
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-
-
-        <!-- أزرار الحفظ والمشاركة وتوليد PDF -->
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -394,6 +407,7 @@
 
             <Button
                 android:id="@+id/btnSave"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
@@ -402,10 +416,12 @@
                 android:text="@string/save_code"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp"
+                tools:ignore="VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/btnShare"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
@@ -414,10 +430,12 @@
                 android:text="@string/share_code"
                 android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp"
+                tools:ignore="VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/btnPdf"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="48dp"
@@ -425,7 +443,8 @@
                 android:drawablePadding="8dp"
                 android:text="@string/generate_pdf"
                 android:textColor="@color/white"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                tools:ignore="VisualLintButtonSize" />
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

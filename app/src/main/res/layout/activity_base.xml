@@ -2,34 +2,35 @@
 <androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/base_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- المحتوى الرئيسي -->
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Toolbar مضمّن -->
+
         <include
             layout="@layout/toolbar_custom" />
 
-        <!-- محتوى الشاشة -->
+
         <FrameLayout
             android:id="@+id/base_content_frame"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!-- BottomNavigationView مضمّن -->
+        <!-- BottomNavigationView -->
         <include
             layout="@layout/bottom_nav" />
 
     </LinearLayout>
 
-    <!-- القائمة الجانبية -->
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/base_nav_view"
         android:layout_width="wrap_content"
@@ -38,6 +39,7 @@
         app:menu="@menu/drawer_paid_menu"
         app:headerLayout="@layout/drawer_header"
         app:itemTextColor="@color/nav_item_color_selector"
-        app:itemIconTint="@color/nav_item_color_selector"   />
+        app:itemIconTint="@color/nav_item_color_selector"
+        tools:ignore="VisualLintBounds" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

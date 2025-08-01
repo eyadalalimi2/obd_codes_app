@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/screen">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!-- شركة السيارة -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,6 +31,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_brand"
                     app:tint="@color/primary" />
 
@@ -45,7 +47,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
-            <!-- طراز السيارة -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:contentDescription="@string/todo"
                     android:src="@drawable/ic_model"
                     app:tint="@color/primary" />
 
@@ -71,7 +74,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
-            <!-- سنة الإنتاج -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,6 +86,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_year"
+                    android:contentDescription="@string/todo"
                     app:tint="@color/primary" />
 
                 <Space
@@ -97,7 +101,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
-            <!-- اسم السيارة -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,6 +114,7 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_car"
+                    android:contentDescription="@string/todo"
                     app:tint="@color/primary" />
                 <Space
                     android:layout_width="8dp"
@@ -119,30 +124,34 @@
                     android:id="@+id/etCarName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="اسم السيارة (اختياري)"/>
+                    android:autofillHints=""
+                    android:hint="@string/car_name"
+                    tools:ignore="TextFields,VisualLintTextFieldSize" />
             </LinearLayout>
 
-            <!-- أزرار الحفظ والإلغاء -->
+
             <Button
                 android:id="@+id/btnSaveCar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="حفظ"
+                android:text="@string/save"
                 android:textSize="18sp"
                 android:padding="12dp"
                 android:backgroundTint="@color/primary"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                tools:ignore="VisualLintButtonSize" />
 
             <Button
                 android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="إلغاء"
+                android:text="@string/cansel"
                 android:textSize="18sp"
                 android:padding="12dp"
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/gray"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                tools:ignore="VisualLintButtonSize" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

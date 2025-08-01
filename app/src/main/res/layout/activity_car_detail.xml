@@ -1,6 +1,5 @@
 <!-- File: app/src/main/res/layout/activity_car_detail.xml -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,7 +8,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/screen">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -24,18 +24,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!-- صورة أو شعار السيارة -->
                 <ImageView
                     android:id="@+id/ivCarImage"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/splash"
-                    android:contentDescription="صورة السيارة"
+                    android:contentDescription="@string/todo"
                     android:layout_marginBottom="16dp"/>
 
                 <TextView
-                    android:text="الشركة:"
+                    android:text="@string/cd_title_brand_id"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -46,7 +45,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
-                    android:text="الطراز:"
+                    android:text="@string/models"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -57,7 +56,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
-                    android:text="سنة الإنتاج:"
+                    android:text="@string/years"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -68,7 +67,7 @@
                     android:layout_marginBottom="8dp"/>
 
                 <TextView
-                    android:text="الاسم:"
+                    android:text="@string/cars_name"
                     android:textStyle="bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>

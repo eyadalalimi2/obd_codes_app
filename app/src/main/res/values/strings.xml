@@ -193,6 +193,27 @@
     <string name="solutions_label">Solutions</string>
     <string name="diagnosis_label">Diagnosis</string>
     <string name="change_language">Change Language</string>
+    <string name="app_name_about">OBD Codes - Car Fault Finder</string>
+    <string name="abiut_tixet">\nأداة ذكية لمساعدتك في فهم أكواد أعطال سيارتك بسرعة وسهولة.</string>
+    <string name="devloper_app">تم التطوير بواسطة: اياد جابر العليمي</string>
+    <string name="key_features">الميزات الأساسية:</string>
+    <string name="key_features1">البحث اليدوي عن كود العطل</string>
+    <string name="key_features2">تشخيص بالأعراض</string>
+    <string name="key_features3">حفظ الأكواد ومشاركتها</string>
+    <string name="key_features4">تحليل الذكاء الاصطناعي</string>
+    <string name="key_features5">دعم الوضع غير المتصل بالإنترنت</string>
+    <string name="about_desc">تم تصميم التطبيق ليكون سهل وسريع للمستخدم .\nنوصي دائمًا بمراجعة فني معتمد قبل أي إصلاح.</string>
+    <string name="car_name">اسم السيارة (اختياري)</string>
+    <string name="save">حفظ</string>
+    <string name="cansel">الغاء</string>
+    <string name="models">الطراز:</string>
+    <string name="years">سنة الإنتاج:</string>
+    <string name="cars_name">أسم السيارة :</string>
+    <string name="no_car">لا توجد سيارات. اضغط + لإضافة أول سيارة.</string>
+    <string name="del_chat">حذف الدردشة</string>
+    <string name="obd_code_ai">OBD Code AI</string>
+    <string name="write_a_letter">اكتب رسالة...</string>
+    <string name="tvInstructions">أدخل رمزين للمقارنة لتظهر النتائج أدناه</string>
 
 
 </resources>
