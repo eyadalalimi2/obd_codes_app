@@ -28,6 +28,8 @@
             android:id="@+id/tvRegisterSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:lineSpacingExtra="8dp"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/register_subtitle"
             android:textAlignment="center"
             android:textColor="#000"

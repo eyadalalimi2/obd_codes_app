@@ -9,11 +9,13 @@
 
     <!-- Illustration -->
     <ImageView
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        android:layout_width="363dp"
+        android:layout_height="370dp"
         android:layout_marginBottom="24dp"
-        android:src="@drawable/welcome_image"
-        android:contentDescription="Illustration"/>
+        android:contentDescription="Illustration"
+        android:paddingTop="15.5695dp"
+        android:paddingBottom="23dp"
+        android:src="@drawable/welcome_image" />
 
     <!-- Title with line break and blue color -->
     <TextView
@@ -43,7 +45,9 @@
         android:gravity="center"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:text="قم بفحص سيارتك الان واكتشف جميع الاعطل مع طرق اصلاحها بدقه"
+        android:lineSpacingExtra="8dp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="قم بفحص سيارتك الان واكتشف جميع ألأعطال مع طرق اصلاحها بدقه"
         android:textColor="#666666"
         android:textSize="16sp"
         android:textStyle="bold" />
@@ -57,14 +61,18 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="#1740CE"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
             android:text="تسجيل الدخول"
-            android:textStyle="bold"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
         <!-- Hidden space of 16dp -->
         <Space
             android:layout_width="16dp"
@@ -72,13 +80,17 @@
         <!-- Register as plain text -->
         <TextView
             android:id="@+id/registerButton"
-            android:layout_width="144dp"
-            android:layout_height="match_parent"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
             android:gravity="center_vertical"
             android:paddingHorizontal="30dp"
             android:text="أنشاء حساب"
-            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:paddingTop="15dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="15dp"
             android:textAllCaps="false"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

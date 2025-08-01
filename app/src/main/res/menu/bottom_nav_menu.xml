@@ -19,7 +19,7 @@
 
     <item
         android:id="@+id/nav_menu"
-        android:icon="@drawable/ic_menu"
+        android:icon="@drawable/ic_menus"
         android:title="@string/menu_pages"/>
 
 
