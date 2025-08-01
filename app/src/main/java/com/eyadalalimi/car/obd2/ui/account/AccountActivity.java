@@ -65,7 +65,7 @@ public class AccountActivity extends BaseActivity {
                 );
                 binding.tvCurrentPlan.setText(
                         getString(R.string.status_prefix) + ": " +
-                                (isPaid ? getString(R.string.active_ar) : getString(R.string.inactive_ar))
+                                (isPaid ? getString(R.string.verified) : getString(R.string.not_verified))
                 );
                 binding.tvPlanStartDate.setText(
                         sub.getStartAt() != null
@@ -217,7 +217,7 @@ public class AccountActivity extends BaseActivity {
             binding.tvUsername.setText(getString(R.string.user_name) + ": " + user.getUsername());
             binding.tvEmail.setText(getString(R.string.email) + ": " + user.getEmail());
             binding.tvJobTitle.setText(
-                    getString(R.string.job_title_prefix) + ": " +
+                    getString(R.string.job_title) + ": " +
                             (user.getJobTitle() != null ? user.getJobTitle() : getString(R.string.undefined))
             );
 
@@ -234,7 +234,7 @@ public class AccountActivity extends BaseActivity {
 
             // عدد الأكواد المحفوظة
             binding.tvSavedCodesCount.setText(
-                    getString(R.string.saved_codes_prefix) + " " + user.getSavedCodesCount()
+                    getString(R.string.saved_codes) + " " + user.getSavedCodesCount()
             );
         });
     }

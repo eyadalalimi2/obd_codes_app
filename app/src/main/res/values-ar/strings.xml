@@ -1,486 +1,181 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
-    <!-- ========================================================================================= -->
-    <!-- معلومات التطبيق الأساسية وشاشات البداية -->
-    <!-- ========================================================================================= -->
-    <string name="app_version">تطبيق OBD Code الإصدار 1.0.0</string>
-    <string name="version_placeholder">نسخه التطبيق V1.0</string>
-    <string name="app_logo">شعار التطبيق</string>
+    <string name="app_name">أكواد أعطال السيارات</string>
+    <string name="app_version">نسخة التطبيق V26</string>
     <string name="splash_tagline">التشخيص بضغطة زر</string>
     <string name="about_this_app">عن التطبيق</string>
-    <string name="empty_prefix"> </string> <!-- قد يستخدم كبادئة فارغة لتنسيق معين -->
-
-    <!-- ========================================================================================= -->
-    <!-- شاشات الترحيب (Onboarding) ومقدمة -->
-    <!-- ========================================================================================= -->
-    <string name="onboard_title_1">مرحبًا بك في  OBD Code</string>
-    <string name="onboard_desc_1">شخّص الأعطال بسهولة مع تطبيقنا.</string>
-    <string name="onboard_title_2">بحث قائم على الأعراض</string>
-    <string name="onboard_desc_2">ابحث حسب الأعراض أو رموز الأعطال.</string>
-    <string name="onboard_title_3">حفظ و مشاركة</string>
-    <string name="onboard_desc_3">احفظ الرموز المفضلة وشاركها مع الآخرين.</string>
-    <string name="discover_your">اكتشف فرصتك</string>
-    <string name="dream_job_here">وظيفة أحلامك هنا</string>
-    <string name="description_text">استكشف جميع الوظائف المتاحة بناءً على اهتماماتك وتخصصك الدراسي</string>
     <string name="get_started">ابدأ الآن</string>
     <string name="skip">تخطي</string>
-
-    <!-- ========================================================================================= -->
-    <!-- التنقل (Navigation Drawer والقوائم) -->
-    <!-- ========================================================================================= -->
-    <string name="navigation_drawer_open">فتح قائمة التنقل</string>
-    <string name="navigation_drawer_close">إغلاق قائمة التنقل</string>
     <string name="nav_open">فتح قائمة التنقل</string>
     <string name="nav_close">إغلاق قائمة التنقل</string>
-    <string name="nav_header_title">أندرويد ستوديو</string>
-    <string name="nav_header_subtitle">eyadads.in@gmail.com</string>
-    <string name="nav_header_desc">رأس قائمة التنقل</string>
-
-    <!-- عناصر قائمة التنقل الرئيسية -->
-    <string name="menu_home">الرئيسية</string>
     <string name="home">الصفحة الرئيسية</string>
     <string name="menu_dashboard">لوحة التحكم</string>
-    <string name="go_to_dashboard">الذهاب الي لوحه التحكم</string>
-    <string name="nav_symptom">تشخيص بالأعراض</string>
-    <string name="symptom_diagnosis">تشخيص حسب الأعراض</string>
-    <string name="select_symptom">اختر العَرَض</string>
-    <string name="nav_compare">مقارنة الأكواد</string>
+    <string name="go_to_dashboard">الذهاب الي لوحة التحكم</string>
+    <string name="symptom_diagnosis">تشخيص بالأعراض</string>
     <string name="compare_codes">مقارنة الأكواد</string>
-    <string name="nav_history">سجل التشخيص</string>
     <string name="diagnosis_history">سجل التشخيص</string>
-    <string name="nav_notifications">الإشعارات الذكية</string>
     <string name="notifications">الإشعارات الذكية</string>
-    <string name="nav_trending">الأكواد الشائعة</string>
     <string name="trending_codes">الأكواد الشائعة</string>
-    <string name="nav_visual">المكتبة المرئية</string>
     <string name="visual_library">المكتبة المرئية</string>
-    <string name="nav_pdf">تقرير PDF</string>
     <string name="generate_pdf">توليد تقرير PDF</string>
-    <string name="nav_ai">مساعد الذكاء الاصطناعي</string>
     <string name="ai_assistant">مساعد الذكاء الاصطناعي</string>
-    <string name="menu_gallery">المعرض</string>
-    <string name="menu_slideshow">عرض الشرائح</string>
     <string name="menu_pages">قائمة الصفحات</string>
-
-    <!-- ========================================================================================= -->
-    <!-- الإعدادات العامة والتطبيق -->
-    <!-- ========================================================================================= -->
-    <string name="settings">أعدادات التطبيق</string> <!-- اسم عام للإعدادات -->
-    <string name="action_settings">الإعدادات</string> <!-- عادة لزر أو عنصر قائمة -->
+    <string name="settings">أعدادات التطبيق</string>
     <string name="select_language">اختر اللغة</string>
-    <string name="nav_offline">وضع الأوفلاين</string> <!-- إعداد عام للتطبيق -->
-
-    <!-- ========================================================================================= -->
-    <!-- أزرار وإجراءات شائعة (Common Actions & Buttons) -->
-    <!-- ========================================================================================= -->
     <string name="next">التالي</string>
     <string name="prev">السابق</string>
-    <string name="back">رجوع</string>
     <string name="search">بحث</string>
-    <string name="search_button">بحث</string>
-    <string name="select">اختر</string>
-    <string name="ok">موافق</string>
-    <string name="yes">نعم</string>
-    <string name="no">لا</string>
-    <string name="cancel">إلغاء</string>
     <string name="delete">حذف</string>
-    <string name="save">حفظ</string>
     <string name="close">إغلاق</string>
     <string name="retry">إعادة المحاولة</string>
-    <string name="loading">جاري التحميل…</string>
     <string name="undefined">غير محدد</string>
-    <string name="update_data">تحديث البيانات</string>
-    <string name="send_link">أرسل لي رابطًا</string>
-    <string name="btn_search">بحث</string>
-    <!-- ========================================================================================= -->
-    <!-- البحث عن الأكواد، تفاصيلها ومقارنتها -->
-    <!-- ========================================================================================= -->
-    <string name="search_code_title">البحث عن كود</string>
-    <string name="select_code">اختر الرمز</string>
     <string name="code_hint">أدخل كود العطل (مثال: P0420)</string>
-    <string name="label_search_code">حدد كود العطل</string>
-    <string name="hint_code_part">أدخل جزء من الكود</string>
-    <string name="prompt_choose_brand">اختر الشركة</string>
-    <string name="prompt_choose_model">اختر الموديل</string>
-    <string name="prompt_choose_year">اختر سنة الإنتاج</string>
-    <string name="invalid_code">يرجى إدخال كود صالح مكون من 5 رموز</string>
     <string name="code_not_found">الكود غير موجود</string>
     <string name="code_details">تفاصيل الكود</string>
-    <string name="p000">يشير رمز OBD P0000 إلى أن نظام التشخيص المدمج في السيارة لم يكتشف أي أعطال أو مشاكل في المحرك أو نظام الانبعاثات. يُستخدم هذا الرمز عادةً كمؤشر عام على أن أنظمة السيارة تعمل بكفاءة.</string>
-    <string name="no_fault">لم يتم اكتشاف أي خطأ</string>
-    <string name="continue_reading">تابع القراءة…</string>
-    <string name="detail_items">تفاصيل إضافية:</string>
-    <string name="description_label">الوصف</string>
-    <string name="symptoms_label">الأعراض</string>
-    <string name="typical_symptoms">الأعراض الشائعة</string>
-    <string name="causes_label">الأسباب</string>
-    <string name="solutions_label">الحلول</string>
-    <string name="diagnosis_label">التشخيص</string>
-    <string name="severity_label">شدة العطل</string>
     <string name="severity">الشدة</string>
-    <string name="fetch_failed">فشل جلب تفاصيل الكود</string>
     <string name="select_first_code">اختر الكود الأول</string>
     <string name="select_second_code">اختر الكود الثاني</string>
     <string name="compare">مقارنة</string>
-    <string name="invalid_selection">يرجى اختيار كودين صالحين للمقارنة</string>
-    <string name="no_comparison_result">لم تتم عملية المقارنة بعد</string>
-    <!-- مثال على تفاصيل كود في بطاقة -->
-    <string name="tvCardCode">P0001</string>
-    <string name="tvCardTitle">دائرة التحكم في منظم حجم الوقود/مفتوحة</string>
-    <string name="tvCardDescription">يشير إلى وجود مشكلة في منظم حجم الوقود…</string>
-    <string name="tvSymptoms">ضوء فحص المحرك، تسارع ضعيف…</string>
-    <string name="tvCauses">تلف في المستشعر، انقطاع في الأسلاك…</string>
-    <string name="tvSolutions">إصلاح أو استبدال التوصيلات…</string>
-    <string name="tvDiagnosis">فحص الأسلاك والتوصيلات، اختبار المستشعر…</string>
-    <string name="code_image"> </string> <!-- قد يكون وصف لصورة الكود أو محتوى فارغ لحجز مكان -->
-
-    <!-- ========================================================================================= -->
-    <!-- حفظ ومشاركة الأكواد (Saved Codes & Sharing) -->
-    <!-- ========================================================================================= -->
-    <string name="my_saved_items">الأكواد المحفوظة</string>
-    <string name="saved_codes_title">الأكواد المحفوظة</string>
-    <string name="saved_codes_prefix">الأكواد المحفوظة:</string>
-    <string name="saved_searches">الأكواد المحفوظة</string>
+    <string name="saved_codes">الأكواد المحفوظة</string>
     <string name="save_code">حفظ الكود</string>
     <string name="code_saved">تم حفظ الكود بنجاح</string>
-    <string name="saved">محفوظ</string>
-    <string name="code_already_saved">الكود محفوظ مسبقًا</string>
-    <string name="save_failed">فشل في حفظ الكود</string>
     <string name="err_saving_code">خطأ أثناء حفظ الكود. يرجى المحاولة مرة أخرى.</string>
     <string name="share_code">مشاركة الكود</string>
-    <string name="share_via">مشاركة عبر</string>
-    <string name="share">تحقق من تطبيق OBD Codes: https://obdcodes.net</string>
+    <string name="share">تطبيق كاشف اعطال السيارات والمدعوم بالذكاء الاصطناعي والكثير من المميزات قم بتحميل التطبيق عبر الرابط التالي https://play.google.com/store/apps/details?id=com.eyadalalimi.car.obd2</string>
     <string name="share_hint">أعجبك هذا التطبيق؟ شاركه مع أصدقائك!</string>
     <string name="share_icon_desc">رمز المشاركة</string>
     <string name="share_this_app">مشاركه التطبيق</string>
-
-    <!-- ========================================================================================= -->
-    <!-- الحساب (Account, Profile, Login, Signup, Biometrics, PIN) -->
-    <!-- ========================================================================================= -->
-    <!-- معلومات الملف الشخصي والحساب -->
     <string name="my_account">حسابي</string>
-    <string name="account_title">حسابي</string>
     <string name="profile_image">صورة الملف الشخصي</string>
-    <string name="user_name">أسم المستخدم</string>
-    <string name="account_name">اسم المستخدم</string>
-    <string name="name">الاسم</string>
-    <string name="hint_name">الاسم</string>
-    <string name="user_job_title">خبير ميكانيك سيارات</string>
-    <string name="account_job_title">المسمى الوظيفي</string>
+    <string name="user_name">اسم المستخدم</string>
     <string name="job_title">المسمى الوظيفي</string>
     <string name="edit_profile">تعديل الملف الشخصي</string>
-    <string name="account_edit">تعديل الحساب</string>
     <string name="account_info">معلومات الحساب</string>
     <string name="user_type_prefix">نوع المستخدم</string>
-    <string name="user">مستخدم</string>
-    <string name="admin">مشرف</string>
     <string name="user_mode">وضع المستخدم: </string>
-    <string name="change_user_mode">تغيير نوع المستخدم</string>
-    <string name="account_status_prefix">حالة الحساب</string>
-    <string name="active_ar">مفعل</string>
-    <string name="inactive_ar">غير مفعل</string>
-    <string name="creation_date">تاريخ الإنشاء: ٢ مايو ٢٠٢٥</string>
-    <string name="created_at">تاريخ الإنشاء</string>
     <string name="created_on">أنشئ في: </string>
-
-    <!-- تسجيل الدخول وإنشاء الحساب -->
     <string name="welcome_back">مرحبًا بعودتك، لقد افتقدناك!</string>
     <string name="create_account_description">أنشئ حسابًا لتتمكن من استكشاف جميع الوظائف المتاحة</string>
     <string name="login_title">تسجيل الدخول إلى حسابك</string>
-    <string name="login_tab">تسجيل الدخول</string>
     <string name="btn_login">تسجيل الدخول</string>
     <string name="signup_title">إنشاء حساب مجاني</string>
-    <string name="signup_tab">التسجيل</string>
-    <string name="btn_create_account">إنشاء حساب</string>
-    <string name="email_hint">أدخل بريدك الإلكتروني</string>
-    <string name="hint_email">البريد الإلكتروني</string>
-    <string name="email">ألأيميل </string>
-    <string name="account_email">البريد الإلكتروني</string>
+    <string name="email">البريد الإلكتروني</string>
     <string name="phone">رقم الهاتف :</string>
     <string name="hint_password">كلمة المرور</string>
     <string name="change_password">تغيير كلمة المرور</string>
     <string name="forgot_password">نسيت كلمة المرور؟</string>
-    <string name="forgot_password_title">نسيت كلمة المرور</string>
-    <string name="please_enter_email">يرجى إدخال بريدك الإلكتروني</string>
-    <string name="reset_link_sent">تم إرسال رابط إعادة تعيين كلمة المرور إلى %1$s</string>
-    <string name="verification_email_sent">تم إرسال رابط التفعيل إلى بريدك</string>
-    <string name="resend_verification">إعادة إرسال رابط التفعيل</string>
-    <string name="agree_text">أوافق على سياسة الخصوصية وشروط الخدمة</string>
-
-    <!-- تسجيل الدخول بالبصمة و PIN -->
-    <string name="btn_fingerprint_login">تسجيل الدخول بالبصمة</string>
-    <string name="biometric_title">تسجيل الدخول بالبصمة</string>
-    <string name="biometric_subtitle">استخدم بصمة إصبعك للمتابعة</string>
-    <string name="use_pin">إدخال PIN</string>
-    <string name="set_new_pin">تعيين رمز PIN جديد</string>
-    <string name="pin_saved">تم حفظ رمز PIN بنجاح</string>
-    <string name="login_required_first">قم بتسجيل الدخول أونلاين أولاً</string> <!-- لتمكين البصمة مثلاً -->
-    <string name="offline_biometric_cleared">تم مسح بيانات الدخول باستخدام البصمة (وضع أوفلاين)</string>
     <string name="confirm_clear">تأكيد حذف البيانات</string>
     <string name="confirm_clear_message">هل أنت متأكد من رغبتك في مسح جميع بيانات الدخول؟</string>
-
-    <!-- تسجيل الخروج وحذف الحساب -->
     <string name="logout">تسجيل الخروج</string>
     <string name="delete_account"> حذف الحساب</string>
-
-    <!-- رسائل الحالة والخطأ (الحساب، البصمة، PIN) -->
     <string name="update_success">تم تحديث البيانات بنجاح</string>
     <string name="update_failed">فشل في تحديث البيانات</string>
     <string name="msg_profile_saved"> تم الحفظ بنجاح</string>
     <string name="err_save_profile">فشل أثناء الحفظ</string>
-    <string name="err_fetch_profile">فشل في جلب البيانات</string>
-    <string name="err_fetch_data">خطاء في جلب البيانات</string> <!-- خطأ إملائي: "خطأ" -->
+    <string name="err_fetch_profile">فشل في جلب بيانات الحساب من الخادم</string>
+    <string name="err_fetch_data"> فشل في جلب بيانات الكود من الخادم</string>
     <string name="login_failed">فشل تسجيل الدخول</string>
     <string name="reg_failed">فشل إنشاء الحساب</string>
-    <string name="reg_success">تم التسجيل بنجاح</string>
     <string name="err_logout">فشل تسجيل الخروج</string>
     <string name="err_delete_account">فشل حذف الحساب</string>
     <string name="err_send_link">فشل في إرسال رابط التفعيل</string>
     <string name="err_fill_all">يرجى تعبئة جميع الحقول</string>
     <string name="err_invalid_email">البريد الإلكتروني غير صالح</string>
     <string name="err_invalid_pass">كلمة المرور قصيرة جدًا</string>
-    <string name="err_agree">يجب الموافقة على الشروط</string>
-    <string name="err_network">خطأ في الاتصال: %1$s</string>
-    <string name="google_signin_failed">فشل تسجيل الدخول عبر Google: %1$s</string>
-    <string name="email_taken">البريد الإلكتروني مستخدم مسبقًا، حاول تسجيل الدخول أو استخدم بريدًا آخر.</string>
-    <string name="biometric_error">حدث خطأ أثناء التحقق بالبصمة</string>
-    <string name="pin_fallback">لم يتم التحقق بالبصمة. يمكنك استخدام PIN</string>
-    <string name="encryption_init_failed">فشل تهيئة التشفير</string>
-    <string name="fingerprint_failed">لم يتم التعرف على بصمتك</string>
-    <string name="biometric_disabled">تم تعطيل البصمة</string>
-    <string name="encryption_error">حدث خطأ أثناء التشفير</string>
-    <string name="pin_length_error">يجب أن يتكون رمز PIN من 4 أرقام على الأقل</string>
-
-    <!-- ========================================================================================= -->
-    <!-- الاشتراكات والباقات (Subscriptions & Plans) -->
-    <!-- ========================================================================================= -->
-    <string name="pricing">خطط الاشتراك</string>
+    <string name="err_agree">يجب الموافقة على سياسه الخصوصية و شروط الاستخدام</string>
+    <string name="google_signin_failed">فشل تسجيل الدخول عبر  حساب جوجل</string>
     <string name="subscription_plans">خطط الاشتراك</string>
-    <string name="package_free">مجانية</string>
     <string name="free">مجاني</string>
     <string name="paid">مدفوع</string>
-    <string name="edit_package">تعديل الباقة</string>
-    <string name="subscription_info">معلومات الاشتراك</string>
     <string name="subscription_details">تفاصيل الاشتراك</string>
-    <string name="current_plan">الخطة الحالية: مجانية</string>
-    <string name="current_package">الباقة الحالية: مجانية</string>
-    <string name="package_name">الباقة</string>
-    <string name="package_prefix">الباقة:</string>
-    <string name="plan_name">اسم الباقة</string>
-    <string name="plan_price">السعر</string>
-    <string name="plan_duration">مدة الباقة</string>
-    <string name="plan_start_date">تاريخ بدء الخطة: ٢ مايو ٢٠٢٥</string>
+    <string name="package_prefix">الباقة</string>
     <string name="plan_start">تاريخ بداية الباقة:</string>
-    <string name="plan_renewal_date">تاريخ تجديد الخطة</string>
     <string name="plan_renewal">تاريخ تجديد الباقة:</string>
-    <string name="status_prefix">حالة الاشتراك:</string>
+    <string name="status_prefix">حالة الاشتراك</string>
     <string name="manage_subscription">إدارة الاشتراك</string>
-    <string name="renew_plan">تجديد الباقة</string>
-    <string name="one_time_purchase">شراء لمرة واحدة</string>
-    <string name="one_time_subtitle">اشترِ باقة PRO لمدة 3 أيام فقط</string>
-    <string name="one_time_title">شراء لمرة واحدة (3 أيام)</string>
-    <string name="one_time_price">5 دولار</string>
-    <string name="monthly_plan">خطة PRO الشهرية</string>
-    <string name="monthly_title">اشتراك شهري</string>
-    <string name="monthly_price">9.99 دولار/شهريًا</string>
-    <string name="yearly_plan">خطة PRO السنوية</string>
-    <string name="yearly_title">اشتراك سنوي</string>
-    <string name="yearly_price">99.99 دولار/سنوياً</string>
-    <string name="go_pro_plan">خطة Go PRO</string>
-    <string name="profile_image_desc">صورة الملف الشخصي</string>
-    <string name="package_icon">أيقونة الباقة</string>
-    <!-- ========================================================================================= -->
-    <!-- الإشعارات (Notifications) -->
-    <!-- ========================================================================================= -->
-    <string name="mark_as_read">تحديد كمُقروء</string>
     <string name="marked_read">تم تمييز الإشعار كمقروء</string>
     <string name="deleted">تم حذف الإشعار</string>
-    <!-- عناصر واجهة المستخدم لعرض الإشعارات -->
     <string name="tv_title">العنوان</string>
-    <string name="tv_message">الرسالة</string>
-    <string name="tv_date">التاريخ</string>
     <string name="tv_mark_read">وضع علامة قراءة</string>
-    <string name="tv_delete">حذف</string>
-
-    <!-- ========================================================================================= -->
-    <!-- تقارير PDF -->
-    <!-- ========================================================================================= -->
-    <string name="pdf_not_implemented">ميزة توليد PDF لم تُفعّل بعد</string>
-    <string name="title_pdf_report">تقرير PDF</string>
-    <string name="sample_pdf_summary">تقرير الكود:\n\nالكود: P0300\nالوصف: خلل عشوائي في الاشتعال\nالأسباب: شمعات الاشتعال، أسلاك الإشعال\nالحلول: فحص واستبدال الشمعات</string>
-    <string name="pdf_saved_success">تم حفظ التقرير بنجاح</string>
-    <string name="err_generating_pdf">خطأ أثناء توليد ملف PDF. يرجى المحاولة مرة أخرى.</string>
-    <string name="err_no_pdf_to_share">لا يوجد تقرير PDF للمشاركة</string>
-    <string name="share_pdf">مشاركة التقرير</string>
-    <string name="view_pdf_page">صفحة من ملف PDF</string>
-    <string name="itextpdf">iTextPDF</string> <!-- اسم مكتبة، قد يكون للـ logs أو للمطور -->
-
-    <!-- ========================================================================================= -->
-    <!-- الدعم والتواصل (Support & Contact) -->
-    <!-- ========================================================================================= -->
     <string name="contact_us">تواصل معنا</string>
-    <string name="ask_support">الدعم</string>
-    <string name="fill_all_fields">يرجى تعبئة جميع الحقول</string>
     <string name="send_message">إرسال الرسالة</string>
     <string name="send_via">إرسال عبر</string>
-    <string name="support_email">بريد الدعم</string>
     <string name="how_it_works">كيف يعمل التطبيق؟</string>
     <string name="enter_subject">أدخل موضوع الرسالة</string>
     <string name="enter_message">أدخل رسالتك هنا</string>
     <string name="message_sent_success">تم إرسال الرسالة بنجاح!</string>
-    <string name="welcome_support">مرحباً بك في الدعم الفني!</string>
+    <string name="welcome_support">مرحباً بك في خدمة الدعم الفني!</string>
     <string name="support_instructions">يرجى كتابة مشكلتك أو استفسارك وسيتم الرد عليك بأسرع وقت.</string>
     <string name="subject">الموضوع</string>
     <string name="message">الرسالة</string>
-
-
-    <!-- ========================================================================================= -->
-    <!-- السياسات والشروط (Policies & Terms) -->
-    <!-- ========================================================================================= -->
     <string name="disclaimers">إخلاء المسؤولية</string>
-    <string name="terms_of_service">شروط الخدمة</string>
+    <string name="terms_of_service">شروط الاستخدام</string>
     <string name="privacy_policy">سياسة الخصوصية</string>
-    <string name="terms_privacy">شروط الخدمة - سياسة الخصوصية</string>
-
-    <!-- ========================================================================================= -->
-    <!-- رسائل خطأ عامة واتصال بالإنترنت -->
-    <!-- ========================================================================================= -->
     <string name="error">حدث خطأ، يرجى المحاولة لاحقًا</string>
-    <string name="default_error">حدث خطأ غير متوقع</string>
     <string name="no_internet_title">لا يوجد اتصال بالإنترنت</string>
     <string name="no_internet_message">يرجى التحقق من اتصالك والمحاولة مرة أخرى.</string>
-
-    <!-- ========================================================================================= -->
-    <!-- متنوع (Miscellaneous) -->
-    <!-- ========================================================================================= -->
     <string name="rate_this_app">تقييم التطبيق</string>
-    <string name="prompt_letter">رسالة سريعة</string>
-    <string name="plans_title">اختر باقة الاشتراك</string>
-    <string name="plan_name_placeholder">اسم الباقة</string>
-    <string name="plan_price_placeholder">السعر</string>
-    <string name="plan_features_placeholder">مميزات الباقة</string>
-    <string name="subscription_status">حالة الاشتراك</string>
-    <string name="subscription_start_date">تاريخ التفعيل</string>
-    <string name="subscription_expiry_date">تاريخ الانتهاء</string>
-    <string name="subscription_days_left">الأيام المتبقية</string>
-    <string name="activation_code_hint">مثال: ABC123</string>
     <string name="brand">اختر الشركة</string>
     <string name="model">اختر الطراز</string>
     <string name="year">اختر السنة</string>
-    <string name="job_title_prefix">المسمى الوظيفي</string>
     <string name="view_cars">عرض السيارات</string>
-    <string name="car_icon">رمز السيارة</string>
-    <string name="my_cars">أعدادات السياره</string>
+    <string name="my_cars">إعدادات السياره</string>
     <string name="view_saved_codes">عرض الأكواد المحفوظة</string>
-    <string name="select_profile_image">حدد صوره الملف الشخصي</string>
-    <string name="check_verification_status">التحقق من تفعيل البريد الالكتروني</string>
-    <string name="choose_image">اختر صورة</string>
-    <string name="full_name">الاسم الكامل</string>
-    <string name="enter_username">ادخل اسم المستخدم</string>
-    <string name="enter_email">ادخل البريد الالكتروني</string>
-    <string name="enter_phone">ادخل رقم الهاتف</string>
-    <string name="enter_job_title">ادخل المسمى الوضيفي</string>
-    <string name="view_subscription_details">عرض تفاصيل الاشتراك</string>
-    <string name="save_changes">حفظ التغييرات</string>
-    <string name="resend_verification_link">" إرسال رابط تفعيل البريد الالكتروني"</string>
-    <string name="profile_updated">تم تحديث الملف الشخصي بنجاح</string>
-    <string name="err_update_profile">فشل تحديث الملف الشخصي</string>
-    <string name="err_select_photo">يرجى اختيار صورة صالحة</string>
-    <string name="photo_updated">تم تحديث الصورة بنجاح</string>
-    <string name="err_update_photo">فشل تحديث الصورة</string>
-    <string name="send_reset_link">إرسال رابط التفعيل</string>
+    <string name="check_verification_status">التحقق من تفعيل البريد الإلكتروني</string>
+    <string name="resend_verification_link">"إرسال رابط تفعيل البريد الإلكتروني"</string>
     <string name="hint_token">Reset Token</string>
-    <string name="hint_confirm_password">أعادة كلمه المرور الجديده</string>
+    <string name="hint_confirm_password">إعادة كلمه المرور الجديده</string>
     <string name="err_reset">فشل تغيير كلمه المرور</string>
-    <string name="email_verification_title">التحقق من البريد الالكتروني</string>
+    <string name="email_verification_title">التحقق من البريد الإلكتروني</string>
     <string name="email_not_verified">حالة التحقق: غير مفعل</string>
     <string name="reset_password_title">إعادة تعيين كلمة المرور</string>
     <string name="verified">مفعل</string>
     <string name="not_verified">غير مفعل</string>
-    <string name="email_now_verified">جاري التحقق من البريد الالكتروني</string>
+    <string name="email_now_verified">جاري التحقق من البريد الإلكتروني</string>
     <string name="err_not_match">كلمتا المرور غير متطابقتين</string>
-    <string name="history_title">سجل التشخيص</string>
     <string name="no_history">لا يوجد سجل بعد</string>
     <string name="new_diagnosis">تشخيص جديد</string>
     <string name="clear_history">مسح السجل</string>
     <string name="confirm_delete">تأكيد الحذف</string>
-    <string name="confirm_delete_message">هل أنت متأكد أنك تريد حذف هذا العنصر؟</string>
-    <string name="history_date">التاريخ: %1$s</string>
-    <string name="share_history_text">كود التشخيص: %1$s\nالتاريخ: %2$s</string>
-    <!-- صفحة وضع الأوفلاين -->
     <string name="offline_mode">وضع الأوفلاين</string>
     <string name="download_codes">تحميل الأكواد</string>
     <string name="view_offline_codes">عرض الأكواد المحملة</string>
     <string name="last_synced_on">آخر تحميل: %1$s</string>
     <string name="enable_offline_first">فعّل وضع الأوفلاين أولاً</string>
-    <string name="downloading_codes">جاري تحميل الأكواد...</string>
     <string name="codes_downloaded">تم تحميل %1$d أكواد بنجاح</string>
     <string name="status_enabled">الوضع: مفعل</string>
     <string name="status_disabled">الوضع: معطل</string>
-
-    <!-- صفحة عرض الأكواد المحملة -->
     <string name="title_offline_codes">الأكواد المحفوظة محليًا</string>
     <string name="search_code_hint">ابحث عن كود</string>
     <string name="no_offline_codes">لا توجد أكواد محملة بعد</string>
-    <!-- صفحة خطط الاشتراك -->
     <string name="choose_plan">اختر الباقة المناسبة</string>
     <string name="no_plans">لا توجد باقات متاحة حالياً</string>
     <string name="most_popular">الأكثر شهرة</string>
-    <string name="plan_policy_explanation">
-        يمكنك تجديد أو إلغاء اشتراكك عبر الأزرار أعلاه حسب السياسة.
-    </string>
-    <string name="no_active_subscription">لا يوجد اشتراك نشط</string>
-    <string name="current_subscription">
-        اشتراكك الحالي: %1$s (%2$s)، متبقي %3$d يوم
-    </string>
-
-    <!-- حوار كود التفعيل -->
+    <string name="plan_policy_explanation">يمكنك تجديد أو إلغاء اشتراكك عبر الأزرار أعلاه حسب سياسية الاشتراك.</string>
     <string name="enter_activation_code">الرجاء إدخال كود التفعيل</string>
     <string name="activate_code">تفعيل بالكود</string>
     <string name="activate_now">تفعيل الآن</string>
-
-    <!-- شراء عبر Google -->
-    <string name="buy_with_google">شراء عبر Google</string>
-
-    <!-- صفحة حالة الاشتراك -->
+    <string name="buy_with_google">شراء عبر جوجل بلاي</string>
     <string name="renew_subscription">تجديد الاشتراك</string>
     <string name="cancel_subscription">إلغاء الاشتراك</string>
-    <string name="confirm_cancel">هل أنت متأكد أنك تريد إلغاء الاشتراك؟</string>
-    <string name="status_active">نشط</string>
-    <string name="status_expired">منتهي</string>
     <string name="subscription_start">تاريخ التفعيل:</string>
     <string name="subscription_end">تاريخ الانتهاء:</string>
     <string name="days_left">الأيام المتبقية:</string>
     <string name="plan_features">مميزات الباقة الحالية:</string>
-    <string name="privacy_lock_icon">قفل الخصوصية</string>
-    <string name="delete_item">حذف</string>
-    <string name="open_item">عرض التفاصيل</string>
     <string name="clear_all">حذف الكل</string>
-    <string name="_0_saved">0 كود محفوظ</string>
-    <string name="confirm_delete_title">تأكيد حذف الحساب</string>
+    <string name="_0_saved">لا توجد أكواد محفوظة</string>
     <string name="confirm_delete_message_accunt">هل أنت متأكد أنك تريد حذف الحساب؟ لا يمكن التراجع عن هذه العملية.</string>
-
-    <string name="warning">تحذير</string>
-    <string name="cd_title_description">الوصف</string>
-    <string name="cd_title_symptoms">الأعراض</string>
-    <string name="cd_title_causes">الأسباب</string>
-    <string name="cd_title_solutions">الحلول</string>
-    <string name="cd_title_diagnosis">التشخيص</string>
-    <string name="cd_title_type">النوع</string>Type
-    <string name="cd_title_brand_id">الشركه</string>Brand ID
-    <string name="cd_title_severity">درجة الخطوره</string>ٍSeverity
-    <string name="cd_title_title">العنوان</string>Title
-    <string name="copied_to_clipboard">تم النسخ إلى الحافظة</string>
-    <string name="shared_successfully">تمت المشاركة بنجاح</string>
-    <string name="pdf_generated">تم إنشاء ملف PDF</string>
-    <string name="cd_image_desc">مخطط الكود</string>
-    <string name="err_pass_mismatch">كلمه المرور غير متطابقه</string>
+    <string name="cd_title_type">النوع:</string>Type
+    <string name="cd_title_brand_id">الشركة المصنعة :</string>
+    <string name="cd_title_severity">درجة الخطوره</string>
     <string name="tv_create_account">ليس لديك حساب بعد ؟</string>
     <string name="or_continue_with">أو الاستمرار مع</string>
-    <string name="tv__have_account">هل لديك حساب من قبل ؟ اضغط هنا</string>
-    <string name="btn_sign_up">أنشاء حساب</string>
-    <string name="register_subtitle">قم بإنشاء حساب حتى تتمكن من استكشاف جميع الوظائف الموجودة</string>
+    <string name="tv__have_account">هل لديك حساب من قبل ؟ اضغط هنا لتسجيل الدخول</string>
+    <string name="btn_sign_up">إنشاء حساب</string>
     <string name="code_invalid_format">الرجاء إدخال كود بصيغة صحيحة (مثل P0420)</string>
-
-
+    <string name="err_generating_pdf">خطأ أثناء توليد ملف PDF. يرجى المحاولة مرة أخرى.</string>
+    <string name="description_label">الوصف</string>
+    <string name="symptoms_label">الأعراض</string>
+    <string name="causes_label">الأسباب</string>
+    <string name="solutions_label">الحلول</string>
+    <string name="diagnosis_label">التشخيص</string>
 </resources>

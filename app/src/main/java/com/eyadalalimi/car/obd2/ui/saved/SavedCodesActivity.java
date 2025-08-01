@@ -49,7 +49,7 @@ public class SavedCodesActivity extends BaseActivity implements SavedCodesAdapte
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            setTitle(R.string.saved_codes_title);
+            setTitle(R.string.saved_codes);
         }
 
         tvSavedCount = findViewById(R.id.tvSavedCount);

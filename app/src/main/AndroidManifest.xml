@@ -75,9 +75,7 @@
         <activity
             android:name=".ui.home.HomeActivity"
             android:label="@string/home" />
-        <activity
-            android:name=".ui.code_search.CodeSearchActivity"
-            android:label="@string/search_code_title" />
+
 
         <!-- Code Details & PDF -->
         <activity
@@ -85,12 +83,12 @@
             android:label="@string/code_details" />
         <activity
             android:name=".ui.pdf.PdfReportActivity"
-            android:label="@string/nav_pdf" />
+            android:label="@string/generate_pdf" />
 
         <!-- Saved Codes -->
         <activity
             android:name=".ui.saved.SavedCodesActivity"
-            android:label="@string/my_saved_items" />
+            android:label="@string/saved_codes" />
 
         <!-- Account & Profile -->
         <activity
@@ -98,7 +96,7 @@
             android:label="@string/my_account" />
         <activity
             android:name=".ui.account.EditProfileActivity"
-            android:label="@string/account_edit" />
+            android:label="@string/edit_profile" />
 
         <!-- Settings & Language -->
         <activity
@@ -117,23 +115,23 @@
         <!-- Paid Features -->
         <activity
             android:name=".ui.diagnosis.SymptomDiagnosisActivity"
-            android:label="@string/nav_symptom" />
+            android:label="@string/symptom_diagnosis" />
         <activity
             android:name=".ui.compare.CompareCodesActivity"
-            android:label="@string/nav_compare"
+            android:label="@string/compare_codes"
             android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.history.DiagnosisHistoryActivity"
             android:label="@string/diagnosis_history" />
         <activity
             android:name=".ui.analytics.TrendingCodesActivity"
-            android:label="@string/nav_trending" />
+            android:label="@string/trending_codes" />
         <activity
             android:name=".ui.visual.VisualLibraryActivity"
-            android:label="@string/nav_visual" />
+            android:label="@string/visual_library" />
         <activity
             android:name=".ui.chat.ChatActivity"
-            android:label="@string/nav_ai" />
+            android:label="@string/ai_assistant" />
 
         <!-- Static / Info Pages -->
         <activity
@@ -164,7 +162,7 @@
             android:label="@string/menu_pages" />
         <activity
             android:name=".ui.offline.OfflineModeActivity"
-            android:label="@string/nav_offline" />
+            android:label="@string/offline_mode" />
 
         <!-- Notifications -->
         <activity
@@ -176,7 +174,7 @@
         <activity android:name=".ui.plans.SubscriptionStatusActivity"
             android:label="@string/subscription_details"/>
         <activity android:name=".ui.plans.PlansActivity"
-            android:label="@string/pricing" />
+            android:label="@string/subscription_plans" />
         <!-- صفحة قائمة السيارات -->
         <activity
             android:name=".ui.cars.CarListActivity"

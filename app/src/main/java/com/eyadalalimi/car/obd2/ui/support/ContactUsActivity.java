@@ -51,7 +51,7 @@ public class ContactUsActivity extends BaseActivity {
             String subject = etSubject.getText().toString().trim();
             String message = etMessage.getText().toString().trim();
             if (TextUtils.isEmpty(subject) || TextUtils.isEmpty(message)) {
-                Snackbar.make(btnSend, R.string.fill_all_fields, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(btnSend, R.string.err_fill_all, Snackbar.LENGTH_SHORT).show();
                 return;
             }
             // إظهار progress داخل الزر

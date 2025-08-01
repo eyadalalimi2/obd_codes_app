@@ -37,7 +37,7 @@ public class PdfReportActivity extends BaseActivity {
         // حماية الميزة PDF_REPORT قبل تهيئة الواجهة
         SubscriptionUtils.checkFeatureAccess(this, "PDF_REPORT", () -> runOnUiThread(() -> {
             setActivityLayout(R.layout.activity_pdf_report);
-            setTitle(R.string.nav_pdf);
+            setTitle(R.string.generate_pdf);
 
             pdfListView = findViewById(R.id.pdfListView);
             loadPdfFiles();

@@ -259,7 +259,7 @@ public class AuthActivity extends AppCompatActivity {
             return false;
         }
         if (!pass.equals(conf)) {
-            etRegConfirm.setError(getString(R.string.err_pass_mismatch));
+            etRegConfirm.setError(getString(R.string.err_not_match));
             return false;
         }
         return true;

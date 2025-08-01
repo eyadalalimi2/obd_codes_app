@@ -47,7 +47,7 @@ public class DiagnosisHistoryActivity extends BaseActivity {
         runOnUiThread(() -> {
             setActivityLayout(R.layout.activity_diagnosis_history);
             if (getSupportActionBar() != null) {
-                getSupportActionBar().setTitle(getString(R.string.history_title));
+                getSupportActionBar().setTitle(getString(R.string.diagnosis_history));
             }
 
             historyList     = findViewById(R.id.lvHistory);
