@@ -11,7 +11,7 @@
     <string name="rewarded_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
     <string name="app_open_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/3419835294</string>
     <string name="onesignal_app_id" translatable="false">576df901-762b-4d96-b779-6d78ae42fb3c</string>
-    <string name="server_client_id" translatable="false">66098252270-rs1p4d8iibean0j0a08d519fad89cvci.apps.googleusercontent.com</string>
+    <string name="server_client_id" translatable="false">165005399911-7fm1h042t9l6ugu2l457k4amh98ufi1s.apps.googleusercontent.com</string>
     <string name="app_name_about" translatable="false">OBD Codes - Car Fault Finder</string>
     <string name="obd_code_ai" translatable="false">OBD Code AI</string>
 

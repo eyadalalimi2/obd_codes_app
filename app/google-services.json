@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "66098252270",
-    "project_id": "obdcode",
-    "storage_bucket": "obdcode.firebasestorage.app"
+    "project_number": "165005399911",
+    "project_id": "obd-code-hub",
+    "storage_bucket": "obd-code-hub.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:66098252270:android:b2d02185337ccc417e66ff",
+        "mobilesdk_app_id": "1:165005399911:android:a3ef09e5e5e35ed6cd81c2",
         "android_client_info": {
           "package_name": "com.eyadalalimi.car.obd2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "66098252270-rs1p4d8iibean0j0a08d519fad89cvci.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.eyadalalimi.car.obd2",
-            "certificate_hash": "82195083e982641a071ca6297effdef4f1e16a13"
-          }
-        },
-        {
-          "client_id": "66098252270-jl8pq5e9fm12cf59esisgpfqdjib5ua0.apps.googleusercontent.com",
+          "client_id": "165005399911-7fm1h042t9l6ugu2l457k4amh98ufi1s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDc9zJk_zCJSJlSFq-odEpDZIQ7HXRhwC8"
+          "current_key": "AIzaSyA-bgxZu4qTMrmYMgoL8ue6LGuv0I-VIW4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "66098252270-jl8pq5e9fm12cf59esisgpfqdjib5ua0.apps.googleusercontent.com",
+              "client_id": "165005399911-7fm1h042t9l6ugu2l457k4amh98ufi1s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
